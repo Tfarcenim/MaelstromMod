@@ -3,6 +3,7 @@ package com.barribob.MaelstromMod.entity.projectile;
 import com.barribob.MaelstromMod.util.ModDamageSource;
 import com.barribob.MaelstromMod.util.ModRandom;
 import com.barribob.MaelstromMod.util.handlers.ParticleManager;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumParticleTypes;
@@ -42,7 +43,7 @@ public class ProjectileWillOTheWisp extends ProjectileGun {
     protected void spawnParticles() {
         float f1 = 1.25f;
         float f2 = 0.15f;
-        for (int i = 0; i < this.PARTICLE_AMOUNT; i++) {
+        for (int i = 0; i < PARTICLE_AMOUNT; i++) {
             ParticleManager.spawnMaelstromSmoke(world, rand,
                     new Vec3d(this.posX + ModRandom.getFloat(f1), this.posY + ModRandom.getFloat(f1), this.posZ + ModRandom.getFloat(f1)), true);
             world.spawnParticle(EnumParticleTypes.FLAME, this.posX + ModRandom.getFloat(f2), this.posY + ModRandom.getFloat(f2), this.posZ + ModRandom.getFloat(f2), 0, 0, 0);
@@ -56,23 +57,21 @@ public class ProjectileWillOTheWisp extends ProjectileGun {
         /*
          * Find all entities in a certain area and deal damage to them
          */
-        List list = world.getEntitiesWithinAABBExcludingEntity(this, this.getEntityBoundingBox().grow(AREA_FACTOR));
-        if (list != null) {
-            for (Object entity : list) {
-                if (entity instanceof EntityLivingBase && this.shootingEntity != null && entity != this.shootingEntity) {
-                    int burnTime = this.isBurning() ? 10 : 5;
-                    ((EntityLivingBase) entity).setFire(burnTime);
+        List<Entity> list = world.getEntitiesWithinAABBExcludingEntity(this, this.getEntityBoundingBox().grow(AREA_FACTOR));
+        for (Object entity : list) {
+            if (entity instanceof EntityLivingBase && this.shootingEntity != null && entity != this.shootingEntity) {
+                int burnTime = this.isBurning() ? 10 : 5;
+                ((EntityLivingBase) entity).setFire(burnTime);
 
-                    ((EntityLivingBase) entity).attackEntityFrom(ModDamageSource.causeElementalThrownDamage(this, shootingEntity, getElement()),
-                            this.getGunDamage(((EntityLivingBase) entity)));
-                    ((EntityLivingBase) entity).addVelocity(0, 0.1D, 0);
+                ((EntityLivingBase) entity).attackEntityFrom(ModDamageSource.causeElementalThrownDamage(this, shootingEntity, getElement()),
+                        this.getGunDamage(((EntityLivingBase) entity)));
+                ((EntityLivingBase) entity).addVelocity(0, 0.1D, 0);
 
-                    float f1 = MathHelper.sqrt(this.motionX * this.motionX + this.motionZ * this.motionZ);
+                float f1 = MathHelper.sqrt(this.motionX * this.motionX + this.motionZ * this.motionZ);
 
-                    if (f1 > 0.0F) {
-                        ((EntityLivingBase) entity).addVelocity(this.motionX * this.getKnockback() * 0.6000000238418579D / f1, 0.0D,
-                                this.motionZ * this.getKnockback() * 0.6000000238418579D / f1);
-                    }
+                if (f1 > 0.0F) {
+                    ((EntityLivingBase) entity).addVelocity(this.motionX * this.getKnockback() * 0.6000000238418579D / f1, 0.0D,
+                            this.motionZ * this.getKnockback() * 0.6000000238418579D / f1);
                 }
             }
         }

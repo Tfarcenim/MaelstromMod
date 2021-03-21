@@ -27,7 +27,7 @@ public class Projectile extends EntityModThrowable implements IElement {
     protected static final byte IMPACT_PARTICLE_BYTE = 3;
     private static final byte PARTICLE_BYTE = 4;
     private float damage = 0;
-    protected static final DataParameter<Integer> ELEMENT = EntityDataManager.<Integer>createKey(Projectile.class, DataSerializers.VARINT);
+    protected static final DataParameter<Integer> ELEMENT = EntityDataManager.createKey(Projectile.class, DataSerializers.VARINT);
     protected float maxAge = 20 * 20;
     private Item itemToRender = ModItems.INVISIBLE;
 
@@ -82,11 +82,11 @@ public class Projectile extends EntityModThrowable implements IElement {
     public void onUpdate() {
         super.onUpdate();
 
-        this.world.setEntityState(this, this.PARTICLE_BYTE);
+        this.world.setEntityState(this, PARTICLE_BYTE);
 
         // Despawn if a certain distance away from its origin
         if (this.shootingEntity != null && getDistanceTraveled() > this.travelRange) {
-            this.world.setEntityState(this, this.IMPACT_PARTICLE_BYTE);
+            this.world.setEntityState(this, IMPACT_PARTICLE_BYTE);
             this.setDead();
         }
 
@@ -99,7 +99,7 @@ public class Projectile extends EntityModThrowable implements IElement {
     @Override
     protected void onHit(RayTraceResult result) {
         if (!world.isRemote) {
-            this.world.setEntityState(this, this.IMPACT_PARTICLE_BYTE);
+            this.world.setEntityState(this, IMPACT_PARTICLE_BYTE);
             this.setDead();
         }
     }
@@ -111,10 +111,10 @@ public class Projectile extends EntityModThrowable implements IElement {
     @Override
     @SideOnly(Side.CLIENT)
     public void handleStatusUpdate(byte id) {
-        if (id == this.IMPACT_PARTICLE_BYTE) {
+        if (id == IMPACT_PARTICLE_BYTE) {
             spawnImpactParticles();
         }
-        if (id == this.PARTICLE_BYTE) {
+        if (id == PARTICLE_BYTE) {
             spawnParticles();
         }
     }
@@ -136,7 +136,7 @@ public class Projectile extends EntityModThrowable implements IElement {
     @Override
     protected void entityInit() {
         super.entityInit();
-        this.dataManager.register(ELEMENT, Integer.valueOf(Element.NONE.id));
+        this.dataManager.register(ELEMENT, Element.NONE.id);
     }
 
     @Override

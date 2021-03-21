@@ -35,7 +35,7 @@ public class ProjectileBrownstoneCannon extends ProjectileGun {
      */
     @Override
     protected void spawnParticles() {
-        for (int i = 0; i < this.PARTICLE_AMOUNT; i++) {
+        for (int i = 0; i < PARTICLE_AMOUNT; i++) {
             ParticleManager.spawnEffect(world, getPositionVector(), ModColors.BROWNSTONE);
         }
     }
@@ -53,7 +53,7 @@ public class ProjectileBrownstoneCannon extends ProjectileGun {
     protected void onHit(RayTraceResult result) {
         float knockbackFactor = 1 + this.getKnockback() * 0.4f;
         int fireFactor = this.isBurning() ? 5 : 0;
-        ModUtils.handleAreaImpact(EXPOSION_AREA_FACTOR, (e) -> this.getGunDamage(e), this.shootingEntity, this.getPositionVector(),
+        ModUtils.handleAreaImpact(EXPOSION_AREA_FACTOR, this::getGunDamage, this.shootingEntity, this.getPositionVector(),
                 DamageSource.causeExplosionDamage(this.shootingEntity), knockbackFactor, fireFactor);
         this.playSound(SoundEvents.ENTITY_ILLAGER_CAST_SPELL, 1.0F, 0.4F / (world.rand.nextFloat() * 0.4F + 0.8F));
         super.onHit(result);

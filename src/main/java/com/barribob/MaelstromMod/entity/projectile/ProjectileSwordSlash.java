@@ -45,7 +45,6 @@ public class ProjectileSwordSlash extends Projectile {
     protected void onHit(RayTraceResult result) {
         if (result.entityHit == null) {
             super.onHit(result);
-            return;
         }
     }
 }

@@ -28,12 +28,7 @@ import java.util.List;
  * (the vanilla throwable class doesn't detect collisions at point blank range)
  */
 public abstract class EntityModThrowable extends Entity implements IProjectile {
-    private static final Predicate<Entity> ARROW_TARGETS = Predicates.and(EntitySelectors.NOT_SPECTATING, EntitySelectors.IS_ALIVE, new Predicate<Entity>() {
-        @Override
-        public boolean apply(@Nullable Entity p_apply_1_) {
-            return p_apply_1_.canBeCollidedWith();
-        }
-    });
+    private static final Predicate<Entity> ARROW_TARGETS = Predicates.and(EntitySelectors.NOT_SPECTATING, EntitySelectors.IS_ALIVE, Entity::canBeCollidedWith);
     private int xTile;
     private int yTile;
     private int zTile;
@@ -271,7 +266,7 @@ public abstract class EntityModThrowable extends Entity implements IProjectile {
             this.motionZ *= f1;
 
             if (!this.hasNoGravity()) {
-                this.motionY -= 0.05000000074505806D;
+                this.motionY -= 0.05;
             }
 
             this.setPosition(this.posX, this.posY, this.posZ);
@@ -302,14 +297,12 @@ public abstract class EntityModThrowable extends Entity implements IProjectile {
     protected Entity findEntityOnPath(Vec3d start, Vec3d end) {
         Entity entity = null;
         List<Entity> list = this.world.getEntitiesInAABBexcluding(this, this.getEntityBoundingBox().expand(this.motionX, this.motionY, this.motionZ).grow(1.0D),
-                ARROW_TARGETS);
+                ARROW_TARGETS::test);
         double d0 = 0.0D;
 
-        for (int i = 0; i < list.size(); ++i) {
-            Entity entity1 = list.get(i);
-
+        for (Entity entity1 : list) {
             if (entity1 != this.shootingEntity || this.ticksInAir >= 5) {
-                AxisAlignedBB axisalignedbb = entity1.getEntityBoundingBox().grow(0.30000001192092896D);
+                AxisAlignedBB axisalignedbb = entity1.getEntityBoundingBox().grow(0.3);
                 RayTraceResult raytraceresult = axisalignedbb.calculateIntercept(start, end);
 
                 if (raytraceresult != null) {
@@ -343,7 +336,7 @@ public abstract class EntityModThrowable extends Entity implements IProjectile {
         compound.setInteger("zTile", this.zTile);
         compound.setShort("life", (short) this.ticksInGround);
         ResourceLocation resourcelocation = Block.REGISTRY.getNameForObject(this.inTile);
-        compound.setString("inTile", resourcelocation == null ? "" : resourcelocation.toString());
+        compound.setString("inTile", resourcelocation.toString());
         compound.setByte("shake", (byte) this.throwableShake);
         compound.setByte("inGround", (byte) (this.inGround ? 1 : 0));
     }

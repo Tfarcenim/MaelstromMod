@@ -11,9 +11,9 @@ import net.minecraft.world.gen.structure.template.TemplateManager;
 import java.util.List;
 
 public class AzureMineshaft {
-    private static final List<Tuple<Rotation, BlockPos>> START_POS = Lists.newArrayList(new Tuple(Rotation.NONE, new BlockPos(0, 0, 0)),
-            new Tuple(Rotation.CLOCKWISE_90, new BlockPos(10, 0, 0)), new Tuple(Rotation.COUNTERCLOCKWISE_90, new BlockPos(0, 0, 10)),
-            new Tuple(Rotation.CLOCKWISE_180, new BlockPos(10, 0, 10)));
+    private static final List<Tuple<Rotation, BlockPos>> START_POS = Lists.newArrayList(new Tuple<>(Rotation.NONE, new BlockPos(0, 0, 0)),
+            new Tuple<>(Rotation.CLOCKWISE_90, new BlockPos(10, 0, 0)), new Tuple<>(Rotation.COUNTERCLOCKWISE_90, new BlockPos(0, 0, 10)),
+            new Tuple<>(Rotation.CLOCKWISE_180, new BlockPos(10, 0, 10)));
 
     /**
      * Adds a new piece, with the previous template a reference for position and

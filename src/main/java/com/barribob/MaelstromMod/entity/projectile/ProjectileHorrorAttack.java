@@ -30,14 +30,14 @@ public class ProjectileHorrorAttack extends Projectile {
 
     @Override
     protected void spawnParticles() {
-        for (int i = 0; i < this.PARTICLE_AMOUNT; i++) {
+        for (int i = 0; i < PARTICLE_AMOUNT; i++) {
             ParticleManager.spawnColoredSmoke(world, getPositionVector(), getElement().particleColor, new Vec3d(0, 0.1, 0));
         }
     }
 
     @Override
     protected void spawnImpactParticles() {
-        for (int i = 0; i < this.IMPACT_PARTICLE_AMOUNT; i++) {
+        for (int i = 0; i < IMPACT_PARTICLE_AMOUNT; i++) {
             Vec3d vec1 = ModRandom.randVec().scale(EXPOSION_AREA_FACTOR * 0.25).add(getPositionVector());
             ParticleManager.spawnColoredExplosion(world, vec1, getElement().particleColor);
         }

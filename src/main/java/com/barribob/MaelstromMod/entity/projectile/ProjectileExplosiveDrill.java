@@ -29,7 +29,7 @@ public class ProjectileExplosiveDrill extends ProjectileGun {
 
     @Override
     protected void spawnParticles() {
-        for (int i = 0; i < this.PARTICLE_AMOUNT; i++) {
+        for (int i = 0; i < PARTICLE_AMOUNT; i++) {
             ParticleManager.spawnColoredSmoke(world, getPositionVector().add(ModRandom.randVec()), ModColors.DARK_GREY, Vec3d.ZERO);
         }
     }

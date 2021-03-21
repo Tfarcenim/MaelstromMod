@@ -37,7 +37,7 @@ public class ProjectileBlackFireball extends Projectile {
     @Override
     protected void spawnParticles() {
         float size = 0.5f;
-        for (int i = 0; i < this.PARTICLE_AMOUNT; i++) {
+        for (int i = 0; i < PARTICLE_AMOUNT; i++) {
             ParticleManager.spawnDarkFlames(this.world, rand, ModUtils.entityPos(this).add(ModRandom.randVec().scale(size)));
         }
     }
@@ -45,7 +45,7 @@ public class ProjectileBlackFireball extends Projectile {
     @Override
     protected void spawnImpactParticles() {
         float size = (float) (EXPOSION_AREA_FACTOR * this.getEntityBoundingBox().grow(EXPOSION_AREA_FACTOR).getAverageEdgeLength() * 0.5f);
-        for (int i = 0; i < this.IMPACT_PARTICLE_AMOUNT; i++) {
+        for (int i = 0; i < IMPACT_PARTICLE_AMOUNT; i++) {
             Vec3d pos = ModUtils.entityPos(this).add(ModRandom.randVec().scale(size));
             if (rand.nextInt(2) == 0) {
                 ParticleManager.spawnDarkFlames(this.world, rand, pos, ModRandom.randVec().scale(0.5f));

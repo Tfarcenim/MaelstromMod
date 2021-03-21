@@ -40,7 +40,7 @@ public class ProjectileHerobrineQuake extends ProjectileQuake {
         if (block.isFullCube()) {
             Vec3d color = new Vec3d(0.5, 0.3, 0.5);
             Vec3d vel = new Vec3d(0, 0.1, 0);
-            for (int i = 0; i < this.PARTICLE_AMOUNT; i++) {
+            for (int i = 0; i < PARTICLE_AMOUNT; i++) {
                 float height = 2 + ModRandom.getFloat(0.5f);
                 for (float y = 0; y < height; y += 0.2f) {
                     Vec3d pos = ModUtils.entityPos(this).add(new Vec3d(this.motionX * ModRandom.getFloat(0.5f), y, this.motionZ * ModRandom.getFloat(0.5f)));
