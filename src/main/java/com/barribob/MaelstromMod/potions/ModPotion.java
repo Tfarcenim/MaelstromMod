@@ -13,9 +13,11 @@ public class ModPotion extends Potion {
         this.setRegistryName(new ResourceLocation(Reference.MOD_ID + ":" + name));
     }
 
+    private static final ResourceLocation ICONS = new ResourceLocation(Reference.MOD_ID, "textures/gui/potion_effects.png");
+
     @Override
     public boolean hasStatusIcon() {
-        Minecraft.getMinecraft().getTextureManager().bindTexture(new ResourceLocation(Reference.MOD_ID, "textures/gui/potion_effects.png"));
+        Minecraft.getMinecraft().getTextureManager().bindTexture(ICONS);
         return true;
     }
 }

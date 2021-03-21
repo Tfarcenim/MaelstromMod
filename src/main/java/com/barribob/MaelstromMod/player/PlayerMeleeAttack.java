@@ -60,7 +60,7 @@ public class PlayerMeleeAttack {
                     knockback = knockback + EnchantmentHelper.getKnockbackModifier(player);
 
                     if (player.isSprinting() && cooldownCharged) {
-                        player.world.playSound((EntityPlayer) null, player.posX, player.posY, player.posZ, SoundEvents.ENTITY_PLAYER_ATTACK_KNOCKBACK,
+                        player.world.playSound(null, player.posX, player.posY, player.posZ, SoundEvents.ENTITY_PLAYER_ATTACK_KNOCKBACK,
                                 player.getSoundCategory(), 1.0F, 1.0F);
                         ++knockback;
                         sprintAtk = true;
@@ -142,17 +142,17 @@ public class PlayerMeleeAttack {
                         }
 
                         if (critical) {
-                            player.world.playSound((EntityPlayer) null, player.posX, player.posY, player.posZ, SoundEvents.ENTITY_PLAYER_ATTACK_CRIT,
+                            player.world.playSound(null, player.posX, player.posY, player.posZ, SoundEvents.ENTITY_PLAYER_ATTACK_CRIT,
                                     player.getSoundCategory(), 1.0F, 1.0F);
                             player.onCriticalHit(targetEntity);
                         }
 
                         if (!critical && !sweepAttack) {
                             if (cooldownCharged) {
-                                player.world.playSound((EntityPlayer) null, player.posX, player.posY, player.posZ, SoundEvents.ENTITY_PLAYER_ATTACK_STRONG,
+                                player.world.playSound(null, player.posX, player.posY, player.posZ, SoundEvents.ENTITY_PLAYER_ATTACK_STRONG,
                                         player.getSoundCategory(), 1.0F, 1.0F);
                             } else {
-                                player.world.playSound((EntityPlayer) null, player.posX, player.posY, player.posZ, SoundEvents.ENTITY_PLAYER_ATTACK_WEAK,
+                                player.world.playSound(null, player.posX, player.posY, player.posZ, SoundEvents.ENTITY_PLAYER_ATTACK_WEAK,
                                         player.getSoundCategory(), 1.0F, 1.0F);
                             }
                         }
@@ -207,7 +207,7 @@ public class PlayerMeleeAttack {
 
                         player.addExhaustion(0.1F);
                     } else {
-                        player.world.playSound((EntityPlayer) null, player.posX, player.posY, player.posZ, SoundEvents.ENTITY_PLAYER_ATTACK_NODAMAGE,
+                        player.world.playSound(null, player.posX, player.posY, player.posZ, SoundEvents.ENTITY_PLAYER_ATTACK_NODAMAGE,
                                 player.getSoundCategory(), 1.0F, 1.0F);
 
                         if (hasFireAspect) {

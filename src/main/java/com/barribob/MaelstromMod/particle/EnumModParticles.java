@@ -11,14 +11,14 @@ public enum EnumModParticles {
 
     private final int particleID;
     private final int argumentCount;
-    private static final Map<Integer, EnumModParticles> PARTICLES = Maps.<Integer, EnumModParticles>newHashMap();
+    private static final Map<Integer, EnumModParticles> PARTICLES = Maps.newHashMap();
 
-    private EnumModParticles(int particleIDIn, int argumentCountIn) {
+    EnumModParticles(int particleIDIn, int argumentCountIn) {
         this.particleID = particleIDIn;
         this.argumentCount = argumentCountIn;
     }
 
-    private EnumModParticles(int particleIDIn) {
+    EnumModParticles(int particleIDIn) {
         this(particleIDIn, 0);
     }
 
@@ -35,12 +35,12 @@ public enum EnumModParticles {
      */
     @Nullable
     public static EnumModParticles getParticleFromId(int particleId) {
-        return PARTICLES.get(Integer.valueOf(particleId));
+        return PARTICLES.get(particleId);
     }
 
     static {
         for (EnumModParticles enumparticletypes : values()) {
-            PARTICLES.put(Integer.valueOf(enumparticletypes.getParticleID()), enumparticletypes);
+            PARTICLES.put(enumparticletypes.getParticleID(), enumparticletypes);
         }
     }
 }
