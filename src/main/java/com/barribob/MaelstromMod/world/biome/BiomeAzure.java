@@ -226,58 +226,58 @@ public class BiomeAzure extends BiomeDifferentStone {
             return ModBlocks.DARK_AZURE_STONE;
         }
         if (ModUtils.isBetween(4, 7, heightBelow)) {
-            return ModBlocks.DARK_AZURE_STONE_1;
+            return ModBlocks.AZURE_STONE_1;
         }
         if (ModUtils.isBetween(7, 9, heightBelow)) {
             return ModBlocks.DARK_AZURE_STONE;
         }
         if (ModUtils.isBetween(9, 12, heightBelow)) {
-            return ModBlocks.DARK_AZURE_STONE_1;
+            return ModBlocks.AZURE_STONE_1;
         }
         if (ModUtils.isBetween(12, 17, heightBelow)) {
-            return ModBlocks.DARK_AZURE_STONE_2;
+            return ModBlocks.AZURE_STONE_2;
         }
         if (ModUtils.isBetween(17, 20, heightBelow)) {
-            return ModBlocks.DARK_AZURE_STONE_3;
+            return ModBlocks.AZURE_STONE_3;
         }
         if (ModUtils.isBetween(20, 22, heightBelow)) {
-            return ModBlocks.DARK_AZURE_STONE_4;
+            return ModBlocks.AZURE_STONE_4;
         }
         if (ModUtils.isBetween(22, 25, heightBelow)) {
-            return ModBlocks.DARK_AZURE_STONE_2;
+            return ModBlocks.AZURE_STONE_2;
         }
         if (ModUtils.isBetween(25, 27, heightBelow)) {
-            return ModBlocks.DARK_AZURE_STONE_5;
+            return ModBlocks.AZURE_STONE_5;
         }
         if (ModUtils.isBetween(27, 29, heightBelow)) {
             return Blocks.PRISMARINE;
         }
         if (ModUtils.isBetween(29, 32, heightBelow)) {
-            return ModBlocks.DARK_AZURE_STONE_2;
+            return ModBlocks.AZURE_STONE_2;
         }
         if (ModUtils.isBetween(32, 35, heightBelow)) {
             return ModBlocks.DARK_AZURE_STONE;
         }
         if (ModUtils.isBetween(35, 37, heightBelow)) {
-            return ModBlocks.DARK_AZURE_STONE_1;
+            return ModBlocks.AZURE_STONE_1;
         }
         if (ModUtils.isBetween(37, 41, heightBelow)) {
-            return ModBlocks.DARK_AZURE_STONE_3;
+            return ModBlocks.AZURE_STONE_3;
         }
         if (ModUtils.isBetween(41, 44, heightBelow)) {
-            return ModBlocks.DARK_AZURE_STONE_5;
+            return ModBlocks.AZURE_STONE_5;
         }
         if (ModUtils.isBetween(44, 48, heightBelow)) {
-            return ModBlocks.DARK_AZURE_STONE_4;
+            return ModBlocks.AZURE_STONE_4;
         }
         if (ModUtils.isBetween(48, 50, heightBelow)) {
             return Blocks.PRISMARINE;
         }
         if (ModUtils.isBetween(50, 53, heightBelow)) {
-            return ModBlocks.DARK_AZURE_STONE_2;
+            return ModBlocks.AZURE_STONE_2;
         }
         if (ModUtils.isBetween(53, 58, heightBelow)) {
-            return ModBlocks.DARK_AZURE_STONE_3;
+            return ModBlocks.AZURE_STONE_3;
         }
         return ModBlocks.DARK_AZURE_STONE;
     }

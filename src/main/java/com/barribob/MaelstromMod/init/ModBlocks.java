@@ -66,11 +66,11 @@ public class ModBlocks {
      */
 
     public static final Block DARK_AZURE_STONE = new BlockBase("dark_azure_stone", Material.ROCK, STONE_HARDNESS, STONE_RESISTANCE, SoundType.STONE).setCreativeTab(ModCreativeTabs.BLOCKS);
-    public static final Block DARK_AZURE_STONE_1 = new BlockBase("azure_stone_1", Material.ROCK, STONE_HARDNESS, STONE_RESISTANCE, SoundType.STONE).setCreativeTab(ModCreativeTabs.BLOCKS);
-    public static final Block DARK_AZURE_STONE_2 = new BlockBase("azure_stone_2", Material.ROCK, STONE_HARDNESS, STONE_RESISTANCE, SoundType.STONE).setCreativeTab(ModCreativeTabs.BLOCKS);
-    public static final Block DARK_AZURE_STONE_3 = new BlockBase("azure_stone_3", Material.ROCK, STONE_HARDNESS, STONE_RESISTANCE, SoundType.STONE).setCreativeTab(ModCreativeTabs.BLOCKS);
-    public static final Block DARK_AZURE_STONE_4 = new BlockBase("azure_stone_4", Material.ROCK, STONE_HARDNESS, STONE_RESISTANCE, SoundType.STONE).setCreativeTab(ModCreativeTabs.BLOCKS);
-    public static final Block DARK_AZURE_STONE_5 = new BlockBase("azure_stone_5", Material.ROCK, STONE_HARDNESS, STONE_RESISTANCE, SoundType.STONE).setLightLevel(1.0f).setCreativeTab(ModCreativeTabs.BLOCKS);
+    public static final Block AZURE_STONE_1 = new BlockBase("azure_stone_1", Material.ROCK, STONE_HARDNESS, STONE_RESISTANCE, SoundType.STONE).setCreativeTab(ModCreativeTabs.BLOCKS);
+    public static final Block AZURE_STONE_2 = new BlockBase("azure_stone_2", Material.ROCK, STONE_HARDNESS, STONE_RESISTANCE, SoundType.STONE).setCreativeTab(ModCreativeTabs.BLOCKS);
+    public static final Block AZURE_STONE_3 = new BlockBase("azure_stone_3", Material.ROCK, STONE_HARDNESS, STONE_RESISTANCE, SoundType.STONE).setCreativeTab(ModCreativeTabs.BLOCKS);
+    public static final Block AZURE_STONE_4 = new BlockBase("azure_stone_4", Material.ROCK, STONE_HARDNESS, STONE_RESISTANCE, SoundType.STONE).setCreativeTab(ModCreativeTabs.BLOCKS);
+    public static final Block AZURE_STONE_5 = new BlockBase("azure_stone_5", Material.ROCK, STONE_HARDNESS, STONE_RESISTANCE, SoundType.STONE).setLightLevel(1.0f).setCreativeTab(ModCreativeTabs.BLOCKS);
     public static final Block LIGHT_AZURE_STONE = new BlockLamp("light_azure_stone", Material.ROCK, STONE_HARDNESS, STONE_RESISTANCE, SoundType.STONE).setCreativeTab(ModCreativeTabs.BLOCKS).setLightLevel(1.0f);
     public static final Block AZURE_COAL_ORE = new BlockAzureOre("azure_coal_ore", ORE_HARDNESS, STONE_RESISTANCE, SoundType.STONE).setCreativeTab(ModCreativeTabs.BLOCKS);
     public static final Block AZURE_DIAMOND_ORE = new BlockAzureOre("azure_diamond_ore", ORE_HARDNESS, STONE_RESISTANCE, SoundType.STONE).setCreativeTab(ModCreativeTabs.BLOCKS);
@@ -193,9 +193,4 @@ public class ModBlocks {
     public static final Block IRON_GRATE = new BlockGrate("iron_grate", Material.IRON).setHardness(BRICK_HARDNESS).setResistance(STONE_RESISTANCE).setCreativeTab(ModCreativeTabs.BLOCKS);
     public static final Block FAN = new BlockFan("fan", Material.IRON, STONE_HARDNESS, STONE_RESISTANCE, SoundType.METAL);
 
-    // There are technically not blocks, but are in here because they depend on two of the block defined above
-    public static final Item STONEBRICK_BLOCKVOID = new ItemBlockvoid("stonebrick_blockvoid", Blocks.STONEBRICK, 30);
-    public static final Item OBSIDIAN_BLOCKVOID = new ItemBlockvoid("obsidian_blockvoid", Blocks.OBSIDIAN, 1000);
-    public static final Item FURNACE_BRICKS_BLOCKVOID = new ItemBlockvoid("furnace_bricks_blockvoid", ModBlocks.FURNACE_BRICKS, 30);
-    public static final Item REDSTONE_BRICK_BLOCKVOID = new ItemBlockvoid("redstone_brick_blockvoid", ModBlocks.REDSTONE_BRICK, 30);
 }

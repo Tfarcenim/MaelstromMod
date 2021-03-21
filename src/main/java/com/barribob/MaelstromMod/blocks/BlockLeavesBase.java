@@ -46,15 +46,6 @@ public class BlockLeavesBase extends BlockLeaves {
     }
 
     /**
-     * Helper function called from the client proxy
-     *
-     * @param isFancy
-     */
-    public void setFancyGraphics(boolean isFancy) {
-        this.setGraphicsLevel(isFancy);
-    }
-
-    /**
      * Returns the quantity of items to drop on block destruction.
      */
     public int quantityDropped(Random random) {

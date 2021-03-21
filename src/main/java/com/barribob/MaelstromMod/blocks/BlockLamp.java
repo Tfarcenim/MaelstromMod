@@ -11,7 +11,7 @@ import net.minecraft.world.World;
 import java.util.Random;
 
 public class BlockLamp extends BlockBase {
-    private boolean doManualLightUpdates;
+    private final boolean doManualLightUpdates;
 
     public BlockLamp(String name, Material material, float hardness, float resistance, SoundType soundType) {
         this(name, material, hardness, resistance, soundType, false);

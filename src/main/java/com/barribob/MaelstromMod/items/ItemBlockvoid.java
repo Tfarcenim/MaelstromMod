@@ -35,7 +35,7 @@ public class ItemBlockvoid extends ItemBase {
     protected final Block block;
     private static final UUID REACH_MODIFIER = UUID.fromString("a6323e02-d8e9-44c6-b941-f5d7155bb406");
     private static final float REACH = 5;
-    private float efficiency = 30;
+    private final float efficiency;
 
     public ItemBlockvoid(String name, Block block, float efficiency) {
         super(name);
@@ -57,7 +57,7 @@ public class ItemBlockvoid extends ItemBase {
 
         ItemStack itemstack = player.getHeldItem(hand);
 
-        if (!itemstack.isEmpty() && player.canPlayerEdit(pos, facing, itemstack) && worldIn.mayPlace(this.block, pos, false, facing, (Entity) null)) {
+        if (!itemstack.isEmpty() && player.canPlayerEdit(pos, facing, itemstack) && worldIn.mayPlace(this.block, pos, false, facing, null)) {
             int i = this.getMetadata(itemstack.getMetadata());
             IBlockState iblockstate1 = this.block.getStateForPlacement(worldIn, pos, facing, hitX, hitY, hitZ, i, player, hand);
 

@@ -29,7 +29,7 @@ public class ToolExplosiveDagger extends ToolDagger {
             int fireFactor = EnchantmentHelper.getEnchantmentLevel(Enchantments.FIRE_ASPECT, player.getHeldItemMainhand()) * 5;
             ModUtils.handleAreaImpact(4, (e) -> attackDamage * 0.5f, player, target.getPositionVector().add(ModUtils.yVec(-0.1f)), DamageSource.causeExplosionDamage(player), 1,
                     fireFactor);
-            player.world.playSound((EntityPlayer) null, player.posX, player.posY, player.posZ, SoundEvents.ENTITY_GENERIC_EXPLODE, player.getSoundCategory(), 1.0F, 0.9F);
+            player.world.playSound(null, player.posX, player.posY, player.posZ, SoundEvents.ENTITY_GENERIC_EXPLODE, player.getSoundCategory(), 1.0F, 0.9F);
             Entity particle = new ParticleSpawnerExplosion(player.world);
             particle.copyLocationAndAnglesFrom(target);
             player.world.spawnEntity(particle);
