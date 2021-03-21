@@ -3,7 +3,6 @@ package com.barribob.MaelstromMod.blocks;
 import com.barribob.MaelstromMod.Main;
 import com.barribob.MaelstromMod.init.ModBlocks;
 import com.barribob.MaelstromMod.init.ModItems;
-import com.barribob.MaelstromMod.util.IHasModel;
 import net.minecraft.block.BlockOre;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.state.IBlockState;
@@ -20,7 +19,7 @@ import java.util.Random;
 /**
  * Represents all of the possible ores in the azure dimension
  */
-public class BlockAzureOre extends BlockOre implements IHasModel {
+public class BlockAzureOre extends BlockOre {
     public BlockAzureOre(String name) {
         super();
         setUnlocalizedName(name);
@@ -92,10 +91,5 @@ public class BlockAzureOre extends BlockOre implements IHasModel {
     @Override
     public int quantityDropped(Random random) {
         return this == ModBlocks.AZURE_LAPIS_ORE ? 4 + random.nextInt(5) : 1;
-    }
-
-    @Override
-    public void registerModels() {
-        Main.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0, "inventory");
     }
 }

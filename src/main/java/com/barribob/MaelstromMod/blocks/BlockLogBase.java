@@ -1,9 +1,7 @@
 package com.barribob.MaelstromMod.blocks;
 
-import com.barribob.MaelstromMod.Main;
 import com.barribob.MaelstromMod.init.ModBlocks;
 import com.barribob.MaelstromMod.init.ModItems;
-import com.barribob.MaelstromMod.util.IHasModel;
 import net.minecraft.block.BlockLog;
 import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.SoundType;
@@ -11,7 +9,6 @@ import net.minecraft.block.material.MapColor;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
@@ -20,7 +17,7 @@ import net.minecraft.world.IBlockAccess;
  * The base class for a log, so that it can sustain leaves Also, some of the
  * other metadata is so the original log functionality can be used
  */
-public class BlockLogBase extends BlockLog implements IHasModel {
+public class BlockLogBase extends BlockLog {
     public BlockLogBase(String name) {
         super();
         setUnlocalizedName(name);
@@ -37,11 +34,6 @@ public class BlockLogBase extends BlockLog implements IHasModel {
         setHardness(hardness);
         setResistance(resistance);
         setSoundType(soundType);
-    }
-
-    @Override
-    public void registerModels() {
-        Main.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0, "inventory");
     }
 
     /**

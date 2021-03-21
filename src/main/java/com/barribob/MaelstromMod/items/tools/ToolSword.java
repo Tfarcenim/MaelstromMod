@@ -8,7 +8,6 @@ import com.barribob.MaelstromMod.items.ILeveledItem;
 import com.barribob.MaelstromMod.items.ISweepAttackOverride;
 import com.barribob.MaelstromMod.util.Element;
 import com.barribob.MaelstromMod.util.IElement;
-import com.barribob.MaelstromMod.util.IHasModel;
 import com.barribob.MaelstromMod.util.ModUtils;
 import com.barribob.MaelstromMod.util.handlers.LevelHandler;
 import com.google.common.collect.HashMultimap;
@@ -28,7 +27,7 @@ import java.util.List;
 import java.util.UUID;
 import java.util.function.Consumer;
 
-public class ToolSword extends ItemSword implements IHasModel, ISweepAttackOverride, ILeveledItem, IElement {
+public class ToolSword extends ItemSword implements ISweepAttackOverride, ILeveledItem, IElement {
     private float level;
     private Consumer<List<String>> information = (info) -> {
     };
@@ -46,11 +45,6 @@ public class ToolSword extends ItemSword implements IHasModel, ISweepAttackOverr
     public ToolSword(String name, ToolMaterial material, float level, Element element) {
         this(name, material, level);
         this.element = element;
-    }
-
-    @Override
-    public void registerModels() {
-        Main.proxy.registerItemRenderer(this, 0, "inventory");
     }
 
     @Override

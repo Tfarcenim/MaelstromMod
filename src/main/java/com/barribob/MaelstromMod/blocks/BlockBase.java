@@ -3,7 +3,6 @@ package com.barribob.MaelstromMod.blocks;
 import com.barribob.MaelstromMod.Main;
 import com.barribob.MaelstromMod.init.ModBlocks;
 import com.barribob.MaelstromMod.init.ModItems;
-import com.barribob.MaelstromMod.util.IHasModel;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -13,7 +12,7 @@ import net.minecraft.item.ItemBlock;
 /**
  * The base class for a new mod block
  */
-public class BlockBase extends Block implements IHasModel {
+public class BlockBase extends Block {
     public BlockBase(String name, Material material) {
         super(material);
         setUnlocalizedName(name);
@@ -29,10 +28,5 @@ public class BlockBase extends Block implements IHasModel {
         setHardness(hardness);
         setResistance(resistance);
         setSoundType(soundType);
-    }
-
-    @Override
-    public void registerModels() {
-        Main.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0, "inventory");
     }
 }

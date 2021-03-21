@@ -23,7 +23,7 @@ public class ItemSpeedBoots extends ModArmorBase {
     @Override
     public void onArmorTick(World world, EntityPlayer player, ItemStack itemStack) {
         super.onArmorTick(world, player, itemStack);
-        if (itemStack != null && itemStack.getItem() == this) {
+        if (itemStack.getItem() == this) {
             wornEffect = new PotionEffect(MobEffects.SPEED, 20, 0);
             player.addPotionEffect(wornEffect);
         }

@@ -1,12 +1,10 @@
 package com.barribob.MaelstromMod.items.tools;
 
-import com.barribob.MaelstromMod.Main;
 import com.barribob.MaelstromMod.init.ModCreativeTabs;
 import com.barribob.MaelstromMod.init.ModItems;
-import com.barribob.MaelstromMod.util.IHasModel;
 import net.minecraft.item.ItemPickaxe;
 
-public class ToolPickaxe extends ItemPickaxe implements IHasModel {
+public class ToolPickaxe extends ItemPickaxe {
     public ToolPickaxe(String name, ToolMaterial material) {
         super(material);
         setUnlocalizedName(name);
@@ -14,10 +12,5 @@ public class ToolPickaxe extends ItemPickaxe implements IHasModel {
         setCreativeTab(ModCreativeTabs.ITEMS);
 
         ModItems.ITEMS.add(this);
-    }
-
-    @Override
-    public void registerModels() {
-        Main.proxy.registerItemRenderer(this, 0, "inventory");
     }
 }

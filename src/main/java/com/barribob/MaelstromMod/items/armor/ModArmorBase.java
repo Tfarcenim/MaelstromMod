@@ -35,7 +35,7 @@ import java.util.UUID;
  * <p>
  * Also allows for textures independent of the armor material
  */
-public class ModArmorBase extends ItemArmor implements IHasModel, ILeveledItem, IElement {
+public class ModArmorBase extends ItemArmor implements ILeveledItem, IElement {
     private static final UUID[] ARMOR_MODIFIERS = new UUID[]{UUID.fromString("a3578781-e4a8-4d70-9d32-cd952aeae1df"),
             UUID.fromString("e2d1f056-f539-48c7-b353-30d7a367ebd0"), UUID.fromString("db13047a-bb47-4621-a025-65ed22ce461a"),
             UUID.fromString("abb5df20-361d-420a-8ec7-4bdba33378eb")};
@@ -86,11 +86,6 @@ public class ModArmorBase extends ItemArmor implements IHasModel, ILeveledItem, 
         }
         float armor_type_fraction = this.armor_fractions[this.armorType.getIndex()] / (float) armor_total;
         return this.getLevel() * armor_type_fraction;
-    }
-
-    @Override
-    public void registerModels() {
-        Main.proxy.registerItemRenderer(this, 0, "inventory");
     }
 
     @Override

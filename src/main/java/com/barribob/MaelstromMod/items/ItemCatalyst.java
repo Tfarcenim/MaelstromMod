@@ -40,11 +40,11 @@ public class ItemCatalyst extends ItemBase {
 
                 if (!playerIn.capabilities.isCreativeMode) {
                     itemstack.shrink(1);
-                    return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, itemstack);
+                    return new ActionResult<>(EnumActionResult.SUCCESS, itemstack);
                 }
             }
         }
-        return new ActionResult<ItemStack>(EnumActionResult.PASS, itemstack);
+        return new ActionResult<>(EnumActionResult.PASS, itemstack);
     }
 
     @Override

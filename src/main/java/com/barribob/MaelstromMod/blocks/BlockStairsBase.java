@@ -3,14 +3,13 @@ package com.barribob.MaelstromMod.blocks;
 import com.barribob.MaelstromMod.Main;
 import com.barribob.MaelstromMod.init.ModBlocks;
 import com.barribob.MaelstromMod.init.ModItems;
-import com.barribob.MaelstromMod.util.IHasModel;
 import net.minecraft.block.BlockStairs;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 
-public class BlockStairsBase extends BlockStairs implements IHasModel {
+public class BlockStairsBase extends BlockStairs {
     protected BlockStairsBase(IBlockState modelState) {
         super(modelState);
     }
@@ -30,10 +29,5 @@ public class BlockStairsBase extends BlockStairs implements IHasModel {
         setHardness(hardness);
         setResistance(resistance);
         setSoundType(soundType);
-    }
-
-    @Override
-    public void registerModels() {
-        Main.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0, "inventory");
     }
 }

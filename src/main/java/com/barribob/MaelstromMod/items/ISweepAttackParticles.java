@@ -9,7 +9,7 @@ import net.minecraft.util.math.Vec3d;
  * @see com.barribob.MaelstromMod.entity.particleSpawners.ParticleSpawnerSwordSwing
  */
 public interface ISweepAttackParticles {
-    public Vec3d getColor();
+    Vec3d getColor();
 
-    public float getSize();
+    float getSize();
 }

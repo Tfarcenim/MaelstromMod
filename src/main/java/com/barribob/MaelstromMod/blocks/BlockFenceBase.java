@@ -3,7 +3,6 @@ package com.barribob.MaelstromMod.blocks;
 import com.barribob.MaelstromMod.Main;
 import com.barribob.MaelstromMod.init.ModBlocks;
 import com.barribob.MaelstromMod.init.ModItems;
-import com.barribob.MaelstromMod.util.IHasModel;
 import net.minecraft.block.BlockFence;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
@@ -11,7 +10,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 
-public class BlockFenceBase extends BlockFence implements IHasModel {
+public class BlockFenceBase extends BlockFence {
 
     public BlockFenceBase(Material materialIn, MapColor mapColorIn) {
         super(materialIn, mapColorIn);
@@ -32,10 +31,5 @@ public class BlockFenceBase extends BlockFence implements IHasModel {
         setHardness(hardness);
         setResistance(resistance);
         setSoundType(soundType);
-    }
-
-    @Override
-    public void registerModels() {
-        Main.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0, "inventory");
     }
 }

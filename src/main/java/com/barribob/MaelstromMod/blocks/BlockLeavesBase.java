@@ -3,7 +3,6 @@ package com.barribob.MaelstromMod.blocks;
 import com.barribob.MaelstromMod.Main;
 import com.barribob.MaelstromMod.init.ModBlocks;
 import com.barribob.MaelstromMod.init.ModItems;
-import com.barribob.MaelstromMod.util.IHasModel;
 import net.minecraft.block.BlockLeaves;
 import net.minecraft.block.BlockPlanks.EnumType;
 import net.minecraft.block.SoundType;
@@ -24,7 +23,7 @@ import java.util.Random;
  * A lot of these methods come from the BlockOldLeaves class to make the leaf
  * decay functionality work with my leaves
  */
-public class BlockLeavesBase extends BlockLeaves implements IHasModel {
+public class BlockLeavesBase extends BlockLeaves {
     public BlockLeavesBase(String name) {
         super();
         setUnlocalizedName(name);
@@ -34,8 +33,8 @@ public class BlockLeavesBase extends BlockLeaves implements IHasModel {
         Main.proxy.setFancyGraphics(this, true);
 
         // Adds states so that we can use the BlockLeaves decaying feature
-        setDefaultState(blockState.getBaseState().withProperty(CHECK_DECAY, Boolean.valueOf(true))
-                .withProperty(DECAYABLE, Boolean.valueOf(true)));
+        setDefaultState(blockState.getBaseState().withProperty(CHECK_DECAY, true)
+                .withProperty(DECAYABLE, true));
 
         // Add both an item as a block and the block itself
         ModBlocks.BLOCKS.add(this);
@@ -56,11 +55,6 @@ public class BlockLeavesBase extends BlockLeaves implements IHasModel {
      */
     public void setFancyGraphics(boolean isFancy) {
         this.setGraphicsLevel(isFancy);
-    }
-
-    @Override
-    public void registerModels() {
-        Main.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0, "inventory");
     }
 
     /**
@@ -89,18 +83,18 @@ public class BlockLeavesBase extends BlockLeaves implements IHasModel {
 
     @Override
     protected BlockStateContainer createBlockState() {
-        return new BlockStateContainer(this, new IProperty[]{CHECK_DECAY, DECAYABLE});
+        return new BlockStateContainer(this, CHECK_DECAY, DECAYABLE);
     }
 
     @Override
     public int getMetaFromState(IBlockState state) {
         int i = 0;
 
-        if (!((Boolean) state.getValue(DECAYABLE)).booleanValue()) {
+        if (!state.getValue(DECAYABLE)) {
             i |= 4;
         }
 
-        if (((Boolean) state.getValue(CHECK_DECAY)).booleanValue()) {
+        if (state.getValue(CHECK_DECAY)) {
             i |= 8;
         }
 
@@ -109,7 +103,7 @@ public class BlockLeavesBase extends BlockLeaves implements IHasModel {
 
     @Override
     public IBlockState getStateFromMeta(int meta) {
-        return this.getDefaultState().withProperty(DECAYABLE, Boolean.valueOf((meta & 4) == 0))
-                .withProperty(CHECK_DECAY, Boolean.valueOf((meta & 8) > 0));
+        return this.getDefaultState().withProperty(DECAYABLE, (meta & 4) == 0)
+                .withProperty(CHECK_DECAY, (meta & 8) > 0);
     }
 }
