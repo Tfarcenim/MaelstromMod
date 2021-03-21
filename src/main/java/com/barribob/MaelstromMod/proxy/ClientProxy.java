@@ -1,40 +1,46 @@
 package com.barribob.MaelstromMod.proxy;
 
-import com.barribob.MaelstromMod.blocks.BlockLeavesBase;
+import com.barribob.MaelstromMod.init.ModBlocks;
+import com.barribob.MaelstromMod.init.ModItems;
 import com.barribob.MaelstromMod.util.handlers.RenderHandler;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
-import net.minecraft.client.renderer.block.statemap.IStateMapper;
 import net.minecraft.item.Item;
+import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-public class ClientProxy extends CommonProxy {
-    @Override
-    public void registerItemRenderer(Item item, int meta, String id) {
-        ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(item.getRegistryName(), id));
-    }
+public class ClientProxy {
 
-    @Override
-    public void setFancyGraphics(BlockLeavesBase block, boolean isFancy) {
-        block.setFancyGraphics(isFancy);
-    }
+    @SubscribeEvent
+    public static void onModelRegister(ModelRegistryEvent event) {
 
-    @Override
-    public void setCustomState(Block block, IStateMapper mapper) {
-        ModelLoader.setCustomStateMapper(block, mapper);
-    }
-
-    /**
-     * Initializations for client only stuff like rendering
-     */
-    @Override
-    public void init() {
         if (!Minecraft.getMinecraft().getFramebuffer().isStencilEnabled()) {
             Minecraft.getMinecraft().getFramebuffer().enableStencil();
         }
 
         RenderHandler.registerEntityRenderers();
-        super.init();
+
+        for (Item item : ModItems.ITEMS) {
+            registerModel(item);
+        }
+
+        for (Block block : ModBlocks.BLOCKS) {
+                registerModel(block);
+        }
     }
+
+    private static void registerModel(Block block) {
+        registerModel(Item.getItemFromBlock(block));
+    }
+
+    private static void registerModel(Item item) {
+        registerModel(item,0);
+    }
+
+    private static void registerModel(Item item, int meta) {
+        ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(item.getRegistryName(), "inventory"));
+    }
+
 }

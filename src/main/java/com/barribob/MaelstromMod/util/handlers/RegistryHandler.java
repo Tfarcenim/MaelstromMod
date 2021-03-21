@@ -26,26 +26,4 @@ public class RegistryHandler {
         event.getRegistry().registerAll(ModBlocks.BLOCKS.toArray(new Block[0]));
     }
 
-    @SubscribeEvent
-    public static void onModelRegister(ModelRegistryEvent event) {
-        for (Item item : ModItems.ITEMS) {
-            registerModel(item);
-        }
-
-        for (Block block : ModBlocks.BLOCKS) {
-                registerModel(block);
-        }
-    }
-
-    private static void registerModel(Block block) {
-        registerModel(Item.getItemFromBlock(block));
-    }
-
-    private static void registerModel(Item item) {
-        registerModel(item,0);
-    }
-
-    private static void registerModel(Item item,int meta) {
-        ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(item.getRegistryName(), "inventory"));
-    }
 }

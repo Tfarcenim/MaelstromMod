@@ -29,9 +29,6 @@ public class BlockLeavesBase extends BlockLeaves {
         setUnlocalizedName(name);
         setRegistryName(name);
 
-        // Set fancy graphics to true for these leaves
-        Main.proxy.setFancyGraphics(this, true);
-
         // Adds states so that we can use the BlockLeaves decaying feature
         setDefaultState(blockState.getBaseState().withProperty(CHECK_DECAY, true)
                 .withProperty(DECAYABLE, true));

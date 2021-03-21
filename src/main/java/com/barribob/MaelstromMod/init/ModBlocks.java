@@ -28,7 +28,7 @@ import java.util.List;
  * Holds all of our new blocks
  */
 public class ModBlocks {
-    public static final List<Block> BLOCKS = new ArrayList<Block>();
+    public static final List<Block> BLOCKS = new ArrayList<>();
     public static final float STONE_HARDNESS = 1.7f;
     public static final float STONE_RESISTANCE = 10f;
     public static final float BRICK_HARDNESS = 2.0f;

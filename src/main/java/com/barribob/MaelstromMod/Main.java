@@ -7,23 +7,28 @@ import com.barribob.MaelstromMod.commands.CommandRunUnitTests;
 import com.barribob.MaelstromMod.config.JsonConfigManager;
 import com.barribob.MaelstromMod.init.*;
 import com.barribob.MaelstromMod.loot.functions.ModEnchantWithLevels;
-import com.barribob.MaelstromMod.proxy.CommonProxy;
+import com.barribob.MaelstromMod.mana.IMana;
+import com.barribob.MaelstromMod.mana.Mana;
+import com.barribob.MaelstromMod.mana.ManaStorage;
+import com.barribob.MaelstromMod.packets.*;
 import com.barribob.MaelstromMod.util.Reference;
 import com.barribob.MaelstromMod.util.handlers.SoundsHandler;
 import com.barribob.MaelstromMod.world.gen.WorldGenCustomStructures;
 import com.barribob.MaelstromMod.world.gen.WorldGenOre;
 import com.typesafe.config.Config;
 import net.minecraft.world.storage.loot.functions.LootFunctionManager;
+import net.minecraftforge.common.capabilities.CapabilityManager;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
-import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.network.simpleimpl.SimpleNetworkWrapper;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.relauncher.Side;
 import org.apache.logging.log4j.Logger;
 
 /**
@@ -41,8 +46,6 @@ public class Main {
     @Instance
     public static Main instance;
 
-    @SidedProxy(clientSide = Reference.CLIENT_PROXY_CLASS, serverSide = Reference.COMMON_PROXY_CLASS)
-    public static CommonProxy proxy;
     public static SimpleNetworkWrapper network;
 
     public static final JsonConfigManager CONFIG_MANAGER = new JsonConfigManager();
@@ -71,7 +74,29 @@ public class Main {
         GameRegistry.registerWorldGenerator(new WorldGenCustomStructures(), 3);
 
         ModEntities.registerEntities();
-        proxy.init();
+
+        // Register a network to communicate to the server for client stuff (e.g. client
+        // raycast rendering for extended melee reach)
+        Main.network = NetworkRegistry.INSTANCE.newSimpleChannel(Reference.NETWORK_CHANNEL_NAME);
+
+        int packetId = 0;
+
+        Main.network.registerMessage(MessageExtendedReachAttack.Handler.class, MessageExtendedReachAttack.class, packetId++, Side.SERVER);
+        Main.network.registerMessage(MessageMana.MessageHandler.class, MessageMana.class, packetId++, Side.CLIENT);
+        Main.network.registerMessage(MessageLeap.MessageHandler.class, MessageLeap.class, packetId++, Side.CLIENT);
+        Main.network.registerMessage(MessageManaUnlock.MessageHandler.class, MessageManaUnlock.class, packetId++, Side.CLIENT);
+        Main.network.registerMessage(MessageDirectionForRender.Handler.class, MessageDirectionForRender.class, packetId++, Side.CLIENT);
+        Main.network.registerMessage(MessageModParticles.MessageHandler.class, MessageModParticles.class, packetId++, Side.CLIENT);
+        Main.network.registerMessage(MessageSyncConfig.Handler.class, MessageSyncConfig.class, packetId++, Side.CLIENT);
+        Main.network.registerMessage(MessageBBAnimation.Handler.class, MessageBBAnimation.class, packetId++, Side.CLIENT);
+        Main.network.registerMessage(MessageLoopAnimationUpdate.Handler.class, MessageLoopAnimationUpdate.class, packetId++, Side.CLIENT);
+        Main.network.registerMessage(MessageStartElytraFlying.Handler.class, MessageStartElytraFlying.class, packetId++, Side.SERVER);
+        Main.network.registerMessage(MessageEmptySwing.Handler.class, MessageEmptySwing.class, packetId++, Side.SERVER);
+        Main.network.registerMessage(MessagePlayDarkNexusWindSound.Handler.class, MessagePlayDarkNexusWindSound.class, packetId++, Side.CLIENT);
+
+        CapabilityManager.INSTANCE.register(IMana.class, new ManaStorage(), Mana.class);
+        // CapabilityManager.INSTANCE.register(IInvasion.class, new InvasionStorage(),
+        // Invasion.class);
 
         ModBBAnimations.registerAnimations();
         ModDimensions.registerDimensions();
