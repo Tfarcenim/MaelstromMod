@@ -76,7 +76,6 @@ public class TileEntityTeleporter extends TileEntity implements ITickable {
 
     @Override
     public NBTTagCompound getUpdateTag() {
-        NBTTagCompound nbttagcompound = this.writeToNBT(new NBTTagCompound());
-        return nbttagcompound;
+        return this.writeToNBT(new NBTTagCompound());
     }
 }

@@ -67,14 +67,14 @@ public class ProjectileGun extends Projectile {
     public void onUpdate() {
         super.onUpdate();
         if (this.isCritical) {
-            world.setEntityState(this, this.CRITICAL_BYTE);
+            world.setEntityState(this, CRITICAL_BYTE);
         }
     }
 
     @Override
     @SideOnly(Side.CLIENT)
     public void handleStatusUpdate(byte id) {
-        if (id == this.CRITICAL_BYTE) {
+        if (id == CRITICAL_BYTE) {
             world.spawnParticle(EnumParticleTypes.REDSTONE, this.posX, this.posY, this.posZ, 0, 0, 0);
         } else {
             super.handleStatusUpdate(id);

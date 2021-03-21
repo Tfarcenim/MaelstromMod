@@ -48,21 +48,21 @@ import java.util.function.BiConsumer;
 import java.util.function.Function;
 
 public class EntityMonolith extends EntityMaelstromMob implements IAttack, DirectionalRender, ITarget {
-    private ComboAttack attackHandler = new ComboAttack();
+    private final ComboAttack attackHandler = new ComboAttack();
     public static final byte noAttack = 0;
     public static final byte blueAttack = 4;
     public static final byte redAttack = 5;
     public static final byte yellowAttack = 6;
-    private byte stageTransform = 7;
-    private static final DataParameter<Boolean> TRANSFORMED = EntityDataManager.<Boolean>createKey(EntityMonolith.class, DataSerializers.BOOLEAN);
+    private final byte stageTransform = 7;
+    private static final DataParameter<Boolean> TRANSFORMED = EntityDataManager.createKey(EntityMonolith.class, DataSerializers.BOOLEAN);
     private final BossInfoServer bossInfo = (new BossInfoServer(this.getDisplayName(), BossInfo.Color.PURPLE, BossInfo.Overlay.NOTCHED_6));
 
     // Field to store the lazer's aimed direction
     private Vec3d lazerDir;
-    private float lazerRadius = 2.5f;
+    private final float lazerRadius = 2.5f;
 
     // Datamanager to keep track of which attack the mob is doing
-    private static final DataParameter<Byte> ATTACK = EntityDataManager.<Byte>createKey(EntityMonolith.class, DataSerializers.BYTE);
+    private static final DataParameter<Byte> ATTACK = EntityDataManager.createKey(EntityMonolith.class, DataSerializers.BYTE);
 
     public EntityMonolith(World worldIn) {
         super(worldIn);
@@ -105,13 +105,10 @@ public class EntityMonolith extends EntityMaelstromMob implements IAttack, Direc
         };
 
         if (!world.isRemote) {
-            attackHandler.setAttack(blueAttack, new IAction() {
-                @Override
-                public void performAction(EntityLeveledMob actor, EntityLivingBase target) {
-                    int numMobs = getMobConfig().getInt("summoning_algorithm.mobs_per_spawn");
-                    for (int i = 0; i < numMobs; i++) {
-                        ModUtils.spawnMob(world, getPosition(), getLevel(), getMobConfig().getConfig("summoning_algorithm"));
-                    }
+            attackHandler.setAttack(blueAttack, (IAction) (actor, target) -> {
+                int numMobs = getMobConfig().getInt("summoning_algorithm.mobs_per_spawn");
+                for (int i = 0; i < numMobs; i++) {
+                    ModUtils.spawnMob(world, getPosition(), getLevel(), getMobConfig().getConfig("summoning_algorithm"));
                 }
             });
             attackHandler.setAttack(redAttack, fireballs);
@@ -130,7 +127,7 @@ public class EntityMonolith extends EntityMaelstromMob implements IAttack, Direc
                 // Change the yellow and blue attacks to new attacks
                 @Override
                 public void performAction(EntityLeveledMob actor, EntityLivingBase target) {
-                    actor.getDataManager().set(TRANSFORMED, Boolean.valueOf(true));
+                    actor.getDataManager().set(TRANSFORMED, true);
                     attackHandler.setAttack(yellowAttack, (IAction) (actor1, target1) -> {
                         actor1.motionY = 0;
                         actor1.setImmovable(false);
@@ -177,8 +174,8 @@ public class EntityMonolith extends EntityMaelstromMob implements IAttack, Direc
 
     @Override
     protected void initAnimation() {
-        List<List<AnimationClip<ModelMonolith>>> animationStage2 = new ArrayList<List<AnimationClip<ModelMonolith>>>();
-        List<AnimationClip<ModelMonolith>> middle = new ArrayList<AnimationClip<ModelMonolith>>();
+        List<List<AnimationClip<ModelMonolith>>> animationStage2 = new ArrayList<>();
+        List<AnimationClip<ModelMonolith>> middle = new ArrayList<>();
 
         BiConsumer<ModelMonolith, Float> resize = (model, f) -> {
             f *= 35f;
@@ -200,13 +197,13 @@ public class EntityMonolith extends EntityMaelstromMob implements IAttack, Direc
             model.body2.cubeList.add(new ModelBox(model.body2, 0, 95, -3.0F, -65.0F + f.intValue(), -8.0F, 6, 56 - f.intValue(), 16, 0.0F, false));
         };
 
-        middle.add(new AnimationClip(40, 0, (float) Math.toDegrees(Math.PI / 3), resize));
+        middle.add(new AnimationClip<>(40, 0, (float) Math.toDegrees(Math.PI / 3), resize));
 
         animationStage2.add(middle);
-        attackHandler.setAttack(stageTransform, IAction.NONE, () -> new StreamAnimation(animationStage2));
-        attackHandler.setAttack(blueAttack, IAction.NONE, () -> new AnimationNone());
-        attackHandler.setAttack(redAttack, IAction.NONE, () -> new AnimationNone());
-        attackHandler.setAttack(yellowAttack, IAction.NONE, () -> new AnimationNone());
+        attackHandler.setAttack(stageTransform, IAction.NONE, () -> new StreamAnimation<>(animationStage2));
+        attackHandler.setAttack(blueAttack, IAction.NONE, AnimationNone::new);
+        attackHandler.setAttack(redAttack, IAction.NONE, AnimationNone::new);
+        attackHandler.setAttack(yellowAttack, IAction.NONE, AnimationNone::new);
     }
 
     @Override
@@ -218,7 +215,7 @@ public class EntityMonolith extends EntityMaelstromMob implements IAttack, Direc
     @Override
     protected void initEntityAI() {
         super.initEntityAI();
-        this.tasks.addTask(4, new EntityAITimedAttack<EntityMonolith>(this, 0, 90, 30, 0, 30.0f));
+        this.tasks.addTask(4, new EntityAITimedAttack<>(this, 0, 90, 30, 0, 30.0f));
     }
 
     public Optional<Vec3d> getTarget() {

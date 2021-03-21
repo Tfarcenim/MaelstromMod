@@ -36,13 +36,11 @@ public class TileEntityFan extends TileEntity implements ITickable {
                     facing.getFrontOffsetZ() * distance);
             List<Entity> list = this.world.getEntitiesWithinAABB(Entity.class, box);
 
-            if (list != null) {
-                for (Entity entity : list) {
-                    Vec3d vel = new Vec3d(facing.getDirectionVec()).scale(strength / Math.sqrt(entity.getDistanceSq(this.pos.add(0.5, 0.5, 0.5))));
-                    vel.scale(1 / entity.getEntityBoundingBox().getAverageEdgeLength()); // Take into consideration the entity's size
-                    entity.addVelocity(vel.x, vel.y, vel.z);
-                    entity.fallDistance = 0;
-                }
+            for (Entity entity : list) {
+                Vec3d vel = new Vec3d(facing.getDirectionVec()).scale(strength / Math.sqrt(entity.getDistanceSq(this.pos.add(0.5, 0.5, 0.5))));
+                vel.scale(1 / entity.getEntityBoundingBox().getAverageEdgeLength()); // Take into consideration the entity's size
+                entity.addVelocity(vel.x, vel.y, vel.z);
+                entity.fallDistance = 0;
             }
         }
     }

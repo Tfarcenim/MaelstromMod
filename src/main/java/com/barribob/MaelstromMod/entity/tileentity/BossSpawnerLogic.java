@@ -30,7 +30,7 @@ public class BossSpawnerLogic extends DisappearingSpawnerLogic {
             MobSpawnData data = getEntityData();
             Entity entity = ModUtils.createMobFromSpawnData(data, world.get(), pos.get().getX() + 0.5, pos.get().getY(), pos.get().getZ() + 0.5);
 
-            if (entity != null && entity instanceof EntityLeveledMob) {
+            if (entity instanceof EntityLeveledMob) {
                 world.get().spawnEntity(entity);
                 EntityLeveledMob leveledMob = (EntityLeveledMob) entity;
                 leveledMob.setElement(ModRandom.choice(data.possibleElements, this.world.get().rand, data.elementalWeights).next());

@@ -36,7 +36,7 @@ public class WorldGenMaelstrom extends WorldGenerator {
             if (pos.getY() < 10) return false;
         }
 
-        ArrayList<BlockPos> queue = new ArrayList<BlockPos>();
+        ArrayList<BlockPos> queue = new ArrayList<>();
         queue.add(pos);
 
         for (int i = 0; i < size; i++) {

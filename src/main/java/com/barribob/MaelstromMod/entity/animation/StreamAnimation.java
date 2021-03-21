@@ -13,7 +13,7 @@ import java.util.Map;
 public class StreamAnimation<T extends ModelBase> implements Animation<T> {
     // First dimension represents the animation stream, and the second represents
     // the order of the animations
-    private static final Map<String, List<List<AnimationClip>>> animationsCache = new HashMap<String, List<List<AnimationClip>>>();
+    private static final Map<String, List<List<AnimationClip<?>>>> animationsCache = new HashMap<>();
     private final List<List<AnimationClip<T>>> animations;
     private int[] activeAnimations;
     private boolean loop = false;
