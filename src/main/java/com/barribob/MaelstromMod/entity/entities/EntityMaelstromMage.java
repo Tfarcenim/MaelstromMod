@@ -150,16 +150,16 @@ public class EntityMaelstromMage extends EntityMaelstromMob {
         BiConsumer<ModelMaelstromMage, Float> bodyX = (model, f) -> model.body.rotateAngleX = f;
         BiConsumer<ModelMaelstromMage, Float> rightArmX = (model, f) -> model.rightArm.rotateAngleX = f;
 
-        leftForearmXStream.add(new AnimationClip(10, -40, 0, leftForearmX));
-        leftForearmXStream.add(new AnimationClip(12, 0, 0, leftForearmX));
-        leftForearmXStream.add(new AnimationClip(6, 0, 0, leftForearmX));
-        leftForearmXStream.add(new AnimationClip(6, 0, -40, leftForearmX));
+        leftForearmXStream.add(new AnimationClip<>(10, -40, 0, leftForearmX));
+        leftForearmXStream.add(new AnimationClip<>(12, 0, 0, leftForearmX));
+        leftForearmXStream.add(new AnimationClip<>(6, 0, 0, leftForearmX));
+        leftForearmXStream.add(new AnimationClip<>(6, 0, -40, leftForearmX));
 
-        leftArmXStream.add(new AnimationClip(10, 0, -120, leftArmX));
-        leftArmXStream.add(new AnimationClip(12, -120, -120, leftArmX));
-        leftArmXStream.add(new AnimationClip(4, -120, 60, leftArmX));
-        leftArmXStream.add(new AnimationClip(2, 60, 60, leftArmX));
-        leftArmXStream.add(new AnimationClip(6, 60, 0, leftArmX));
+        leftArmXStream.add(new AnimationClip<>(10, 0, -120, leftArmX));
+        leftArmXStream.add(new AnimationClip<>(12, -120, -120, leftArmX));
+        leftArmXStream.add(new AnimationClip<>(4, -120, 60, leftArmX));
+        leftArmXStream.add(new AnimationClip<>(2, 60, 60, leftArmX));
+        leftArmXStream.add(new AnimationClip<>(6, 60, 0, leftArmX));
 
         leftArmZStream.add(new AnimationClip(10, 0, -25, leftArmZ));
         leftArmZStream.add(new AnimationClip(12, -25, -25, leftArmZ));

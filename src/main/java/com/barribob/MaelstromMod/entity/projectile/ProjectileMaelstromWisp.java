@@ -29,7 +29,7 @@ public class ProjectileMaelstromWisp extends Projectile {
 
     @Override
     protected void spawnParticles() {
-        for (int i = 0; i < this.PARTICLE_AMOUNT; i++) {
+        for (int i = 0; i < PARTICLE_AMOUNT; i++) {
             ModUtils.circleCallback(AREA_FACTOR, 30, (pos) -> {
                 Vec3d vel = new Vec3d(this.motionX, this.motionY, this.motionZ).normalize();
 

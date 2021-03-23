@@ -1,6 +1,7 @@
 package com.barribob.MaelstromMod.entity.entities;
 
 import com.barribob.MaelstromMod.Main;
+import com.barribob.MaelstromMod.config.ModConfig;
 import com.barribob.MaelstromMod.entity.action.IAction;
 import com.barribob.MaelstromMod.entity.ai.EntityAITimedAttack;
 import com.barribob.MaelstromMod.entity.animation.AnimationClip;
@@ -247,16 +248,21 @@ public class EntityMonolith extends EntityMaelstromMob implements IAttack, Direc
         }
 
         // Spawn a maelstrom splotch nearby
-        int maelstromMeteorTime = 1200;
-        int maxMeteors = 20;
+        final int maelstromMeteorTime = ModConfig.misc.delay;
+        final int radius = ModConfig.misc.radius;
+
+        final int maxMeteors = 20;
         if (!world.isRemote && this.getAttackTarget() == null && this.ticksExisted % maelstromMeteorTime == 0 && this.ticksExisted < maelstromMeteorTime * maxMeteors) {
             ProjectileMaelstromMeteor meteor = new ProjectileMaelstromMeteor(world, this, this.getAttack());
-            Vec3d pos = new Vec3d(ModRandom.getFloat(1.0f), 0, ModRandom.getFloat(1.0f)).normalize().scale(ModRandom.range(20, 50)).add(this.getPositionVector());
+            Vec3d pos = new Vec3d(ModRandom.getFloat(1.0f),
+                    0,
+                    ModRandom.getFloat(1.0f))
+                    .normalize().scale(ModRandom.range(20, /*50*/radius)).add(this.getPositionVector());
             meteor.setPosition(pos.x, pos.y, pos.z);
             meteor.shoot(this, 90, 0, 0.0F, 0.7f, 0);
             meteor.motionX -= this.motionX;
             meteor.motionZ -= this.motionZ;
-            meteor.setTravelRange(100f);
+            meteor.setTravelRange(/*100f*/ 2 * radius);
             world.spawnEntity(meteor);
         }
 

@@ -37,6 +37,19 @@ public class ModConfig {
     @Config.LangKey(config + "server")
     public static ServerCat server = new ServerCat();
 
+    @Config.LangKey(config + "misc")
+    public static MiscCat misc = new MiscCat();
+
+    public static class MiscCat {
+
+        @Config.Name("invasion_tower_maelstrom_blast_delay")
+        public int delay = 1200;
+
+        @Config.Name("invasion_tower_maelstrom_blast_radius")
+        public int radius = 100;
+
+    }
+
     public static class GuiCat {
         @Config.LangKey(config + "armor_bar_x")
         public int maelstrom_armor_bar_offset_x;

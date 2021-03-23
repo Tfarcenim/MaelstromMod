@@ -24,10 +24,10 @@ import java.util.Optional;
  */
 public class RenderModEntity<T extends EntityLiving> extends RenderLiving<T> {
     public String[] TEXTURES;
-    private ResourceLocation DEATH_TEXTURES;
+    private final ResourceLocation DEATH_TEXTURES;
 
     public <U extends ModelBase> RenderModEntity(RenderManager rendermanagerIn, String textures, U modelClass) {
-        this(rendermanagerIn, modelClass, new String[]{textures});
+        this(rendermanagerIn, modelClass, textures);
     }
 
     public <U extends ModelBase> RenderModEntity(RenderManager rendermanagerIn, U modelClass, String... textures) {
