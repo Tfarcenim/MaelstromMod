@@ -1,9 +1,8 @@
 package com.barribob.MaelstromMod.init;
 
-import com.barribob.MaelstromMod.Main;
+import com.barribob.MaelstromMod.IntoTheMaelstrom;
 import com.barribob.MaelstromMod.entity.animation.AnimationManagerServer;
 import com.barribob.MaelstromMod.packets.MessageBBAnimation;
-import com.barribob.MaelstromMod.util.Reference;
 import com.google.gson.*;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.IResource;
@@ -34,9 +33,9 @@ import java.util.Map.Entry;
  */
 public class ModBBAnimations {
     private static Gson GSON = new GsonBuilder().setPrettyPrinting().disableHtmlEscaping().create();
-    private static final Map<Integer, JsonObject> animations = new HashMap<Integer, JsonObject>();
-    private static final Map<String, Integer> nameToId = new HashMap<String, Integer>();
-    private static final Map<Integer, String> idToName = new HashMap<Integer, String>();
+    private static final Map<Integer, JsonObject> animations = new HashMap<>();
+    private static final Map<String, Integer> nameToId = new HashMap<>();
+    private static final Map<Integer, String> idToName = new HashMap<>();
 
     private static int id = -1;
 
@@ -47,7 +46,7 @@ public class ModBBAnimations {
      * @param animationId
      */
     public static void animation(EntityLivingBase entity, String animationId, boolean remove) {
-        Main.network.sendToAllTracking(new MessageBBAnimation(ModBBAnimations.getAnimationId(animationId), entity.getEntityId(), remove), entity);
+        IntoTheMaelstrom.network.sendToAllTracking(new MessageBBAnimation(ModBBAnimations.getAnimationId(animationId), entity.getEntityId(), remove), entity);
         JsonObject animation = ModBBAnimations.getAnimation(animationId);
         if (animation.has("loop")) {
             if (animation.get("loop").getAsBoolean()) {
@@ -97,7 +96,7 @@ public class ModBBAnimations {
         String[] s = animationId.split("(\\.)", 2);
         String filename = s[0];
         String animName = s[1];
-        ResourceLocation loc = new ResourceLocation(Reference.MOD_ID, "animations/" + filename + ".json");
+        ResourceLocation loc = new ResourceLocation(IntoTheMaelstrom.MOD_ID, "animations/" + filename + ".json");
         JsonParser jsonparser = new JsonParser();
         IResource resource = null;
 
@@ -144,7 +143,7 @@ public class ModBBAnimations {
         // Sort of hacky way to get the ModContainer for my mod
         ModContainer myMod = null;
         for (ModContainer mod : Loader.instance().getActiveModList()) {
-            if (mod.getModId().equals("mm")) {
+            if (mod.getModId().equals(IntoTheMaelstrom.MOD_ID)) {
                 myMod = mod;
             }
         }

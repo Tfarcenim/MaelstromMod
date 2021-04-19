@@ -17,10 +17,6 @@ public class BlockMegaStructure extends BlockStructure {
     public BlockMegaStructure(String name) {
         setUnlocalizedName(name);
         setRegistryName(name);
-
-        // Add both an item as a block and the block itself
-        ModBlocks.BLOCKS.add(this);
-        ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
     }
 
     /**

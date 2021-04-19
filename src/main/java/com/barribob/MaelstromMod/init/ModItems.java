@@ -1,6 +1,6 @@
 package com.barribob.MaelstromMod.init;
 
-import com.barribob.MaelstromMod.Main;
+import com.barribob.MaelstromMod.IntoTheMaelstrom;
 import com.barribob.MaelstromMod.items.*;
 import com.barribob.MaelstromMod.items.armor.ArmorNyanHelmet;
 import com.barribob.MaelstromMod.items.armor.ArmorStrawHat;
@@ -12,13 +12,14 @@ import com.barribob.MaelstromMod.items.gun.bullet.GoldenFireball;
 import com.barribob.MaelstromMod.items.tools.*;
 import com.barribob.MaelstromMod.util.Element;
 import com.barribob.MaelstromMod.util.ModUtils;
-import com.barribob.MaelstromMod.util.Reference;
 import com.barribob.MaelstromMod.util.handlers.LevelHandler;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.MobEffects;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.ResourceLocation;
@@ -28,30 +29,180 @@ import net.minecraft.world.World;
 import net.minecraftforge.event.RegistryEvent;
 
 import java.lang.reflect.Field;
-import java.util.*;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Locale;
+import java.util.Set;
 import java.util.function.Consumer;
 
 /**
  * Holds all of our new items
  */
 public class ModItems {
-    public static final float BASE_MELEE_DAMAGE = 6;
+    
+    //blockitems
 
+    public static final ItemBlock MEGA_STRUCTURE_BLOCK = new ItemBlock(ModBlocks.MEGA_STRUCTURE_BLOCK);
+    public static final ItemBlock LIGHTING_UPDATER = new ItemBlock(ModBlocks.LIGHTING_UPDATER);
+    public static final ItemBlock DISAPPEARING_SPAWNER = new ItemBlock(ModBlocks.DISAPPEARING_SPAWNER);
+    public static final ItemBlock BOSS_SPAWNER = new ItemBlock(ModBlocks.BOSS_SPAWNER);
+
+    public static final ItemBlock MAELSTROM_CORE_BLOCK = new ItemBlock(ModBlocks.MAELSTROM_CORE_BLOCK);
+    public static final ItemBlock AZURE_MAELSTROM_CORE = new ItemBlock(ModBlocks.AZURE_MAELSTROM_CORE);
+    public static final ItemBlock CLIFF_MAELSTROM_CORE = new ItemBlock(ModBlocks.CLIFF_MAELSTROM_CORE);
+    public static final ItemBlock AZURE_MAELSTROM = new ItemBlock(ModBlocks.AZURE_MAELSTROM);
+    public static final ItemBlock DECAYING_MAELSTROM = new ItemBlock(ModBlocks.DECAYING_MAELSTROM);
+    public static final ItemBlock MAELSTROM_HEART = new ItemBlock(ModBlocks.MAELSTROM_HEART);
+
+    public static final ItemBlock NEXUS_TELEPORTER = new ItemBlock(ModBlocks.NEXUS_TELEPORTER);
+    public static final ItemBlock NEXUS_PORTAL = new ItemBlock(ModBlocks.NEXUS_PORTAL);
+    public static final ItemBlock DARK_NEXUS_PORTAL = new ItemBlock(ModBlocks.DARK_NEXUS_PORTAL);
+    public static final ItemBlock AZURE_PORTAL = new ItemBlock(ModBlocks.AZURE_PORTAL);
+    public static final ItemBlock CLIFF_PORTAL = new ItemBlock(ModBlocks.CLIFF_PORTAL);
+    public static final ItemBlock CRIMSON_PORTAL = new ItemBlock(ModBlocks.CRIMSON_PORTAL);
+
+    public static final ItemBlock BLACK_SKY = new ItemBlock(ModBlocks.BLACK_SKY);
+
+    /**
+     * Stone and ore
+     */
+
+    public static final ItemBlock DARK_AZURE_STONE = new ItemBlock(ModBlocks.DARK_AZURE_STONE);
+    public static final ItemBlock AZURE_STONE_1 = new ItemBlock(ModBlocks.AZURE_STONE_1);
+    public static final ItemBlock AZURE_STONE_2 = new ItemBlock(ModBlocks.AZURE_STONE_2);
+    public static final ItemBlock AZURE_STONE_3 = new ItemBlock(ModBlocks.AZURE_STONE_3);
+    public static final ItemBlock AZURE_STONE_4 = new ItemBlock(ModBlocks.AZURE_STONE_4);
+    public static final ItemBlock AZURE_STONE_5 = new ItemBlock(ModBlocks.AZURE_STONE_5);
+    public static final ItemBlock LIGHT_AZURE_STONE = new ItemBlock(ModBlocks.LIGHT_AZURE_STONE);
+    public static final ItemBlock AZURE_COAL_ORE = new ItemBlock(ModBlocks.AZURE_COAL_ORE);
+    public static final ItemBlock AZURE_DIAMOND_ORE = new ItemBlock(ModBlocks.AZURE_DIAMOND_ORE);
+    public static final ItemBlock AZURE_EMERALD_ORE = new ItemBlock(ModBlocks.AZURE_EMERALD_ORE);
+    public static final ItemBlock AZURE_LAPIS_ORE = new ItemBlock(ModBlocks.AZURE_LAPIS_ORE);
+    public static final ItemBlock AZURE_IRON_ORE = new ItemBlock(ModBlocks.AZURE_IRON_ORE);
+    public static final ItemBlock AZURE_GOLD_ORE = new ItemBlock(ModBlocks.AZURE_GOLD_ORE);
+    public static final ItemBlock AZURE_REDSTONE_ORE = new ItemBlock(ModBlocks.AZURE_REDSTONE_ORE);
+    public static final ItemBlock AZURE_LIT_REDSTONE_ORE = new ItemBlock(ModBlocks.AZURE_LIT_REDSTONE_ORE);
+    public static final ItemBlock CHASMIUM_ORE = new ItemBlock(ModBlocks.CHASMIUM_ORE);
+    public static final ItemBlock CLIFF_STONE = new ItemBlock(ModBlocks.CLIFF_STONE);
+    public static final ItemBlock RED_CLIFF_STONE = new ItemBlock(ModBlocks.RED_CLIFF_STONE);
+
+    /**
+     * Organic blocks
+     */
+
+    public static final ItemBlock AZURE_GRASS = new ItemBlock(ModBlocks.AZURE_GRASS);
+    public static final ItemBlock AZURE_VINES_BLOCK = new ItemBlock(ModBlocks.AZURE_VINES_BLOCK);
+    public static final ItemBlock AZURE_VINES = new ItemBlock(ModBlocks.AZURE_VINES);
+    public static final ItemBlock BLUE_DAISY = new ItemBlock(ModBlocks.BLUE_DAISY);
+    public static final ItemBlock RUBY_ORCHID = new ItemBlock(ModBlocks.RUBY_ORCHID);
+    public static final ItemBlock BROWNED_GRASS = new ItemBlock(ModBlocks.BROWNED_GRASS);
+    public static final ItemBlock DOUBLE_BROWNED_GRASS = new ItemBlock(ModBlocks.DOUBLE_BROWNED_GRASS);
+    public static final ItemBlock FIRE_GRASS = new ItemBlock(ModBlocks.FIRE_GRASS);
+
+    public static final ItemBlock AZURE_LOG = new ItemBlock(ModBlocks.AZURE_LOG);
+    public static final ItemBlock PLUM_LOG = new ItemBlock(ModBlocks.PLUM_LOG);
+    public static final ItemBlock SWAMP_LOG = new ItemBlock(ModBlocks.SWAMP_LOG);
+    public static final ItemBlock FULL_SWAMP_LOG = new ItemBlock(ModBlocks.FULL_SWAMP_LOG);
+
+    public static final ItemBlock AZURE_LEAVES = new ItemBlock(ModBlocks.AZURE_LEAVES);
+    public static final ItemBlock PLUM_LEAVES = new ItemBlock(ModBlocks.PLUM_LEAVES);
+    public static final ItemBlock PLUM_FILLED_LEAVES = new ItemBlock(ModBlocks.PLUM_FILLED_LEAVES);
+    public static final ItemBlock SWAMP_LEAVES = new ItemBlock(ModBlocks.SWAMP_LEAVES);
+
+    public static final ItemBlock AZURE_SAPLING = new ItemBlock(ModBlocks.AZURE_SAPLING);
+    public static final ItemBlock PLUM_SAPLING = new ItemBlock(ModBlocks.PLUM_SAPLING);
+    public static final ItemBlock LARGE_PLUM_SAPLING = new ItemBlock(ModBlocks.LARGE_PLUM_SAPLING);
+    public static final ItemBlock SWAMP_SAPLING = new ItemBlock(ModBlocks.SWAMP_SAPLING);
+
+    public static final ItemBlock AZURE_PLANKS = new ItemBlock(ModBlocks.AZURE_PLANKS);
+    public static final ItemBlock AZURE_FENCE = new ItemBlock(ModBlocks.AZURE_FENCE);
+    public static final ItemBlock AZURE_PLANK_STAIRS = new ItemBlock(ModBlocks.AZURE_PLANK_STAIRS);
+    public static final ItemBlock SWAMP_PLANKS = new ItemBlock(ModBlocks.SWAMP_PLANKS);
+    public static final ItemBlock SWAMP_PLANK_STAIRS = new ItemBlock(ModBlocks.SWAMP_PLANK_STAIRS);
+    public static final ItemBlock SWAMP_FENCE = new ItemBlock(ModBlocks.SWAMP_FENCE);
+
+    /**
+     * Blocks for structures
+     */
+
+    public static final ItemBlock MAELSTROM_BRICKS = new ItemBlock(ModBlocks.MAELSTROM_BRICKS);
+    public static final ItemBlock MAELSTROM_BRICK_FENCE = new ItemBlock(ModBlocks.MAELSTROM_BRICK_FENCE);
+    public static final ItemBlock MAELSTROM_BRICK_STAIRS = new ItemBlock(ModBlocks.MAELSTROM_BRICK_STAIRS);
+
+    public static final ItemBlock MAELSTROM_STONEBRICK = new ItemBlock(ModBlocks.MAELSTROM_STONEBRICK);
+    public static final ItemBlock MAELSTROM_STONEBRICK_STAIRS = new ItemBlock(ModBlocks.MAELSTROM_STONEBRICK_STAIRS);
+    public static final ItemBlock MAELSTROM_STONEBRICK_FENCE = new ItemBlock(ModBlocks.MAELSTROM_STONEBRICK_FENCE);
+
+    public static final ItemBlock AZURE_STONEBRICK = new ItemBlock(ModBlocks.AZURE_STONEBRICK);
+    public static final ItemBlock AZURE_STONEBRICK_STAIRS = new ItemBlock(ModBlocks.AZURE_STONEBRICK_STAIRS);
+    public static final ItemBlock AZURE_STONEBRICK_CRACKED = new ItemBlock(ModBlocks.AZURE_STONEBRICK_CRACKED);
+    public static final ItemBlock AZURE_STONEBRICK_CARVED = new ItemBlock(ModBlocks.AZURE_STONEBRICK_CARVED);
+    public static final ItemBlock AZURE_STONEBRICK_CARVED_2 = new ItemBlock(ModBlocks.AZURE_STONEBRICK_CARVED_2);
+    public static final ItemBlock AZURE_STONEBRICK_CARVED_3 = new ItemBlock(ModBlocks.AZURE_STONEBRICK_CARVED_3);
+    public static final ItemBlock AZURE_STONEBRICK_LIT = new ItemBlock(ModBlocks.AZURE_STONEBRICK_LIT);
+
+    public static final ItemBlock GOLD_STONE = new ItemBlock(ModBlocks.GOLD_STONE);
+    public static final ItemBlock CRACKED_GOLD_STONE = new ItemBlock(ModBlocks.CRACKED_GOLD_STONE);
+    public static final ItemBlock GOLD_STONE_FENCE = new ItemBlock(ModBlocks.GOLD_STONE_FENCE);
+    public static final ItemBlock GOLD_STONE_STAIRS = new ItemBlock(ModBlocks.GOLD_STONE_STAIRS);
+    public static final ItemBlock BROWNED_PILLAR = new ItemBlock(ModBlocks.BROWNED_PILLAR);
+    public static final ItemBlock BROWNED_BLOCK = new ItemBlock(ModBlocks.BROWNED_BLOCK);
+    public static final ItemBlock GOLD_STONE_LAMP = new ItemBlock(ModBlocks.GOLD_STONE_LAMP);
+    public static final ItemBlock CHISELED_CLIFF_STONE = new ItemBlock(ModBlocks.CHISELED_CLIFF_STONE);
+    public static final ItemBlock SWAMP_BRICK = new ItemBlock(ModBlocks.SWAMP_BRICK);
+    public static final ItemBlock CRACKED_SWAMP_BRICK = new ItemBlock(ModBlocks.CRACKED_SWAMP_BRICK);
+
+    public static final ItemBlock CRIMSON_MAELSTROM_BRICKS = new ItemBlock(ModBlocks.CRIMSON_MAELSTROM_BRICKS);
+    public static final ItemBlock CRIMSON_MAELSTROM_BRICK_FENCE = new ItemBlock(ModBlocks.CRIMSON_MAELSTROM_BRICK_FENCE);
+    public static final ItemBlock CRIMSON_MAELSTROM_BRICK_STAIRS =new ItemBlock(ModBlocks.CRIMSON_MAELSTROM_BRICK_STAIRS);
+    public static final ItemBlock CRIMSON_LAMP = new ItemBlock(ModBlocks.CRIMSON_LAMP);
+    public static final ItemBlock CHAIN = new ItemBlock(ModBlocks.CHAIN);
+    public static final ItemBlock MULTI_CHAIN = new ItemBlock(ModBlocks.MULTI_CHAIN);
+    public static final ItemBlock LARGE_CHAIN = new ItemBlock(ModBlocks.LARGE_CHAIN);
+    public static final ItemBlock METAL_LAMP = new ItemBlock(ModBlocks.METAL_LAMP);
+    public static final ItemBlock FURNACE_BRICKS = new ItemBlock(ModBlocks.FURNACE_BRICKS);
+    public static final ItemBlock FURNACE_STAIRS = new ItemBlock(ModBlocks.FURNACE_STAIRS);
+    public static final ItemBlock CRACKED_FURNACE_BRICKS = new ItemBlock(ModBlocks.CRACKED_FURNACE_BRICKS);
+    public static final ItemBlock FURNACE_BRICKS_LIT = new ItemBlock(ModBlocks.FURNACE_BRICKS_LIT);
+
+    /*
+     * Key blocks and nexus stuff
+     */
+
+    public static final ItemBlock CRACKED_QUARTZ = new ItemBlock(ModBlocks.CRACKED_QUARTZ);
+    public static final ItemBlock AZURE_KEY_BLOCK = new ItemBlock(ModBlocks.AZURE_KEY_BLOCK);
+    public static final ItemBlock MAELSTROM_DUNGEON_KEY_BLOCK = new ItemBlock(ModBlocks.MAELSTROM_DUNGEON_KEY_BLOCK);
+    public static final ItemBlock BROWN_KEY_BLOCK = new ItemBlock(ModBlocks.BROWN_KEY_BLOCK);
+    public static final ItemBlock RED_DUNGEON_KEY_BLOCK = new ItemBlock(ModBlocks.RED_DUNGEON_KEY_BLOCK);
+    public static final ItemBlock ICE_KEY_BLOCK = new ItemBlock(ModBlocks.ICE_KEY_BLOCK);
+    public static final ItemBlock ICE_DUNGEON_KEY_BLOCK = new ItemBlock(ModBlocks.ICE_DUNGEON_KEY_BLOCK);
+    public static final ItemBlock BLACK_DUNGEON_KEY_BLOCK = new ItemBlock(ModBlocks.BLACK_DUNGEON_KEY_BLOCK);
+
+    /*
+     * Crimson dimension
+     */
+
+    public static final ItemBlock FURNACE_PILLAR = new ItemBlock(ModBlocks.FURNACE_PILLAR);
+    public static final ItemBlock REDSTONE_BRICK = new ItemBlock(ModBlocks.REDSTONE_BRICK);
+    public static final ItemBlock CRACKED_REDSTONE_BRICK = new ItemBlock(ModBlocks.CRACKED_REDSTONE_BRICK);
+    public static final ItemBlock IRON_GRATE = new ItemBlock(ModBlocks.IRON_GRATE);
+    public static final ItemBlock FAN = new ItemBlock(ModBlocks.FAN);
+    
+    public static final float BASE_MELEE_DAMAGE = 6;
+    
     // There are technically not blocks, but are in here because they depend on two of the block defined above
-    public static final Item STONEBRICK_BLOCKVOID = new ItemBlockvoid("stonebrick_blockvoid", Blocks.STONEBRICK, 30);
-    public static final Item OBSIDIAN_BLOCKVOID = new ItemBlockvoid("obsidian_blockvoid", Blocks.OBSIDIAN, 1000);
-    public static final Item FURNACE_BRICKS_BLOCKVOID = new ItemBlockvoid("furnace_bricks_blockvoid", ModBlocks.FURNACE_BRICKS, 30);
-    public static final Item REDSTONE_BRICK_BLOCKVOID = new ItemBlockvoid("redstone_brick_blockvoid", ModBlocks.REDSTONE_BRICK, 30);
+    public static final Item STONEBRICK_BLOCKVOID = new ItemBlockvoid(Blocks.STONEBRICK, 30);
+    public static final Item OBSIDIAN_BLOCKVOID = new ItemBlockvoid(Blocks.OBSIDIAN, 1000);
+    public static final Item FURNACE_BRICKS_BLOCKVOID = new ItemBlockvoid(ModBlocks.FURNACE_BRICKS, 30);
+    public static final Item REDSTONE_BRICK_BLOCKVOID = new ItemBlockvoid(ModBlocks.REDSTONE_BRICK, 30);
 
     public static final int GUN_USE_TIME = 12000;
     public static final int STAFF_USE_TIME = 9000;
 
     public static final Set<Item> ITEMS = new HashSet<>();
 
-    public static final Item INVISIBLE = new ItemBase("invisible", null);
-
     static Consumer<List<String>> kanshouBakuya = (tooltip) -> {
-        if(Main.itemsConfig.getBoolean("full_set_bonuses.kanshou_bakuya")) {
+        if (IntoTheMaelstrom.itemsConfig.getBoolean("full_set_bonuses.kanshou_bakuya")) {
             tooltip.add(TextFormatting.GRAY + ModUtils.translateDesc("kanshou_bakuya"));
         }
     };
@@ -59,34 +210,34 @@ public class ModItems {
     /*
      * Dimensional Items
      */
-    public static final Item AZURE_KEY = new ItemKey("azure_key", "dimensional_key", ModCreativeTabs.ITEMS);
-    public static final Item BROWN_KEY = new ItemKey("brown_key", "dimensional_key", ModCreativeTabs.ITEMS);
+    public static final Item AZURE_KEY = new ItemKey("dimensional_key");
+    public static final Item BROWN_KEY = new ItemKey("dimensional_key");
     public static final Item MAELSTROM_KEY = new Item();
-    public static final Item RED_KEY = new ItemKey("red_key", "dimensional_key", ModCreativeTabs.ITEMS);
+    public static final Item RED_KEY = new ItemKey("dimensional_key");
 
-    public static final Item CLIFF_KEY_FRAGMENT = new ItemSingleDescription("cliff_key_fragment", "key_desc", ModCreativeTabs.ITEMS);
-    public static final Item RED_KEY_FRAGMENT = new ItemSingleDescription("red_key_fragment", "key_desc", ModCreativeTabs.ITEMS);
-    public static final Item MAELSTROM_KEY_FRAGMENT = new ItemSingleDescription("maelstrom_key_fragments", "maelstrom_key", ModCreativeTabs.ITEMS);
+    public static final Item CLIFF_KEY_FRAGMENT = new ItemSingleDescription("cliff_key_fragment").setCreativeTab(ModCreativeTabs.ITEMS);
+    public static final Item RED_KEY_FRAGMENT = new ItemSingleDescription("red_key_fragment").setCreativeTab(ModCreativeTabs.ITEMS);
+    public static final Item MAELSTROM_KEY_FRAGMENTS = new ItemSingleDescription("maelstrom_key_fragments").setCreativeTab(ModCreativeTabs.ITEMS);
 
-    public static final Item MAELSTROM_CORE = new ItemTradable("maelstrom_core", ModCreativeTabs.ITEMS);
-    public static final Item AZURE_MAELSTROM_CORE_CRYSTAL = new ItemTradable("azure_maelstrom_core_crystal", ModCreativeTabs.ITEMS);
-    public static final Item GOLDEN_MAELSTROM_CORE = new ItemTradable("golden_maelstrom_core", ModCreativeTabs.ITEMS);
-    public static final Item CRIMSON_MAELSTROM_CORE = new ItemTradable("crimson_maelstrom_core", ModCreativeTabs.ITEMS);
-    public static final Item MAELSTROM_FRAGMENT = new ItemBase("maelstrom_fragment", ModCreativeTabs.ITEMS);
-    public static final Item AZURE_MAELSTROM_FRAGMENT = new ItemBase("azure_maelstrom_fragment", ModCreativeTabs.ITEMS);
-    public static final Item GOLDEN_MAELSTROM_FRAGMENT = new ItemTradable("golden_maelstrom_fragment", ModCreativeTabs.ITEMS);
-    public static final Item CRISMON_MAELSTROM_FRAGMENT = new ItemTradable("crimson_maelstrom_fragment", ModCreativeTabs.ITEMS);
+    public static final Item MAELSTROM_CORE = new ItemSingleDescription("Used for Trading").setCreativeTab(ModCreativeTabs.ITEMS);
+    public static final Item AZURE_MAELSTROM_CORE_CRYSTAL = new ItemSingleDescription("azure_maelstrom_core_crystal").setCreativeTab(ModCreativeTabs.ITEMS);
+    public static final Item GOLDEN_MAELSTROM_CORE = new ItemSingleDescription("golden_maelstrom_core").setCreativeTab(ModCreativeTabs.ITEMS);
+    public static final Item CRIMSON_MAELSTROM_CORE = new ItemSingleDescription("crimson_maelstrom_core").setCreativeTab(ModCreativeTabs.ITEMS);
+    public static final Item MAELSTROM_FRAGMENT = new Item().setCreativeTab(ModCreativeTabs.ITEMS);
+    public static final Item AZURE_MAELSTROM_FRAGMENT = new Item().setCreativeTab(ModCreativeTabs.ITEMS);
+    public static final Item GOLDEN_MAELSTROM_FRAGMENT = new ItemSingleDescription("golden_maelstrom_fragment").setCreativeTab(ModCreativeTabs.ITEMS);
+    public static final Item CRIMSON_MAELSTROM_FRAGMENT = new ItemSingleDescription("crimson_maelstrom_fragment").setCreativeTab(ModCreativeTabs.ITEMS);
 
     // The azure dimension's items
-    public static final Item ELK_HIDE = new ItemTradable("elk_hide", ModCreativeTabs.ITEMS);
-    public static final Item ELK_STRIPS = new ItemFoodBase("elk_strips", ModCreativeTabs.ITEMS, 3, 0.3F, true);
-    public static final Item ELK_JERKY = new ItemFoodBase("elk_jerky", ModCreativeTabs.ITEMS, 8, 1.0F, true);
-    public static final Item PLUM = new ItemFoodBase("plum", ModCreativeTabs.ITEMS, 4, 0.3F, true);
-    public static final Item IRON_PELLET = new ItemBase("iron_pellet", null);
-    public static final Item MAELSTROM_PELLET = new ItemBase("maelstrom_pellet", null);
-    public static final Item CHASMIUM_INGOT = new ItemTradable("chasmium_ingot", ModCreativeTabs.ITEMS);
-    public static final Item CATALYST = new ItemCatalyst("catalyst", ModCreativeTabs.ITEMS);
-    public static final Item MINOTAUR_HORN = new ItemTradable("minotaur_horn", ModCreativeTabs.ITEMS);
+    public static final Item ELK_HIDE = new ItemSingleDescription("elk_hide").setCreativeTab(ModCreativeTabs.ITEMS);
+    public static final Item ELK_STRIPS = new ItemFood(3, 0.3F, true).setCreativeTab(ModCreativeTabs.ITEMS);
+    public static final Item ELK_JERKY = new ItemFood(8, 1.0F, true).setCreativeTab(ModCreativeTabs.ITEMS);
+    public static final Item PLUM = new ItemFood(4, 0.3F, true).setCreativeTab(ModCreativeTabs.ITEMS);
+    public static final Item IRON_PELLET = new Item();
+    public static final Item MAELSTROM_PELLET = new Item();
+    public static final Item CHASMIUM_INGOT = new ItemSingleDescription("chasmium_ingot").setCreativeTab(ModCreativeTabs.ITEMS);
+    public static final Item CATALYST = new ItemCatalyst().setCreativeTab(ModCreativeTabs.ITEMS);
+    public static final Item MINOTAUR_HORN = new ItemSingleDescription("minotaur_horn").setCreativeTab(ModCreativeTabs.ITEMS);
 
     /**
      * Guns
@@ -122,7 +273,7 @@ public class ModItems {
     public static final Item LEAP_STAFF = new ItemLeapStaff("leap_staff", STAFF_USE_TIME, LevelHandler.AZURE_ENDGAME, ModCreativeTabs.ITEMS);
     public static final Item SPEED_STAFF = new ItemSpeedStaff("speed_staff", STAFF_USE_TIME, LevelHandler.AZURE_ENDGAME, ModCreativeTabs.ITEMS);
     public static final Item FIREBALL_STAFF = new ItemFireballStaff("fireball_staff", STAFF_USE_TIME, LevelHandler.AZURE_ENDGAME, ModCreativeTabs.ITEMS);
-    public static final Item CROSS_OF_AQUA = (new ItemBase("cross_of_aqua", ModCreativeTabs.ITEMS) {
+    public static final Item CROSS_OF_AQUA = (new Item() {
         @Override
         public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
             tooltip.add(TextFormatting.BLUE + "When held, allows the player to walk on water");
@@ -244,9 +395,9 @@ public class ModItems {
     /*
      * Cliff Dimension Items
      */
-    public static final Item GOLD_PELLET = new ItemBase("gold_pellet", null);
-    public static final Item SWAMP_SLIME = new ItemTradable("swamp_slime", ModCreativeTabs.ITEMS);
-    public static final Item FLY_WINGS = new ItemTradable("fly_wings", ModCreativeTabs.ITEMS);
+    public static final Item GOLD_PELLET = new Item();
+    public static final Item SWAMP_SLIME = new ItemSingleDescription("swamp_slime");
+    public static final Item FLY_WINGS = new ItemSingleDescription("fly_wings");
 
     /**
      * Crimson Dimension Items
@@ -254,15 +405,15 @@ public class ModItems {
 
     public static final Item ENERGETIC_STEEL_PICKAXE = new ToolPickaxe("energetic_steel_pickaxe", Materials.ENERGETIC_PICKAXE);
     public static final Item CRIMSON_PELLET = new Item();
-    public static final Item ELYSIUM_WINGS = new ItemModElytra("elysium_wings", Materials.ARMOR);
+    public static final Item ELYSIUM_WINGS = new ItemModElytra(Materials.ARMOR);
 
     /**
      * Random
      */
 
     // The sound events are unregistered because they are null at the point in the loading procedure
-    public static final Item NEW_WORLD_RECORD = new ItemModRecord("music_disc_new_world", new SoundEvent(new ResourceLocation(Reference.MOD_ID, "music.new_world")));
-    public static final Item WANDERING_RECORD = new ItemModRecord("music_disc_wandering", new SoundEvent(new ResourceLocation(Reference.MOD_ID, "music.wandering")));
+    public static final Item NEW_WORLD_RECORD = new ItemModRecord("music_disc_new_world", new SoundEvent(new ResourceLocation(IntoTheMaelstrom.MOD_ID, "music.new_world")));
+    public static final Item WANDERING_RECORD = new ItemModRecord("music_disc_wandering", new SoundEvent(new ResourceLocation(IntoTheMaelstrom.MOD_ID, "music.wandering")));
 
 
     public static void register(RegistryEvent.Register<Item> event) {
@@ -273,8 +424,9 @@ public class ModItems {
                     Item item = (Item) value;
                     if (item.getRegistryName() == null) {
                         String name = field.getName().toLowerCase(Locale.ROOT);
-                        item.setRegistryName(name).setUnlocalizedName(Reference.MOD_ID + "." + name);
+                        item.setRegistryName(name).setUnlocalizedName(IntoTheMaelstrom.MOD_ID + "." + name);
                     }
+                    event.getRegistry().register(item);
                     ITEMS.add(item);
                 }
             } catch (IllegalAccessException e) {

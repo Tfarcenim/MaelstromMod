@@ -1,6 +1,6 @@
 package com.barribob.MaelstromMod.invasion;
 
-import com.barribob.MaelstromMod.Main;
+import com.barribob.MaelstromMod.IntoTheMaelstrom;
 import com.barribob.MaelstromMod.util.GenUtils;
 import com.barribob.MaelstromMod.util.ModUtils;
 import com.barribob.MaelstromMod.util.teleporter.NexusToOverworldTeleporter;
@@ -52,7 +52,7 @@ public class InvasionUtils {
         });
 
         Predicate<BlockPos> noPreviousInvasionNearby = pos -> spawnedInvasionPositions.stream()
-                .noneMatch(p -> p.distanceSq(pos) < Math.pow(Main.invasionsConfig.getInt("invasion_radius"), 2));
+                .noneMatch(p -> p.distanceSq(pos) < Math.pow(IntoTheMaelstrom.invasionsConfig.getInt("invasion_radius"), 2));
 
         BinaryOperator<BlockPos> minVariation = (prevPos, newPos) -> {
             int prevVariation = GenUtils.getTerrainVariation(world, prevPos.getX(), prevPos.getZ(), prevPos.getX(), structureSize.getZ());
@@ -96,6 +96,6 @@ public class InvasionUtils {
     }
 
     public static boolean hasMultipleInvasionsConfigured() {
-        return Main.invasionsConfig.getConfigList("invasions").size() > 0;
+        return IntoTheMaelstrom.invasionsConfig.getConfigList("invasions").size() > 0;
     }
 }

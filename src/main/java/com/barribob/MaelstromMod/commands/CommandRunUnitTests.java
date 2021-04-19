@@ -1,6 +1,6 @@
 package com.barribob.MaelstromMod.commands;
 
-import com.barribob.MaelstromMod.Main;
+import com.barribob.MaelstromMod.IntoTheMaelstrom;
 import com.barribob.MaelstromMod.test.InGameTests;
 import com.google.common.collect.Lists;
 import net.minecraft.command.CommandBase;
@@ -40,11 +40,11 @@ public class CommandRunUnitTests extends CommandBase {
             } else {
                 InGameTests.runSingleTest(server, sender, args[0]);
             }
-            sender.sendMessage(new TextComponentTranslation("mm.test_success"));
+            sender.sendMessage(new TextComponentTranslation("intothemaelstrom.test_success"));
         } catch (Exception e) {
-            Main.log.error("Test case failed: ");
+            IntoTheMaelstrom.log.error("Test case failed: ");
             e.printStackTrace();
-            throw new CommandException("mm.unit_test_failed");
+            throw new CommandException("intothemaelstrom.unit_test_failed");
         }
     }
 }

@@ -3,7 +3,6 @@ package com.barribob.MaelstromMod.items.gun;
 import com.barribob.MaelstromMod.config.ModConfig;
 import com.barribob.MaelstromMod.event_handlers.ItemToManaSystem;
 import com.barribob.MaelstromMod.items.ILeveledItem;
-import com.barribob.MaelstromMod.items.ItemBase;
 import com.barribob.MaelstromMod.util.Element;
 import com.barribob.MaelstromMod.util.IElement;
 import com.barribob.MaelstromMod.util.ModUtils;
@@ -11,6 +10,7 @@ import com.typesafe.config.Config;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
@@ -21,12 +21,11 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.List;
 
-public abstract class ItemStaff extends ItemBase implements ILeveledItem, IElement {
+public abstract class ItemStaff extends Item implements ILeveledItem, IElement {
     private final float level;
     private Element element = Element.NONE;
 
     public ItemStaff(String name, float useTime, float level, CreativeTabs tab) {
-        super(name, tab);
         this.maxStackSize = 1;
         this.level = level;
         Config config = ItemToManaSystem.getManaConfig(new ItemStack(this));

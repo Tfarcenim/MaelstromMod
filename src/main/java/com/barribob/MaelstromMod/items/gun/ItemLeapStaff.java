@@ -1,6 +1,6 @@
 package com.barribob.MaelstromMod.items.gun;
 
-import com.barribob.MaelstromMod.Main;
+import com.barribob.MaelstromMod.IntoTheMaelstrom;
 import com.barribob.MaelstromMod.packets.MessageLeap;
 import com.barribob.MaelstromMod.util.ModUtils;
 import net.minecraft.client.util.ITooltipFlag;
@@ -26,7 +26,7 @@ public class ItemLeapStaff extends ItemStaff {
         if(player instanceof EntityPlayerMP) {
             world.playSound(null, player.posX, player.posY, player.posZ, SoundEvents.ENTITY_ENDERDRAGON_FLAP, SoundCategory.NEUTRAL, 0.5F,
                     0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
-            Main.network.sendTo(new MessageLeap(), (EntityPlayerMP) player);
+            IntoTheMaelstrom.network.sendTo(new MessageLeap(), (EntityPlayerMP) player);
             player.fallDistance = -1;
         }
     }

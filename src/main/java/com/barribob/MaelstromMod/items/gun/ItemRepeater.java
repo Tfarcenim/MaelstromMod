@@ -20,7 +20,7 @@ public class ItemRepeater extends ItemGun {
     int maxRepeats = 5;
 
     public ItemRepeater(String name, float level) {
-        super(name, 60, 2, level);
+        super(60, 2, level);
     }
 
     @Override

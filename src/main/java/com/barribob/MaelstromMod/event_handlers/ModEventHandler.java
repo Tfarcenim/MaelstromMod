@@ -1,6 +1,6 @@
 package com.barribob.MaelstromMod.event_handlers;
 
-import com.barribob.MaelstromMod.Main;
+import com.barribob.MaelstromMod.IntoTheMaelstrom;
 import com.barribob.MaelstromMod.config.ModConfig;
 import com.barribob.MaelstromMod.gui.InGameGui;
 import com.barribob.MaelstromMod.init.ModDimensions;
@@ -63,7 +63,7 @@ import java.util.List;
  */
 @Mod.EventBusSubscriber()
 public class ModEventHandler {
-    public static final ResourceLocation MANA = new ResourceLocation(Reference.MOD_ID, "mana");
+    public static final ResourceLocation MANA = new ResourceLocation(IntoTheMaelstrom.MOD_ID, "mana");
     private static long timeSinceServerTick = System.nanoTime();
     public static boolean isInvasionEnabledViaGamestage = true;
 
@@ -138,7 +138,7 @@ public class ModEventHandler {
     public static void playerLoggedInEvent(PlayerLoggedInEvent event) {
         // Sync some of the config parameters
         if (ModConfig.server.sync_on_login) {
-            Main.network.sendTo(new MessageSyncConfig(ModConfig.balance.progression_scale, ModConfig.balance.weapon_damage, ModConfig.balance.armor_toughness, ModConfig.balance.elemental_factor), (EntityPlayerMP) event.player);
+            IntoTheMaelstrom.network.sendTo(new MessageSyncConfig(ModConfig.balance.progression_scale, ModConfig.balance.weapon_damage, ModConfig.balance.armor_toughness, ModConfig.balance.elemental_factor), (EntityPlayerMP) event.player);
         }
     }
 
@@ -168,7 +168,7 @@ public class ModEventHandler {
         if (invasionCounter.getInvasionTime() > 0 && previousTime >= warningMessageTime && invasionCounter.getInvasionTime() < warningMessageTime && !invasionCounter.isInvaded()) {
             event.world.playerEntities.forEach((p) -> {
                 p.sendMessage(
-                        new TextComponentString("" + TextFormatting.DARK_PURPLE + new TextComponentTranslation(Reference.MOD_ID + ".invasion_1").getFormattedText()));
+                        new TextComponentString("" + TextFormatting.DARK_PURPLE + new TextComponentTranslation(IntoTheMaelstrom.MOD_ID + ".invasion_1").getFormattedText()));
             });
         }
 
@@ -228,7 +228,7 @@ public class ModEventHandler {
                 if (positions.size() > 0) {
                     event.world.playerEntities.forEach((p) -> {
                         p.sendMessage(new TextComponentString(
-                                "" + TextFormatting.DARK_PURPLE + new TextComponentTranslation(Reference.MOD_ID + ".invasion_2").getFormattedText()));
+                                "" + TextFormatting.DARK_PURPLE + new TextComponentTranslation(IntoTheMaelstrom.MOD_ID + ".invasion_2").getFormattedText()));
                     });
                     invasionCounter.setInvaded(true);
                     BlockPos structurePos = positions.get(variations.indexOf(Collections.min(variations)));
@@ -284,7 +284,7 @@ public class ModEventHandler {
 
                     if (result != null) {
                         if (result.typeOfHit == RayTraceResult.Type.ENTITY) {
-                            Main.network.sendToServer(new MessageExtendedReachAttack(result.entityHit.getEntityId()));
+                            IntoTheMaelstrom.network.sendToServer(new MessageExtendedReachAttack(result.entityHit.getEntityId()));
                             mc.player.resetCooldown();
                         } else if (result.typeOfHit == RayTraceResult.Type.MISS) {
                             mc.player.resetCooldown();
@@ -319,7 +319,7 @@ public class ModEventHandler {
      */
     private static void handleEmptyLeftClick(PlayerInteractEvent event) {
         if (event.getItemStack().getItem() instanceof ToolSword) {
-            Main.network.sendToServer(new MessageEmptySwing());
+            IntoTheMaelstrom.network.sendToServer(new MessageEmptySwing());
         }
     }
 

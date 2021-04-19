@@ -1,6 +1,6 @@
 package com.barribob.MaelstromMod.entity.entities;
 
-import com.barribob.MaelstromMod.Main;
+import com.barribob.MaelstromMod.IntoTheMaelstrom;
 import com.barribob.MaelstromMod.entity.ai.AIFuryDive;
 import com.barribob.MaelstromMod.entity.ai.AIPassiveCircle;
 import com.barribob.MaelstromMod.entity.ai.AIRandomFly;
@@ -87,7 +87,7 @@ public class EntityMaelstromFury extends EntityMaelstromMob implements IAccelera
                 .build();
         float velocity = (float) entityVelocity.lengthVector();
         ModUtils.handleAreaImpact(0.7f, e -> getAttack() * velocity * 2, this, spearPos, damageSource, 0.5f, 0);
-        Main.network.sendToAllTracking(new MessageModParticles(EnumModParticles.EFFECT, spearPos, entityVelocity, ModColors.PURPLE), this);
+        IntoTheMaelstrom.network.sendToAllTracking(new MessageModParticles(EnumModParticles.EFFECT, spearPos, entityVelocity, ModColors.PURPLE), this);
     }
 
     private void onDiveEnd() {

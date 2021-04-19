@@ -1,8 +1,8 @@
 package com.barribob.MaelstromMod.entity.render;
 
+import com.barribob.MaelstromMod.IntoTheMaelstrom;
 import com.barribob.MaelstromMod.entity.entities.EntityGoldenBoss;
 import com.barribob.MaelstromMod.util.ModDamageSource;
-import com.barribob.MaelstromMod.util.Reference;
 import com.barribob.MaelstromMod.util.RenderUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
@@ -13,7 +13,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
 public class LayerStatueOfNirvanaArmor implements LayerRenderer<EntityGoldenBoss> {
-    private static final ResourceLocation ARMOR_TEXTURE = new ResourceLocation(Reference.MOD_ID + ":textures/entity/statue_armor.png");
+    private static final ResourceLocation ARMOR_TEXTURE = new ResourceLocation(IntoTheMaelstrom.MOD_ID + ":textures/entity/statue_armor.png");
     private final RenderStatueOfNirvana render;
 
     public LayerStatueOfNirvanaArmor(RenderStatueOfNirvana render) {

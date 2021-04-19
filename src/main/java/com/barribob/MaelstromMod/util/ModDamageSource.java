@@ -1,5 +1,6 @@
 package com.barribob.MaelstromMod.util;
 
+import com.barribob.MaelstromMod.IntoTheMaelstrom;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -11,12 +12,12 @@ import javax.annotation.Nullable;
  * Holds the custom damage sources that is the maelstrom damage type
  */
 public class ModDamageSource {
-    public static final String MAELSTROM = Reference.MOD_ID + ":" + "maelstrom";
-    public static final String MOB = Reference.MOD_ID + ":" + "mobMaelstrom";
-    public static final String PLAYER = Reference.MOD_ID + ":" + "playerMaelstrom";
-    public static final String PROJECTILE = Reference.MOD_ID + ":" + "thrownMaelstrom";
-    public static final String EXPLOSION = Reference.MOD_ID + ":" + "explosionMaelstrom.player";
-    public static final String MAGIC = Reference.MOD_ID + ":" + "magicMaelstrom";
+    public static final String MAELSTROM = IntoTheMaelstrom.MOD_ID + ":" + "maelstrom";
+    public static final String MOB = IntoTheMaelstrom.MOD_ID + ":" + "mobMaelstrom";
+    public static final String PLAYER = IntoTheMaelstrom.MOD_ID + ":" + "playerMaelstrom";
+    public static final String PROJECTILE = IntoTheMaelstrom.MOD_ID + ":" + "thrownMaelstrom";
+    public static final String EXPLOSION = IntoTheMaelstrom.MOD_ID + ":" + "explosionMaelstrom.player";
+    public static final String MAGIC = IntoTheMaelstrom.MOD_ID + ":" + "magicMaelstrom";
 
     public static final DamageSource MAELSTROM_DAMAGE = (new DamageSource(MAELSTROM));
 

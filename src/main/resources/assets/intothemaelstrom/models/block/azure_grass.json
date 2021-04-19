@@ -1,0 +1,11 @@
+{
+    "parent": "block/grass",
+    "textures": {
+        "particle": "intothemaelstrom:blocks/azure_grass_top",
+        "bottom": "intothemaelstrom:blocks/dark_azure_stone",
+        "top": "intothemaelstrom:blocks/azure_grass_top",
+        "side": "intothemaelstrom:blocks/azure_grass_side",
+        "overlay": "intothemaelstrom:blocks/azure_grass_side"
+    }
+}
+

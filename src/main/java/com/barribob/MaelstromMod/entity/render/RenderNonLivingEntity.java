@@ -1,6 +1,6 @@
 package com.barribob.MaelstromMod.entity.render;
 
-import com.barribob.MaelstromMod.util.Reference;
+import com.barribob.MaelstromMod.IntoTheMaelstrom;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.GLAllocation;
@@ -67,7 +67,7 @@ public class RenderNonLivingEntity<T extends Entity> extends Render<T> {
 
     @Override
     protected ResourceLocation getEntityTexture(Entity entity) {
-        return new ResourceLocation(Reference.MOD_ID + ":textures/entity/" + texture);
+        return new ResourceLocation(IntoTheMaelstrom.MOD_ID + ":textures/entity/" + texture);
     }
 
     protected void renderModel(T entitylivingbaseIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor) {

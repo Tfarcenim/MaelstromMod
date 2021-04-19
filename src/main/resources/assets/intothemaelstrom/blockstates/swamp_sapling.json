@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "stage=0": { "model": "intothemaelstrom:swamp_sapling" },
+        "stage=1": { "model": "intothemaelstrom:swamp_sapling" }
+    }
+}

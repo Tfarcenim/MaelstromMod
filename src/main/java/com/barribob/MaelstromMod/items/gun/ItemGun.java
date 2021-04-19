@@ -1,11 +1,9 @@
 package com.barribob.MaelstromMod.items.gun;
 
 import com.barribob.MaelstromMod.config.ModConfig;
-import com.barribob.MaelstromMod.init.ModCreativeTabs;
 import com.barribob.MaelstromMod.init.ModEnchantments;
 import com.barribob.MaelstromMod.init.ModItems;
 import com.barribob.MaelstromMod.items.ILeveledItem;
-import com.barribob.MaelstromMod.items.ItemBase;
 import com.barribob.MaelstromMod.items.gun.bullet.BulletFactory;
 import com.barribob.MaelstromMod.items.gun.bullet.StandardBullet;
 import com.barribob.MaelstromMod.util.Element;
@@ -38,7 +36,7 @@ import java.util.function.Consumer;
  * The base class for the mod's cooldown weapons. keeps track of cooldown and
  * calls shoot() when the gun sucessfully shoots
  */
-public abstract class ItemGun extends ItemBase implements ILeveledItem, Reloadable, IElement {
+public abstract class ItemGun extends Item implements ILeveledItem, Reloadable, IElement {
     private final int maxCooldown;
     private static final int SMOKE_PARTICLES = 4;
     private float level;
@@ -48,8 +46,7 @@ public abstract class ItemGun extends ItemBase implements ILeveledItem, Reloadab
     };
     private Element element = Element.NONE;
 
-    public ItemGun(String name, int cooldown, float damage, float level) {
-        super(name, ModCreativeTabs.ITEMS);
+    public ItemGun(int cooldown, float damage, float level) {
         this.maxStackSize = 1;
         this.maxCooldown = cooldown;
         this.level = level;
@@ -58,8 +55,8 @@ public abstract class ItemGun extends ItemBase implements ILeveledItem, Reloadab
         this.factory = new StandardBullet();
     }
 
-    public ItemGun(String name, int cooldown, float damage, float level, Element element) {
-        this(name, cooldown, damage, level);
+    public ItemGun(int cooldown, float damage, float level, Element element) {
+        this(cooldown, damage, level);
         this.element = element;
     }
 

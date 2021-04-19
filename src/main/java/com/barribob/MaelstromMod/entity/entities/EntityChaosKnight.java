@@ -1,6 +1,6 @@
 package com.barribob.MaelstromMod.entity.entities;
 
-import com.barribob.MaelstromMod.Main;
+import com.barribob.MaelstromMod.IntoTheMaelstrom;
 import com.barribob.MaelstromMod.entity.EntityCrimsonPortalSpawn;
 import com.barribob.MaelstromMod.entity.ai.EntityAITimedAttack;
 import com.barribob.MaelstromMod.entity.projectile.ProjectileChaosFireball;
@@ -129,7 +129,7 @@ public class EntityChaosKnight extends EntityMaelstromMob implements IAttack, Di
         this.chargeDir = teleportPos.get();
 
         // Send the aimed position to the client side
-        Main.network.sendToAllTracking(new MessageDirectionForRender(this, this.chargeDir), this);
+        IntoTheMaelstrom.network.sendToAllTracking(new MessageDirectionForRender(this, this.chargeDir), this);
 
         addEvent(() -> {
             world.createExplosion(this, posX, posY, posZ, 2, false);

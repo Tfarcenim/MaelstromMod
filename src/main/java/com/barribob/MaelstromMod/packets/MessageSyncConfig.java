@@ -1,7 +1,7 @@
 package com.barribob.MaelstromMod.packets;
 
+import com.barribob.MaelstromMod.IntoTheMaelstrom;
 import com.barribob.MaelstromMod.config.ModConfig;
-import com.barribob.MaelstromMod.util.Reference;
 import io.netty.buffer.ByteBuf;
 import net.minecraftforge.common.config.Config.Type;
 import net.minecraftforge.common.config.ConfigManager;
@@ -49,7 +49,7 @@ public class MessageSyncConfig implements IMessage {
             ModConfig.balance.weapon_damage = message.weapon_damage;
             ModConfig.balance.armor_toughness = message.armor_toughness;
             ModConfig.balance.elemental_factor = message.elemental_factor;
-            ConfigManager.sync(Reference.MOD_ID, Type.INSTANCE);
+            ConfigManager.sync(IntoTheMaelstrom.MOD_ID, Type.INSTANCE);
             return null;
         }
     }

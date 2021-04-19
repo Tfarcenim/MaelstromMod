@@ -48,7 +48,7 @@ public class ProjectileMaelstromMeteor extends Projectile {
         });
     }
 
-    private static final WorldGenMaelstrom maelStromGenerator = new WorldGenMaelstrom(ModBlocks.DECAYING_MAELSTROM, ModBlocks.MAELSTROM_CORE, (tileEntity) -> tileEntity.getSpawnerBaseLogic().setData(
+    private static final WorldGenMaelstrom maelStromGenerator = new WorldGenMaelstrom(ModBlocks.DECAYING_MAELSTROM, ModBlocks.MAELSTROM_CORE_BLOCK, (tileEntity) -> tileEntity.getSpawnerBaseLogic().setData(
             new MobSpawnData(ModEntities.getID(EntityShade.class), Element.NONE),
             2,
             LevelHandler.INVASION,

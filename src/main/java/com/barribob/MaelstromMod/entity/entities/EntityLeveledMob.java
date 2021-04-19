@@ -1,6 +1,6 @@
 package com.barribob.MaelstromMod.entity.entities;
 
-import com.barribob.MaelstromMod.Main;
+import com.barribob.MaelstromMod.IntoTheMaelstrom;
 import com.barribob.MaelstromMod.config.ModConfig;
 import com.barribob.MaelstromMod.entity.ai.ModGroundNavigator;
 import com.barribob.MaelstromMod.entity.animation.Animation;
@@ -62,8 +62,8 @@ public abstract class EntityLeveledMob extends EntityCreature implements IAnimat
         EntityEntry entry = EntityRegistry.getEntry(this.getClass());
         if(entry != null) {
             String entityName = entry.getName();
-            if (Main.mobsConfig.hasPath(entityName)) {
-                return Main.mobsConfig.getConfig(entityName);
+            if (IntoTheMaelstrom.mobsConfig.hasPath(entityName)) {
+                return IntoTheMaelstrom.mobsConfig.getConfig(entityName);
             }
         }
         return ConfigFactory.empty();

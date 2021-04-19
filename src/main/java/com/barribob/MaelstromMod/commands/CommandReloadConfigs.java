@@ -1,6 +1,6 @@
 package com.barribob.MaelstromMod.commands;
 
-import com.barribob.MaelstromMod.Main;
+import com.barribob.MaelstromMod.IntoTheMaelstrom;
 import com.google.common.collect.Lists;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandException;
@@ -28,11 +28,11 @@ public class CommandReloadConfigs extends CommandBase {
     @Override
     public void execute(MinecraftServer server, ICommandSender sender, String[] args) throws CommandException {
         try {
-            Main.loadConfigs();
-            getCommandSenderAsPlayer(sender).sendMessage(new TextComponentTranslation("mm.config_load_success"));
+            IntoTheMaelstrom.loadConfigs();
+            getCommandSenderAsPlayer(sender).sendMessage(new TextComponentTranslation("intothemaelstrom.config_load_success"));
         } catch (Exception e) {
-            Main.log.error(e);
-            String message = "" + new TextComponentTranslation("mm.config_load_failed").getFormattedText();
+            IntoTheMaelstrom.log.error(e);
+            String message = "" + new TextComponentTranslation("intothemaelstrom.config_load_failed").getFormattedText();
             throw new CommandException(message);
         }
     }

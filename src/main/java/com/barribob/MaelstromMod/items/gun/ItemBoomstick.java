@@ -21,7 +21,7 @@ public class ItemBoomstick extends ItemGun {
     protected float pelletCount = 15;
 
     public ItemBoomstick(String name, float level) {
-        super(name, 60, 1, level);
+        super(60, 1, level);
     }
 
     /**

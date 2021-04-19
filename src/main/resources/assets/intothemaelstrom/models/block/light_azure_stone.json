@@ -1,0 +1,6 @@
+{
+   "parent": "block/cube_all",
+   "textures": {
+       "all": "intothemaelstrom:blocks/light_azure_stone"
+   }
+}

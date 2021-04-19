@@ -1,8 +1,8 @@
 package com.barribob.MaelstromMod.event_handlers;
 
+import com.barribob.MaelstromMod.IntoTheMaelstrom;
 import com.barribob.MaelstromMod.items.ItemModElytra;
 import com.barribob.MaelstromMod.util.ModUtils;
-import com.barribob.MaelstromMod.util.Reference;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
@@ -16,7 +16,7 @@ import java.util.WeakHashMap;
 /**
  * Code based heavily on {@link https://github.com/GlassPane/Powered-Elytra} Handles the server side ticking of custom Elytras
  */
-@Mod.EventBusSubscriber(modid = Reference.MOD_ID)
+@Mod.EventBusSubscriber(modid = IntoTheMaelstrom.MOD_ID)
 public class ServerElytraEventHandler {
 
     /**

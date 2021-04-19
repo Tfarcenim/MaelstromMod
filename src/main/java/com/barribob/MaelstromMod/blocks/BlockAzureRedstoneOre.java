@@ -26,10 +26,6 @@ public class BlockAzureRedstoneOre extends BlockRedstoneOre {
         super(false);
         setUnlocalizedName(name);
         setRegistryName(name);
-
-        // Add both an item as a block and the block itself
-        ModBlocks.BLOCKS.add(this);
-        ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
     }
 
     public BlockAzureRedstoneOre(String name, float hardness, float resistance, SoundType soundType) {

@@ -1,6 +1,6 @@
 package com.barribob.MaelstromMod.entity.util;
 
-import com.barribob.MaelstromMod.Main;
+import com.barribob.MaelstromMod.IntoTheMaelstrom;
 import com.barribob.MaelstromMod.packets.MessageDirectionForRender;
 import com.barribob.MaelstromMod.util.ModColors;
 import com.barribob.MaelstromMod.util.ModUtils;
@@ -26,7 +26,7 @@ public class EntityTuningForkLazer extends Entity implements DirectionalRender {
     @Override
     public void onUpdate() {
         if (this.ticksExisted > 1 && !this.world.isRemote) {
-            Main.network.sendToAllTracking(new MessageDirectionForRender(this, renderLazerPos), this);
+            IntoTheMaelstrom.network.sendToAllTracking(new MessageDirectionForRender(this, renderLazerPos), this);
             world.setEntityState(this, ModUtils.PARTICLE_BYTE);
         }
         if (this.ticksExisted > TICK_LIFE) {

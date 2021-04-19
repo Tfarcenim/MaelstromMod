@@ -1,6 +1,6 @@
 package com.barribob.MaelstromMod.gui;
 
-import com.barribob.MaelstromMod.util.Reference;
+import com.barribob.MaelstromMod.IntoTheMaelstrom;
 import net.minecraft.client.gui.GuiDownloadTerrain;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
@@ -16,7 +16,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  */
 @SideOnly(Side.CLIENT)
 public class GuiModDownloadTerrain extends GuiDownloadTerrain {
-    private ResourceLocation background = new ResourceLocation(Reference.MOD_ID + ":textures/gui/dark_azure_stone.png");
+    private ResourceLocation background = new ResourceLocation(IntoTheMaelstrom.MOD_ID + ":textures/gui/dark_azure_stone.png");
     private String dimension;
 
     public GuiModDownloadTerrain(ResourceLocation backgroundTile, String dimension) {

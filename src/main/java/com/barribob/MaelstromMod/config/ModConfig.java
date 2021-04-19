@@ -1,7 +1,6 @@
 package com.barribob.MaelstromMod.config;
 
-import com.barribob.MaelstromMod.Main;
-import com.barribob.MaelstromMod.util.Reference;
+import com.barribob.MaelstromMod.IntoTheMaelstrom;
 import net.minecraftforge.common.config.Config;
 import net.minecraftforge.common.config.Config.Type;
 import net.minecraftforge.common.config.ConfigManager;
@@ -12,11 +11,11 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 /**
  * Configuration file for the mod
  */
-@Config(modid = Reference.MOD_ID, name = Main.CONFIG_DIRECTORY_NAME + "/config")
+@Config(modid = IntoTheMaelstrom.MOD_ID, name = IntoTheMaelstrom.CONFIG_DIRECTORY_NAME + "/config")
 @Mod.EventBusSubscriber()
 public class ModConfig {
     @Config.Ignore
-    private static final String config = Reference.MOD_ID + ".config.";
+    private static final String config = IntoTheMaelstrom.MOD_ID + ".config.";
 
     @Config.LangKey(config + "shaders")
     @Config.Comment("Options to turn off features that are known to conflict visually with shaders.")
@@ -190,8 +189,8 @@ public class ModConfig {
 
     @SubscribeEvent
     public static void onConfigChangedEvent(ConfigChangedEvent.OnConfigChangedEvent event) {
-        if (event.getModID().equals(Reference.MOD_ID)) {
-            ConfigManager.sync(Reference.MOD_ID, Type.INSTANCE);
+        if (event.getModID().equals(IntoTheMaelstrom.MOD_ID)) {
+            ConfigManager.sync(IntoTheMaelstrom.MOD_ID, Type.INSTANCE);
         }
     }
 }

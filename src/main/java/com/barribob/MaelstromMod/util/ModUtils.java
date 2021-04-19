@@ -1,6 +1,6 @@
 package com.barribob.MaelstromMod.util;
 
-import com.barribob.MaelstromMod.Main;
+import com.barribob.MaelstromMod.IntoTheMaelstrom;
 import com.barribob.MaelstromMod.config.ModConfig;
 import com.barribob.MaelstromMod.entity.entities.EntityLeveledMob;
 import com.barribob.MaelstromMod.entity.entities.EntityMaelstromHealer;
@@ -75,11 +75,11 @@ public final class ModUtils {
      * This is only for the maelstrom mob death particles so it doesn't intersect with the other particle bytes.
      */
     public static byte MAELSTROM_PARTICLE_BYTE = 17;
-    public static final String LANG_DESC = Reference.MOD_ID + ".desc.";
-    public static final String LANG_CHAT = Reference.MOD_ID + ".dialog.";
+    public static final String LANG_DESC = IntoTheMaelstrom.MOD_ID + ".desc.";
+    public static final String LANG_CHAT = IntoTheMaelstrom.MOD_ID + ".dialog.";
     public static final DecimalFormat DF_0 = new DecimalFormat("0.0");
     public static final DecimalFormat ROUND = new DecimalFormat("0");
-    public static final ResourceLocation PARTICLE = new ResourceLocation(Reference.MOD_ID + ":textures/particle/particles.png");
+    public static final ResourceLocation PARTICLE = new ResourceLocation(IntoTheMaelstrom.MOD_ID + ":textures/particle/particles.png");
 
     static {
         DF_0.setRoundingMode(RoundingMode.HALF_EVEN);
@@ -480,7 +480,7 @@ public final class ModUtils {
 
         // Spawn colored sweep particles
         if (!player.world.isRemote && player instanceof EntityPlayerMP) {
-            Main.network.sendTo(new MessageModParticles(EnumModParticles.SWEEP_ATTACK, getCenter(box), Vec3d.ZERO, element.sweepColor), (EntityPlayerMP) player);
+            IntoTheMaelstrom.network.sendTo(new MessageModParticles(EnumModParticles.SWEEP_ATTACK, getCenter(box), Vec3d.ZERO, element.sweepColor), (EntityPlayerMP) player);
         }
 
         Entity particle = new ParticleSpawnerSwordSwing(player.world);
@@ -1090,7 +1090,7 @@ public final class ModUtils {
         try {
             return JsonToNBT.getTagFromJson(config.root().render(ConfigRenderOptions.concise()));
         } catch (NBTException e) {
-            Main.log.error("Malformed NBT tag", e);
+            IntoTheMaelstrom.log.error("Malformed NBT tag", e);
         }
         return new NBTTagCompound();
     }
@@ -1243,7 +1243,7 @@ public final class ModUtils {
     }
 
     public static SoundEvent getConfiguredSound(SoundEvent sound, SoundEvent fallback){
-        if (Main.soundsConfig.getBoolean(sound.soundName.getResourcePath())) {
+        if (IntoTheMaelstrom.soundsConfig.getBoolean(sound.soundName.getResourcePath())) {
             return sound;
         } else {
             return fallback;

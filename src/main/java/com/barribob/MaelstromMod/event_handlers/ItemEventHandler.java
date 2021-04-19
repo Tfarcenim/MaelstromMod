@@ -1,6 +1,6 @@
 package com.barribob.MaelstromMod.event_handlers;
 
-import com.barribob.MaelstromMod.Main;
+import com.barribob.MaelstromMod.IntoTheMaelstrom;
 import com.barribob.MaelstromMod.entity.particleSpawners.ParticleSpawnerRainbow;
 import com.barribob.MaelstromMod.init.ModItems;
 import com.barribob.MaelstromMod.init.ModPotions;
@@ -45,7 +45,7 @@ public class ItemEventHandler {
             Item leggings = player.inventory.armorInventory.get(1).getItem();
             Item boots = player.inventory.armorInventory.get(0).getItem();
             
-            Config bonusConfig = Main.itemsConfig.getConfig("full_set_bonuses");
+            Config bonusConfig = IntoTheMaelstrom.itemsConfig.getConfig("full_set_bonuses");
 
             if (((heldItem.equals(ModItems.BAKUYA) && offhandItem.equals(ModItems.KANSHOU)) || (heldItem.equals(ModItems.KANSHOU) && offhandItem.equals(ModItems.BAKUYA))) && bonusConfig.getBoolean("kanshou_bakuya")) {
                 player.addPotionEffect(new PotionEffect(MobEffects.STRENGTH, 20, 1));
@@ -56,7 +56,7 @@ public class ItemEventHandler {
                 if (!mana.isLocked() && mana.getMana() > 0) {
                     if (!player.capabilities.isCreativeMode && player.ticksExisted % 40 == 0) {
                         mana.consume(1);
-                        Main.network.sendTo(new MessageMana(mana.getMana()), (EntityPlayerMP) player);
+                        IntoTheMaelstrom.network.sendTo(new MessageMana(mana.getMana()), (EntityPlayerMP) player);
                     }
                     player.addPotionEffect(new PotionEffect(ModPotions.water_strider, 40));
                 }

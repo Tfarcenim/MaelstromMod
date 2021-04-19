@@ -1,7 +1,7 @@
 package com.barribob.MaelstromMod.entity.render;
 
+import com.barribob.MaelstromMod.IntoTheMaelstrom;
 import com.barribob.MaelstromMod.entity.model.ModelMaelstromGauntlet;
-import com.barribob.MaelstromMod.util.Reference;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.util.ResourceLocation;
@@ -17,9 +17,9 @@ public class RenderMaelstromGauntlet extends RenderModEntity<EntityLiving> {
     @Override
     protected ResourceLocation getEntityTexture(EntityLiving entity) {
         if (entity.hurtTime > 0) {
-            return new ResourceLocation(Reference.MOD_ID + ":textures/entity/maelstrom_gauntlet_hurt.png");
+            return new ResourceLocation(IntoTheMaelstrom.MOD_ID + ":textures/entity/maelstrom_gauntlet_hurt.png");
         } else if (entity.getHealth() / entity.getMaxHealth() < 0.55) {
-            return new ResourceLocation(Reference.MOD_ID + ":textures/entity/maelstrom_gauntlet_low_health.png");
+            return new ResourceLocation(IntoTheMaelstrom.MOD_ID + ":textures/entity/maelstrom_gauntlet_low_health.png");
         }
         return super.getEntityTexture(entity);
     }

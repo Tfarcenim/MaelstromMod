@@ -1,0 +1,6 @@
+{
+   "parent": "intothemaelstrom:item/repeater",
+   "textures": {
+       "0": "intothemaelstrom:items/golden_repeater"
+   }
+}

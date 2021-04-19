@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": [
+      {
+        "item": "intothemaelstrom:crimson_maelstrom_fragment",
+        "data": 0
+      }
+    ]
+  },
+  "result": {
+    "item": "intothemaelstrom:crimson_maelstrom_core"
+  }
+}

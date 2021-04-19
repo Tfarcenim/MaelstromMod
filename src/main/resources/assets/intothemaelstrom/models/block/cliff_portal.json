@@ -1,0 +1,8 @@
+{
+    "parent": "intothemaelstrom:block/quarter_slab",
+    "textures": {
+        "bottom": "intothemaelstrom:blocks/cliff_portal",
+        "top": "intothemaelstrom:blocks/cliff_portal",
+        "side": "intothemaelstrom:blocks/cliff_portal"
+    }
+}

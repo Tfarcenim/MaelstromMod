@@ -1,14 +1,11 @@
 package com.barribob.MaelstromMod.init;
 
-import com.barribob.MaelstromMod.Main;
 import com.barribob.MaelstromMod.config.ModConfig;
 import com.barribob.MaelstromMod.world.dimension.azure_dimension.DimensionAzure;
 import com.barribob.MaelstromMod.world.dimension.cliff.DimensionCliff;
 import com.barribob.MaelstromMod.world.dimension.crimson_kingdom.DimensionCrimsonKingdom;
 import com.barribob.MaelstromMod.world.dimension.dark_nexus.DimensionDarkNexus;
 import com.barribob.MaelstromMod.world.dimension.nexus.DimensionNexus;
-import com.typesafe.config.Config;
-import com.typesafe.config.ConfigFactory;
 import net.minecraft.world.DimensionType;
 import net.minecraftforge.common.DimensionManager;
 

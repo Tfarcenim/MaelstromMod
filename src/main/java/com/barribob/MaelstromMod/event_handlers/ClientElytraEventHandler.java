@@ -1,10 +1,9 @@
 package com.barribob.MaelstromMod.event_handlers;
 
-import com.barribob.MaelstromMod.Main;
+import com.barribob.MaelstromMod.IntoTheMaelstrom;
 import com.barribob.MaelstromMod.entity.model.LayerModElytra;
 import com.barribob.MaelstromMod.items.ItemModElytra;
 import com.barribob.MaelstromMod.packets.MessageStartElytraFlying;
-import com.barribob.MaelstromMod.util.Reference;
 import net.minecraft.client.entity.AbstractClientPlayer;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.entity.player.EntityPlayer;
@@ -20,7 +19,7 @@ import java.util.Collections;
 import java.util.Set;
 import java.util.WeakHashMap;
 
-@Mod.EventBusSubscriber(modid = Reference.MOD_ID, value = Side.CLIENT)
+@Mod.EventBusSubscriber(modid = IntoTheMaelstrom.MOD_ID, value = Side.CLIENT)
 public class ClientElytraEventHandler {
     static boolean prevJumpTick;
     private static Set<EntityPlayer> layeredPlayers = Collections.newSetFromMap(new WeakHashMap<EntityPlayer, Boolean>());
@@ -33,7 +32,7 @@ public class ClientElytraEventHandler {
                 ItemStack itemstack = player.getItemStackFromSlot(EntityEquipmentSlot.CHEST);
 
                 if (itemstack.getItem() instanceof ItemModElytra) {
-                    Main.network.sendToServer(new MessageStartElytraFlying());
+                    IntoTheMaelstrom.network.sendToServer(new MessageStartElytraFlying());
                 }
             }
             prevJumpTick = player.movementInput.jump;

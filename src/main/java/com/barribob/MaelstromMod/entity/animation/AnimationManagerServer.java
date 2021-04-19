@@ -1,6 +1,6 @@
 package com.barribob.MaelstromMod.entity.animation;
 
-import com.barribob.MaelstromMod.Main;
+import com.barribob.MaelstromMod.IntoTheMaelstrom;
 import com.barribob.MaelstromMod.init.ModBBAnimations;
 import com.barribob.MaelstromMod.packets.MessageLoopAnimationUpdate;
 import net.minecraft.entity.EntityLivingBase;
@@ -68,7 +68,7 @@ public class AnimationManagerServer {
 
                 for (Entry<String, Integer> kv : entry.getValue().entrySet()) {
                     if (kv.getValue() % REFRESH_RATE == 0) {
-                        Main.network.sendToAllTracking(new MessageLoopAnimationUpdate(ModBBAnimations.getAnimationId(kv.getKey()), entity.getEntityId()), entity);
+                        IntoTheMaelstrom.network.sendToAllTracking(new MessageLoopAnimationUpdate(ModBBAnimations.getAnimationId(kv.getKey()), entity.getEntityId()), entity);
                     }
                     kv.setValue(kv.getValue() + 1);
                 }

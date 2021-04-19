@@ -1,12 +1,10 @@
 package com.barribob.MaelstromMod.blocks;
 
-import com.barribob.MaelstromMod.Main;
 import com.barribob.MaelstromMod.init.ModBlocks;
 import com.barribob.MaelstromMod.init.ModItems;
 import net.minecraft.block.BlockLeaves;
 import net.minecraft.block.BlockPlanks.EnumType;
 import net.minecraft.block.SoundType;
-import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;
@@ -32,10 +30,6 @@ public class BlockLeavesBase extends BlockLeaves {
         // Adds states so that we can use the BlockLeaves decaying feature
         setDefaultState(blockState.getBaseState().withProperty(CHECK_DECAY, true)
                 .withProperty(DECAYABLE, true));
-
-        // Add both an item as a block and the block itself
-        ModBlocks.BLOCKS.add(this);
-        ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
     }
 
     public BlockLeavesBase(String name, float hardness, float resistance, SoundType soundType) {

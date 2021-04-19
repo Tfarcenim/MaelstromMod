@@ -1,6 +1,6 @@
 package com.barribob.MaelstromMod.entity.entities;
 
-import com.barribob.MaelstromMod.Main;
+import com.barribob.MaelstromMod.IntoTheMaelstrom;
 import com.barribob.MaelstromMod.config.ModConfig;
 import com.barribob.MaelstromMod.entity.action.IAction;
 import com.barribob.MaelstromMod.entity.ai.EntityAITimedAttack;
@@ -491,7 +491,7 @@ public class EntityMonolith extends EntityMaelstromMob implements IAttack, Direc
                     .subtract(getPositionVector().add(ModUtils.yVec(this.getEyeHeight()))).normalize().scale(20).add(getPositionVector());
 
             // Send the aimed position to the client side
-            Main.network.sendToAllTracking(new MessageDirectionForRender(this, this.lazerDir), this);
+            IntoTheMaelstrom.network.sendToAllTracking(new MessageDirectionForRender(this, this.lazerDir), this);
         }
     }
 

@@ -1,11 +1,11 @@
 package com.barribob.MaelstromMod.entity.render;
 
+import com.barribob.MaelstromMod.IntoTheMaelstrom;
 import com.barribob.MaelstromMod.entity.entities.EntityChaosKnight;
 import com.barribob.MaelstromMod.entity.model.ModelChaosKnight;
 import com.barribob.MaelstromMod.entity.model.ModelChaosShield;
 import com.barribob.MaelstromMod.util.ModColors;
 import com.barribob.MaelstromMod.util.ModUtils;
-import com.barribob.MaelstromMod.util.Reference;
 import com.barribob.MaelstromMod.util.RenderUtils;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderManager;
@@ -31,7 +31,7 @@ public class RenderChaosKnight extends RenderModEntity<EntityChaosKnight> {
 
     private class LayerShield implements LayerRenderer<EntityChaosKnight> {
         private ModelChaosShield shield;
-        private final ResourceLocation SHIELD = new ResourceLocation(Reference.MOD_ID + ":textures/entity/chaos_shield.png");
+        private final ResourceLocation SHIELD = new ResourceLocation(IntoTheMaelstrom.MOD_ID + ":textures/entity/chaos_shield.png");
 
         public LayerShield(ModelChaosShield shield) {
             this.shield = shield;

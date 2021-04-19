@@ -1,0 +1,6 @@
+{
+   "parent": "intothemaelstrom:item/flintlock_pistol",
+   "textures": {
+       "0": "intothemaelstrom:items/golden_pistol"
+   }
+}

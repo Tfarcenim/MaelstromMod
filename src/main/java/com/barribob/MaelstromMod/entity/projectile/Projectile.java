@@ -4,6 +4,7 @@ import com.barribob.MaelstromMod.init.ModItems;
 import com.barribob.MaelstromMod.util.Element;
 import com.barribob.MaelstromMod.util.IElement;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
@@ -29,7 +30,7 @@ public class Projectile extends EntityModThrowable implements IElement {
     private float damage = 0;
     protected static final DataParameter<Integer> ELEMENT = EntityDataManager.createKey(Projectile.class, DataSerializers.VARINT);
     protected float maxAge = 20 * 20;
-    private Item itemToRender = ModItems.INVISIBLE;
+    private Item itemToRender = Items.AIR;
 
     public Projectile(World worldIn, EntityLivingBase throwerIn, float damage) {
         super(worldIn, throwerIn);

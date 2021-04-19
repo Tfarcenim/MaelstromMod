@@ -1,6 +1,6 @@
 package com.barribob.MaelstromMod.event_handlers;
 
-import com.barribob.MaelstromMod.Main;
+import com.barribob.MaelstromMod.IntoTheMaelstrom;
 import com.barribob.MaelstromMod.config.ModConfig;
 import com.barribob.MaelstromMod.entity.entities.EntityMaelstromMob;
 import com.barribob.MaelstromMod.entity.util.LeapingEntity;
@@ -91,7 +91,7 @@ public class EntityEventHandler {
         if (event.getEntity() instanceof EntityPlayerMP) {
             EntityPlayerMP player = ((EntityPlayerMP) event.getEntity());
             if (DARK_NEXUS_PLAYERS.contains(player) && event.getEntity().dimension == ModDimensions.DARK_NEXUS.getId()) {
-                Main.network.sendTo(new MessagePlayDarkNexusWindSound(), player);
+                IntoTheMaelstrom.network.sendTo(new MessagePlayDarkNexusWindSound(), player);
                 DARK_NEXUS_PLAYERS.remove(player);
             }
         }
@@ -138,7 +138,7 @@ public class EntityEventHandler {
                         currentMana.setRecentlyConsumed(false);
                     } else {
                         currentMana.replenish(1f);
-                        Main.network.sendTo(new MessageMana(currentMana.getMana()), player);
+                        IntoTheMaelstrom.network.sendTo(new MessageMana(currentMana.getMana()), player);
                     }
                 }
             }

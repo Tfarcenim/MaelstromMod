@@ -1,8 +1,8 @@
 package com.barribob.MaelstromMod.entity.render;
 
+import com.barribob.MaelstromMod.IntoTheMaelstrom;
 import com.barribob.MaelstromMod.entity.entities.EntityLeveledMob;
 import com.barribob.MaelstromMod.entity.model.ModelAnimatedBiped;
-import com.barribob.MaelstromMod.util.Reference;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderManager;
@@ -33,7 +33,7 @@ public class RenderHerobrine extends RenderAnimatedBiped {
     }
 
     private class LayerHerobrineEyes implements LayerRenderer<EntityLeveledMob> {
-        private final ResourceLocation EYES = new ResourceLocation(Reference.MOD_ID + ":textures/entity/herobrine_eyes.png");
+        private final ResourceLocation EYES = new ResourceLocation(IntoTheMaelstrom.MOD_ID + ":textures/entity/herobrine_eyes.png");
 
         @Override
         public void doRenderLayer(EntityLeveledMob entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw,

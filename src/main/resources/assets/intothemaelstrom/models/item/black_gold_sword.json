@@ -1,0 +1,6 @@
+{
+   "parent": "item/handheld",
+   "textures": {
+       "layer0": "intothemaelstrom:items/black_gold_sword"
+   }
+}

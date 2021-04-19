@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "end": "intothemaelstrom:blocks/swamp_log",
+        "side": "intothemaelstrom:blocks/swamp_bark"
+    }
+}

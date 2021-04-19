@@ -1,9 +1,7 @@
 package com.barribob.MaelstromMod.items.tools;
 
-import com.barribob.MaelstromMod.Main;
 import com.barribob.MaelstromMod.config.ModConfig;
 import com.barribob.MaelstromMod.init.ModCreativeTabs;
-import com.barribob.MaelstromMod.init.ModItems;
 import com.barribob.MaelstromMod.items.ILeveledItem;
 import com.barribob.MaelstromMod.items.ISweepAttackOverride;
 import com.barribob.MaelstromMod.util.Element;
@@ -38,7 +36,6 @@ public class ToolSword extends ItemSword implements ISweepAttackOverride, ILevel
         setUnlocalizedName(name);
         setRegistryName(name);
         setCreativeTab(ModCreativeTabs.ITEMS);
-        ModItems.ITEMS.add(this);
         this.level = level;
     }
 

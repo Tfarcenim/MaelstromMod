@@ -96,8 +96,6 @@ public class EntityMaelstromMage extends EntityMaelstromMob {
         }
     }
 
-    ;
-
     @Override
     @SideOnly(Side.CLIENT)
     public void handleStatusUpdate(byte id) {
@@ -128,7 +126,7 @@ public class EntityMaelstromMage extends EntityMaelstromMob {
             double d2 = d0 - projectile.posY;
             double d3 = target.posZ - this.posZ;
             float f = MathHelper.sqrt(d1 * d1 + d3 * d3) * 0.2F;
-            projectile.shoot(d1, d2 + f, d3, this.PROJECTILE_SPEED, this.PROJECTILE_INACCURACY);
+            projectile.shoot(d1, d2 + f, d3, PROJECTILE_SPEED, PROJECTILE_INACCURACY);
             this.playSound(SoundEvents.ENTITY_BLAZE_SHOOT, 1.0F, 1.0F / (this.getRNG().nextFloat() * 0.4F + 0.8F));
             this.world.spawnEntity(projectile);
         }
@@ -161,20 +159,20 @@ public class EntityMaelstromMage extends EntityMaelstromMob {
         leftArmXStream.add(new AnimationClip<>(2, 60, 60, leftArmX));
         leftArmXStream.add(new AnimationClip<>(6, 60, 0, leftArmX));
 
-        leftArmZStream.add(new AnimationClip(10, 0, -25, leftArmZ));
-        leftArmZStream.add(new AnimationClip(12, -25, -25, leftArmZ));
-        leftArmZStream.add(new AnimationClip(6, -25, -20, leftArmZ));
-        leftArmZStream.add(new AnimationClip(6, -25, 0, leftArmZ));
+        leftArmZStream.add(new AnimationClip<>(10, 0, -25, leftArmZ));
+        leftArmZStream.add(new AnimationClip<>(12, -25, -25, leftArmZ));
+        leftArmZStream.add(new AnimationClip<>(6, -25, -20, leftArmZ));
+        leftArmZStream.add(new AnimationClip<>(6, -25, 0, leftArmZ));
 
-        bodyXStream.add(new AnimationClip(10, 0, -15, bodyX));
-        bodyXStream.add(new AnimationClip(14, -15, -15, bodyX));
-        bodyXStream.add(new AnimationClip(6, -15, 15, bodyX));
-        bodyXStream.add(new AnimationClip(4, 15, 0, bodyX));
+        bodyXStream.add(new AnimationClip<>(10, 0, -15, bodyX));
+        bodyXStream.add(new AnimationClip<>(14, -15, -15, bodyX));
+        bodyXStream.add(new AnimationClip<>(6, -15, 15, bodyX));
+        bodyXStream.add(new AnimationClip<>(4, 15, 0, bodyX));
 
-        rightArmXStream.add(new AnimationClip(10, 0, -40, rightArmX));
-        rightArmXStream.add(new AnimationClip(12, -40, -40, rightArmX));
-        rightArmXStream.add(new AnimationClip(6, -40, 40, rightArmX));
-        rightArmXStream.add(new AnimationClip(6, 40, 0, rightArmX));
+        rightArmXStream.add(new AnimationClip<>(10, 0, -40, rightArmX));
+        rightArmXStream.add(new AnimationClip<>(12, -40, -40, rightArmX));
+        rightArmXStream.add(new AnimationClip<>(6, -40, 40, rightArmX));
+        rightArmXStream.add(new AnimationClip<>(6, 40, 0, rightArmX));
 
         animation.add(leftArmXStream);
         animation.add(leftArmZStream);

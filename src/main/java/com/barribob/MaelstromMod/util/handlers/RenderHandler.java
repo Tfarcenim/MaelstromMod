@@ -1,5 +1,6 @@
 package com.barribob.MaelstromMod.util.handlers;
 
+import com.barribob.MaelstromMod.IntoTheMaelstrom;
 import com.barribob.MaelstromMod.entity.entities.*;
 import com.barribob.MaelstromMod.entity.entities.gauntlet.EntityAlternativeMaelstromGauntletStage1;
 import com.barribob.MaelstromMod.entity.entities.gauntlet.EntityAlternativeMaelstromGauntletStage2;
@@ -11,7 +12,6 @@ import com.barribob.MaelstromMod.entity.projectile.*;
 import com.barribob.MaelstromMod.entity.render.*;
 import com.barribob.MaelstromMod.entity.util.*;
 import com.barribob.MaelstromMod.init.ModItems;
-import com.barribob.MaelstromMod.util.Reference;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.Render;
@@ -33,8 +33,8 @@ public class RenderHandler {
         registerModEntityRenderer(EntityBeast.class, new ModelBeast(), "beast.png", "beast.png", "beast.png", "beast_crimson.png");
         registerModEntityRenderer(EntityMaelstromMage.class, new ModelMaelstromMage(), "maelstrom_mage.png", "maelstrom_mage_azure.png", "maelstrom_mage_golden.png", "maelstrom_mage_crimson.png");
         registerModEntityRenderer(EntityFloatingSkull.class, new ModelFloatingSkull(), "floating_skull.png");
-        registerModEntityRenderer(Herobrine.class, (manager) -> new RenderHerobrine(manager, new ResourceLocation(Reference.MOD_ID + ":textures/entity/herobrine_1.png")));
-        registerModEntityRenderer(EntityHerobrineOne.class, (manager) -> new RenderHerobrine(manager, new ResourceLocation(Reference.MOD_ID + ":textures/entity/shadow_clone.png")));
+        registerModEntityRenderer(Herobrine.class, (manager) -> new RenderHerobrine(manager, new ResourceLocation(IntoTheMaelstrom.MOD_ID + ":textures/entity/herobrine_1.png")));
+        registerModEntityRenderer(EntityHerobrineOne.class, (manager) -> new RenderHerobrine(manager, new ResourceLocation(IntoTheMaelstrom.MOD_ID + ":textures/entity/shadow_clone.png")));
         registerModEntityRenderer(NexusGunTrader.class, new ModelGunTrader(), "gun_trader.png");
         registerModEntityRenderer(NexusMageTrader.class, new ModelMageTrader(), "mage_trader.png");
         registerModEntityRenderer(NexusArmorer.class, new ModelArmorer(), "armorer.png");

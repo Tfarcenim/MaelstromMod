@@ -1,0 +1,16 @@
+{
+    "variants": {
+        "facing=down,triggered=true":  { "model": "intothemaelstrom:fan", "x": 180 },
+        "facing=up,triggered=true":    { "model": "intothemaelstrom:fan" },
+        "facing=north,triggered=true": { "model": "intothemaelstrom:fan", "x": 90 },
+        "facing=south,triggered=true": { "model": "intothemaelstrom:fan", "x": -90 },
+        "facing=west,triggered=true":  { "model": "intothemaelstrom:fan", "x": -90, "y": 90 },
+        "facing=east,triggered=true":  { "model": "intothemaelstrom:fan", "x": 90, "y":90 },
+        "facing=down,triggered=false":  { "model": "intothemaelstrom:fan_unpowered", "x": 180 },
+        "facing=up,triggered=false":    { "model": "intothemaelstrom:fan_unpowered" },
+        "facing=north,triggered=false": { "model": "intothemaelstrom:fan_unpowered", "x": 90 },
+        "facing=south,triggered=false": { "model": "intothemaelstrom:fan_unpowered", "x": -90 },
+        "facing=west,triggered=false":  { "model": "intothemaelstrom:fan_unpowered", "x": -90, "y": 90 },
+        "facing=east,triggered=false":  { "model": "intothemaelstrom:fan_unpowered", "x": 90, "y":90 }
+    }
+}

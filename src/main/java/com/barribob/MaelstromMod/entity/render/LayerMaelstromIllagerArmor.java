@@ -1,7 +1,7 @@
 package com.barribob.MaelstromMod.entity.render;
 
+import com.barribob.MaelstromMod.IntoTheMaelstrom;
 import com.barribob.MaelstromMod.entity.entities.EntityMaelstromIllager;
-import com.barribob.MaelstromMod.util.Reference;
 import com.barribob.MaelstromMod.util.RenderUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
@@ -15,7 +15,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  */
 @SideOnly(Side.CLIENT)
 public class LayerMaelstromIllagerArmor implements LayerRenderer<EntityMaelstromIllager> {
-    private static final ResourceLocation ARMOR_TEXTURE = new ResourceLocation(Reference.MOD_ID + ":textures/entity/illager_armor.png");
+    private static final ResourceLocation ARMOR_TEXTURE = new ResourceLocation(IntoTheMaelstrom.MOD_ID + ":textures/entity/illager_armor.png");
     private final RenderMaelstromIllager render;
 
     public LayerMaelstromIllagerArmor(RenderMaelstromIllager render) {

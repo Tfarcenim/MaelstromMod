@@ -1,6 +1,5 @@
 package com.barribob.MaelstromMod.blocks;
 
-import com.barribob.MaelstromMod.Main;
 import com.barribob.MaelstromMod.init.ModBlocks;
 import com.barribob.MaelstromMod.init.ModItems;
 import net.minecraft.block.BlockOre;
@@ -25,9 +24,6 @@ public class BlockAzureOre extends BlockOre {
         setUnlocalizedName(name);
         setRegistryName(name);
 
-        // Add both an item as a block and the block itself
-        ModBlocks.BLOCKS.add(this);
-        ModItems.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
     }
 
     public BlockAzureOre(String name, float hardness, float resistance, SoundType soundType) {

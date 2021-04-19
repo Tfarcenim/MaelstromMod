@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "end": "intothemaelstrom:blocks/azure_log_top",
+        "side": "intothemaelstrom:blocks/azure_log_side"
+    }
+}

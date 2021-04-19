@@ -1,0 +1,6 @@
+{
+   "parent": "intothemaelstrom:item/boomstick",
+   "textures": {
+       "2": "intothemaelstrom:items/energized_shotgun"
+   }
+}

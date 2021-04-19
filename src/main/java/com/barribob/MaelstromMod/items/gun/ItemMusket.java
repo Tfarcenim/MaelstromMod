@@ -26,7 +26,7 @@ public class ItemMusket extends ItemGun {
     private float meleeDamage = 5;
 
     public ItemMusket(String name, float level) {
-        super(name, 40, 8, level);
+        super(40, 8, level);
     }
 
     /**

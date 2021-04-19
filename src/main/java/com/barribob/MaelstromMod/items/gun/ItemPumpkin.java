@@ -16,7 +16,7 @@ import java.util.List;
 
 public class ItemPumpkin extends ItemGun {
     public ItemPumpkin(String name, int cooldown, Item ammo, float level) {
-        super(name, cooldown, 0.5f, level);
+        super(cooldown, 0.5f, level);
     }
 
     /**

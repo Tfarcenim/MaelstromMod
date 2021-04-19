@@ -10,7 +10,7 @@ import net.minecraft.world.World;
 
 public class ItemRifle extends ItemGun {
     public ItemRifle(String name, float level) {
-        super(name, 60, 9, level);
+        super(60, 9, level);
     }
 
     @Override

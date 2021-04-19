@@ -1,0 +1,8 @@
+{
+    "parent": "block/stairs",
+    "textures": {
+        "bottom": "intothemaelstrom:blocks/swamp_planks",
+        "top": "intothemaelstrom:blocks/swamp_planks",
+        "side": "intothemaelstrom:blocks/swamp_planks"
+    }
+}

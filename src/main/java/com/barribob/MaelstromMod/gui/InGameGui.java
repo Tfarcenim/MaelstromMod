@@ -1,11 +1,11 @@
 package com.barribob.MaelstromMod.gui;
 
+import com.barribob.MaelstromMod.IntoTheMaelstrom;
 import com.barribob.MaelstromMod.config.ModConfig;
 import com.barribob.MaelstromMod.event_handlers.ItemToManaSystem;
 import com.barribob.MaelstromMod.items.gun.Reloadable;
 import com.barribob.MaelstromMod.mana.Mana;
 import com.barribob.MaelstromMod.mana.ManaProvider;
-import com.barribob.MaelstromMod.util.Reference;
 import com.barribob.MaelstromMod.util.handlers.ArmorHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
@@ -28,7 +28,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  */
 @SideOnly(Side.CLIENT)
 public class InGameGui {
-    public static final ResourceLocation ICONS = new ResourceLocation(Reference.MOD_ID + ":textures/gui/armor_icons.png");
+    public static final ResourceLocation ICONS = new ResourceLocation(IntoTheMaelstrom.MOD_ID + ":textures/gui/armor_icons.png");
     private static int manaFlashCounter;
     public static final int MAX_FLASH_COUNTER = 7;
 

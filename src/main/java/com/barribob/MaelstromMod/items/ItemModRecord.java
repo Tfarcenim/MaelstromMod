@@ -1,6 +1,5 @@
 package com.barribob.MaelstromMod.items;
 
-import com.barribob.MaelstromMod.Main;
 import com.barribob.MaelstromMod.init.ModCreativeTabs;
 import com.barribob.MaelstromMod.init.ModItems;
 import net.minecraft.item.ItemRecord;
@@ -12,7 +11,5 @@ public class ItemModRecord extends ItemRecord {
         setUnlocalizedName(name);
         setRegistryName(name);
         setCreativeTab(ModCreativeTabs.ITEMS);
-
-        ModItems.ITEMS.add(this);
     }
 }

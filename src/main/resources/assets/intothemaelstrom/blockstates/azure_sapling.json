@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "stage=0": { "model": "intothemaelstrom:azure_sapling" },
+        "stage=1": { "model": "intothemaelstrom:azure_sapling" }
+    }
+}

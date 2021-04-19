@@ -1,6 +1,6 @@
 package com.barribob.MaelstromMod.world.gen;
 
-import com.barribob.MaelstromMod.util.Reference;
+import com.barribob.MaelstromMod.IntoTheMaelstrom;
 import net.minecraft.init.Blocks;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.server.MinecraftServer;
@@ -103,7 +103,7 @@ public abstract class ModStructureTemplate extends StructureComponentTemplate {
     }
 
     private void loadTemplate(TemplateManager manager) {
-        Template template = manager.getTemplate((MinecraftServer) null, new ResourceLocation(Reference.MOD_ID, this.templateLocation() + "/" + this.pieceName));
+        Template template = manager.getTemplate((MinecraftServer) null, new ResourceLocation(IntoTheMaelstrom.MOD_ID, this.templateLocation() + "/" + this.pieceName));
         PlacementSettings placementsettings = (this.overwrite ? OVERWRITE : INSERT).copy().setRotation(this.rotation);
         this.setup(template, this.templatePosition, placementsettings);
     }

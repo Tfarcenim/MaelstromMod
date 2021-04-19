@@ -1,5 +1,6 @@
 package com.barribob.MaelstromMod.blocks;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.IBlockState;
@@ -12,9 +13,9 @@ import net.minecraft.world.IBlockAccess;
 /**
  * A block desined to update lighting in a seamless manner
  */
-public class BlockLightingUpdater extends BlockBase {
-    public BlockLightingUpdater(String name, Material material) {
-        super(name, material);
+public class BlockLightingUpdater extends Block {
+    public BlockLightingUpdater(Material material) {
+        super(material);
     }
 
     public EnumBlockRenderType getRenderType(IBlockState state) {

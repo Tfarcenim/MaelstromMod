@@ -1,0 +1,6 @@
+{
+    "parent": "block/cross",
+    "textures": {
+        "cross": "intothemaelstrom:blocks/azure_sapling"
+    }
+}

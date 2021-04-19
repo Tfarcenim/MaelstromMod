@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "axis=y":  { "model": "intothemaelstrom:swamp_bark" },
+        "axis=z":   { "model": "intothemaelstrom:swamp_bark", "x": 90 },
+        "axis=x":   { "model": "intothemaelstrom:swamp_bark", "x": 90, "y": 90 },
+        "axis=none": { "model": "intothemaelstrom:swamp_bark" }
+    }
+}

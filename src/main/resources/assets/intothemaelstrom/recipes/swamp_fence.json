@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "swamp_fence",
+  "pattern": [
+    "W#W",
+    "W#W"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "W": {
+      "item": "intothemaelstrom:swamp_planks",
+      "data": 0
+    }
+  },
+  "result": {
+    "item": "intothemaelstrom:swamp_fence",
+    "count": 3
+  }
+}

@@ -1,5 +1,6 @@
 package com.barribob.MaelstromMod.entity.render;
 
+import com.barribob.MaelstromMod.IntoTheMaelstrom;
 import com.barribob.MaelstromMod.config.ModConfig;
 import com.barribob.MaelstromMod.entity.entities.EntityLeveledMob;
 import com.barribob.MaelstromMod.entity.entities.EntityMaelstromMob;
@@ -36,7 +37,7 @@ public class RenderModEntity<T extends EntityLiving> extends RenderLiving<T> {
             throw new IllegalArgumentException("Must provide at least one texture to render an entity.");
         }
         this.TEXTURES = textures;
-        this.DEATH_TEXTURES = new ResourceLocation(String.format("%s:textures/entity/disintegration_%d_%d.png", Reference.MOD_ID, modelClass.textureWidth, modelClass.textureHeight));
+        this.DEATH_TEXTURES = new ResourceLocation(String.format("%s:textures/entity/disintegration_%d_%d.png", IntoTheMaelstrom.MOD_ID, modelClass.textureWidth, modelClass.textureHeight));
     }
 
     @Override
@@ -53,7 +54,7 @@ public class RenderModEntity<T extends EntityLiving> extends RenderLiving<T> {
             }
         }
 
-        return new ResourceLocation(Reference.MOD_ID + ":textures/entity/" + texture);
+        return new ResourceLocation(IntoTheMaelstrom.MOD_ID + ":textures/entity/" + texture);
     }
 
     @Override

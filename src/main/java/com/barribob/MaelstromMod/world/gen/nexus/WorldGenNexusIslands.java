@@ -1,8 +1,8 @@
 package com.barribob.MaelstromMod.world.gen.nexus;
 
+import com.barribob.MaelstromMod.IntoTheMaelstrom;
 import com.barribob.MaelstromMod.entity.tileentity.TileEntityTeleporter;
 import com.barribob.MaelstromMod.init.ModBlocks;
-import com.barribob.MaelstromMod.util.Reference;
 import com.barribob.MaelstromMod.world.gen.WorldGenStructure;
 import net.minecraft.item.ItemMonsterPlacer;
 import net.minecraft.tileentity.TileEntity;
@@ -38,15 +38,15 @@ public class WorldGenNexusIslands extends WorldGenStructure {
                 ((TileEntityTeleporter) tileentity).setRelTeleportPos(relTeleport);
             }
         } else if (function.startsWith("mage")) {
-            ItemMonsterPlacer.spawnCreature(worldIn, new ResourceLocation(Reference.MOD_ID + ":nexus_mage"), pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5);
+            ItemMonsterPlacer.spawnCreature(worldIn, new ResourceLocation(IntoTheMaelstrom.MOD_ID + ":nexus_mage"), pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5);
         } else if (function.startsWith("saiyan")) {
-            ItemMonsterPlacer.spawnCreature(worldIn, new ResourceLocation(Reference.MOD_ID + ":nexus_saiyan"), pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5);
+            ItemMonsterPlacer.spawnCreature(worldIn, new ResourceLocation(IntoTheMaelstrom.MOD_ID + ":nexus_saiyan"), pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5);
         } else if (function.startsWith("bladesmith")) {
-            ItemMonsterPlacer.spawnCreature(worldIn, new ResourceLocation(Reference.MOD_ID + ":nexus_bladesmith"), pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5);
+            ItemMonsterPlacer.spawnCreature(worldIn, new ResourceLocation(IntoTheMaelstrom.MOD_ID + ":nexus_bladesmith"), pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5);
         } else if (function.startsWith("armorer")) {
-            ItemMonsterPlacer.spawnCreature(worldIn, new ResourceLocation(Reference.MOD_ID + ":nexus_armorer"), pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5);
+            ItemMonsterPlacer.spawnCreature(worldIn, new ResourceLocation(IntoTheMaelstrom.MOD_ID + ":nexus_armorer"), pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5);
         } else if (function.startsWith("gunsmith")) {
-            ItemMonsterPlacer.spawnCreature(worldIn, new ResourceLocation(Reference.MOD_ID + ":nexus_gunsmith"), pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5);
+            ItemMonsterPlacer.spawnCreature(worldIn, new ResourceLocation(IntoTheMaelstrom.MOD_ID + ":nexus_gunsmith"), pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5);
         }
     }
 }

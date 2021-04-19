@@ -1,6 +1,6 @@
 package com.barribob.MaelstromMod.init;
 
-import com.barribob.MaelstromMod.Main;
+import com.barribob.MaelstromMod.IntoTheMaelstrom;
 import com.barribob.MaelstromMod.entity.EntityCrimsonPortalSpawn;
 import com.barribob.MaelstromMod.entity.entities.*;
 import com.barribob.MaelstromMod.entity.entities.gauntlet.EntityAlternativeMaelstromGauntletStage1;
@@ -14,7 +14,6 @@ import com.barribob.MaelstromMod.entity.particleSpawners.ParticleSpawnerSwordSwi
 import com.barribob.MaelstromMod.entity.projectile.*;
 import com.barribob.MaelstromMod.entity.tileentity.*;
 import com.barribob.MaelstromMod.entity.util.*;
-import com.barribob.MaelstromMod.util.Reference;
 import net.minecraft.entity.Entity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ResourceLocation;
@@ -192,29 +191,29 @@ public class ModEntities {
 
     public static String getID(Class<? extends Entity> entity) {
         if (ID_MAP.containsKey(entity)) {
-            return Reference.MOD_ID + ":" + ID_MAP.get(entity);
+            return IntoTheMaelstrom.MOD_ID + ":" + ID_MAP.get(entity);
         }
         throw new IllegalArgumentException("Mapping of an entity has not be registered for the maelstrom mod spawner system.");
     }
 
     private static void registerEntityWithID(String name, Class<? extends Entity> entity, int id, int range, Vec3i eggColor) {
-        EntityRegistry.registerModEntity(new ResourceLocation(Reference.MOD_ID + ":" + name), entity, name, id, Main.instance, range, 1, true, eggColor.getX(), eggColor.getY());
+        EntityRegistry.registerModEntity(new ResourceLocation(IntoTheMaelstrom.MOD_ID + ":" + name), entity, name, id, IntoTheMaelstrom.instance, range, 1, true, eggColor.getX(), eggColor.getY());
         ID_MAP.put(entity, name);
     }
 
     private static void registerEntity(String name, Class<? extends Entity> entity, int id, int range, Vec3i eggColor) {
-        EntityRegistry.registerModEntity(new ResourceLocation(Reference.MOD_ID + ":" + name), entity, name, id, Main.instance, range, 1, true, eggColor.getX(), eggColor.getY());
+        EntityRegistry.registerModEntity(new ResourceLocation(IntoTheMaelstrom.MOD_ID + ":" + name), entity, name, id, IntoTheMaelstrom.instance, range, 1, true, eggColor.getX(), eggColor.getY());
     }
 
     private static void registerEntity(String name, Class<? extends Entity> entity, int id, int range) {
-        EntityRegistry.registerModEntity(new ResourceLocation(Reference.MOD_ID + ":" + name), entity, name, id, Main.instance, range, 1, true);
+        EntityRegistry.registerModEntity(new ResourceLocation(IntoTheMaelstrom.MOD_ID + ":" + name), entity, name, id, IntoTheMaelstrom.instance, range, 1, true);
     }
 
     private static void registerFastProjectile(String name, Class<? extends Entity> entity, int id, int range) {
-        EntityRegistry.registerModEntity(new ResourceLocation(Reference.MOD_ID + ":" + name), entity, name, id, Main.instance, range, 1, false);
+        EntityRegistry.registerModEntity(new ResourceLocation(IntoTheMaelstrom.MOD_ID + ":" + name), entity, name, id, IntoTheMaelstrom.instance, range, 1, false);
     }
 
     private static void registerTileEntity(Class<? extends TileEntity> entity, String name) {
-        GameRegistry.registerTileEntity(entity, new ResourceLocation(Reference.MOD_ID + ":" + name));
+        GameRegistry.registerTileEntity(entity, new ResourceLocation(IntoTheMaelstrom.MOD_ID + ":" + name));
     }
 }

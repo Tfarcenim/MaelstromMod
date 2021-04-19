@@ -1,9 +1,9 @@
 package com.barribob.MaelstromMod.loot.functions;
 
+import com.barribob.MaelstromMod.IntoTheMaelstrom;
 import com.barribob.MaelstromMod.config.ModConfig;
 import com.barribob.MaelstromMod.init.ModItems;
 import com.barribob.MaelstromMod.util.ModRandom;
-import com.barribob.MaelstromMod.util.Reference;
 import com.barribob.MaelstromMod.util.handlers.LevelHandler;
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonObject;
@@ -46,7 +46,7 @@ public class ModEnchantWithLevels extends LootFunction {
 
     public static class Serializer extends LootFunction.Serializer<ModEnchantWithLevels> {
         public Serializer() {
-            super(new ResourceLocation(Reference.MOD_ID + ":enchant"), ModEnchantWithLevels.class);
+            super(new ResourceLocation(IntoTheMaelstrom.MOD_ID + ":enchant"), ModEnchantWithLevels.class);
         }
 
         @Override

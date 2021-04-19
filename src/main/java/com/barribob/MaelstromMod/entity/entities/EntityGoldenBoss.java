@@ -1,6 +1,6 @@
 package com.barribob.MaelstromMod.entity.entities;
 
-import com.barribob.MaelstromMod.Main;
+import com.barribob.MaelstromMod.IntoTheMaelstrom;
 import com.barribob.MaelstromMod.entity.action.*;
 import com.barribob.MaelstromMod.entity.adjustment.MovingRuneAdjustment;
 import com.barribob.MaelstromMod.entity.adjustment.RandomRuneAdjustment;
@@ -118,7 +118,7 @@ public class EntityGoldenBoss extends EntityMaelstromMob implements IAttack {
                 if (mob != null) {
                     mob.setAttackTarget(target);
                     ModUtils.lineCallback(this.getPositionEyes(1), mob.getPositionVector(), 20, (pos, j) ->
-                            Main.network.sendToAllTracking(new MessageModParticles(EnumModParticles.EFFECT, pos, Vec3d.ZERO, mob.getElement().particleColor), this));
+                            IntoTheMaelstrom.network.sendToAllTracking(new MessageModParticles(EnumModParticles.EFFECT, pos, Vec3d.ZERO, mob.getElement().particleColor), this));
                 }
             }
         }, 15);

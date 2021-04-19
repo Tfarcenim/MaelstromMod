@@ -1,0 +1,6 @@
+{
+    "parent": "block/trapdoor_top",
+    "textures": {
+        "texture": "intothemaelstrom:blocks/iron_grate"
+    }
+}

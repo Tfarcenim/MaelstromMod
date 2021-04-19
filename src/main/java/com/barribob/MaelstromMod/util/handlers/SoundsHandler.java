@@ -1,6 +1,6 @@
 package com.barribob.MaelstromMod.util.handlers;
 
-import com.barribob.MaelstromMod.util.Reference;
+import com.barribob.MaelstromMod.IntoTheMaelstrom;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
@@ -67,7 +67,7 @@ public class SoundsHandler {
 
     private static SoundEvent registerSound(String name, String category) {
         String fullName = category + "." + name;
-        ResourceLocation location = new ResourceLocation(Reference.MOD_ID, fullName);
+        ResourceLocation location = new ResourceLocation(IntoTheMaelstrom.MOD_ID, fullName);
         SoundEvent event = new SoundEvent(location);
         event.setRegistryName(fullName);
         ForgeRegistries.SOUND_EVENTS.register(event);

@@ -1,6 +1,6 @@
 package com.barribob.MaelstromMod.entity.entities.gauntlet;
 
-import com.barribob.MaelstromMod.Main;
+import com.barribob.MaelstromMod.IntoTheMaelstrom;
 import com.barribob.MaelstromMod.entity.entities.EntityLeveledMob;
 import com.barribob.MaelstromMod.entity.entities.EntityMaelstromMob;
 import com.barribob.MaelstromMod.util.ModColors;
@@ -25,11 +25,11 @@ public class EntityCrimsonCrystal extends Entity {
     protected static final DataParameter<Float> CLOSEST_TARGET_DISTANCE =
             EntityDataManager.createKey(EntityLeveledMob.class, DataSerializers.FLOAT);
     private EntityLeveledMob shootingEntity = null;
-    public static final float explosionDistance = (float) Main.mobsConfig.getDouble("alternative_maelstrom_gauntlet_stage_2.crystal_explosion_radius");
+    public static final float explosionDistance = (float) IntoTheMaelstrom.mobsConfig.getDouble("alternative_maelstrom_gauntlet_stage_2.crystal_explosion_radius");
     public static float visualActivationDistance = explosionDistance * 4;
     public static final double VisualActivationDistanceSq = Math.pow(visualActivationDistance, 2);
     private static final double explosionRadiusSq = Math.pow(explosionDistance, 2);
-    private static final float crystalLifespan = (float) Main.mobsConfig.getDouble("alternative_maelstrom_gauntlet_stage_2.crystal_lifespan");
+    private static final float crystalLifespan = (float) IntoTheMaelstrom.mobsConfig.getDouble("alternative_maelstrom_gauntlet_stage_2.crystal_lifespan");
 
     public EntityCrimsonCrystal(World world) {
         super(world);

@@ -1,8 +1,7 @@
 package com.barribob.MaelstromMod.invasion;
 
-import com.barribob.MaelstromMod.Main;
+import com.barribob.MaelstromMod.IntoTheMaelstrom;
 import com.barribob.MaelstromMod.util.ModUtils;
-import com.barribob.MaelstromMod.util.Reference;
 import com.typesafe.config.Config;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTBase;
@@ -18,7 +17,7 @@ import java.util.Optional;
 import java.util.Set;
 
 public class MultiInvasionWorldSavedData extends WorldSavedData {
-    public static final String DATA_NAME = Reference.MOD_ID + "_MultiInvasionData";
+    public static final String DATA_NAME = IntoTheMaelstrom.MOD_ID + "_MultiInvasionData";
     private int ticks;
     private int invasionIndex;
     public static final int INVASION_RESET_TIME = ModUtils.secondsToTicks(10);
@@ -44,7 +43,7 @@ public class MultiInvasionWorldSavedData extends WorldSavedData {
     }
 
     public Config getCurrentInvasion() {
-        List<? extends Config> invasions = Main.invasionsConfig.getConfigList("invasions");
+        List<? extends Config> invasions = IntoTheMaelstrom.invasionsConfig.getConfigList("invasions");
 
         if (invasions.size() > invasionIndex) {
             return invasions.get(invasionIndex);
@@ -66,7 +65,7 @@ public class MultiInvasionWorldSavedData extends WorldSavedData {
         int warningTime = ModUtils.minutesToTicks(invasion.getInt("warning_time"));
 
         if (ticks == warningTime) {
-            InvasionUtils.sendInvasionMessage(world, Reference.MOD_ID + ".invasion_1");
+            InvasionUtils.sendInvasionMessage(world, IntoTheMaelstrom.MOD_ID + ".invasion_1");
         }
 
         if (ticks == invasionTime) {
@@ -77,7 +76,7 @@ public class MultiInvasionWorldSavedData extends WorldSavedData {
 
                 if (spawnedPos.isPresent()) {
                     spawnedInvasionPositions.add(spawnedPos.get());
-                    InvasionUtils.sendInvasionMessage(world, Reference.MOD_ID + ".invasion_2");
+                    InvasionUtils.sendInvasionMessage(world, IntoTheMaelstrom.MOD_ID + ".invasion_2");
                     invasionIndex++;
                     ticks = 0;
                     return;

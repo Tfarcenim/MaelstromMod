@@ -1,8 +1,8 @@
 package com.barribob.MaelstromMod.entity.render;
 
+import com.barribob.MaelstromMod.IntoTheMaelstrom;
 import com.barribob.MaelstromMod.entity.entities.EntityAzureVillager;
 import com.barribob.MaelstromMod.entity.model.ModelAzureVillager;
-import com.barribob.MaelstromMod.util.Reference;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
@@ -19,7 +19,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  */
 @SideOnly(Side.CLIENT)
 public class RenderAzureVillager extends RenderLiving<EntityAzureVillager> {
-    private static final ResourceLocation TEXTURES = new ResourceLocation(Reference.MOD_ID + ":textures/entity/azure_villager.png");
+    private static final ResourceLocation TEXTURES = new ResourceLocation(IntoTheMaelstrom.MOD_ID + ":textures/entity/azure_villager.png");
 
     public RenderAzureVillager(RenderManager manager) {
         super(manager, new ModelAzureVillager(), 0.5F);

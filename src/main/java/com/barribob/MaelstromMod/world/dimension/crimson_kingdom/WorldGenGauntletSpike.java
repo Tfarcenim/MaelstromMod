@@ -31,7 +31,7 @@ public class WorldGenGauntletSpike extends WorldGenStructure {
             TileEntity tileentity = worldIn.getTileEntity(pos.down());
 
             if (tileentity instanceof TileEntityLockableLoot) {
-                ((TileEntityLockableLoot) tileentity).setInventorySlotContents(13, new ItemStack(ModItems.MAELSTROM_KEY_FRAGMENT));
+                ((TileEntityLockableLoot) tileentity).setInventorySlotContents(13, new ItemStack(ModItems.MAELSTROM_KEY_FRAGMENTS));
             }
         }
 

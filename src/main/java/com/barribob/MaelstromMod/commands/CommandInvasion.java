@@ -1,8 +1,8 @@
 package com.barribob.MaelstromMod.commands;
 
+import com.barribob.MaelstromMod.IntoTheMaelstrom;
 import com.barribob.MaelstromMod.invasion.InvasionUtils;
 import com.barribob.MaelstromMod.invasion.MultiInvasionWorldSavedData;
-import com.barribob.MaelstromMod.util.Reference;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommandSender;
@@ -45,7 +45,7 @@ public class CommandInvasion extends CommandBase {
         if (invasionPos.isPresent()) {
             data.addSpawnedInvasionPosition(invasionPos.get());
             player.sendMessage(new TextComponentString(
-                    "" + TextFormatting.DARK_PURPLE + new TextComponentTranslation(Reference.MOD_ID + ".invasion_2").getFormattedText()));
+                    "" + TextFormatting.DARK_PURPLE + new TextComponentTranslation(IntoTheMaelstrom.MOD_ID + ".invasion_2").getFormattedText()));
         } else {
             player.sendMessage(new TextComponentString("Failed to generate invasion tower (maybe it's not a great place)"));
         }

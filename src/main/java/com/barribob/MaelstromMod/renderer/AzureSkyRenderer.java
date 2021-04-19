@@ -1,6 +1,6 @@
 package com.barribob.MaelstromMod.renderer;
 
-import com.barribob.MaelstromMod.util.Reference;
+import com.barribob.MaelstromMod.IntoTheMaelstrom;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.client.renderer.*;
@@ -23,8 +23,8 @@ import java.util.Random;
  * Taken from RenderGlobal to render a sky with a custom sun and moon texture
  */
 public class AzureSkyRenderer {
-    private static final ResourceLocation MOON_PHASES_TEXTURES = new ResourceLocation(Reference.MOD_ID + ":textures/environment/azure_moon_phases.png");
-    private static final ResourceLocation SUN_TEXTURES = new ResourceLocation(Reference.MOD_ID + ":textures/environment/azure_sun.png");
+    private static final ResourceLocation MOON_PHASES_TEXTURES = new ResourceLocation(IntoTheMaelstrom.MOD_ID + ":textures/environment/azure_moon_phases.png");
+    private static final ResourceLocation SUN_TEXTURES = new ResourceLocation(IntoTheMaelstrom.MOD_ID + ":textures/environment/azure_sun.png");
     private final Minecraft mc;
     private final TextureManager renderEngine;
     private final RenderManager renderManager;

@@ -1,6 +1,6 @@
 package com.barribob.MaelstromMod.event_handlers;
 
-import com.barribob.MaelstromMod.util.Reference;
+import com.barribob.MaelstromMod.IntoTheMaelstrom;
 import net.minecraftforge.common.config.Config.Type;
 import net.minecraftforge.common.config.ConfigManager;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent.OnConfigChangedEvent;
@@ -13,8 +13,8 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 public class ConfigSync {
     @SubscribeEvent
     public void onConfigChangedEvent(OnConfigChangedEvent event) {
-        if (event.getModID().equals(Reference.MOD_ID)) {
-            ConfigManager.sync(Reference.MOD_ID, Type.INSTANCE);
+        if (event.getModID().equals(IntoTheMaelstrom.MOD_ID)) {
+            ConfigManager.sync(IntoTheMaelstrom.MOD_ID, Type.INSTANCE);
         }
     }
 }

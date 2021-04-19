@@ -15,7 +15,7 @@ import java.util.List;
 
 public class ItemFlintlock extends ItemGun {
     public ItemFlintlock(String name, float level) {
-        super(name, 40, 8, level);
+        super(40, 8, level);
     }
 
     @Override

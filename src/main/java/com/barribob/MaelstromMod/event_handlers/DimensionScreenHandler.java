@@ -1,8 +1,8 @@
 package com.barribob.MaelstromMod.event_handlers;
 
+import com.barribob.MaelstromMod.IntoTheMaelstrom;
 import com.barribob.MaelstromMod.config.ModConfig;
 import com.barribob.MaelstromMod.gui.GuiModDownloadTerrain;
-import com.barribob.MaelstromMod.util.Reference;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiDownloadTerrain;
 import net.minecraft.util.ResourceLocation;
@@ -25,13 +25,13 @@ public class DimensionScreenHandler {
         Minecraft mc = FMLClientHandler.instance().getClient();
         if (event.getGui() instanceof GuiDownloadTerrain && mc.player != null) {
             if (mc.player.dimension == ModConfig.world.fracture_dimension_id) {
-                event.setGui(new GuiModDownloadTerrain(new ResourceLocation(Reference.MOD_ID + ":textures/gui/dark_azure_stone.png"), "azure_dimension"));
+                event.setGui(new GuiModDownloadTerrain(new ResourceLocation(IntoTheMaelstrom.MOD_ID + ":textures/gui/dark_azure_stone.png"), "azure_dimension"));
             } else if (mc.player.dimension == ModConfig.world.nexus_dimension_id) {
                 event.setGui(new GuiModDownloadTerrain(new ResourceLocation("minecraft:textures/blocks/quartz_block_chiseled.png"), "nexus_dimension"));
             } else if (mc.player.dimension == ModConfig.world.cliff_dimension_id) {
-                event.setGui(new GuiModDownloadTerrain(new ResourceLocation(Reference.MOD_ID + ":textures/gui/chiseled_cliff_stone.png"), "cliff_dimension"));
+                event.setGui(new GuiModDownloadTerrain(new ResourceLocation(IntoTheMaelstrom.MOD_ID + ":textures/gui/chiseled_cliff_stone.png"), "cliff_dimension"));
             } else if (mc.player.dimension == ModConfig.world.crimson_kingdom_dimension_id) {
-                event.setGui(new GuiModDownloadTerrain(new ResourceLocation(Reference.MOD_ID + ":textures/blocks/redstone_brick.png"), "crimson_dimension"));
+                event.setGui(new GuiModDownloadTerrain(new ResourceLocation(IntoTheMaelstrom.MOD_ID + ":textures/blocks/redstone_brick.png"), "crimson_dimension"));
             }
         }
     }

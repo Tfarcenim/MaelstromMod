@@ -29,9 +29,10 @@ import net.minecraft.world.World;
 import javax.annotation.Nullable;
 import java.util.List;
 import java.util.function.BiFunction;
+import java.util.function.Supplier;
 
 public class BlockKey extends BlockBase implements IBlockUpdater, ITileEntityProvider {
-    private Item activationItem;
+    private final Supplier<Item> activationItem;
     protected static final AxisAlignedBB AABB = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 1.25D, 1.0D);
     int counter = 0;
     BiFunction<World, BlockPos, Entity> spawnPortal;
@@ -40,10 +41,10 @@ public class BlockKey extends BlockBase implements IBlockUpdater, ITileEntityPro
         this(name, null, (world, pos) -> new EntityAzurePortalSpawn(world, pos.getX(), pos.getY(), pos.getZ()));
     }
 
-    public BlockKey(String name, Item item, BiFunction<World, BlockPos, Entity> spawnPortal) {
+    public BlockKey(String name, Supplier<Item> activationItem, BiFunction<World, BlockPos, Entity> spawnPortal) {
         super(name, Material.ROCK, 1000, 10000, SoundType.STONE);
         this.setBlockUnbreakable();
-        this.activationItem = item;
+        this.activationItem = activationItem;
         this.hasTileEntity = true;
         this.spawnPortal = spawnPortal;
         this.setCreativeTab(ModCreativeTabs.BLOCKS);
@@ -68,12 +69,7 @@ public class BlockKey extends BlockBase implements IBlockUpdater, ITileEntityPro
     public void update(World world, BlockPos pos) {
         counter++;
         if (counter % 5 == 0) {
-            List<EntityPlayerSP> list = world.<EntityPlayerSP>getPlayers(EntityPlayerSP.class, new Predicate<EntityPlayerSP>() {
-                @Override
-                public boolean apply(@Nullable EntityPlayerSP player) {
-                    return player.getHeldItem(EnumHand.MAIN_HAND).getItem() == activationItem;
-                }
-            });
+            List<EntityPlayerSP> list = world.<EntityPlayerSP>getPlayers(EntityPlayerSP.class, player -> player.getHeldItem(EnumHand.MAIN_HAND).getItem() == activationItem);
 
             if (list.size() > 0) {
                 ModUtils.performNTimes(50, (i) -> {

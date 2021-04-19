@@ -1,6 +1,6 @@
 package com.barribob.MaelstromMod.config;
 
-import com.barribob.MaelstromMod.Main;
+import com.barribob.MaelstromMod.IntoTheMaelstrom;
 import com.barribob.MaelstromMod.util.Version;
 import com.typesafe.config.Config;
 import com.typesafe.config.ConfigFactory;
@@ -21,7 +21,7 @@ public class JsonConfigManager {
 
         if (!configDirectory.exists()) {
             if (!configDirectory.mkdirs()) {
-                Main.log.error("Failed to create directory for config file: " + configName);
+                IntoTheMaelstrom.log.error("Failed to create directory for config file: " + configName);
                 return defaultConfig;
             }
         }
@@ -41,11 +41,11 @@ public class JsonConfigManager {
                 } else {
                     File configBackup = new File(configDirectory,  configVersion.get() + "_" + configName + ".conf");
                     Files.copy(configFile.toPath(), configBackup.toPath(), StandardCopyOption.REPLACE_EXISTING);
-                    Main.log.warn("Config file, " + configFile + " is outdated. Created backup of config (" + configBackup.toString() + "), and using new default.");
+                    IntoTheMaelstrom.log.warn("Config file, " + configFile + " is outdated. Created backup of config (" + configBackup.toString() + "), and using new default.");
                 }
             } catch (IllegalArgumentException | IOException e) {
-                Main.log.error("Failed to read config file for " + configFile + "!");
-                Main.log.error(e.toString());
+                IntoTheMaelstrom.log.error("Failed to read config file for " + configFile + "!");
+                IntoTheMaelstrom.log.error(e.toString());
                 return defaultConfig;
             }
         }
@@ -66,11 +66,11 @@ public class JsonConfigManager {
             try {
                 Files.copy(defaultResourcePath, configFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
             } catch (IOException e) {
-                Main.log.error("Failed to write new config file: " + defaultConfigPath);
-                Main.log.error(e.toString());
+                IntoTheMaelstrom.log.error("Failed to write new config file: " + defaultConfigPath);
+                IntoTheMaelstrom.log.error(e.toString());
             }
         } else {
-            Main.log.error("Failed to get default config to copy: " + defaultConfigPath);
+            IntoTheMaelstrom.log.error("Failed to get default config to copy: " + defaultConfigPath);
         }
     }
 }

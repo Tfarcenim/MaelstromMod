@@ -1,10 +1,10 @@
 package com.barribob.MaelstromMod.entity.tileentity;
 
+import com.barribob.MaelstromMod.IntoTheMaelstrom;
 import com.barribob.MaelstromMod.entity.entities.EntityLeveledMob;
 import com.barribob.MaelstromMod.util.Element;
 import com.barribob.MaelstromMod.util.ModRandom;
 import com.barribob.MaelstromMod.util.ModUtils;
-import com.barribob.MaelstromMod.util.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
@@ -41,7 +41,7 @@ public abstract class MobSpawnerLogic {
     protected Supplier<BlockPos> pos;
     protected Block block;
     protected float level;
-    protected MobSpawnData[] mobs = {new MobSpawnData(Reference.MOD_ID + ":dream_elk", Element.NONE)};
+    protected MobSpawnData[] mobs = {new MobSpawnData(IntoTheMaelstrom.MOD_ID + ":dream_elk", Element.NONE)};
     protected int[] mobWeights = {1};
 
     /**

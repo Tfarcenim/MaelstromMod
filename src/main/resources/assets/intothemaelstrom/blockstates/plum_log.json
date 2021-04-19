@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "axis=y":  { "model": "intothemaelstrom:plum_log" },
+        "axis=z":   { "model": "intothemaelstrom:plum_log", "x": 90 },
+        "axis=x":   { "model": "intothemaelstrom:plum_log", "x": 90, "y": 90 },
+        "axis=none": { "model": "intothemaelstrom:plum_bark" }
+    }
+}

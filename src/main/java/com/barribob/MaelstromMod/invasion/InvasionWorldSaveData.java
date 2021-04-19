@@ -1,7 +1,7 @@
 package com.barribob.MaelstromMod.invasion;
 
+import com.barribob.MaelstromMod.IntoTheMaelstrom;
 import com.barribob.MaelstromMod.config.ModConfig;
-import com.barribob.MaelstromMod.util.Reference;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.storage.WorldSavedData;
 
@@ -9,7 +9,7 @@ public class InvasionWorldSaveData extends WorldSavedData {
     private int timeUntilInvasion = ModConfig.world.invasionTime * 60 * 1000; // The number of milliseconds until invasion
     private boolean invaded = false;
     private int dimensionTime = 1000; // An additional second when coming out of a dimension to let the server get the correct player position
-    public static final String DATA_NAME = Reference.MOD_ID + "_InvasionData";
+    public static final String DATA_NAME = IntoTheMaelstrom.MOD_ID + "_InvasionData";
 
     @SuppressWarnings("unused")
     public InvasionWorldSaveData(String s) {

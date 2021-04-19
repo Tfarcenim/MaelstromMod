@@ -16,7 +16,7 @@ import java.util.List;
 
 public class ItemPiercer extends ItemGun {
     public ItemPiercer(String name, float level) {
-        super(name, 60, 8, level);
+        super(60, 8, level);
     }
 
     @Override

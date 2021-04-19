@@ -1,6 +1,6 @@
 package com.barribob.MaelstromMod.entity.entities.gauntlet;
 
-import com.barribob.MaelstromMod.Main;
+import com.barribob.MaelstromMod.IntoTheMaelstrom;
 import com.barribob.MaelstromMod.entity.entities.EntityLeveledMob;
 import com.barribob.MaelstromMod.init.ModBBAnimations;
 import com.barribob.MaelstromMod.packets.MessageDirectionForRender;
@@ -78,7 +78,7 @@ public class LaserAction implements IGauntletAction{
 
                     ModUtils.addEntityVelocity(entity, laserDirection.scale(-0.03f));
 
-                    Main.network.sendToAllTracking(new MessageDirectionForRender(entity, lazerPos), entity);
+                    IntoTheMaelstrom.network.sendToAllTracking(new MessageDirectionForRender(entity, lazerPos), entity);
                 }, beamLag);
             } else {
                 // Prevent the gauntlet from instantly locking onto other targets with the lazer.

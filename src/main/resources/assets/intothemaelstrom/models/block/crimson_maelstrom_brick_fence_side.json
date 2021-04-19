@@ -1,0 +1,6 @@
+{
+    "parent": "block/fence_side",
+    "textures": {
+        "texture": "intothemaelstrom:blocks/crimson_maelstrom_bricks"
+    }
+}

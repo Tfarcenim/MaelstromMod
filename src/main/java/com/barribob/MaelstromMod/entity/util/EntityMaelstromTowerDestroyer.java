@@ -1,6 +1,6 @@
 package com.barribob.MaelstromMod.entity.util;
 
-import com.barribob.MaelstromMod.Main;
+import com.barribob.MaelstromMod.IntoTheMaelstrom;
 import com.barribob.MaelstromMod.init.ModBlocks;
 import com.barribob.MaelstromMod.util.ModUtils;
 import com.barribob.MaelstromMod.world.gen.WorldGenCustomStructures;
@@ -51,7 +51,7 @@ public class EntityMaelstromTowerDestroyer extends Entity {
             return;
         }
 
-        int towerDisintegrationSpeed = Math.max(1, Main.invasionsConfig.getInt("tower_disintegration_speed"));
+        int towerDisintegrationSpeed = Math.max(1, IntoTheMaelstrom.invasionsConfig.getInt("tower_disintegration_speed"));
         for (int i = 0; i < towerDisintegrationSpeed; i++) {
             if (this.blocksToDestroy.size() == 0) {
                 this.setDead();

@@ -1,8 +1,8 @@
 package com.barribob.MaelstromMod.entity.render;
 
+import com.barribob.MaelstromMod.IntoTheMaelstrom;
 import com.barribob.MaelstromMod.entity.entities.EntityWhiteMonolith;
 import com.barribob.MaelstromMod.entity.model.ModelMonolith;
-import com.barribob.MaelstromMod.util.Reference;
 import com.barribob.MaelstromMod.util.teleporter.NexusToOverworldTeleporter;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -12,9 +12,9 @@ import net.minecraft.item.EnumDyeColor;
 import net.minecraft.util.ResourceLocation;
 
 public class RenderWhiteMonolith extends RenderLiving<EntityWhiteMonolith> {
-    public ResourceLocation MONOLITH = new ResourceLocation(Reference.MOD_ID + ":textures/entity/monolith_white.png");
-    public static final ResourceLocation TEXTURE_BEACON_BEAM = new ResourceLocation(Reference.MOD_ID + ":textures/entity/monolith_beam.png");
-    public static final ResourceLocation MONOLITH_DISINTEGRATE = new ResourceLocation(Reference.MOD_ID + ":textures/entity/monolith_disintegrate.png");
+    public ResourceLocation MONOLITH = new ResourceLocation(IntoTheMaelstrom.MOD_ID + ":textures/entity/monolith_white.png");
+    public static final ResourceLocation TEXTURE_BEACON_BEAM = new ResourceLocation(IntoTheMaelstrom.MOD_ID + ":textures/entity/monolith_beam.png");
+    public static final ResourceLocation MONOLITH_DISINTEGRATE = new ResourceLocation(IntoTheMaelstrom.MOD_ID + ":textures/entity/monolith_disintegrate.png");
 
     public RenderWhiteMonolith(RenderManager rendermanagerIn) {
         super(rendermanagerIn, new ModelMonolith(), 1);

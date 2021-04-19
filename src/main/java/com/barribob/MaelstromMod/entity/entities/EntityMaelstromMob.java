@@ -1,6 +1,6 @@
 package com.barribob.MaelstromMod.entity.entities;
 
-import com.barribob.MaelstromMod.Main;
+import com.barribob.MaelstromMod.IntoTheMaelstrom;
 import com.barribob.MaelstromMod.config.ModConfig;
 import com.barribob.MaelstromMod.entity.ai.EntityAIAvoidCrowding;
 import com.barribob.MaelstromMod.entity.ai.EntityAIFollowAttackers;
@@ -40,10 +40,8 @@ import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.registry.EntityEntry;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
-import org.lwjgl.Sys;
 
 import javax.annotation.Nonnull;
-import java.util.List;
 
 /**
  * The base mob that most mobs in this mod will extend A lot of these methods are from the EntityMob class to make it behave similarly
@@ -58,7 +56,7 @@ public abstract class EntityMaelstromMob extends EntityLeveledMob implements IRa
             if(entry != null) {
                 ResourceLocation registryName = entry.getRegistryName();
                 if(registryName != null) {
-                    isConfigFriend = Main.maelstromFriendsConfig.getStringList("maelstrom_friends")
+                    isConfigFriend = IntoTheMaelstrom.maelstromFriendsConfig.getStringList("maelstrom_friends")
                             .contains(registryName.toString());
                 }
             }
@@ -232,7 +230,7 @@ public abstract class EntityMaelstromMob extends EntityLeveledMob implements IRa
             IMana mana = cause.getTrueSource().getCapability(ManaProvider.MANA, null);
             if (!mana.isLocked()) {
                 mana.replenish(getManaExp());
-                Main.network.sendTo(new MessageMana(mana.getMana()), (EntityPlayerMP) cause.getTrueSource());
+                IntoTheMaelstrom.network.sendTo(new MessageMana(mana.getMana()), (EntityPlayerMP) cause.getTrueSource());
             }
         }
         super.onDeath(cause);

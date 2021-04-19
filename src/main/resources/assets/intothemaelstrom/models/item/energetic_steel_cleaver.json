@@ -1,0 +1,6 @@
+{
+   "parent": "intothemaelstrom:item/handheld2",
+   "textures": {
+       "layer0": "intothemaelstrom:items/energetic_steel_cleaver"
+   }
+}

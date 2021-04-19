@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "half=bottom": { "model": "intothemaelstrom:iron_grate_bottom" },
+        "half=top": { "model": "intothemaelstrom:iron_grate_top" }
+    }
+}

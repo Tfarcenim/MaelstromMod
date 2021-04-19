@@ -1,8 +1,8 @@
 package com.barribob.MaelstromMod.renderer;
 
+import com.barribob.MaelstromMod.IntoTheMaelstrom;
 import com.barribob.MaelstromMod.event_handlers.FogHandler;
 import com.barribob.MaelstromMod.util.ModColors;
-import com.barribob.MaelstromMod.util.Reference;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.client.renderer.*;
@@ -35,7 +35,7 @@ public class CliffCloudRenderer extends IRenderHandler implements ISelectiveReso
     private static final VertexFormat FORMAT = DefaultVertexFormats.POSITION_TEX_COLOR;
     private int renderDistance = -1;
     private final Minecraft mc = Minecraft.getMinecraft();
-    private final ResourceLocation texture = new ResourceLocation(Reference.MOD_ID + ":textures/environment/cliff_swamp_fog.png");
+    private final ResourceLocation texture = new ResourceLocation(IntoTheMaelstrom.MOD_ID + ":textures/environment/cliff_swamp_fog.png");
     private static final int TOP_SECTIONS = 12; // Number of slices a top face will span.
     private static final float PX_SIZE = 1 / 256F;
     private static final float ALPHA = 0.7F;

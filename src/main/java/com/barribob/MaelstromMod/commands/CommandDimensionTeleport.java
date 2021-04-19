@@ -1,6 +1,6 @@
 package com.barribob.MaelstromMod.commands;
 
-import com.barribob.MaelstromMod.util.Reference;
+import com.barribob.MaelstromMod.IntoTheMaelstrom;
 import com.barribob.MaelstromMod.util.teleporter.Teleport;
 import com.google.common.collect.Lists;
 import net.minecraft.command.CommandBase;
@@ -16,7 +16,7 @@ import net.minecraft.world.WorldServer;
 import java.util.List;
 
 public class CommandDimensionTeleport extends CommandBase {
-    private final List<String> aliases = Lists.newArrayList(Reference.MOD_ID, "tpdim", "teleport", "dimension");
+    private final List<String> aliases = Lists.newArrayList(IntoTheMaelstrom.MOD_ID, "tpdim", "teleport", "dimension");
 
     @Override
     public String getName() {

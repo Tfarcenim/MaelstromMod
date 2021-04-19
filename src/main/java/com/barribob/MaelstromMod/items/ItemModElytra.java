@@ -1,7 +1,7 @@
 package com.barribob.MaelstromMod.items;
 
+import com.barribob.MaelstromMod.IntoTheMaelstrom;
 import com.barribob.MaelstromMod.util.ModUtils;
-import com.barribob.MaelstromMod.util.Reference;
 import com.google.common.collect.Multimap;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
@@ -10,6 +10,7 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
@@ -25,12 +26,11 @@ import java.util.UUID;
 /**
  * A custom elytra. The actual functionality is spread across multiple event handlers, as Minecraft doesn't make a custom elytra an easy process.
  */
-public class ItemModElytra extends ItemBase {
+public class ItemModElytra extends Item {
     private static final UUID ARMOR_MODIFIER = UUID.fromString("D8499B04-0E66-4726-AB29-64469D734E0D");
     private final ItemArmor.ArmorMaterial material;
 
-    public ItemModElytra(String name, ItemArmor.ArmorMaterial material) {
-        super(name);
+    public ItemModElytra(ItemArmor.ArmorMaterial material) {
         this.maxStackSize = 1;
         this.material = material;
     }
@@ -66,7 +66,7 @@ public class ItemModElytra extends ItemBase {
     @Override
     public String getArmorTexture(ItemStack stack, Entity entity, EntityEquipmentSlot slot, String type) {
         if (slot == EntityEquipmentSlot.CHEST) {
-            return Reference.MOD_ID + ":textures/models/armor/" + this.getUnlocalizedName().replace("item.", "") + ".png";
+            return IntoTheMaelstrom.MOD_ID + ":textures/models/armor/" + this.getUnlocalizedName().replace("item.", "") + ".png";
         }
         return null;
     }

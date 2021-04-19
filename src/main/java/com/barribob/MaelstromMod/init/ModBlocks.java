@@ -1,12 +1,12 @@
 package com.barribob.MaelstromMod.init;
 
+import com.barribob.MaelstromMod.IntoTheMaelstrom;
 import com.barribob.MaelstromMod.blocks.*;
 import com.barribob.MaelstromMod.blocks.key_blocks.BlockKey;
 import com.barribob.MaelstromMod.blocks.portal.*;
 import com.barribob.MaelstromMod.entity.util.EntityAzurePortalSpawn;
 import com.barribob.MaelstromMod.entity.util.EntityCliffPortalSpawn;
 import com.barribob.MaelstromMod.entity.util.EntityCrimsonTowerSpawner;
-import com.barribob.MaelstromMod.items.ItemBlockvoid;
 import com.barribob.MaelstromMod.world.gen.foliage.WorldGenAzureTree;
 import com.barribob.MaelstromMod.world.gen.foliage.WorldGenBigPlumTree;
 import com.barribob.MaelstromMod.world.gen.foliage.WorldGenPlumTree;
@@ -15,14 +15,16 @@ import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
-import net.minecraft.item.Item;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * Holds all of our new blocks
@@ -41,13 +43,14 @@ public class ModBlocks {
     public static final float OBSIDIAN_RESISTANCE = 2000;
 
     public static final Block MEGA_STRUCTURE_BLOCK = new BlockMegaStructure("mega_structure_block");
-    public static final Block LIGHTING_UPDATER = new BlockLightingUpdater("lighting_updater", Material.AIR).setLightLevel(0.1f);
-    public static final Block DISAPPEARING_SPAWNER = new BlockDisappearingSpawner("disappearing_spawner", Material.ROCK, false);
-    public static final Block BOSS_SPAWNER = new BlockDisappearingSpawner("nexus_herobrine_spawner", Material.ROCK, true);
+    public static final Block LIGHTING_UPDATER = new BlockLightingUpdater(Material.AIR).setLightLevel(0.1f);
+    public static final Block DISAPPEARING_SPAWNER = new BlockDisappearingSpawner("disappearing_spawner", Material.ROCK, false).setHardness(1000).setBlockUnbreakable();
+    public static final Block BOSS_SPAWNER = new BlockDisappearingSpawner("nexus_herobrine_spawner", Material.ROCK, true).setHardness(1000).setBlockUnbreakable();
 
-    public static final Block MAELSTROM_CORE = new BlockMaelstromCore("maelstrom_core_block", Material.ROCK, ORE_HARDNESS, STONE_RESISTANCE, SoundType.STONE, ModItems.MAELSTROM_FRAGMENT);
-    public static final Block AZURE_MAELSTROM_CORE = new BlockMaelstromCore("azure_maelstrom_core", Material.ROCK, ORE_HARDNESS, STONE_RESISTANCE, SoundType.STONE, ModItems.AZURE_MAELSTROM_FRAGMENT);
-    public static final Block CLIFF_MAELSTROM_CORE = new BlockMaelstromCore("cliff_maelstrom_core", Material.ROCK, ORE_HARDNESS, STONE_RESISTANCE, SoundType.STONE, ModItems.GOLDEN_MAELSTROM_FRAGMENT);
+    public static final Block MAELSTROM_CORE_BLOCK = new BlockMaelstromCore(Material.ROCK, SoundType.STONE,() -> ModItems.MAELSTROM_FRAGMENT).setCreativeTab(ModCreativeTabs.BLOCKS).setHardness(ORE_HARDNESS).setResistance(STONE_RESISTANCE);
+    public static final Block AZURE_MAELSTROM_CORE = new BlockMaelstromCore(Material.ROCK, SoundType.STONE,() ->  ModItems.AZURE_MAELSTROM_FRAGMENT).setCreativeTab(ModCreativeTabs.BLOCKS).setHardness(ORE_HARDNESS).setResistance(STONE_RESISTANCE);
+    public static final Block CLIFF_MAELSTROM_CORE = new BlockMaelstromCore(Material.ROCK, SoundType.STONE,() ->  ModItems.GOLDEN_MAELSTROM_FRAGMENT).setCreativeTab(ModCreativeTabs.BLOCKS).setHardness(ORE_HARDNESS).setResistance(STONE_RESISTANCE);
+
     public static final Block AZURE_MAELSTROM = new BlockMaelstrom("azure_maelstrom", Material.ROCK, STONE_HARDNESS, STONE_RESISTANCE, SoundType.STONE, 1).setLightLevel(0.5f).setCreativeTab(ModCreativeTabs.BLOCKS);
     public static final Block DECAYING_MAELSTROM = new BlockDecayingMaelstrom("azure_decaying_maelstrom", STONE_HARDNESS, STONE_RESISTANCE, SoundType.STONE, 1).setLightLevel(0.5f);
     public static final Block MAELSTROM_HEART = new BlockMaelstromHeart("maelstrom_heart", Material.ROCK, OBSIDIAN_HARDNESS, OBSIDIAN_RESISTANCE, SoundType.STONE).setLightLevel(0.5f).setCreativeTab(ModCreativeTabs.BLOCKS);
@@ -175,10 +178,10 @@ public class ModBlocks {
      */
 
     public static final Block CRACKED_QUARTZ = new BlockBase("cracked_quartz", Material.ROCK, 0.8f, STONE_RESISTANCE, SoundType.STONE).setCreativeTab(ModCreativeTabs.BLOCKS);
-    public static final Block AZURE_KEY_BLOCK = new BlockKey("azure_key_block", ModItems.AZURE_KEY, (world, pos) -> new EntityAzurePortalSpawn(world, pos.getX(), pos.getY(), pos.getZ()));
+    public static final Block AZURE_KEY_BLOCK = new BlockKey("azure_key_block", () -> ModItems.AZURE_KEY, (world, pos) -> new EntityAzurePortalSpawn(world, pos.getX(), pos.getY(), pos.getZ()));
     public static final Block MAELSTROM_DUNGEON_KEY_BLOCK = new BlockKey("azure_dungeon_key_block");
-    public static final Block BROWN_KEY_BLOCK = new BlockKey("brown_key_block", ModItems.BROWN_KEY, (world, pos) -> new EntityCliffPortalSpawn(world, pos.getX(), pos.getY(), pos.getZ()));
-    public static final Block RED_DUNGEON_KEY_BLOCK = new BlockKey("red_dungeon_key_block", ModItems.RED_KEY, (world, pos) -> new EntityCrimsonTowerSpawner(world, pos.getX(), pos.getY(), pos.getZ()));
+    public static final Block BROWN_KEY_BLOCK = new BlockKey("brown_key_block", () -> ModItems.BROWN_KEY, (world, pos) -> new EntityCliffPortalSpawn(world, pos.getX(), pos.getY(), pos.getZ()));
+    public static final Block RED_DUNGEON_KEY_BLOCK = new BlockKey("red_dungeon_key_block", () -> ModItems.RED_KEY, (world, pos) -> new EntityCrimsonTowerSpawner(world, pos.getX(), pos.getY(), pos.getZ()));
     public static final Block ICE_KEY_BLOCK = new BlockKey("ice_key_block");
     public static final Block ICE_DUNGEON_KEY_BLOCK = new BlockKey("ice_dungeon_key_block");
     public static final Block BLACK_DUNGEON_KEY_BLOCK = new BlockKey("black_dungeon_key_block");
@@ -192,5 +195,24 @@ public class ModBlocks {
     public static final Block CRACKED_REDSTONE_BRICK = new BlockRedstoneBrick("cracked_redstone_brick", Material.ROCK, BRICK_HARDNESS, STONE_RESISTANCE, SoundType.STONE).setCreativeTab(ModCreativeTabs.BLOCKS);
     public static final Block IRON_GRATE = new BlockGrate("iron_grate", Material.IRON).setHardness(BRICK_HARDNESS).setResistance(STONE_RESISTANCE).setCreativeTab(ModCreativeTabs.BLOCKS);
     public static final Block FAN = new BlockFan("fan", Material.IRON, STONE_HARDNESS, STONE_RESISTANCE, SoundType.METAL);
+
+    public static void register(RegistryEvent.Register<Block> event) {
+        for (Field field : ModBlocks.class.getFields()) {
+            try {
+                Object value = field.get(null);
+                if (value instanceof Block) {
+                    Block block = (Block) value;
+                    if (block.getRegistryName() == null) {
+                        String name = field.getName().toLowerCase(Locale.ROOT);
+                        block.setRegistryName(name).setUnlocalizedName(IntoTheMaelstrom.MOD_ID + "." + name);
+                    }
+                    event.getRegistry().register(block);
+                    BLOCKS.add(block);
+                }
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 
 }

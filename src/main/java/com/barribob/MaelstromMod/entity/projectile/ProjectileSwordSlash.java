@@ -1,6 +1,6 @@
 package com.barribob.MaelstromMod.entity.projectile;
 
-import com.barribob.MaelstromMod.Main;
+import com.barribob.MaelstromMod.IntoTheMaelstrom;
 import com.barribob.MaelstromMod.packets.MessageModParticles;
 import com.barribob.MaelstromMod.particle.EnumModParticles;
 import com.barribob.MaelstromMod.util.ModDamageSource;
@@ -33,7 +33,7 @@ public class ProjectileSwordSlash extends Projectile {
         super.onUpdate();
         if (!world.isRemote && this.shootingEntity != null) {
             if (this.world instanceof WorldServer) {
-                Main.network.sendToAllTracking(new MessageModParticles(EnumModParticles.SWEEP_ATTACK, getPositionVector(), Vec3d.ZERO, this.getElement().sweepColor), this);
+                IntoTheMaelstrom.network.sendToAllTracking(new MessageModParticles(EnumModParticles.SWEEP_ATTACK, getPositionVector(), Vec3d.ZERO, this.getElement().sweepColor), this);
             }
 
             ModUtils.handleAreaImpact(1.5f, (e) -> this.getDamage(), this.shootingEntity, this.getPositionVector(), ModDamageSource.causeElementalThrownDamage(this, shootingEntity, getElement()),

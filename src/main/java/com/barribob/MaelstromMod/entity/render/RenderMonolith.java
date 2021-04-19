@@ -1,19 +1,19 @@
 package com.barribob.MaelstromMod.entity.render;
 
+import com.barribob.MaelstromMod.IntoTheMaelstrom;
 import com.barribob.MaelstromMod.entity.entities.EntityMonolith;
 import com.barribob.MaelstromMod.entity.model.ModelMonolith;
 import com.barribob.MaelstromMod.util.ModUtils;
-import com.barribob.MaelstromMod.util.Reference;
 import com.barribob.MaelstromMod.util.RenderUtils;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.Vec3d;
 
 public class RenderMonolith extends RenderModEntity<EntityMonolith> {
-    public ResourceLocation TEXTURES_1 = new ResourceLocation(Reference.MOD_ID + ":textures/entity/monolith.png");
-    public ResourceLocation TEXTURES_2 = new ResourceLocation(Reference.MOD_ID + ":textures/entity/monolith_blue.png");
-    public ResourceLocation TEXTURES_3 = new ResourceLocation(Reference.MOD_ID + ":textures/entity/monolith_red.png");
-    public ResourceLocation TEXTURES_4 = new ResourceLocation(Reference.MOD_ID + ":textures/entity/monolith_yellow.png");
+    public ResourceLocation TEXTURES_1 = new ResourceLocation(IntoTheMaelstrom.MOD_ID + ":textures/entity/monolith.png");
+    public ResourceLocation TEXTURES_2 = new ResourceLocation(IntoTheMaelstrom.MOD_ID + ":textures/entity/monolith_blue.png");
+    public ResourceLocation TEXTURES_3 = new ResourceLocation(IntoTheMaelstrom.MOD_ID + ":textures/entity/monolith_red.png");
+    public ResourceLocation TEXTURES_4 = new ResourceLocation(IntoTheMaelstrom.MOD_ID + ":textures/entity/monolith_yellow.png");
 
     public RenderMonolith(RenderManager rendermanagerIn) {
         super(rendermanagerIn, new ModelMonolith(), "monolith.png");

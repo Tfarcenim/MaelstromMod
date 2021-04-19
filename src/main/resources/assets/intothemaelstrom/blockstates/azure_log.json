@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "axis=y":  { "model": "intothemaelstrom:azure_log" },
+        "axis=z":   { "model": "intothemaelstrom:azure_log", "x": 90 },
+        "axis=x":   { "model": "intothemaelstrom:azure_log", "x": 90, "y": 90 },
+        "axis=none": { "model": "intothemaelstrom:azure_bark" }
+    }
+}

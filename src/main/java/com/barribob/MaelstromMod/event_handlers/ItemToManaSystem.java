@@ -1,6 +1,6 @@
 package com.barribob.MaelstromMod.event_handlers;
 
-import com.barribob.MaelstromMod.Main;
+import com.barribob.MaelstromMod.IntoTheMaelstrom;
 import com.barribob.MaelstromMod.init.ModEnchantments;
 import com.barribob.MaelstromMod.mana.IMana;
 import com.barribob.MaelstromMod.mana.ManaProvider;
@@ -70,7 +70,7 @@ public class ItemToManaSystem {
 
             if (!player.capabilities.isCreativeMode && manaCost != 0 && player instanceof EntityPlayerMP) {
                 manaCapability.consume(manaCost);
-                Main.network.sendTo(new MessageMana(manaCapability.getMana()), (EntityPlayerMP) player);
+                IntoTheMaelstrom.network.sendTo(new MessageMana(manaCapability.getMana()), (EntityPlayerMP) player);
             }
             compound.setInteger("cooldown", (int) getEnchantedCooldown(itemStack));
             itemStack.setTagCompound(compound);
@@ -155,8 +155,8 @@ public class ItemToManaSystem {
         if(registryName != null) {
             String registryPath = registryName.toString().replace(':', '.');
             try {
-                if (Main.manaConfig.hasPath(registryPath)) {
-                    return Main.manaConfig.getConfig(registryPath);
+                if (IntoTheMaelstrom.manaConfig.hasPath(registryPath)) {
+                    return IntoTheMaelstrom.manaConfig.getConfig(registryPath);
                 }
             } catch(ConfigException.BadPath ignored) {
             }

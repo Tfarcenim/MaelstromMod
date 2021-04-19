@@ -1,9 +1,9 @@
 package com.barribob.MaelstromMod.world.gen;
 
+import com.barribob.MaelstromMod.IntoTheMaelstrom;
 import com.barribob.MaelstromMod.util.IStructure;
 import com.barribob.MaelstromMod.util.ModRandom;
 import com.barribob.MaelstromMod.util.ModUtils;
-import com.barribob.MaelstromMod.util.Reference;
 import net.minecraft.init.Blocks;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.ResourceLocation;
@@ -61,7 +61,7 @@ public class WorldGenStructure extends WorldGenerator implements IStructure {
 
         MinecraftServer mcServer = world.getMinecraftServer();
         TemplateManager manager = worldServer.getStructureTemplateManager();
-        ResourceLocation location = new ResourceLocation(Reference.MOD_ID, structureName);
+        ResourceLocation location = new ResourceLocation(IntoTheMaelstrom.MOD_ID, structureName);
         template = manager.get(mcServer, location);
         if (template == null) {
             LogManager.getLogger().debug("The template, " + location + " could not be loaded");

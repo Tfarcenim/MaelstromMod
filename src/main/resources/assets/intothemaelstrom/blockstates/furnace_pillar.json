@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "axis=y":  { "model": "intothemaelstrom:furnace_pillar" },
+        "axis=z":   { "model": "intothemaelstrom:furnace_pillar", "x": 90 },
+        "axis=x":   { "model": "intothemaelstrom:furnace_pillar", "x": 90, "y": 90 },
+        "axis=none": { "model": "intothemaelstrom:furnace_block" }
+    }
+}

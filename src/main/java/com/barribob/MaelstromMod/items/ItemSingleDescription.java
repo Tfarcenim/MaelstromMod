@@ -3,17 +3,17 @@ package com.barribob.MaelstromMod.items;
 import com.barribob.MaelstromMod.util.ModUtils;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 
 import java.util.List;
 
-public class ItemSingleDescription extends ItemBase {
-    private String desc;
+public class ItemSingleDescription extends Item {
+    private final String desc;
 
-    public ItemSingleDescription(String name, String desc, CreativeTabs tab) {
-        super(name, tab);
+    public ItemSingleDescription(String desc) {
         this.desc = desc;
     }
 

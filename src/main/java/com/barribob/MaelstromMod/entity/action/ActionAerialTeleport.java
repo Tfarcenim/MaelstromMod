@@ -1,6 +1,6 @@
 package com.barribob.MaelstromMod.entity.action;
 
-import com.barribob.MaelstromMod.Main;
+import com.barribob.MaelstromMod.IntoTheMaelstrom;
 import com.barribob.MaelstromMod.entity.entities.EntityLeveledMob;
 import com.barribob.MaelstromMod.packets.MessageModParticles;
 import com.barribob.MaelstromMod.particle.EnumModParticles;
@@ -26,7 +26,7 @@ public class ActionAerialTeleport implements IAction {
             Vec3d prevPos = actor.getPositionVector();
             if(canSee && ModUtils.attemptTeleport(pos, actor)){
                 ModUtils.lineCallback(prevPos, pos, 50, (particlePos, j) ->
-                        Main.network.sendToAllTracking(new MessageModParticles(EnumModParticles.EFFECT, particlePos, Vec3d.ZERO, teleportColor), actor));
+                        IntoTheMaelstrom.network.sendToAllTracking(new MessageModParticles(EnumModParticles.EFFECT, particlePos, Vec3d.ZERO, teleportColor), actor));
                 actor.world.setEntityState(actor, ModUtils.SECOND_PARTICLE_BYTE);
                 break;
             }

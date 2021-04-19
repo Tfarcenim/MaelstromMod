@@ -1,7 +1,7 @@
 package com.barribob.MaelstromMod.init;
 
+import com.barribob.MaelstromMod.IntoTheMaelstrom;
 import com.barribob.MaelstromMod.enchantments.*;
-import com.barribob.MaelstromMod.util.Reference;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraftforge.event.RegistryEvent;
@@ -14,7 +14,7 @@ import net.minecraftforge.registries.IForgeRegistry;
  * Based on Jabelar's enchantment tutorial
  * https://jabelarminecraft.blogspot.com/p/minecraft-modding_6.html
  */
-@ObjectHolder(Reference.MOD_ID)
+@ObjectHolder(IntoTheMaelstrom.MOD_ID)
 public class ModEnchantments {
     public static final Enchantment reload = null;
     public static final Enchantment gun_power = null;
@@ -23,7 +23,7 @@ public class ModEnchantments {
     public static final Enchantment maelstrom_destroyer = null;
     public static final Enchantment critical_hit = null;
 
-    @Mod.EventBusSubscriber(modid = Reference.MOD_ID)
+    @Mod.EventBusSubscriber(modid = IntoTheMaelstrom.MOD_ID)
     public static class RegistrationHandler {
         @SubscribeEvent
         public static void onRegisterEnchantments(final RegistryEvent.Register<Enchantment> event) {

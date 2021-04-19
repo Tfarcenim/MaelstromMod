@@ -14,6 +14,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
@@ -31,14 +32,13 @@ import java.util.UUID;
  *
  * @author micha
  */
-public class ItemBlockvoid extends ItemBase {
+public class ItemBlockvoid extends Item {
     protected final Block block;
     private static final UUID REACH_MODIFIER = UUID.fromString("a6323e02-d8e9-44c6-b941-f5d7155bb406");
     private static final float REACH = 5;
     private final float efficiency;
 
-    public ItemBlockvoid(String name, Block block, float efficiency) {
-        super(name);
+    public ItemBlockvoid(Block block, float efficiency) {
         this.block = block;
         this.setMaxDamage(1000);
         this.efficiency = efficiency;

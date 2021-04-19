@@ -1,8 +1,8 @@
 package com.barribob.MaelstromMod.init;
 
+import com.barribob.MaelstromMod.IntoTheMaelstrom;
 import com.barribob.MaelstromMod.trades.AzureTrades;
 import com.barribob.MaelstromMod.trades.NexusTrades;
-import com.barribob.MaelstromMod.util.Reference;
 import net.minecraft.enchantment.EnchantmentData;
 import net.minecraft.entity.IMerchant;
 import net.minecraft.entity.passive.EntityVillager.ITradeList;
@@ -23,7 +23,7 @@ import java.util.Random;
 /**
  * Based on Jabelar's villager profession tutorial https://jabelarminecraft.blogspot.com/p/minecraft-forge-modding-villagers.html
  */
-@ObjectHolder(Reference.MOD_ID)
+@ObjectHolder(IntoTheMaelstrom.MOD_ID)
 public class ModProfessions {
     private static VillagerProfession AZURE_VILLAGER = null;
     private static VillagerProfession NEXUS_VILLAGER = null;
@@ -40,10 +40,10 @@ public class ModProfessions {
     public static VillagerCareer HEROBRINE_MAELSTROM_KEY;
 
     public static void associateCareersAndTrades() {
-        AZURE_VILLAGER = new VillagerProfession(Reference.MOD_ID + ":azure_villager", Reference.MOD_ID + ":textures/entity/azure_villager.png",
+        AZURE_VILLAGER = new VillagerProfession(IntoTheMaelstrom.MOD_ID + ":azure_villager", IntoTheMaelstrom.MOD_ID + ":textures/entity/azure_villager.png",
                 "minecraft:textures/entity/zombie_villager/zombie_farmer.png");
 
-        NEXUS_VILLAGER = new VillagerProfession(Reference.MOD_ID + ":nexus_villager", Reference.MOD_ID + ":textures/entity/nexus_villager.png",
+        NEXUS_VILLAGER = new VillagerProfession(IntoTheMaelstrom.MOD_ID + ":nexus_villager", IntoTheMaelstrom.MOD_ID + ":textures/entity/nexus_villager.png",
                 "minecraft:textures/entity/zombie_villager/zombie_farmer.png");
 
         AZURE_WEAPONSMITH = new VillagerCareer(AZURE_VILLAGER, "azure_weaponsmith");
@@ -189,7 +189,7 @@ public class ModProfessions {
         HEROBRINE_CRIMSON_KEY.addTrade(1, new GeneralTrade(ModItems.RED_KEY_FRAGMENT, 1, null, 0, ModItems.RED_KEY, 1));
 
         HEROBRINE_MAELSTROM_KEY = new VillagerCareer(NEXUS_VILLAGER, "herobrine_maelstrom");
-        HEROBRINE_MAELSTROM_KEY.addTrade(1, new GeneralTrade(ModItems.MAELSTROM_KEY_FRAGMENT, 1, null, 0, ModItems.MAELSTROM_KEY, 1));
+        HEROBRINE_MAELSTROM_KEY.addTrade(1, new GeneralTrade(ModItems.MAELSTROM_KEY_FRAGMENTS, 1, null, 0, ModItems.MAELSTROM_KEY, 1));
     }
 
     public static class GeneralTrade implements ITradeList {
