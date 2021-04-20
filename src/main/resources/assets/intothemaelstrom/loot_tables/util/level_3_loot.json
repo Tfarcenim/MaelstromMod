@@ -6,11 +6,11 @@
             "entries": [
                 {
                     "type": "item",
-                    "name": "mm:swamp_helmet",
+                    "name": "intothemaelstrom:swamp_helmet",
                     "weight": 1,
                     "functions": [
                         {
-                            "function": "mm:enchant",
+                            "function": "intothemaelstrom:enchant",
                             "level": 3,
                             "conditions": [
                                 {
@@ -23,11 +23,11 @@
                 },
                 {
                     "type": "item",
-                    "name": "mm:swamp_chestplate",
+                    "name": "intothemaelstrom:swamp_chestplate",
                     "weight": 1,
                     "functions": [
                         {
-                            "function": "mm:enchant",
+                            "function": "intothemaelstrom:enchant",
                             "level": 3,
                             "conditions": [
                                 {
@@ -40,11 +40,11 @@
                 },
                 {
                     "type": "item",
-                    "name": "mm:swamp_leggings",
+                    "name": "intothemaelstrom:swamp_leggings",
                     "weight": 1,
                     "functions": [
                         {
-                            "function": "mm:enchant",
+                            "function": "intothemaelstrom:enchant",
                             "level": 3,
                             "conditions": [
                                 {
@@ -57,11 +57,11 @@
                 },
                 {
                     "type": "item",
-                    "name": "mm:swamp_boots",
+                    "name": "intothemaelstrom:swamp_boots",
                     "weight": 1,
                     "functions": [
                         {
-                            "function": "mm:enchant",
+                            "function": "intothemaelstrom:enchant",
                             "level": 3,
                             "conditions": [
                                 {
@@ -74,28 +74,11 @@
                 },
                                 {
                     "type": "item",
-                    "name": "mm:goltox_helmet",
+                    "name": "intothemaelstrom:goltox_helmet",
                     "weight": 1,
                     "functions": [
                         {
-                            "function": "mm:enchant",
-                            "level": 3,
-                            "conditions": [
-                                {
-                                    "condition": "random_chance",
-                                    "chance": 0.4
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "type": "item",
-                    "name": "mm:goltox_chestplate",
-                    "weight": 1,
-                    "functions": [
-                        {
-                            "function": "mm:enchant",
+                            "function": "intothemaelstrom:enchant",
                             "level": 3,
                             "conditions": [
                                 {
@@ -108,11 +91,11 @@
                 },
                 {
                     "type": "item",
-                    "name": "mm:goltox_leggings",
+                    "name": "intothemaelstrom:goltox_chestplate",
                     "weight": 1,
                     "functions": [
                         {
-                            "function": "mm:enchant",
+                            "function": "intothemaelstrom:enchant",
                             "level": 3,
                             "conditions": [
                                 {
@@ -125,11 +108,11 @@
                 },
                 {
                     "type": "item",
-                    "name": "mm:goltox_boots",
+                    "name": "intothemaelstrom:goltox_leggings",
                     "weight": 1,
                     "functions": [
                         {
-                            "function": "mm:enchant",
+                            "function": "intothemaelstrom:enchant",
                             "level": 3,
                             "conditions": [
                                 {
@@ -142,11 +125,11 @@
                 },
                 {
                     "type": "item",
-                    "name": "mm:brownstone_sword",
+                    "name": "intothemaelstrom:goltox_boots",
                     "weight": 1,
                     "functions": [
                         {
-                            "function": "mm:enchant",
+                            "function": "intothemaelstrom:enchant",
                             "level": 3,
                             "conditions": [
                                 {
@@ -159,11 +142,11 @@
                 },
                 {
                     "type": "item",
-                    "name": "mm:brownstone_cannon",
+                    "name": "intothemaelstrom:brownstone_sword",
                     "weight": 1,
                     "functions": [
                         {
-                            "function": "mm:enchant",
+                            "function": "intothemaelstrom:enchant",
                             "level": 3,
                             "conditions": [
                                 {
@@ -176,11 +159,11 @@
                 },
                 {
                     "type": "item",
-                    "name": "mm:meteor_staff",
+                    "name": "intothemaelstrom:brownstone_cannon",
                     "weight": 1,
                     "functions": [
                         {
-                            "function": "mm:enchant",
+                            "function": "intothemaelstrom:enchant",
                             "level": 3,
                             "conditions": [
                                 {
@@ -193,11 +176,28 @@
                 },
                 {
                     "type": "item",
-                    "name": "mm:ancient_battleaxe",
+                    "name": "intothemaelstrom:meteor_staff",
                     "weight": 1,
                     "functions": [
                         {
-                            "function": "mm:enchant",
+                            "function": "intothemaelstrom:enchant",
+                            "level": 3,
+                            "conditions": [
+                                {
+                                    "condition": "random_chance",
+                                    "chance": 0.4
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "intothemaelstrom:ancient_battleaxe",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "intothemaelstrom:enchant",
                             "level": 3,
                             "conditions": [
                                 {

@@ -7,7 +7,7 @@
                 {
                     "type": "item",
                     "weight": 1,
-                    "name": "mm:golden_fireball_staff",
+                    "name": "intothemaelstrom:golden_fireball_staff",
                     "functions": [
                         {
                             "function": "enchant_with_levels",
@@ -25,7 +25,7 @@
                 {
                     "type": "item",
                     "weight": 1,
-                    "name": "mm:red_key_fragment",
+                    "name": "intothemaelstrom:red_key_fragment",
                     "functions": [
                         {
                             "function": "set_count",
@@ -42,7 +42,7 @@
                 {
                     "type": "item",
                     "weight": 1,
-                    "name": "mm:golden_maelstrom_core",
+                    "name": "intothemaelstrom:golden_maelstrom_core",
                     "functions": [
                         {
                             "function": "set_count",

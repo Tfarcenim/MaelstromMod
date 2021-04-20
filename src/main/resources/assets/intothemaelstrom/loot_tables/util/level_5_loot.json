@@ -6,11 +6,11 @@
 			"entries": [
 				{
 					"type": "item",
-					"name": "mm:energized_pistol",
+					"name": "intothemaelstrom:energized_pistol",
 					"weight": 1,
 					"functions": [
 						{
-							"function": "mm:enchant",
+							"function": "intothemaelstrom:enchant",
 							"level": 4,
 							"conditions": [
 								{
@@ -23,11 +23,11 @@
 				},
 				{
 					"type": "item",
-					"name": "mm:energized_repeater",
+					"name": "intothemaelstrom:energized_repeater",
 					"weight": 1,
 					"functions": [
 						{
-							"function": "mm:enchant",
+							"function": "intothemaelstrom:enchant",
 							"level": 4,
 							"conditions": [
 								{
@@ -40,11 +40,11 @@
 				},
 				{
 					"type": "item",
-					"name": "mm:energized_shotgun",
+					"name": "intothemaelstrom:energized_shotgun",
 					"weight": 1,
 					"functions": [
 						{
-							"function": "mm:enchant",
+							"function": "intothemaelstrom:enchant",
 							"level": 4,
 							"conditions": [
 								{
@@ -57,11 +57,11 @@
 				},
 				{
 					"type": "item",
-					"name": "mm:energized_piercer",
+					"name": "intothemaelstrom:energized_piercer",
 					"weight": 1,
 					"functions": [
 						{
-							"function": "mm:enchant",
+							"function": "intothemaelstrom:enchant",
 							"level": 4,
 							"conditions": [
 								{
@@ -74,11 +74,11 @@
 				},
 				{
 					"type": "item",
-					"name": "mm:energized_musket",
+					"name": "intothemaelstrom:energized_musket",
 					"weight": 1,
 					"functions": [
 						{
-							"function": "mm:enchant",
+							"function": "intothemaelstrom:enchant",
 							"level": 4,
 							"conditions": [
 								{
@@ -91,11 +91,11 @@
 				},
 				{
 					"type": "item",
-					"name": "mm:crimson_rune_staff",
+					"name": "intothemaelstrom:crimson_rune_staff",
 					"weight": 1,
 					"functions": [
 						{
-							"function": "mm:enchant",
+							"function": "intothemaelstrom:enchant",
 							"level": 4,
 							"conditions": [
 								{
@@ -108,11 +108,11 @@
 				},
 				{
 					"type": "item",
-					"name": "mm:energetic_steel_helmet",
+					"name": "intothemaelstrom:energetic_steel_helmet",
 					"weight": 1,
 					"functions": [
 						{
-							"function": "mm:enchant",
+							"function": "intothemaelstrom:enchant",
 							"level": 4,
 							"conditions": [
 								{
@@ -125,11 +125,11 @@
 				},
 				{
 					"type": "item",
-					"name": "mm:energetic_steel_chestplate",
+					"name": "intothemaelstrom:energetic_steel_chestplate",
 					"weight": 1,
 					"functions": [
 						{
-							"function": "mm:enchant",
+							"function": "intothemaelstrom:enchant",
 							"level": 4,
 							"conditions": [
 								{
@@ -142,11 +142,11 @@
 				},
 				{
 					"type": "item",
-					"name": "mm:energetic_steel_leggings",
+					"name": "intothemaelstrom:energetic_steel_leggings",
 					"weight": 1,
 					"functions": [
 						{
-							"function": "mm:enchant",
+							"function": "intothemaelstrom:enchant",
 							"level": 4,
 							"conditions": [
 								{
@@ -159,11 +159,11 @@
 				},
 				{
 					"type": "item",
-					"name": "mm:energetic_steel_boots",
+					"name": "intothemaelstrom:energetic_steel_boots",
 					"weight": 1,
 					"functions": [
 						{
-							"function": "mm:enchant",
+							"function": "intothemaelstrom:enchant",
 							"level": 4,
 							"conditions": [
 								{
@@ -176,16 +176,16 @@
 				},
 				{
 					"type": "item",
-					"name": "mm:crimson_ammo_case",
+					"name": "intothemaelstrom:crimson_ammo_case",
 					"weight": 1
 				},
 				{
 					"type": "item",
-					"name": "mm:fadesteel_helmet",
+					"name": "intothemaelstrom:fadesteel_helmet",
 					"weight": 1,
 					"functions": [
 						{
-							"function": "mm:enchant",
+							"function": "intothemaelstrom:enchant",
 							"level": 4,
 							"conditions": [
 								{
@@ -198,11 +198,11 @@
 				},
 				{
 					"type": "item",
-					"name": "mm:fadesteel_chestplate",
+					"name": "intothemaelstrom:fadesteel_chestplate",
 					"weight": 1,
 					"functions": [
 						{
-							"function": "mm:enchant",
+							"function": "intothemaelstrom:enchant",
 							"level": 4,
 							"conditions": [
 								{
@@ -215,11 +215,11 @@
 				},
 				{
 					"type": "item",
-					"name": "mm:fadesteel_leggings",
+					"name": "intothemaelstrom:fadesteel_leggings",
 					"weight": 1,
 					"functions": [
 						{
-							"function": "mm:enchant",
+							"function": "intothemaelstrom:enchant",
 							"level": 4,
 							"conditions": [
 								{
@@ -232,11 +232,11 @@
 				},
 				{
 					"type": "item",
-					"name": "mm:fadesteel_boots",
+					"name": "intothemaelstrom:fadesteel_boots",
 					"weight": 1,
 					"functions": [
 						{
-							"function": "mm:enchant",
+							"function": "intothemaelstrom:enchant",
 							"level": 4,
 							"conditions": [
 								{
@@ -249,11 +249,11 @@
 				},
 				{
 					"type": "item",
-					"name": "mm:energetic_steel_sword",
+					"name": "intothemaelstrom:energetic_steel_sword",
 					"weight": 1,
 					"functions": [
 						{
-							"function": "mm:enchant",
+							"function": "intothemaelstrom:enchant",
 							"level": 4,
 							"conditions": [
 								{
@@ -266,11 +266,11 @@
 				},
 				{
 					"type": "item",
-					"name": "mm:energetic_steel_cleaver",
+					"name": "intothemaelstrom:energetic_steel_cleaver",
 					"weight": 1,
 					"functions": [
 						{
-							"function": "mm:enchant",
+							"function": "intothemaelstrom:enchant",
 							"level": 4,
 							"conditions": [
 								{
@@ -283,11 +283,11 @@
 				},
 				{
 					"type": "item",
-					"name": "mm:energetic_steel_pickaxe",
+					"name": "intothemaelstrom:energetic_steel_pickaxe",
 					"weight": 1,
 					"functions": [
 						{
-							"function": "mm:enchant",
+							"function": "intothemaelstrom:enchant",
 							"level": 4,
 							"conditions": [
 								{
@@ -300,22 +300,22 @@
 				},
 				{
 					"type": "item",
-					"name": "mm:stonebrick_blockvoid",
+					"name": "intothemaelstrom:stonebrick_blockvoid",
 					"weight": 1
 				},
 				{
 					"type": "item",
-					"name": "mm:obsidian_blockvoid",
+					"name": "intothemaelstrom:obsidian_blockvoid",
 					"weight": 1
 				},
 				{
 					"type": "item",
-					"name": "mm:furnace_bricks_blockvoid",
+					"name": "intothemaelstrom:furnace_bricks_blockvoid",
 					"weight": 1
 				},
 				{
 					"type": "item",
-					"name": "mm:redstone_brick_blockvoid",
+					"name": "intothemaelstrom:redstone_brick_blockvoid",
 					"weight": 1
 				}
 			]

@@ -6,5 +6,5 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public interface BulletFactory {
-    public Projectile get(World world, EntityPlayer player, ItemStack stack, float damage);
+    Projectile get(World world, EntityPlayer player, ItemStack stack, float damage);
 }

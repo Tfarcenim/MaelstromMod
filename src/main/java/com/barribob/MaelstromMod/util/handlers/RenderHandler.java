@@ -17,10 +17,10 @@ import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLiving;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.fml.client.registry.IRenderFactory;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 
 import java.util.function.Function;
@@ -33,8 +33,8 @@ public class RenderHandler {
         registerModEntityRenderer(EntityBeast.class, new ModelBeast(), "beast.png", "beast.png", "beast.png", "beast_crimson.png");
         registerModEntityRenderer(EntityMaelstromMage.class, new ModelMaelstromMage(), "maelstrom_mage.png", "maelstrom_mage_azure.png", "maelstrom_mage_golden.png", "maelstrom_mage_crimson.png");
         registerModEntityRenderer(EntityFloatingSkull.class, new ModelFloatingSkull(), "floating_skull.png");
-        registerModEntityRenderer(Herobrine.class, (manager) -> new RenderHerobrine(manager, new ResourceLocation(IntoTheMaelstrom.MOD_ID + ":textures/entity/herobrine_1.png")));
-        registerModEntityRenderer(EntityHerobrineOne.class, (manager) -> new RenderHerobrine(manager, new ResourceLocation(IntoTheMaelstrom.MOD_ID + ":textures/entity/shadow_clone.png")));
+        registerModEntityRenderer(HerobrineEntity.class, (manager) -> new RenderHerobrine<>(manager, new ResourceLocation(IntoTheMaelstrom.MOD_ID + ":textures/entity/herobrine_1.png")));
+        registerModEntityRenderer(EntityHerobrineOne.class, (manager) -> new RenderHerobrine<>(manager, new ResourceLocation(IntoTheMaelstrom.MOD_ID + ":textures/entity/shadow_clone.png")));
         registerModEntityRenderer(NexusGunTrader.class, new ModelGunTrader(), "gun_trader.png");
         registerModEntityRenderer(NexusMageTrader.class, new ModelMageTrader(), "mage_trader.png");
         registerModEntityRenderer(NexusArmorer.class, new ModelArmorer(), "armorer.png");
@@ -90,17 +90,12 @@ public class RenderHandler {
     /**
      * Registers an entity with a model and sets it up for rendering
      */
-    private static <T extends Entity, U extends ModelBase, V extends RenderModEntity> void registerModEntityRenderer(Class<T> entityClass, U model, String... textures) {
-        registerModEntityRenderer(entityClass, (manager) -> new RenderModEntity(manager, model, textures));
+    private static <T extends EntityLiving, U extends ModelBase> void registerModEntityRenderer(Class<T> entityClass, U model, String... textures) {
+        registerModEntityRenderer(entityClass, (manager) -> new RenderModEntity<>(manager, model, textures));
     }
 
-    private static <T extends Entity, U extends ModelBase, V extends RenderModEntity> void registerModEntityRenderer(Class<T> entityClass, Function<RenderManager, Render<? super T>> renderClass) {
-        RenderingRegistry.registerEntityRenderingHandler(entityClass, new IRenderFactory<T>() {
-            @Override
-            public Render<? super T> createRenderFor(RenderManager manager) {
-                return renderClass.apply(manager);
-            }
-        });
+    private static <T extends Entity> void registerModEntityRenderer(Class<T> entityClass, Function<RenderManager, Render<? super T>> renderClass) {
+        RenderingRegistry.registerEntityRenderingHandler(entityClass, renderClass::apply);
     }
 
     private static <T extends Entity> void registerProjectileRenderer(Class<T> projectileClass) {
@@ -113,11 +108,6 @@ public class RenderHandler {
      * @param projectileClass
      */
     private static <T extends Entity> void registerProjectileRenderer(Class<T> projectileClass, Item item) {
-        RenderingRegistry.registerEntityRenderingHandler(projectileClass, new IRenderFactory<T>() {
-            @Override
-            public Render<? super T> createRenderFor(RenderManager manager) {
-                return new RenderProjectile<T>(manager, Minecraft.getMinecraft().getRenderItem(), item);
-            }
-        });
+        RenderingRegistry.registerEntityRenderingHandler(projectileClass, manager -> new RenderProjectile<>(manager, Minecraft.getMinecraft().getRenderItem(), item));
     }
 }

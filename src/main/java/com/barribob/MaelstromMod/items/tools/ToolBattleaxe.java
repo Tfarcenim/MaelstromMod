@@ -15,8 +15,8 @@ import java.util.List;
  * A slower melee weapons with a large sweep attack
  */
 public class ToolBattleaxe extends ToolSword implements ISweepAttackOverride {
-    public ToolBattleaxe(String name, ToolMaterial material, float level) {
-        super(name, material, level);
+    public ToolBattleaxe(ToolMaterial material, float level) {
+        super(material, level);
     }
 
     /**

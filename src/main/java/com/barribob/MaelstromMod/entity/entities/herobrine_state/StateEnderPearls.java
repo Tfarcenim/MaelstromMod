@@ -1,6 +1,6 @@
 package com.barribob.MaelstromMod.entity.entities.herobrine_state;
 
-import com.barribob.MaelstromMod.entity.entities.Herobrine;
+import com.barribob.MaelstromMod.entity.entities.HerobrineEntity;
 import com.barribob.MaelstromMod.init.ModProfessions;
 import com.barribob.MaelstromMod.util.TimedMessager;
 import net.minecraft.entity.IMerchant;
@@ -20,7 +20,7 @@ public class StateEnderPearls extends HerobrineState implements IMerchant {
     private boolean leftClickMessage = false;
     private TimedMessager messager;
 
-    public StateEnderPearls(Herobrine herobrine) {
+    public StateEnderPearls(HerobrineEntity herobrine) {
         super(herobrine);
         for (EntityVillager.ITradeList list : ModProfessions.HEROBRINE_ENDER_PEARLS.getTrades(0)) {
             list.addMerchantRecipe(this, this.buyingList, this.herobrine.getRNG());
@@ -48,7 +48,7 @@ public class StateEnderPearls extends HerobrineState implements IMerchant {
     }
 
     @Override
-    public void leftClick(Herobrine herobrine) {
+    public void leftClick(HerobrineEntity herobrine) {
         if (!this.leftClickMessage) {
             messageToPlayers.accept("herobrine_pearl_2");
             leftClickMessage = true;

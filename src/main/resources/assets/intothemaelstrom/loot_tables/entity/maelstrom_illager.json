@@ -7,7 +7,7 @@
                 {
                     "type": "item",
                     "weight": 1,
-                    "name": "mm:cliff_key_fragment"
+                    "name": "intothemaelstrom:cliff_key_fragment"
                 }
             ]
         },
@@ -18,7 +18,7 @@
                 {
                     "type": "item",
                     "weight": 1,
-                    "name": "mm:azure_maelstrom_core_crystal",
+                    "name": "intothemaelstrom:azure_maelstrom_core_crystal",
                     "functions": [
                         {
                             "function": "set_count",

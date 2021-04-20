@@ -80,7 +80,7 @@ public class ModEntities {
 
     private static int PARTICLE_START_ID = 500;
 
-    public static Vec3i maelstrom = new Vec3i(6433126, 3221816, 0);
+    public static Vec3i maelstrom = new Vec3i(0x622966, 0x312938, 0);
     public static Vec3i azure = new Vec3i(7248383, 7236306, 0);
     public static Vec3i nexus = new Vec3i(15724287, 12501453, 0);
     public static Vec3i cliff = new Vec3i(0x999966, 0xe6e600, 0);
@@ -100,7 +100,7 @@ public class ModEntities {
         registerEntity("azure_golem", EntityAzureGolem.class, AZURE_GOLEM_ID, 70, azure);
         registerEntityWithID("floating_skull", EntityFloatingSkull.class, FLOATING_SKULL_ID, 50, maelstrom);
         registerEntity("herobrine_1", EntityHerobrineOne.class, HEROBRINE_1_ID, 50);
-        registerEntityWithID("herobrine_controller", Herobrine.class, HEROBRINE_CONTROLLLER, 50, maelstrom);
+        registerEntityWithID("herobrine_controller", HerobrineEntity.class, HEROBRINE_CONTROLLLER, 50, maelstrom);
         registerEntity("nexus_gunsmith", NexusGunTrader.class, NEXUS_GUNSMITH, 50, nexus);
         registerEntity("nexus_mage", NexusMageTrader.class, NEXUS_MAGE, 50, nexus);
         registerEntity("nexus_armorer", NexusArmorer.class, NEXUS_ARMORER, 50, nexus);
@@ -197,23 +197,23 @@ public class ModEntities {
     }
 
     private static void registerEntityWithID(String name, Class<? extends Entity> entity, int id, int range, Vec3i eggColor) {
-        EntityRegistry.registerModEntity(new ResourceLocation(IntoTheMaelstrom.MOD_ID + ":" + name), entity, name, id, IntoTheMaelstrom.instance, range, 1, true, eggColor.getX(), eggColor.getY());
+        EntityRegistry.registerModEntity(new ResourceLocation(IntoTheMaelstrom.MOD_ID, name), entity, name, id, IntoTheMaelstrom.instance, range, 1, true, eggColor.getX(), eggColor.getY());
         ID_MAP.put(entity, name);
     }
 
     private static void registerEntity(String name, Class<? extends Entity> entity, int id, int range, Vec3i eggColor) {
-        EntityRegistry.registerModEntity(new ResourceLocation(IntoTheMaelstrom.MOD_ID + ":" + name), entity, name, id, IntoTheMaelstrom.instance, range, 1, true, eggColor.getX(), eggColor.getY());
+        EntityRegistry.registerModEntity(new ResourceLocation(IntoTheMaelstrom.MOD_ID, name), entity, name, id, IntoTheMaelstrom.instance, range, 1, true, eggColor.getX(), eggColor.getY());
     }
 
     private static void registerEntity(String name, Class<? extends Entity> entity, int id, int range) {
-        EntityRegistry.registerModEntity(new ResourceLocation(IntoTheMaelstrom.MOD_ID + ":" + name), entity, name, id, IntoTheMaelstrom.instance, range, 1, true);
+        EntityRegistry.registerModEntity(new ResourceLocation(IntoTheMaelstrom.MOD_ID, name), entity, name, id, IntoTheMaelstrom.instance, range, 1, true);
     }
 
     private static void registerFastProjectile(String name, Class<? extends Entity> entity, int id, int range) {
-        EntityRegistry.registerModEntity(new ResourceLocation(IntoTheMaelstrom.MOD_ID + ":" + name), entity, name, id, IntoTheMaelstrom.instance, range, 1, false);
+        EntityRegistry.registerModEntity(new ResourceLocation(IntoTheMaelstrom.MOD_ID, name), entity, name, id, IntoTheMaelstrom.instance, range, 1, false);
     }
 
     private static void registerTileEntity(Class<? extends TileEntity> entity, String name) {
-        GameRegistry.registerTileEntity(entity, new ResourceLocation(IntoTheMaelstrom.MOD_ID + ":" + name));
+        GameRegistry.registerTileEntity(entity, new ResourceLocation(IntoTheMaelstrom.MOD_ID, name));
     }
 }

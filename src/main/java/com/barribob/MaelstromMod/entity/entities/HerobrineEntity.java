@@ -16,7 +16,7 @@ import net.minecraft.world.World;
 /*
  * Controls the herobrine fight, with dialogue and ending
  */
-public class Herobrine extends EntityLeveledMob {
+public class HerobrineEntity extends EntityLeveledMob {
     public final BossInfoServer bossInfo = (new BossInfoServer(this.getDisplayName(), BossInfo.Color.PURPLE, BossInfo.Overlay.NOTCHED_20));
     private static final String nbtState = "herobrine_state";
     public HerobrineState state;
@@ -33,7 +33,7 @@ public class Herobrine extends EntityLeveledMob {
         this.tasks.addTask(7, new EntityAIWatchClosest(this, EntityPlayer.class, 20.0F));
     }
 
-    public Herobrine(World worldIn) {
+    public HerobrineEntity(World worldIn) {
         super(worldIn);
         state = new StateEnderPearls(this);
         this.setSize(0.5f, 2.0f);
@@ -65,7 +65,7 @@ public class Herobrine extends EntityLeveledMob {
         if (source.getTrueSource() instanceof EntityPlayer) {
             state.leftClick(this);
         }
-        return false;
+        return super.attackEntityFrom(source,amount);
     }
 
     @Override
@@ -126,5 +126,10 @@ public class Herobrine extends EntityLeveledMob {
     public void writeEntityToNBT(NBTTagCompound compound) {
         compound.setString(nbtState, state.getNbtString());
         super.writeEntityToNBT(compound);
+    }
+
+    @Override
+    public boolean isEntityInvulnerable(DamageSource source) {
+        return source != DamageSource.OUT_OF_WORLD;
     }
 }

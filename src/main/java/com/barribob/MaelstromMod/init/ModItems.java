@@ -9,6 +9,7 @@ import com.barribob.MaelstromMod.items.armor.ModArmorBase;
 import com.barribob.MaelstromMod.items.gun.*;
 import com.barribob.MaelstromMod.items.gun.bullet.BrownstoneCannon;
 import com.barribob.MaelstromMod.items.gun.bullet.GoldenFireball;
+import com.barribob.MaelstromMod.items.staff.*;
 import com.barribob.MaelstromMod.items.tools.*;
 import com.barribob.MaelstromMod.util.Element;
 import com.barribob.MaelstromMod.util.ModUtils;
@@ -243,83 +244,81 @@ public class ModItems {
      * Guns
      */
 
-    public static final Item FLINTLOCK = new ItemFlintlock("flintlock_pistol", LevelHandler.INVASION);
-    public static final Item BOOMSTICK = new ItemBoomstick("boomstick", LevelHandler.AZURE_OVERWORLD);
-    public static final Item MUSKET = new ItemMusket("musket", LevelHandler.AZURE_OVERWORLD);
-    public static final Item REPEATER = new ItemRepeater("repeater", LevelHandler.AZURE_OVERWORLD);
-    public static final Item RIFLE = new ItemRifle("rifle", LevelHandler.AZURE_OVERWORLD).setInformation((tooltip) -> {
+    public static final Item FLINTLOCK = new ItemFlintlock(LevelHandler.INVASION);
+    public static final Item BOOMSTICK = new ItemBoomstick(LevelHandler.AZURE_OVERWORLD);
+    public static final Item MUSKET = new ItemMusket(LevelHandler.AZURE_OVERWORLD);
+    public static final Item REPEATER = new ItemRepeater(LevelHandler.AZURE_OVERWORLD);
+    public static final Item RIFLE = new ItemRifle(LevelHandler.AZURE_OVERWORLD).setInformation((tooltip) -> {
         tooltip.add(TextFormatting.GRAY + ModUtils.translateDesc("rifle"));
     });
-    public static final Item ELK_BLASTER = new ItemPiercer("elk_blaster", LevelHandler.AZURE_ENDGAME).setElement(Element.AZURE);
-    public static final Item PUMPKIN = new ItemPumpkin("pumpkin", 80, null, LevelHandler.AZURE_ENDGAME);
-    public static final Item GOLDEN_FLINTLOCK = new ItemFlintlock("golden_pistol", LevelHandler.CLIFF_ENDGAME).setElement(Element.GOLDEN);
-    public static final Item GOLDEN_REPEATER = new ItemRepeater("golden_repeater", LevelHandler.CLIFF_ENDGAME).setElement(Element.GOLDEN);
-    public static final Item GOLDEN_SHOTGUN = new ItemBoomstick("golden_shotgun", LevelHandler.CLIFF_ENDGAME).setElement(Element.GOLDEN);
-    public static final Item GOLDEN_RIFLE = new ItemRifle("golden_rifle", LevelHandler.CLIFF_ENDGAME).setElement(Element.GOLDEN);
+    public static final Item ELK_BLASTER = new ItemPiercer(LevelHandler.AZURE_ENDGAME).setElement(Element.AZURE);
+    public static final Item PUMPKIN = new ItemPumpkinGun(80, LevelHandler.AZURE_ENDGAME);
+    public static final Item GOLDEN_FLINTLOCK = new ItemFlintlock(LevelHandler.CLIFF_ENDGAME).setElement(Element.GOLDEN);
+    public static final Item GOLDEN_REPEATER = new ItemRepeater(LevelHandler.CLIFF_ENDGAME).setElement(Element.GOLDEN);
+    public static final Item GOLDEN_SHOTGUN = new ItemBoomstick(LevelHandler.CLIFF_ENDGAME).setElement(Element.GOLDEN);
+    public static final Item GOLDEN_RIFLE = new ItemRifle(LevelHandler.CLIFF_ENDGAME).setElement(Element.GOLDEN);
 
-    public static final Item ENERGIZED_PISTOL = new ItemFlintlock("energized_pistol", LevelHandler.CRIMSON_START).setElement(Element.CRIMSON);
-    public static final Item ENERGIZED_REPEATER = new ItemRepeater("energized_repeater", LevelHandler.CRIMSON_START).setElement(Element.CRIMSON);
-    public static final Item ENERGIZED_SHOTGUN = new ItemBoomstick("energized_shotgun", LevelHandler.CRIMSON_START).setElement(Element.CRIMSON);
-    public static final Item ENERGIZED_PIERCER = new ItemPiercer("energized_piercer", LevelHandler.CRIMSON_START).setElement(Element.CRIMSON);
-    public static final Item ENERGIZED_MUSKET = new ItemMusket("energized_musket", LevelHandler.CRIMSON_START).setElement(Element.CRIMSON);
+    public static final Item ENERGIZED_PISTOL = new ItemFlintlock(LevelHandler.CRIMSON_START).setElement(Element.CRIMSON);
+    public static final Item ENERGIZED_REPEATER = new ItemRepeater(LevelHandler.CRIMSON_START).setElement(Element.CRIMSON);
+    public static final Item ENERGIZED_SHOTGUN = new ItemBoomstick(LevelHandler.CRIMSON_START).setElement(Element.CRIMSON);
+    public static final Item ENERGIZED_PIERCER = new ItemPiercer(LevelHandler.CRIMSON_START).setElement(Element.CRIMSON);
+    public static final Item ENERGIZED_MUSKET = new ItemMusket(LevelHandler.CRIMSON_START).setElement(Element.CRIMSON);
 
     /**
      * Staves
      */
 
-    public static final Item MAELSTROM_CANNON = new ItemMaelstromCannon("maelstrom_cannon", STAFF_USE_TIME, LevelHandler.AZURE_ENDGAME, ModCreativeTabs.ITEMS);
-    public static final Item WILLOTHEWISP_STAFF = new ItemWispStaff("will-o-the-wisp_staff", STAFF_USE_TIME, LevelHandler.AZURE_ENDGAME, ModCreativeTabs.ITEMS);
-    public static final Item QUAKE_STAFF = new ItemQuakeStaff("quake_staff", STAFF_USE_TIME, LevelHandler.AZURE_OVERWORLD, ModCreativeTabs.ITEMS);
-    public static final Item LEAP_STAFF = new ItemLeapStaff("leap_staff", STAFF_USE_TIME, LevelHandler.AZURE_ENDGAME, ModCreativeTabs.ITEMS);
-    public static final Item SPEED_STAFF = new ItemSpeedStaff("speed_staff", STAFF_USE_TIME, LevelHandler.AZURE_ENDGAME, ModCreativeTabs.ITEMS);
-    public static final Item FIREBALL_STAFF = new ItemFireballStaff("fireball_staff", STAFF_USE_TIME, LevelHandler.AZURE_ENDGAME, ModCreativeTabs.ITEMS);
+    public static final Item MAELSTROM_CANNON = new ItemMaelstromCannon(STAFF_USE_TIME, LevelHandler.AZURE_ENDGAME);
+    public static final Item WILL_O_THE_WISP_STAFF = new ItemWispStaff(STAFF_USE_TIME, LevelHandler.AZURE_ENDGAME);
+    public static final Item QUAKE_STAFF = new ItemQuakeStaff(STAFF_USE_TIME, LevelHandler.AZURE_OVERWORLD);
+    public static final Item LEAP_STAFF = new ItemLeapStaff(STAFF_USE_TIME, LevelHandler.AZURE_ENDGAME);
+    public static final Item SPEED_STAFF = new ItemSpeedStaff(STAFF_USE_TIME, LevelHandler.AZURE_ENDGAME);
+    public static final Item FIREBALL_STAFF = new ItemFireballStaff(STAFF_USE_TIME, LevelHandler.AZURE_ENDGAME);
     public static final Item CROSS_OF_AQUA = (new Item() {
         @Override
         public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
             tooltip.add(TextFormatting.BLUE + "When held, allows the player to walk on water");
             tooltip.add(TextFormatting.GRAY + "Mana cost: " + TextFormatting.DARK_PURPLE + "0.5" + TextFormatting.GRAY + " per second");
         }
-
-        ;
     }).setMaxStackSize(1);
-    public static final Item BROWNSTONE_CANNON = new ItemMaelstromCannon("brownstone_cannon", STAFF_USE_TIME, LevelHandler.CLIFF_OVERWORLD, ModCreativeTabs.ITEMS).setFactory(new BrownstoneCannon());
-    public static final Item METEOR_STAFF = new ItemMeteorStaff("meteor_staff", STAFF_USE_TIME, LevelHandler.CLIFF_OVERWORLD, ModCreativeTabs.ITEMS);
-    public static final Item GOLDEN_QUAKE_STAFF = new ItemQuakeStaff("golden_quake_staff", STAFF_USE_TIME, LevelHandler.CLIFF_OVERWORLD, ModCreativeTabs.ITEMS).setElement(Element.GOLDEN);
-    public static final Item EXPLOSIVE_STAFF = new ItemExplosiveStaff("explosive_staff", STAFF_USE_TIME, LevelHandler.CLIFF_ENDGAME, ModCreativeTabs.ITEMS);
-    public static final Item GOLDEN_FIREBALL_STAFF = new ItemFireballStaff("golden_fireball_staff", STAFF_USE_TIME, LevelHandler.CLIFF_ENDGAME, ModCreativeTabs.ITEMS).setFactory(new GoldenFireball()).setElement(Element.GOLDEN);
-    public static final Item CRIMSON_RUNE_STAFF = new ItemRuneStaff("crimson_rune_staff", LevelHandler.CRIMSON_START).setElement(Element.CRIMSON);
-    public static final Item ENERGIZED_CADUCEUS = new ItemPotionEffectStaff("energized_caduceus", LevelHandler.CRIMSON_END,
+    public static final Item BROWNSTONE_CANNON = new ItemMaelstromCannon(STAFF_USE_TIME, LevelHandler.CLIFF_OVERWORLD).setFactory(new BrownstoneCannon());
+    public static final Item METEOR_STAFF = new ItemMeteorStaff(STAFF_USE_TIME, LevelHandler.CLIFF_OVERWORLD);
+    public static final Item GOLDEN_QUAKE_STAFF = new ItemQuakeStaff(STAFF_USE_TIME, LevelHandler.CLIFF_OVERWORLD).setElement(Element.GOLDEN);
+    public static final Item EXPLOSIVE_STAFF = new ItemExplosiveStaff(STAFF_USE_TIME, LevelHandler.CLIFF_ENDGAME);
+    public static final Item GOLDEN_FIREBALL_STAFF = new ItemFireballStaff(STAFF_USE_TIME, LevelHandler.CLIFF_ENDGAME).setFactory(new GoldenFireball()).setElement(Element.GOLDEN);
+    public static final Item CRIMSON_RUNE_STAFF = new ItemRuneStaff(LevelHandler.CRIMSON_START).setElement(Element.CRIMSON);
+    public static final Item ENERGIZED_CADUCEUS = new ItemPotionEffectStaff(LevelHandler.CRIMSON_END,
             () -> new PotionEffect[]{new PotionEffect(MobEffects.REGENERATION, 150, 3), new PotionEffect(MobEffects.ABSORPTION, 2400, 4)}, "energized_caduceus");
-    public static final Item TUNING_FORK = new ItemTuningFork("tuning_fork", LevelHandler.CRIMSON_END).setElement(Element.CRIMSON);
+    public static final Item TUNING_FORK = new ItemTuningFork(LevelHandler.CRIMSON_END).setElement(Element.CRIMSON);
 
     /**
      * Melee
      */
 
     public static final Item VENOM_DAGGER = new ToolVenomDagger("venom_dagger", Materials.DAGGER, LevelHandler.INVASION);
-    public static final Item NEXUS_BATTLEAXE = new ToolBattleaxe("nexus_battleaxe", Materials.BATTLEAXE, LevelHandler.AZURE_OVERWORLD);
-    public static final Item CHASMIUM_SWORD = new ToolSword("chasmium_sword", Materials.SWORD, LevelHandler.AZURE_OVERWORLD);
-    public static final Item SWORD_OF_SHADES = new ToolLongsword("sword_of_shades", Materials.SWORD, LevelHandler.AZURE_ENDGAME);
-    public static final Item SHADOW_DAGGER = new ToolDagger("shadow_dagger", Materials.DAGGER, LevelHandler.AZURE_ENDGAME);
-    public static final Item MAELSTROM_BATTLEAXE = new ToolBattleaxe("maelstrom_battleaxe", Materials.BATTLEAXE, LevelHandler.AZURE_ENDGAME);
+    public static final Item NEXUS_BATTLEAXE = new ToolBattleaxe(Materials.BATTLEAXE, LevelHandler.AZURE_OVERWORLD);
+    public static final Item CHASMIUM_SWORD = new ToolSword(Materials.SWORD, LevelHandler.AZURE_OVERWORLD);
+    public static final Item SWORD_OF_SHADES = new ToolLongsword(Materials.SWORD, LevelHandler.AZURE_ENDGAME);
+    public static final Item SHADOW_DAGGER = new ToolDagger(Materials.DAGGER, LevelHandler.AZURE_ENDGAME);
+    public static final Item MAELSTROM_BATTLEAXE = new ToolBattleaxe(Materials.BATTLEAXE, LevelHandler.AZURE_ENDGAME);
     public static final Item FROST_SWORD = new ToolFrostSword("frost_sword", Materials.SWORD, LevelHandler.AZURE_ENDGAME);
-    public static final Item BEAST_BLADE = new ToolSword("beast_blade", Materials.SWORD, LevelHandler.AZURE_ENDGAME);
-    public static final Item ELUCIDATOR = new ToolLongsword("elucidator", Materials.SWORD, LevelHandler.AZURE_ENDGAME);
-    public static final Item DRAGON_SLAYER = new ToolDragonslayer("dragon_slayer", Materials.BATTLEAXE, LevelHandler.AZURE_ENDGAME);
-    public static final Item ANCIENT_BATTLEAXE = new ToolDragonslayer("ancient_battleaxe", Materials.BATTLEAXE, LevelHandler.CLIFF_OVERWORLD);
-    public static final Item BROWNSTONE_SWORD = new ToolSword("brownstone_sword", Materials.SWORD, LevelHandler.CLIFF_OVERWORLD);
-    public static final Item CRUSADE_SWORD = new ToolCrusadeSword("crusade_sword", Materials.SWORD, LevelHandler.CLIFF_OVERWORLD);
-    public static final Item MAGISTEEL_SWORD = new ItemMagisteelSword("magisteel_sword", Materials.SWORD, LevelHandler.CLIFF_OVERWORLD, Element.NONE);
-    public static final Item GOLD_STONE_LONGSWORD = new ToolLongsword("gold_stone_longsword", Materials.SWORD, LevelHandler.CLIFF_ENDGAME);
-    public static final Item BLACK_GOLD_SWORD = new ToolSword("black_gold_sword", Materials.SWORD, LevelHandler.CLIFF_ENDGAME, Element.GOLDEN);
-    public static final Item KANSHOU = new ToolDagger("kanshou", Materials.DAGGER, LevelHandler.CLIFF_ENDGAME).setInformation(kanshouBakuya);
-    public static final Item BAKUYA = new ToolDagger("bakuya", Materials.DAGGER, LevelHandler.CLIFF_ENDGAME).setInformation(kanshouBakuya);
+    public static final Item BEAST_BLADE = new ToolSword(Materials.SWORD, LevelHandler.AZURE_ENDGAME);
+    public static final Item ELUCIDATOR = new ToolLongsword(Materials.SWORD, LevelHandler.AZURE_ENDGAME);
+    public static final Item DRAGON_SLAYER = new ToolDragonslayer(Materials.BATTLEAXE, LevelHandler.AZURE_ENDGAME);
+    public static final Item ANCIENT_BATTLEAXE = new ToolDragonslayer(Materials.BATTLEAXE, LevelHandler.CLIFF_OVERWORLD);
+    public static final Item BROWNSTONE_SWORD = new ToolSword(Materials.SWORD, LevelHandler.CLIFF_OVERWORLD);
+    public static final Item CRUSADE_SWORD = new ToolCrusadeSword(Materials.SWORD, LevelHandler.CLIFF_OVERWORLD);
+    public static final Item MAGISTEEL_SWORD = new ItemMagisteelSword(Materials.SWORD, LevelHandler.CLIFF_OVERWORLD, Element.NONE);
+    public static final Item GOLD_STONE_LONGSWORD = new ToolLongsword(Materials.SWORD, LevelHandler.CLIFF_ENDGAME);
+    public static final Item BLACK_GOLD_SWORD = new ToolSword(Materials.SWORD, LevelHandler.CLIFF_ENDGAME, Element.GOLDEN);
+    public static final Item KANSHOU = new ToolDagger(Materials.DAGGER, LevelHandler.CLIFF_ENDGAME).setInformation(kanshouBakuya);
+    public static final Item BAKUYA = new ToolDagger(Materials.DAGGER, LevelHandler.CLIFF_ENDGAME).setInformation(kanshouBakuya);
     public static final Item EXPLOSIVE_DAGGER = new ToolExplosiveDagger("explosive_dagger", Materials.DAGGER, LevelHandler.CLIFF_ENDGAME);
-    public static final Item ENERGETIC_STEEL_SWORD = new ItemMagisteelSword("energetic_steel_sword", Materials.SWORD, LevelHandler.CRIMSON_START, Element.CRIMSON);
-    public static final Item ENERGETIC_STEEL_CLEAVER = new ToolDragonslayer("energetic_steel_cleaver", Materials.BATTLEAXE, LevelHandler.CRIMSON_START).setElement(Element.CRIMSON);
-    public static final Item FADESTEEL_SWORD = new ToolSword("fadesteel_sword", Materials.SWORD, LevelHandler.CRIMSON_START);
-    public static final Item HOMURAMARU = new ToolSword("homuramaru", Materials.SWORD, LevelHandler.CRIMSON_START);
-    public static final Item BLACK_MARCH = new ToolDagger("black_march", Materials.DAGGER, LevelHandler.CRIMSON_END);
+    public static final Item ENERGETIC_STEEL_SWORD = new ItemMagisteelSword(Materials.SWORD, LevelHandler.CRIMSON_START, Element.CRIMSON);
+    public static final Item ENERGETIC_STEEL_CLEAVER = new ToolDragonslayer(Materials.BATTLEAXE, LevelHandler.CRIMSON_START).setElement(Element.CRIMSON);
+    public static final Item FADESTEEL_SWORD = new ToolSword(Materials.SWORD, LevelHandler.CRIMSON_START);
+    public static final Item HOMURAMARU = new ToolSword(Materials.SWORD, LevelHandler.CRIMSON_START);
+    public static final Item BLACK_MARCH = new ToolDagger(Materials.DAGGER, LevelHandler.CRIMSON_END);
 
     /*
      * Armors
@@ -387,10 +386,10 @@ public class ModItems {
     public static final Item ELYSIUM_LEGGINGS = new ModArmorBase("elysium_leggings", Materials.ARMOR, 2, EntityEquipmentSlot.LEGS, LevelHandler.CRIMSON_END, "elysium").setArmorBonusDesc("elysium_full_set");
     public static final Item ELYSIUM_BOOTS = new ModArmorBase("elysium_boots", Materials.ARMOR, 1, EntityEquipmentSlot.FEET, LevelHandler.CRIMSON_END, "elysium").setArmorBonusDesc("elysium_full_set");
 
-    public static final Item AMMO_CASE = new ItemAmmoCase("ammo_case", LevelHandler.INVASION);
-    public static final Item CHASMIUM_AMMO_CASE = new ItemAmmoCase("chasmium_ammo_case", LevelHandler.AZURE_OVERWORLD);
-    public static final Item BLACK_GOLD_AMMO_CASE = new ItemAmmoCase("black_gold_ammo_case", LevelHandler.CLIFF_ENDGAME);
-    public static final Item CRIMSON_AMMO_CASE = new ItemAmmoCase("crimson_ammo_case", LevelHandler.CRIMSON_START);
+    public static final Item AMMO_CASE = new ItemAmmoCase(LevelHandler.INVASION);
+    public static final Item CHASMIUM_AMMO_CASE = new ItemAmmoCase(LevelHandler.AZURE_OVERWORLD);
+    public static final Item BLACK_GOLD_AMMO_CASE = new ItemAmmoCase(LevelHandler.CLIFF_ENDGAME);
+    public static final Item CRIMSON_AMMO_CASE = new ItemAmmoCase(LevelHandler.CRIMSON_START);
 
     /*
      * Cliff Dimension Items

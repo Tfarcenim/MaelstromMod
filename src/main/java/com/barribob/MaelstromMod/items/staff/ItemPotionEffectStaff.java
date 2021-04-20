@@ -1,6 +1,5 @@
-package com.barribob.MaelstromMod.items.gun;
+package com.barribob.MaelstromMod.items.staff;
 
-import com.barribob.MaelstromMod.init.ModCreativeTabs;
 import com.barribob.MaelstromMod.init.ModItems;
 import com.barribob.MaelstromMod.util.ModRandom;
 import com.barribob.MaelstromMod.util.ModUtils;
@@ -24,8 +23,8 @@ public class ItemPotionEffectStaff extends ItemStaff {
     Supplier<PotionEffect[]> effects;
     String desc_loc;
 
-    public ItemPotionEffectStaff(String name, float level, Supplier<PotionEffect[]> effects, String desc_loc) {
-        super(name, ModItems.STAFF_USE_TIME, level, ModCreativeTabs.ITEMS);
+    public ItemPotionEffectStaff(float level, Supplier<PotionEffect[]> effects, String desc_loc) {
+        super(ModItems.STAFF_USE_TIME, level);
         this.effects = effects;
         this.desc_loc = desc_loc;
     }

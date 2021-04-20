@@ -6,12 +6,12 @@
             "entries": [
                 {
                     "type": "loot_table",
-                    "name": "mm:util/minecraft_ores",
+                    "name": "intothemaelstrom:util/minecraft_ores",
                     "weight": 2
                 },
                 {
                     "type": "loot_table",
-                    "name": "mm:util/level_1_loot",
+                    "name": "intothemaelstrom:util/level_1_loot",
                     "weight": 2
                 }
             ]

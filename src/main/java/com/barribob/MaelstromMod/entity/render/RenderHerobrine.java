@@ -2,6 +2,7 @@ package com.barribob.MaelstromMod.entity.render;
 
 import com.barribob.MaelstromMod.IntoTheMaelstrom;
 import com.barribob.MaelstromMod.entity.entities.EntityLeveledMob;
+import com.barribob.MaelstromMod.entity.entities.HerobrineEntity;
 import com.barribob.MaelstromMod.entity.model.ModelAnimatedBiped;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
@@ -10,14 +11,14 @@ import net.minecraft.client.renderer.entity.layers.LayerRenderer;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.util.ResourceLocation;
 
-public class RenderHerobrine extends RenderAnimatedBiped {
+public class RenderHerobrine<T extends EntityLiving> extends RenderAnimatedBiped<T> {
     public RenderHerobrine(RenderManager renderManagerIn, ResourceLocation resourceLocation) {
         super(renderManagerIn, new ModelAnimatedBiped(), 0.5f, resourceLocation);
         this.addLayer(new LayerHerobrineEyes());
     }
 
     @Override
-    public void doRender(EntityLiving entity, double x, double y, double z, float entityYaw, float partialTicks) {
+    public void doRender(T entity, double x, double y, double z, float entityYaw, float partialTicks) {
         if (!entity.isInvisible()) {
             // The blending here allows for rendering of translucent textures
             GlStateManager.color(1.0F, 1.0F, 1.0F, 1.0F);

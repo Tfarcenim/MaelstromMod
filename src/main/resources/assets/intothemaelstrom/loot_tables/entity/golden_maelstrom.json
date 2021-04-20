@@ -7,7 +7,7 @@
                 {
                     "type": "item",
                     "weight": 1,
-                    "name": "mm:golden_maelstrom_fragment",
+                    "name": "intothemaelstrom:golden_maelstrom_fragment",
                     "conditions": [
                         {
                             "condition": "random_chance_with_looting",

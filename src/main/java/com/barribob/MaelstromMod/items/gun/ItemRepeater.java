@@ -19,7 +19,7 @@ import java.util.List;
 public class ItemRepeater extends ItemGun {
     int maxRepeats = 5;
 
-    public ItemRepeater(String name, float level) {
+    public ItemRepeater(float level) {
         super(60, 2, level);
     }
 

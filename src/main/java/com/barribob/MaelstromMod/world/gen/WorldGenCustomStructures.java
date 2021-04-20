@@ -30,7 +30,6 @@ import com.barribob.MaelstromMod.world.gen.nexus.WorldGenNexusIslands;
 import net.minecraft.init.Blocks;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.TileEntityChest;
-import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldType;
@@ -274,30 +273,8 @@ public class WorldGenCustomStructures implements IWorldGenerator {
             new CliffMaelstromStructure("ancient_houses")};
     private static double[] cliffRuinsWeights = {0.1, 0.1, 0.1, 0.1, 0.2, 0.1, 0.1, 0.05, 0.1, 0.1, 0.3};
 
-    public static final WorldGenStructure invasionTower = new WorldGenStructure("invasion/invasion_tower") {
-        @Override
-        public boolean generate(World worldIn, Random rand, BlockPos position) {
-            this.generateStructure(worldIn, position, Rotation.NONE);
-            return true;
-        }
+    public static final WorldGenStructure invasionTower = new InvasionWorldGenStructure();
 
-        @Override
-        protected void handleDataMarker(String function, BlockPos pos, World worldIn, Random rand) {
-            if (function.startsWith("boss")) {
-                worldIn.setBlockToAir(pos);
-                EntityMonolith entity = new EntityMonolith(worldIn);
-                entity.setPosition(pos.getX() + 0.5D, pos.getY(), pos.getZ() + 0.5D);
-                worldIn.spawnEntity(entity);
-            } else if (function.startsWith("scout")) {
-                worldIn.setBlockState(pos, ModBlocks.BOSS_SPAWNER.getDefaultState(), 2);
-                TileEntity tileentity = worldIn.getTileEntity(pos);
-
-                if (tileentity instanceof TileEntityMobSpawner) {
-                    ((TileEntityMobSpawner) tileentity).getSpawnerBaseLogic().setData(new MobSpawnData(ModEntities.getID(EntityShade.class), Element.NONE), 1, LevelHandler.INVASION, 8);
-                }
-            }
-        }
-    };
 
     @Override
     public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {

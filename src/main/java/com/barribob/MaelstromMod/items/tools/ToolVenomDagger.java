@@ -18,7 +18,7 @@ import java.util.List;
 
 public class ToolVenomDagger extends ToolDagger implements ISweepAttackParticles {
     public ToolVenomDagger(String name, ToolMaterial material, float level) {
-        super(name, material, level);
+        super(material, level);
     }
 
     // Add a poison effect on a full attack

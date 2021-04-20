@@ -5,12 +5,19 @@ import com.google.common.base.Predicates;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IProjectile;
 import net.minecraft.entity.MoverType;
+import net.minecraft.entity.monster.EntityEnderman;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.entity.projectile.EntityArrow;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.network.play.server.SPacketChangeGameState;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.EntitySelectors;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.ResourceLocation;
@@ -227,7 +234,6 @@ public abstract class EntityModThrowable extends Entity implements IProjectile {
 
             for (this.rotationPitch = (float) (MathHelper.atan2(this.motionY, f4) * (180D / Math.PI)); this.rotationPitch
                     - this.prevRotationPitch < -180.0F; this.prevRotationPitch -= 360.0F) {
-                ;
             }
 
             while (this.rotationPitch - this.prevRotationPitch >= 180.0F) {
@@ -277,7 +283,22 @@ public abstract class EntityModThrowable extends Entity implements IProjectile {
     /**
      * Called when the projectile hits a block or an entity
      */
-    protected abstract void onHit(RayTraceResult raytraceResultIn);
+    protected void onHit(RayTraceResult raytraceResultIn) {
+        Entity entity = raytraceResultIn.entityHit;
+        if (entity == null) {
+            BlockPos blockpos = raytraceResultIn.getBlockPos();
+            this.xTile = blockpos.getX();
+            this.yTile = blockpos.getY();
+            this.zTile = blockpos.getZ();
+            IBlockState iblockstate = this.world.getBlockState(blockpos);
+            this.inTile = iblockstate.getBlock();
+            this.inGround = true;
+
+            if (iblockstate.getMaterial() != Material.AIR) {
+                this.inTile.onEntityCollidedWithBlock(this.world, blockpos, iblockstate, this);
+            }
+        }
+    }
 
     /**
      * Tries to move the entity towards the specified location.
@@ -336,7 +357,7 @@ public abstract class EntityModThrowable extends Entity implements IProjectile {
         compound.setInteger("zTile", this.zTile);
         compound.setShort("life", (short) this.ticksInGround);
         ResourceLocation resourcelocation = Block.REGISTRY.getNameForObject(this.inTile);
-        compound.setString("inTile", resourcelocation.toString());
+        compound.setString("inTile", resourcelocation == null ? "" : resourcelocation.toString());
         compound.setByte("shake", (byte) this.throwableShake);
         compound.setByte("inGround", (byte) (this.inGround ? 1 : 0));
     }

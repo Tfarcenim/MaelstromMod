@@ -6,11 +6,11 @@
             "entries": [
                 {
                     "type": "item",
-                    "name": "mm:shadow_dagger",
+                    "name": "intothemaelstrom:shadow_dagger",
                     "weight": 1,
                     "functions": [
                         {
-                            "function": "mm:enchant",
+                            "function": "intothemaelstrom:enchant",
                             "level": 2,
                             "conditions": [
                                 {
@@ -24,10 +24,10 @@
                 {
                     "type": "item",
                     "weight": 1,
-                    "name": "mm:maelstrom_cannon",
+                    "name": "intothemaelstrom:maelstrom_cannon",
                     "functions": [
                         {
-                            "function": "mm:enchant",
+                            "function": "intothemaelstrom:enchant",
                             "level": 2,
                             "conditions": [
                                 {
@@ -41,10 +41,10 @@
                 {
                     "type": "item",
                     "weight": 1,
-                    "name": "mm:will-o-the-wisp_staff",
+                    "name": "intothemaelstrom:will_o_the_wisp_staff",
                     "functions": [
                         {
-                            "function": "mm:enchant",
+                            "function": "intothemaelstrom:enchant",
                             "level": 2,
                             "conditions": [
                                 {
@@ -58,10 +58,10 @@
                 {
                     "type": "item",
                     "weight": 1,
-                    "name": "mm:sword_of_shades",
+                    "name": "intothemaelstrom:sword_of_shades",
                     "functions": [
                         {
-                            "function": "mm:enchant",
+                            "function": "intothemaelstrom:enchant",
                             "level": 2,
                             "conditions": [
                                 {
@@ -75,10 +75,10 @@
                 {
                     "type": "item",
                     "weight": 1,
-                    "name": "mm:maelstrom_battleaxe",
+                    "name": "intothemaelstrom:maelstrom_battleaxe",
                     "functions": [
                         {
-                            "function": "mm:enchant",
+                            "function": "intothemaelstrom:enchant",
                             "level": 2,
                             "conditions": [
                                 {
@@ -91,11 +91,11 @@
                 },
                 {
                     "type": "item",
-                    "name": "mm:beast_blade",
+                    "name": "intothemaelstrom:beast_blade",
                     "weight": 1,
                     "functions": [
                         {
-                            "function": "mm:enchant",
+                            "function": "intothemaelstrom:enchant",
                             "level": 2,
                             "conditions": [
                                 {
@@ -108,11 +108,11 @@
                 },
                 {
                     "type": "item",
-                    "name": "mm:maelstrom_helmet",
+                    "name": "intothemaelstrom:maelstrom_helmet",
                     "weight": 1,
                     "functions": [
                         {
-                            "function": "mm:enchant",
+                            "function": "intothemaelstrom:enchant",
                             "level": 2,
                             "conditions": [
                                 {
@@ -125,11 +125,11 @@
                 },
                 {
                     "type": "item",
-                    "name": "mm:maelstrom_chestplate",
+                    "name": "intothemaelstrom:maelstrom_chestplate",
                     "weight": 1,
                     "functions": [
                         {
-                            "function": "mm:enchant",
+                            "function": "intothemaelstrom:enchant",
                             "level": 2,
                             "conditions": [
                                 {
@@ -142,11 +142,11 @@
                 },
                 {
                     "type": "item",
-                    "name": "mm:maelstrom_leggings",
+                    "name": "intothemaelstrom:maelstrom_leggings",
                     "weight": 1,
                     "functions": [
                         {
-                            "function": "mm:enchant",
+                            "function": "intothemaelstrom:enchant",
                             "level": 2,
                             "conditions": [
                                 {
@@ -159,11 +159,11 @@
                 },
                 {
                     "type": "item",
-                    "name": "mm:maelstrom_boots",
+                    "name": "intothemaelstrom:maelstrom_boots",
                     "weight": 1,
                     "functions": [
                         {
-                            "function": "mm:enchant",
+                            "function": "intothemaelstrom:enchant",
                             "level": 2,
                             "conditions": [
                                 {
@@ -176,7 +176,7 @@
                 },
                 {
                     "type": "item",
-                    "name": "mm:chasmium_ammo_case",
+                    "name": "intothemaelstrom:chasmium_ammo_case",
                     "weight": 1
                 }
             ]

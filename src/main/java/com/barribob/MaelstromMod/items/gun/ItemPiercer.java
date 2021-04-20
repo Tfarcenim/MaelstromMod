@@ -15,7 +15,7 @@ import net.minecraft.world.World;
 import java.util.List;
 
 public class ItemPiercer extends ItemGun {
-    public ItemPiercer(String name, float level) {
+    public ItemPiercer(float level) {
         super(60, 8, level);
     }
 
@@ -27,7 +27,7 @@ public class ItemPiercer extends ItemGun {
 
     @Override
     protected void shoot(World world, EntityPlayer player, EnumHand handIn, ItemStack stack) {
-        world.playSound((EntityPlayer) null, player.posX, player.posY, player.posZ, SoundEvents.ENTITY_GENERIC_EXPLODE, SoundCategory.NEUTRAL, 0.5F,
+        world.playSound(null, player.posX, player.posY, player.posZ, SoundEvents.ENTITY_GENERIC_EXPLODE, SoundCategory.NEUTRAL, 0.5F,
                 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
 
         float inaccuracy = 0.0f;

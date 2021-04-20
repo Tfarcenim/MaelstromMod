@@ -1,6 +1,7 @@
 package com.barribob.MaelstromMod.items;
 
 import com.barribob.MaelstromMod.IntoTheMaelstrom;
+import com.barribob.MaelstromMod.config.ModConfig;
 import com.barribob.MaelstromMod.mana.IMana;
 import com.barribob.MaelstromMod.mana.Mana;
 import com.barribob.MaelstromMod.mana.ManaProvider;
@@ -30,7 +31,7 @@ public class ItemCatalyst extends Item {
             IMana mana = playerIn.getCapability(ManaProvider.MANA, null);
             if (mana.isLocked()) {
                 mana.setLocked(false);
-                mana.set(Mana.MAX_MANA); // Fill the mana bar initially
+                mana.set(ModConfig.misc.mana_capacity); // Fill the mana bar initially
                 IntoTheMaelstrom.network.sendTo(new MessageManaUnlock(), (EntityPlayerMP) playerIn); // Spawn celebratory particles
                 IntoTheMaelstrom.network.sendTo(new MessageMana(mana.getMana()), (EntityPlayerMP) playerIn); // Update the mana bar
                 playerIn.playSound(SoundEvents.ENTITY_ILLAGER_CAST_SPELL, 1.0F, 0.4F / (worldIn.rand.nextFloat() * 0.4F + 0.8F));

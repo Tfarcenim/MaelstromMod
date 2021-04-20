@@ -6,7 +6,7 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.util.ResourceLocation;
 
-public class RenderAnimatedBiped extends RenderBiped {
+public class RenderAnimatedBiped<T extends EntityLiving> extends RenderBiped<T> {
     private ResourceLocation textures;
 
     public RenderAnimatedBiped(RenderManager renderManagerIn, ModelAnimatedBiped modelBipedIn, float shadowSize, ResourceLocation textures) {
@@ -15,7 +15,7 @@ public class RenderAnimatedBiped extends RenderBiped {
     }
 
     @Override
-    protected ResourceLocation getEntityTexture(EntityLiving entity) {
+    protected ResourceLocation getEntityTexture(T entity) {
         return this.textures;
     }
 }

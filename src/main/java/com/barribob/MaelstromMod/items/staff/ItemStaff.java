@@ -1,4 +1,4 @@
-package com.barribob.MaelstromMod.items.gun;
+package com.barribob.MaelstromMod.items.staff;
 
 import com.barribob.MaelstromMod.config.ModConfig;
 import com.barribob.MaelstromMod.event_handlers.ItemToManaSystem;
@@ -8,7 +8,6 @@ import com.barribob.MaelstromMod.util.IElement;
 import com.barribob.MaelstromMod.util.ModUtils;
 import com.typesafe.config.Config;
 import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -25,7 +24,7 @@ public abstract class ItemStaff extends Item implements ILeveledItem, IElement {
     private final float level;
     private Element element = Element.NONE;
 
-    public ItemStaff(String name, float useTime, float level, CreativeTabs tab) {
+    public ItemStaff(float useTime, float level) {
         this.maxStackSize = 1;
         this.level = level;
         Config config = ItemToManaSystem.getManaConfig(new ItemStack(this));

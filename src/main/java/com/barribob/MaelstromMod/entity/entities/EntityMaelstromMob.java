@@ -212,16 +212,16 @@ public abstract class EntityMaelstromMob extends EntityLeveledMob implements IRa
     @Override
     protected void entityInit() {
         super.entityInit();
-        this.dataManager.register(SWINGING_ARMS, Boolean.valueOf(false));
+        this.dataManager.register(SWINGING_ARMS, false);
     }
 
     public boolean isSwingingArms() {
-        return this.dataManager.get(SWINGING_ARMS).booleanValue();
+        return this.dataManager.get(SWINGING_ARMS);
     }
 
     @Override
     public void setSwingingArms(boolean swingingArms) {
-        this.dataManager.set(SWINGING_ARMS, Boolean.valueOf(swingingArms));
+        this.dataManager.set(SWINGING_ARMS, swingingArms);
     }
 
     @Override

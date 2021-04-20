@@ -23,7 +23,7 @@ public class ToolFrostSword extends ToolSword implements ISweepAttackOverride, I
     private static final Vec3d particleColor = new Vec3d(0.4, 0.4, 0.7f);
 
     public ToolFrostSword(String name, ToolMaterial material, float level) {
-        super(name, material, level, Element.AZURE);
+        super(material, level, Element.AZURE);
     }
 
     @Override

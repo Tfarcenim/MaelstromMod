@@ -14,7 +14,7 @@ import com.barribob.MaelstromMod.util.ModRandom;
 import com.barribob.MaelstromMod.util.ModUtils;
 import com.barribob.MaelstromMod.util.handlers.LootTableHandler;
 import com.barribob.MaelstromMod.util.handlers.ParticleManager;
-import com.barribob.MaelstromMod.util.handlers.SoundsHandler;
+import com.barribob.MaelstromMod.init.ModSoundEvents;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.SoundEvents;
@@ -247,17 +247,17 @@ public class EntityIronShade extends EntityMaelstromMob {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return SoundsHandler.ENTITY_SHADE_AMBIENT;
+        return ModSoundEvents.ENTITY_SHADE_AMBIENT;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource damageSourceIn) {
-        return SoundsHandler.ENTITY_SHADE_HURT;
+        return ModSoundEvents.ENTITY_SHADE_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return SoundsHandler.ENTITY_SHADE_HURT;
+        return ModSoundEvents.ENTITY_SHADE_HURT;
     }
 
     @Override

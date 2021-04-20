@@ -4,9 +4,9 @@ import com.barribob.MaelstromMod.config.ModConfig;
 import com.barribob.MaelstromMod.entity.projectile.Projectile;
 import com.barribob.MaelstromMod.items.gun.bullet.BulletFactory;
 import com.barribob.MaelstromMod.items.gun.bullet.MaelstromCannon;
+import com.barribob.MaelstromMod.items.staff.ItemStaff;
 import com.barribob.MaelstromMod.util.ModUtils;
 import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Enchantments;
@@ -26,8 +26,8 @@ import java.util.List;
 public class ItemMaelstromCannon extends ItemStaff {
     private BulletFactory factory = new MaelstromCannon();
 
-    public ItemMaelstromCannon(String name, int maxDamage, float level, CreativeTabs tab) {
-        super(name, maxDamage, level, tab);
+    public ItemMaelstromCannon(int maxDamage, float level) {
+        super(maxDamage, level);
     }
 
     public float getBaseDamage() {
@@ -39,7 +39,7 @@ public class ItemMaelstromCannon extends ItemStaff {
      */
     @Override
     protected void shoot(World world, EntityPlayer player, EnumHand handIn, ItemStack stack) {
-        world.playSound((EntityPlayer) null, player.posX, player.posY, player.posZ, SoundEvents.ENTITY_GENERIC_EXPLODE, SoundCategory.NEUTRAL, 0.5F,
+        world.playSound(null, player.posX, player.posY, player.posZ, SoundEvents.ENTITY_GENERIC_EXPLODE, SoundCategory.NEUTRAL, 0.5F,
                 0.6F / (itemRand.nextFloat() * 0.4F + 0.8F));
 
         int power = EnchantmentHelper.getEnchantmentLevel(Enchantments.POWER, stack);

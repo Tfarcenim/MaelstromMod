@@ -12,7 +12,7 @@ import com.barribob.MaelstromMod.util.ModDamageSource;
 import com.barribob.MaelstromMod.util.ModRandom;
 import com.barribob.MaelstromMod.util.ModUtils;
 import com.barribob.MaelstromMod.util.handlers.LootTableHandler;
-import com.barribob.MaelstromMod.util.handlers.SoundsHandler;
+import com.barribob.MaelstromMod.init.ModSoundEvents;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.SoundEvents;
@@ -73,9 +73,9 @@ public class EntityBeast extends EntityMaelstromMob {
             model.jaw.rotateAngleX = f / 2;
         };
 
-        head.add(new AnimationClip(20, 0, 40, headZ));
-        head.add(new AnimationClip(8, 40, 40, headZ));
-        head.add(new AnimationClip(12, 40, 0, headZ));
+        head.add(new AnimationClip<>(20, 0, 40, headZ));
+        head.add(new AnimationClip<>(8, 40, 40, headZ));
+        head.add(new AnimationClip<>(12, 40, 0, headZ));
 
         animationLeap.add(head);
 
@@ -87,16 +87,16 @@ public class EntityBeast extends EntityMaelstromMob {
             model.jaw.rotateAngleX = f;
         };
 
-        jaw.add(new AnimationClip(20, 0, 20, jawX));
-        jaw.add(new AnimationClip(8, 20, 20, jawX));
-        jaw.add(new AnimationClip(12, 20, 0, jawX));
+        jaw.add(new AnimationClip<>(20, 0, 20, jawX));
+        jaw.add(new AnimationClip<>(8, 20, 20, jawX));
+        jaw.add(new AnimationClip<>(12, 20, 0, jawX));
 
         animationSpit.add(jaw);
 
-        attackHandler.setAttack(leap, IAction.NONE, () -> new StreamAnimation(animationLeap));
-        attackHandler.setAttack(spit, IAction.NONE, () -> new StreamAnimation(animationSpit));
+        attackHandler.setAttack(leap, IAction.NONE, () -> new StreamAnimation<>(animationLeap));
+        attackHandler.setAttack(spit, IAction.NONE, () -> new StreamAnimation<>(animationSpit));
 
-        this.currentAnimation = new StreamAnimation(animationSpit);
+        this.currentAnimation = new StreamAnimation<>(animationSpit);
     }
 
     @Override
@@ -176,17 +176,17 @@ public class EntityBeast extends EntityMaelstromMob {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return SoundsHandler.ENTITY_BEAST_AMBIENT;
+        return ModSoundEvents.ENTITY_BEAST_AMBIENT;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource damageSourceIn) {
-        return SoundsHandler.ENTITY_BEAST_HURT;
+        return ModSoundEvents.ENTITY_BEAST_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return SoundsHandler.ENTITY_BEAST_HURT;
+        return ModSoundEvents.ENTITY_BEAST_HURT;
     }
 
     @Override

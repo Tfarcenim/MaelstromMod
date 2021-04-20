@@ -1,7 +1,7 @@
 package com.barribob.MaelstromMod.enchantments;
 
 import com.barribob.MaelstromMod.items.gun.ItemGun;
-import com.barribob.MaelstromMod.items.gun.ItemStaff;
+import com.barribob.MaelstromMod.items.staff.ItemStaff;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnumEnchantmentType;
 import net.minecraft.inventory.EntityEquipmentSlot;

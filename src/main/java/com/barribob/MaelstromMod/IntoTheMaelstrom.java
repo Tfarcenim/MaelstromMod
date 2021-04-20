@@ -12,7 +12,7 @@ import com.barribob.MaelstromMod.mana.Mana;
 import com.barribob.MaelstromMod.mana.ManaStorage;
 import com.barribob.MaelstromMod.packets.*;
 import com.barribob.MaelstromMod.util.Reference;
-import com.barribob.MaelstromMod.util.handlers.SoundsHandler;
+import com.barribob.MaelstromMod.init.ModSoundEvents;
 import com.barribob.MaelstromMod.world.gen.WorldGenCustomStructures;
 import com.barribob.MaelstromMod.world.gen.WorldGenOre;
 import com.typesafe.config.Config;
@@ -107,7 +107,7 @@ public class IntoTheMaelstrom {
     @EventHandler
     public static void Init(FMLInitializationEvent event) {
         ModRecipes.init();
-        SoundsHandler.registerSounds();
+        ModSoundEvents.registerSounds();
         ModStructures.registerStructures();
         ModProfessions.associateCareersAndTrades();
     }

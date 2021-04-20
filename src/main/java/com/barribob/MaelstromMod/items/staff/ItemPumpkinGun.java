@@ -1,6 +1,7 @@
-package com.barribob.MaelstromMod.items.gun;
+package com.barribob.MaelstromMod.items.staff;
 
 import com.barribob.MaelstromMod.entity.projectile.ProjectilePumpkin;
+import com.barribob.MaelstromMod.items.gun.ItemGun;
 import com.barribob.MaelstromMod.util.ModUtils;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
@@ -14,8 +15,8 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
-public class ItemPumpkin extends ItemGun {
-    public ItemPumpkin(String name, int cooldown, Item ammo, float level) {
+public class ItemPumpkinGun extends ItemGun {
+    public ItemPumpkinGun(int cooldown, float level) {
         super(cooldown, 0.5f, level);
     }
 
@@ -24,7 +25,7 @@ public class ItemPumpkin extends ItemGun {
      */
     @Override
     protected void shoot(World world, EntityPlayer player, EnumHand handIn, ItemStack stack) {
-        world.playSound((EntityPlayer) null, player.posX, player.posY, player.posZ, SoundEvents.ENTITY_GENERIC_EXPLODE, SoundCategory.NEUTRAL, 0.5F,
+        world.playSound(null, player.posX, player.posY, player.posZ, SoundEvents.ENTITY_GENERIC_EXPLODE, SoundCategory.NEUTRAL, 0.5F,
                 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
 
         float inaccuracy = 0.0f;

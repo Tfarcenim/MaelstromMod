@@ -7,7 +7,7 @@ import com.barribob.MaelstromMod.packets.MessageDirectionForRender;
 import com.barribob.MaelstromMod.util.ModDamageSource;
 import com.barribob.MaelstromMod.util.ModRandom;
 import com.barribob.MaelstromMod.util.ModUtils;
-import com.barribob.MaelstromMod.util.handlers.SoundsHandler;
+import com.barribob.MaelstromMod.init.ModSoundEvents;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.RayTraceResult;
@@ -36,7 +36,7 @@ public class LaserAction implements IGauntletAction{
     @Override
     public void doAction() {
         ModBBAnimations.animation(entity, "gauntlet.lazer_eye", false);
-        entity.playSound(SoundsHandler.ENTITY_GAUNTLET_LAZER_CHARGE, 2.0f, ModRandom.getFloat(0.2f) + 1.5f);
+        entity.playSound(ModSoundEvents.ENTITY_GAUNTLET_LAZER_CHARGE, 2.0f, ModRandom.getFloat(0.2f) + 1.5f);
         int chargeUpTime = 25;
         int laserEndTime = 60;
         for (int i = 0; i < chargeUpTime; i++) {

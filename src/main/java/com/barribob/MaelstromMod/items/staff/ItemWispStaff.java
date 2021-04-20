@@ -1,9 +1,7 @@
-package com.barribob.MaelstromMod.items.gun;
+package com.barribob.MaelstromMod.items.staff;
 
 import com.barribob.MaelstromMod.config.ModConfig;
-import com.barribob.MaelstromMod.entity.projectile.ProjectileRuneWisp;
-import com.barribob.MaelstromMod.init.ModCreativeTabs;
-import com.barribob.MaelstromMod.init.ModItems;
+import com.barribob.MaelstromMod.entity.projectile.ProjectileWillOTheWisp;
 import com.barribob.MaelstromMod.util.ModUtils;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.player.EntityPlayer;
@@ -16,24 +14,30 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
-public class ItemRuneStaff extends ItemStaff {
-    public ItemRuneStaff(String name, float level) {
-        super(name, ModItems.STAFF_USE_TIME, level, ModCreativeTabs.ITEMS);
+/**
+ * A short range staff that burns enemies
+ */
+public class ItemWispStaff extends ItemStaff {
+    public ItemWispStaff(int maxDamage, float level) {
+        super(maxDamage, level);
     }
 
     public float getBaseDamage() {
-        return 7f * ModConfig.balance.weapon_damage;
+        return 5 * ModConfig.balance.weapon_damage;
     }
 
+    /**
+     * Shoot a bunch of projectiles
+     */
     @Override
     protected void shoot(World world, EntityPlayer player, EnumHand handIn, ItemStack stack) {
-        world.playSound(null, player.posX, player.posY, player.posZ, SoundEvents.ENTITY_BLAZE_AMBIENT, SoundCategory.NEUTRAL, 0.5F, 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
+        world.playSound(null, player.posX, player.posY, player.posZ, SoundEvents.ENTITY_BLAZE_AMBIENT, SoundCategory.NEUTRAL, 0.5F,
+                0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
 
         float inaccuracy = 0.0f;
         float speed = 1f;
 
-        ProjectileRuneWisp projectile = new ProjectileRuneWisp(world, player, ModUtils.getEnchantedDamage(stack, getLevel(), getBaseDamage()), stack);
-        projectile.setElement(getElement());
+        ProjectileWillOTheWisp projectile = new ProjectileWillOTheWisp(world, player, ModUtils.getEnchantedDamage(stack, getLevel(), getBaseDamage()), stack);
         projectile.shoot(player, player.rotationPitch, player.rotationYaw, 0.0F, speed, inaccuracy);
         projectile.setTravelRange(9f);
 
@@ -44,7 +48,7 @@ public class ItemRuneStaff extends ItemStaff {
     public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         super.addInformation(stack, worldIn, tooltip, flagIn);
         tooltip.add(ModUtils.getDamageTooltip(ModUtils.getEnchantedDamage(stack, this.getLevel(), getBaseDamage())));
-        tooltip.add(TextFormatting.GRAY + ModUtils.translateDesc("rune_staff"));
+        tooltip.add(TextFormatting.GRAY + ModUtils.translateDesc("wisp_staff"));
     }
 
     @Override

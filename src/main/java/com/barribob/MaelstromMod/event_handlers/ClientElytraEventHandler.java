@@ -22,7 +22,7 @@ import java.util.WeakHashMap;
 @Mod.EventBusSubscriber(modid = IntoTheMaelstrom.MOD_ID, value = Side.CLIENT)
 public class ClientElytraEventHandler {
     static boolean prevJumpTick;
-    private static Set<EntityPlayer> layeredPlayers = Collections.newSetFromMap(new WeakHashMap<EntityPlayer, Boolean>());
+    private static Set<EntityPlayer> layeredPlayers = Collections.newSetFromMap(new WeakHashMap<>());
 
     @SubscribeEvent
     public static void onPressKey(InputUpdateEvent event) {

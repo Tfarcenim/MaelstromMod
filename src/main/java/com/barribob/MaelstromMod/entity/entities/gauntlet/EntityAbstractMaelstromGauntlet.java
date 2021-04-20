@@ -9,7 +9,7 @@ import com.barribob.MaelstromMod.init.ModDimensions;
 import com.barribob.MaelstromMod.renderer.ITarget;
 import com.barribob.MaelstromMod.util.*;
 import com.barribob.MaelstromMod.util.handlers.ParticleManager;
-import com.barribob.MaelstromMod.util.handlers.SoundsHandler;
+import com.barribob.MaelstromMod.init.ModSoundEvents;
 import com.barribob.MaelstromMod.world.dimension.crimson_kingdom.WorldGenGauntletSpike;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFence;
@@ -671,17 +671,17 @@ public abstract class EntityAbstractMaelstromGauntlet extends EntityMaelstromMob
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return SoundsHandler.ENTITY_GAUNTLET_AMBIENT;
+        return ModSoundEvents.ENTITY_GAUNTLET_AMBIENT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return SoundsHandler.ENTITY_GAUNTLET_HURT;
+        return ModSoundEvents.ENTITY_GAUNTLET_HURT;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource damageSourceIn) {
-        return SoundsHandler.ENTITY_GAUNTLET_HURT;
+        return ModSoundEvents.ENTITY_GAUNTLET_HURT;
     }
 
     @Override

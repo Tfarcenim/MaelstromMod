@@ -1,10 +1,9 @@
-package com.barribob.MaelstromMod.items.gun;
+package com.barribob.MaelstromMod.items.staff;
 
 import com.barribob.MaelstromMod.config.ModConfig;
 import com.barribob.MaelstromMod.entity.projectile.ProjectileQuake;
 import com.barribob.MaelstromMod.util.ModUtils;
 import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumHand;
@@ -17,8 +16,8 @@ import java.util.List;
  * A short range quake attack
  */
 public class ItemQuakeStaff extends ItemStaff {
-    public ItemQuakeStaff(String name, int maxDamage, float level, CreativeTabs tab) {
-        super(name, maxDamage, level, tab);
+    public ItemQuakeStaff(int maxDamage, float level) {
+        super(maxDamage, level);
     }
 
     public float getBaseDamage() {

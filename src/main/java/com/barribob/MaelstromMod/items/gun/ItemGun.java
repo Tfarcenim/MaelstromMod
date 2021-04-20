@@ -133,10 +133,10 @@ public abstract class ItemGun extends Item implements ILeveledItem, Reloadable, 
 
             // Decrement the cooldown every tick
             if (compound.hasKey("cooldown")) {
-                if (entityIn instanceof EntityPlayer && ((EntityPlayer) entityIn).getHeldItem(EnumHand.MAIN_HAND).equals(stack)
-                        || ((EntityPlayer) entityIn).getHeldItem(EnumHand.OFF_HAND).equals(stack)) {
+                if (entityIn instanceof EntityPlayer && (((EntityPlayer) entityIn).getHeldItem(EnumHand.MAIN_HAND).equals(stack)
+                        || ((EntityPlayer) entityIn).getHeldItem(EnumHand.OFF_HAND).equals(stack))) {
                     int cooldown = compound.getInteger("cooldown") - 1;
-                    compound.setInteger("cooldown", cooldown >= 0 ? cooldown : 0);
+                    compound.setInteger("cooldown", Math.max(cooldown, 0));
                 }
             } else {
                 compound.setInteger("cooldown", (int) this.getEnchantedCooldown(stack));
@@ -183,10 +183,10 @@ public abstract class ItemGun extends Item implements ILeveledItem, Reloadable, 
                 compound.setInteger("cooldown", (int) this.getEnchantedCooldown(itemstack));
                 itemstack.setTagCompound(compound);
 
-                return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, itemstack);
+                return new ActionResult<>(EnumActionResult.SUCCESS, itemstack);
             }
         }
-        return new ActionResult(EnumActionResult.FAIL, itemstack);
+        return new ActionResult<>(EnumActionResult.FAIL, itemstack);
     }
 
     /**

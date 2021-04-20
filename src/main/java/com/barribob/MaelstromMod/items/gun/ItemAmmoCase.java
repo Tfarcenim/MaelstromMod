@@ -15,7 +15,7 @@ import java.util.List;
 public class ItemAmmoCase extends Item implements ILeveledItem {
     private final float level;
 
-    public ItemAmmoCase(String name, float level) {
+    public ItemAmmoCase(float level) {
         this.level = level;
         this.setMaxDamage(Math.round(LevelHandler.getMultiplierFromLevel(level) * 110));
         this.setMaxStackSize(1);

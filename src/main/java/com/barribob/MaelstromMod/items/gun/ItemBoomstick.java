@@ -20,7 +20,7 @@ import java.util.List;
 public class ItemBoomstick extends ItemGun {
     protected float pelletCount = 15;
 
-    public ItemBoomstick(String name, float level) {
+    public ItemBoomstick(float level) {
         super(60, 1, level);
     }
 
@@ -29,7 +29,7 @@ public class ItemBoomstick extends ItemGun {
      */
     @Override
     protected void shoot(World world, EntityPlayer player, EnumHand handIn, ItemStack stack) {
-        world.playSound((EntityPlayer) null, player.posX, player.posY, player.posZ, SoundEvents.ENTITY_GENERIC_EXPLODE, SoundCategory.NEUTRAL, 0.5F,
+        world.playSound(null, player.posX, player.posY, player.posZ, SoundEvents.ENTITY_GENERIC_EXPLODE, SoundCategory.NEUTRAL, 0.5F,
                 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
 
         for (int i = 0; i < pelletCount; i++) {

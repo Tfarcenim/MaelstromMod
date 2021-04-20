@@ -1,6 +1,7 @@
 package com.barribob.MaelstromMod.entity.entities;
 
 import com.barribob.MaelstromMod.IntoTheMaelstrom;
+import com.barribob.MaelstromMod.config.ModConfig;
 import com.barribob.MaelstromMod.entity.EntityCrimsonPortalSpawn;
 import com.barribob.MaelstromMod.entity.ai.EntityAITimedAttack;
 import com.barribob.MaelstromMod.entity.projectile.ProjectileChaosFireball;
@@ -15,7 +16,7 @@ import com.barribob.MaelstromMod.util.ModDamageSource;
 import com.barribob.MaelstromMod.util.ModRandom;
 import com.barribob.MaelstromMod.util.ModUtils;
 import com.barribob.MaelstromMod.util.handlers.ParticleManager;
-import com.barribob.MaelstromMod.util.handlers.SoundsHandler;
+import com.barribob.MaelstromMod.init.ModSoundEvents;
 import com.barribob.MaelstromMod.world.gen.nexus.WorldGenNexusTeleporter;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -44,6 +45,43 @@ public class EntityChaosKnight extends EntityMaelstromMob implements IAttack, Di
     private static final float dashRadius = 2;
     private Consumer<EntityLivingBase> prevAttack;
 
+
+
+    private void swipeBlocks() {
+        double swipeWidth = getMobConfig().getDouble("swipe_width");
+        AxisAlignedBB box = new AxisAlignedBB(getPosition()).offset(-0.5, 1.5, -0.5).grow(swipeWidth, 1, swipeWidth);
+        ModUtils.destroyBlocksInAABB(box, world, this);
+    }
+
+    private static int nerf = -15;
+
+    public static final int leap_slam_delay = 60 + nerf;
+    public static final int single_slash_delay = 35 + nerf;
+    public static final int dash_delay = 40 + nerf;
+    public static final int spin_slash_delay = 60 + nerf;
+
+    private final Consumer<EntityLivingBase> leapSlam = (target) -> {
+        ModBBAnimations.animation(this, "chaos_knight.leap_slam", false);
+        addEvent(() -> {
+            ModUtils.leapTowards(this, target.getPositionVector(), (float) (0.45f * Math.sqrt(getDistance(target))), 0.9f);
+            setLeaping(true);
+        }, 20);
+        addEvent(() -> {
+            DamageSource source = ModDamageSource.builder()
+                    .type(ModDamageSource.EXPLOSION)
+                    .directEntity(this)
+                    .element(getElement())
+                    .stoppedByArmorNotShields().build();
+
+            Vec3d pos = this.getPositionVector().add(ModUtils.getRelativeOffset(this, new Vec3d(1, 0, 0)));
+            float damage = this.getAttack() * getConfigFloat("leap_slam_damage");
+            ModUtils.handleAreaImpact(3, (e) -> damage, this, pos, source);
+            this.world.newExplosion(this, pos.x, pos.y + 1, pos.z, (float) getMobConfig().getDouble("slam_explosion_strength"), false, true);
+            this.world.setEntityState(this, ModUtils.PARTICLE_BYTE);
+        }, 42);
+        addEvent(() -> EntityChaosKnight.super.setSwingingArms(false), EntityChaosKnight.leap_slam_delay);
+    };
+
     private final Consumer<EntityLivingBase> sideSwipe = (target) -> {
         ModBBAnimations.animation(this, "chaos_knight.single_slash", false);
         addEvent(() -> {
@@ -70,35 +108,7 @@ public class EntityChaosKnight extends EntityMaelstromMob implements IAttack, Di
             ModUtils.leapTowards(this, away, 0.4f, 0.4f);
         }, 18);
 
-        addEvent(() -> EntityChaosKnight.super.setSwingingArms(false), 35);
-    };
-
-    private void swipeBlocks() {
-        double swipeWidth = getMobConfig().getDouble("swipe_width");
-        AxisAlignedBB box = new AxisAlignedBB(getPosition()).offset(-0.5, 1.5, -0.5).grow(swipeWidth, 1, swipeWidth);
-        ModUtils.destroyBlocksInAABB(box, world, this);
-    }
-
-    private final Consumer<EntityLivingBase> leapSlam = (target) -> {
-        ModBBAnimations.animation(this, "chaos_knight.leap_slam", false);
-        addEvent(() -> {
-            ModUtils.leapTowards(this, target.getPositionVector(), (float) (0.45f * Math.sqrt(getDistance(target))), 0.9f);
-            setLeaping(true);
-        }, 20);
-        addEvent(() -> {
-            DamageSource source = ModDamageSource.builder()
-                    .type(ModDamageSource.EXPLOSION)
-                    .directEntity(this)
-                    .element(getElement())
-                    .stoppedByArmorNotShields().build();
-
-            Vec3d pos = this.getPositionVector().add(ModUtils.getRelativeOffset(this, new Vec3d(1, 0, 0)));
-            float damage = this.getAttack() * getConfigFloat("leap_slam_damage");
-            ModUtils.handleAreaImpact(3, (e) -> damage, this, pos, source);
-            this.world.newExplosion(this, pos.x, pos.y + 1, pos.z, (float) getMobConfig().getDouble("slam_explosion_strength"), false, true);
-            this.world.setEntityState(this, ModUtils.PARTICLE_BYTE);
-        }, 42);
-        addEvent(() -> EntityChaosKnight.super.setSwingingArms(false), 60);
+        addEvent(() -> EntityChaosKnight.super.setSwingingArms(false), single_slash_delay);
     };
 
     private final Consumer<EntityLivingBase> dash = (target) -> {
@@ -149,7 +159,7 @@ public class EntityChaosKnight extends EntityMaelstromMob implements IAttack, Di
             playSound(SoundEvents.ENTITY_LIGHTNING_THUNDER, 1.0f, 1.0f + ModRandom.getFloat(0.1f));
         }, 20);
 
-        addEvent(() -> EntityChaosKnight.super.setSwingingArms(false), 40);
+        addEvent(() -> EntityChaosKnight.super.setSwingingArms(false), dash_delay);
     };
 
     private final Consumer<EntityLivingBase> spinSlash = (target) -> {
@@ -179,7 +189,7 @@ public class EntityChaosKnight extends EntityMaelstromMob implements IAttack, Di
         addEvent(meleeAttack, 29);
         addEvent(leap, 34);
         addEvent(meleeAttack, 41);
-        addEvent(() -> EntityChaosKnight.super.setSwingingArms(false), 60);
+        addEvent(() -> EntityChaosKnight.super.setSwingingArms(false), spin_slash_delay);
     };
 
     private final Consumer<EntityLivingBase> summonMeteors = (target) -> {
@@ -273,7 +283,7 @@ public class EntityChaosKnight extends EntityMaelstromMob implements IAttack, Di
                     this.blockUsingShield((EntityLivingBase) entity);
                 }
             }
-            this.playSound(SoundsHandler.ENTITY_CHAOS_KNIGHT_BLOCK, 1.0f, 0.9f + ModRandom.getFloat(0.2f));
+            this.playSound(ModSoundEvents.ENTITY_CHAOS_KNIGHT_BLOCK, 1.0f, 0.9f + ModRandom.getFloat(0.2f));
 
             return false;
         }
@@ -281,15 +291,15 @@ public class EntityChaosKnight extends EntityMaelstromMob implements IAttack, Di
     }
 
     private boolean canBlockDamageSource(DamageSource damageSourceIn) {
-        if (!damageSourceIn.isUnblockable() && !this.isSwingingArms()) {
-            Vec3d vec3d = damageSourceIn.getDamageLocation();
+        if (!damageSourceIn.isUnblockable() && !this.isSwingingArms() && ModConfig.misc.threshold < getHealth()/getMaxHealth()) {
+            Vec3d damageLocation = damageSourceIn.getDamageLocation();
 
-            if (vec3d != null) {
-                Vec3d vec3d1 = this.getLook(1.0F);
-                Vec3d vec3d2 = vec3d.subtractReverse(new Vec3d(this.posX, this.posY, this.posZ)).normalize();
+            if (damageLocation != null) {
+                Vec3d look = this.getLook(1.0F);
+                Vec3d vec3d2 = damageLocation.subtractReverse(new Vec3d(this.posX, this.posY, this.posZ)).normalize();
                 vec3d2 = new Vec3d(vec3d2.x, 0.0D, vec3d2.z);
 
-                return vec3d2.dotProduct(vec3d1) < 0.0D;
+                return vec3d2.dotProduct(look) < 0.0D;
             }
         }
 
@@ -388,17 +398,17 @@ public class EntityChaosKnight extends EntityMaelstromMob implements IAttack, Di
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return SoundsHandler.ENTITY_CHAOS_KNIGHT_AMBIENT;
+        return ModSoundEvents.ENTITY_CHAOS_KNIGHT_AMBIENT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return SoundsHandler.ENTITY_CHAOS_KNIGHT_DEATH;
+        return ModSoundEvents.ENTITY_CHAOS_KNIGHT_DEATH;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource damageSourceIn) {
-        return SoundsHandler.ENTITY_CHAOS_KNIGHT_HURT;
+        return ModSoundEvents.ENTITY_CHAOS_KNIGHT_HURT;
     }
 
     @Override

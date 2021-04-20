@@ -26,21 +26,19 @@ import java.util.UUID;
 import java.util.function.Consumer;
 
 public class ToolSword extends ItemSword implements ISweepAttackOverride, ILeveledItem, IElement {
-    private float level;
+    private final float level;
     private Consumer<List<String>> information = (info) -> {
     };
     private Element element = Element.NONE;
 
-    public ToolSword(String name, ToolMaterial material, float level) {
+    public ToolSword(ToolMaterial material, float level) {
         super(material);
-        setUnlocalizedName(name);
-        setRegistryName(name);
         setCreativeTab(ModCreativeTabs.ITEMS);
         this.level = level;
     }
 
-    public ToolSword(String name, ToolMaterial material, float level, Element element) {
-        this(name, material, level);
+    public ToolSword(ToolMaterial material, float level, Element element) {
+        this(material, level);
         this.element = element;
     }
 
@@ -55,7 +53,7 @@ public class ToolSword extends ItemSword implements ISweepAttackOverride, ILevel
      */
     @Override
     public Multimap<String, AttributeModifier> getItemAttributeModifiers(EntityEquipmentSlot equipmentSlot) {
-        Multimap<String, AttributeModifier> multimap = HashMultimap.<String, AttributeModifier>create();
+        Multimap<String, AttributeModifier> multimap = HashMultimap.create();
 
         if (equipmentSlot == EntityEquipmentSlot.MAINHAND) {
             multimap.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Weapon modifier", this.getAttackDamage(), 0));
@@ -84,7 +82,7 @@ public class ToolSword extends ItemSword implements ISweepAttackOverride, ILevel
         if(!ModConfig.gui.disableMaelstromArmorItemTooltips) {
             tooltip.add(ModUtils.getDisplayLevel(level));
         }
-        if (!element.equals(element.NONE) && !ModConfig.gui.disableElementalVisuals) {
+        if (!element.equals(Element.NONE) && !ModConfig.gui.disableElementalVisuals) {
             tooltip.add(ModUtils.getElementalTooltip(element));
         }
         information.accept(tooltip);
@@ -94,10 +92,6 @@ public class ToolSword extends ItemSword implements ISweepAttackOverride, ILevel
     public void doSweepAttack(EntityPlayer player, EntityLivingBase entity) {
         ModUtils.doSweepAttack(player, entity, element, (e) -> {
         });
-    }
-
-    public static UUID getAttackDamageModifier() {
-        return ATTACK_DAMAGE_MODIFIER;
     }
 
     @Override

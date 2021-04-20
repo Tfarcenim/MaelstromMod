@@ -11,7 +11,7 @@ import com.barribob.MaelstromMod.entity.projectile.ProjectileSwampSpittle;
 import com.barribob.MaelstromMod.init.ModItems;
 import com.barribob.MaelstromMod.util.ModUtils;
 import com.barribob.MaelstromMod.util.handlers.LevelHandler;
-import com.barribob.MaelstromMod.util.handlers.SoundsHandler;
+import com.barribob.MaelstromMod.init.ModSoundEvents;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIFindEntityNearestPlayer;
@@ -64,17 +64,17 @@ public class EntityCliffFly extends EntityLeveledFlyingMob {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return SoundsHandler.ENTITY_BEAST_AMBIENT;
+        return ModSoundEvents.ENTITY_BEAST_AMBIENT;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource damageSourceIn) {
-        return SoundsHandler.ENTITY_BEAST_HURT;
+        return ModSoundEvents.ENTITY_BEAST_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return SoundsHandler.ENTITY_BEAST_HURT;
+        return ModSoundEvents.ENTITY_BEAST_HURT;
     }
 
     @Override

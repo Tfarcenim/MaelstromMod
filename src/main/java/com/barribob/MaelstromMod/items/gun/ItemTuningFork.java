@@ -2,8 +2,8 @@ package com.barribob.MaelstromMod.items.gun;
 
 import com.barribob.MaelstromMod.config.ModConfig;
 import com.barribob.MaelstromMod.entity.util.EntityTuningForkLazer;
-import com.barribob.MaelstromMod.init.ModCreativeTabs;
 import com.barribob.MaelstromMod.init.ModItems;
+import com.barribob.MaelstromMod.items.staff.ItemStaff;
 import com.barribob.MaelstromMod.util.ModDamageSource;
 import com.barribob.MaelstromMod.util.ModRandom;
 import com.barribob.MaelstromMod.util.ModUtils;
@@ -24,8 +24,8 @@ import net.minecraft.world.World;
 import java.util.List;
 
 public class ItemTuningFork extends ItemStaff {
-    public ItemTuningFork(String name, float level) {
-        super(name, ModItems.STAFF_USE_TIME, level, ModCreativeTabs.ITEMS);
+    public ItemTuningFork(float level) {
+        super(ModItems.STAFF_USE_TIME, level);
     }
 
     public float getBaseDamage() {

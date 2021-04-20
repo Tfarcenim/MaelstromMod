@@ -7,5 +7,5 @@ public interface IExtendedReach {
     /**
      * The Melee reach of the item (3.0) is the standard
      */
-    public float getReach();
+    float getReach();
 }

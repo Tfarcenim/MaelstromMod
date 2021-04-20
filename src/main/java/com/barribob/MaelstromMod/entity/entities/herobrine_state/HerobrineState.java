@@ -1,6 +1,6 @@
 package com.barribob.MaelstromMod.entity.entities.herobrine_state;
 
-import com.barribob.MaelstromMod.entity.entities.Herobrine;
+import com.barribob.MaelstromMod.entity.entities.HerobrineEntity;
 import com.barribob.MaelstromMod.util.ModUtils;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.text.TextComponentString;
@@ -15,7 +15,7 @@ import java.util.function.Consumer;
  */
 public abstract class HerobrineState {
     World world;
-    Herobrine herobrine;
+    HerobrineEntity herobrine;
 
     protected Consumer<String> messageToPlayers = (message) -> {
         if (message != "") {
@@ -26,7 +26,7 @@ public abstract class HerobrineState {
         }
     };
 
-    public HerobrineState(Herobrine herobrine) {
+    public HerobrineState(HerobrineEntity herobrine) {
         this.world = herobrine.world;
         this.herobrine = herobrine;
     }
@@ -39,6 +39,6 @@ public abstract class HerobrineState {
     public void rightClick(EntityPlayer player) {
     }
 
-    public void leftClick(Herobrine herobrine) {
+    public void leftClick(HerobrineEntity herobrine) {
     }
 }

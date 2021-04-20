@@ -47,6 +47,13 @@ public class ModConfig {
         @Config.Name("invasion_tower_maelstrom_blast_radius")
         public int radius = 100;
 
+        @Config.Name("chaos_knight_total_shield_threshold")
+        @Config.Comment("Level at which Chaos Knight Shield covers entire body")
+        public double threshold = .5;
+
+        @Config.Name("mana_capacity")
+        public int mana_capacity = 20;
+
     }
 
     public static class GuiCat {

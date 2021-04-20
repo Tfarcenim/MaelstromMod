@@ -6,11 +6,11 @@
             "entries": [
                 {
                     "type": "item",
-                    "name": "mm:black_gold_helmet",
+                    "name": "intothemaelstrom:black_gold_helmet",
                     "weight": 1,
                     "functions": [
                         {
-                            "function": "mm:enchant",
+                            "function": "intothemaelstrom:enchant",
                             "level": 4,
                             "conditions": [
                                 {
@@ -23,11 +23,11 @@
                 },
                 {
                     "type": "item",
-                    "name": "mm:black_gold_chestplate",
+                    "name": "intothemaelstrom:black_gold_chestplate",
                     "weight": 1,
                     "functions": [
                         {
-                            "function": "mm:enchant",
+                            "function": "intothemaelstrom:enchant",
                             "level": 4,
                             "conditions": [
                                 {
@@ -40,11 +40,11 @@
                 },
                 {
                     "type": "item",
-                    "name": "mm:black_gold_leggings",
+                    "name": "intothemaelstrom:black_gold_leggings",
                     "weight": 1,
                     "functions": [
                         {
-                            "function": "mm:enchant",
+                            "function": "intothemaelstrom:enchant",
                             "level": 4,
                             "conditions": [
                                 {
@@ -57,11 +57,11 @@
                 },
                 {
                     "type": "item",
-                    "name": "mm:black_gold_boots",
+                    "name": "intothemaelstrom:black_gold_boots",
                     "weight": 1,
                     "functions": [
                         {
-                            "function": "mm:enchant",
+                            "function": "intothemaelstrom:enchant",
                             "level": 4,
                             "conditions": [
                                 {
@@ -74,11 +74,11 @@
                 },
                 {
                     "type": "item",
-                    "name": "mm:black_gold_sword",
+                    "name": "intothemaelstrom:black_gold_sword",
                     "weight": 1,
                     "functions": [
                         {
-                            "function": "mm:enchant",
+                            "function": "intothemaelstrom:enchant",
                             "level": 4,
                             "conditions": [
                                 {
@@ -91,11 +91,11 @@
                 },
                 {
                     "type": "item",
-                    "name": "mm:gold_stone_longsword",
+                    "name": "intothemaelstrom:gold_stone_longsword",
                     "weight": 1,
                     "functions": [
                         {
-                            "function": "mm:enchant",
+                            "function": "intothemaelstrom:enchant",
                             "level": 4,
                             "conditions": [
                                 {
@@ -108,11 +108,11 @@
                 },
                 {
                     "type": "item",
-                    "name": "mm:golden_rifle",
+                    "name": "intothemaelstrom:golden_rifle",
                     "weight": 1,
                     "functions": [
                         {
-                            "function": "mm:enchant",
+                            "function": "intothemaelstrom:enchant",
                             "level": 4,
                             "conditions": [
                                 {
@@ -125,11 +125,11 @@
                 },
                 {
                     "type": "item",
-                    "name": "mm:golden_shotgun",
+                    "name": "intothemaelstrom:golden_shotgun",
                     "weight": 1,
                     "functions": [
                         {
-                            "function": "mm:enchant",
+                            "function": "intothemaelstrom:enchant",
                             "level": 4,
                             "conditions": [
                                 {
@@ -142,11 +142,11 @@
                 },
                 {
                     "type": "item",
-                    "name": "mm:golden_repeater",
+                    "name": "intothemaelstrom:golden_repeater",
                     "weight": 1,
                     "functions": [
                         {
-                            "function": "mm:enchant",
+                            "function": "intothemaelstrom:enchant",
                             "level": 4,
                             "conditions": [
                                 {
@@ -159,11 +159,11 @@
                 },
                 {
                     "type": "item",
-                    "name": "mm:golden_pistol",
+                    "name": "intothemaelstrom:golden_pistol",
                     "weight": 1,
                     "functions": [
                         {
-                            "function": "mm:enchant",
+                            "function": "intothemaelstrom:enchant",
                             "level": 4,
                             "conditions": [
                                 {
@@ -176,7 +176,7 @@
                 },
                 {
                     "type": "item",
-                    "name": "mm:black_gold_ammo_case",
+                    "name": "intothemaelstrom:black_gold_ammo_case",
                     "weight": 1
                 }
             ]

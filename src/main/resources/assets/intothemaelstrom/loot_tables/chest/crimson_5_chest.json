@@ -9,7 +9,7 @@
 			"entries": [
 				{
 					"type": "loot_table",
-					"name": "mm:util/level_5_loot",
+					"name": "intothemaelstrom:util/level_5_loot",
 					"weight": 6
 				},
 				{
@@ -43,7 +43,7 @@
 				},
 				{
 					"type": "item",
-					"name": "mm:crimson_maelstrom_fragment",
+					"name": "intothemaelstrom:crimson_maelstrom_fragment",
 					"weight": 1,
 					"functions": [
 						{

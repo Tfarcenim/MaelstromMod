@@ -80,6 +80,6 @@ processResources {
 
 jar {
     manifest {
-        attributes 'FMLAT': 'mm_at.cfg'
+        attributes 'FMLAT': 'intothemaelstrom_at.cfg'
     }
 }

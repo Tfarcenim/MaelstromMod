@@ -1,10 +1,11 @@
 package com.barribob.MaelstromMod.mana;
 
+import com.barribob.MaelstromMod.config.ModConfig;
+
 public class Mana implements IMana {
     private float mana = 0;
     private boolean locked = true;
     private boolean recentlyConsumed = false;
-    public static final float MAX_MANA = 20;
 
     @Override
     public void consume(float amount) {
@@ -18,12 +19,12 @@ public class Mana implements IMana {
     public void replenish(float amount) {
         if (locked)
             return;
-        this.mana = Math.min(MAX_MANA, mana + amount);
+        this.mana = Math.min(ModConfig.misc.mana_capacity, mana + amount);
     }
 
     @Override
     public void set(float amount) {
-        this.mana = Math.min(Math.max(amount, 0), MAX_MANA);
+        this.mana = Math.min(Math.max(amount, 0), ModConfig.misc.mana_capacity);
     }
 
     @Override

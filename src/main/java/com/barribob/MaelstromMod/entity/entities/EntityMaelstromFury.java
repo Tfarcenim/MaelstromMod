@@ -12,7 +12,7 @@ import com.barribob.MaelstromMod.particle.EnumModParticles;
 import com.barribob.MaelstromMod.util.ModColors;
 import com.barribob.MaelstromMod.util.ModDamageSource;
 import com.barribob.MaelstromMod.util.ModUtils;
-import com.barribob.MaelstromMod.util.handlers.SoundsHandler;
+import com.barribob.MaelstromMod.init.ModSoundEvents;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.SoundEvents;
@@ -118,17 +118,17 @@ public class EntityMaelstromFury extends EntityMaelstromMob implements IAccelera
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return SoundsHandler.ENTITY_SHADE_AMBIENT;
+        return ModSoundEvents.ENTITY_SHADE_AMBIENT;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource damageSourceIn) {
-        return SoundsHandler.ENTITY_SHADE_HURT;
+        return ModSoundEvents.ENTITY_SHADE_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return SoundsHandler.ENTITY_SHADE_HURT;
+        return ModSoundEvents.ENTITY_SHADE_HURT;
     }
 
     @Override

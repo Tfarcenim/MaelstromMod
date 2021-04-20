@@ -6,12 +6,12 @@
             "entries": [
                 {
                     "type": "loot_table",
-                    "name": "mm:util/minecraft_ores",
+                    "name": "intothemaelstrom:util/minecraft_ores",
                     "weight": 5
                 },
                 {
                     "type": "loot_table",
-                    "name": "mm:util/level_2_loot",
+                    "name": "intothemaelstrom:util/level_2_loot",
                     "weight": 5
                 },
                 {
@@ -31,7 +31,7 @@
                 },
                 {
                     "type": "item",
-                    "name": "mm:azure_maelstrom_fragment",
+                    "name": "intothemaelstrom:azure_maelstrom_fragment",
                     "weight": 1,
                     "functions": [
                         {

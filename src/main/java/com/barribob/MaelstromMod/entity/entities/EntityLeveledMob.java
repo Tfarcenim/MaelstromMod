@@ -8,7 +8,7 @@ import com.barribob.MaelstromMod.entity.animation.AnimationNone;
 import com.barribob.MaelstromMod.entity.util.LeapingEntity;
 import com.barribob.MaelstromMod.util.*;
 import com.barribob.MaelstromMod.util.handlers.LevelHandler;
-import com.barribob.MaelstromMod.util.handlers.SoundsHandler;
+import com.barribob.MaelstromMod.init.ModSoundEvents;
 import com.typesafe.config.Config;
 import com.typesafe.config.ConfigFactory;
 import net.minecraft.client.renderer.entity.RenderManager;
@@ -35,27 +35,28 @@ import java.util.PriorityQueue;
  * A base class for the mod's mobs. It includes a hodgepodge of attributes and abilities. One is to scale nicely with the leveling system.
  */
 public abstract class EntityLeveledMob extends EntityCreature implements IAnimatedMob, IElement, LeapingEntity {
-    protected static final DataParameter<Float> LEVEL = EntityDataManager.<Float>createKey(EntityLeveledMob.class, DataSerializers.FLOAT);
+    protected static final DataParameter<Float> LEVEL = EntityDataManager.createKey(EntityLeveledMob.class, DataSerializers.FLOAT);
     private float regenStartTimer;
-    private static float regenStartTime = 60;
-    protected static final DataParameter<Integer> ELEMENT = EntityDataManager.<Integer>createKey(EntityLeveledMob.class, DataSerializers.VARINT);
+    private static final float regenStartTime = 60;
+    protected static final DataParameter<Integer> ELEMENT = EntityDataManager.createKey(EntityLeveledMob.class, DataSerializers.VARINT);
 
     @SideOnly(Side.CLIENT)
     protected Animation currentAnimation;
 
-    protected static final DataParameter<Boolean> IMMOVABLE = EntityDataManager.<Boolean>createKey(EntityLeveledMob.class, DataSerializers.BOOLEAN);
+    protected static final DataParameter<Boolean> IMMOVABLE = EntityDataManager.createKey(EntityLeveledMob.class, DataSerializers.BOOLEAN);
     private Vec3d initialPosition = null;
     protected double healthScaledAttackFactor = 0.0; // Factor that determines how much attack is affected by health
-    private PriorityQueue<TimedEvent> events = new PriorityQueue<TimedEvent>();
+    private final PriorityQueue<TimedEvent> events = new PriorityQueue<>();
     private boolean leaping = false;
 
     public EntityLeveledMob(World worldIn) {
         super(worldIn);
         this.setLevel(LevelHandler.INVASION);
         this.experienceValue = 5;
-        if(getMobConfig().hasPath("nbt_spawn_data")) {
+        //todo find another way
+       /* if(getMobConfig().hasPath("nbt_spawn_data")) {
             this.readFromNBT(ModUtils.parseNBTFromConfig(getMobConfig().getConfig("nbt_spawn_data")));
-        }
+        }*/
     }
 
     public Config getMobConfig() {
@@ -127,7 +128,7 @@ public abstract class EntityLeveledMob extends EntityCreature implements IAnimat
 
         if (!world.isRemote) {
             if (this.getAttackTarget() == null) {
-                if (this.regenStartTimer > this.regenStartTime) {
+                if (this.regenStartTimer > regenStartTime) {
                     if (this.ticksExisted % 20 == 0) {
                         this.heal(this.getMaxHealth() * 0.015f);
                     }
@@ -219,7 +220,8 @@ public abstract class EntityLeveledMob extends EntityCreature implements IAnimat
     }
 
     @Override
-    public void readFromNBT(NBTTagCompound compound) {
+    public void readEntityFromNBT(NBTTagCompound compound) {
+        super.readEntityFromNBT(compound);
         if (compound.hasKey("level")) {
             this.setLevel(compound.getFloat("level"));
         }
@@ -228,19 +230,8 @@ public abstract class EntityLeveledMob extends EntityCreature implements IAnimat
         }
         world.setEntityState(this, animationByte);
 
-        super.readFromNBT(compound);
-
-        if(compound.hasKey("experienceValue")) {
-            this.experienceValue = compound.getInteger("experienceValue");
-        }
         if (compound.hasKey("isImmovable")) {
             this.setImmovable(compound.getBoolean("isImmovable"));
-        }
-
-        // This is required because the position gets set at 0 0 0 from super.readFromNBT, which causes problems
-        this.initialPosition = null;
-        if (compound.hasKey("initialX")) {
-            this.initialPosition = new Vec3d(compound.getDouble("initialX"), compound.getDouble("initialY"), compound.getDouble("initialZ"));
         }
     }
 
@@ -334,7 +325,7 @@ public abstract class EntityLeveledMob extends EntityCreature implements IAnimat
     }
 
     public void playSoundWithFallback(SoundEvent sound) {
-        playSoundWithFallback(sound, SoundsHandler.NONE);
+        playSoundWithFallback(sound, ModSoundEvents.NONE);
     }
 
     @Override

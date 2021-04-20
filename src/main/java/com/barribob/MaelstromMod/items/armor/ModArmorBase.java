@@ -40,10 +40,10 @@ public class ModArmorBase extends ItemArmor implements ILeveledItem, IElement {
             UUID.fromString("e2d1f056-f539-48c7-b353-30d7a367ebd0"), UUID.fromString("db13047a-bb47-4621-a025-65ed22ce461a"),
             UUID.fromString("abb5df20-361d-420a-8ec7-4bdba33378eb")};
 
-    private float level;
+    private final float level;
     private static final int[] armor_fractions = {4, 7, 8, 5};
     private static final int armor_total = 24;
-    private String textureName;
+    private final String textureName;
     private Element element = Element.NONE;
     private String armorBonusDesc = "";
 
@@ -54,13 +54,12 @@ public class ModArmorBase extends ItemArmor implements ILeveledItem, IElement {
         setCreativeTab(ModCreativeTabs.ITEMS);
         this.level = level;
         this.textureName = textureName;
-        ModItems.ITEMS.add(this);
     }
 
     public float getElementalArmor(Element element) {
         if (element.matchesElement(getElement())) {
             float fullArmorReduction = 1 - (1 / ModConfig.balance.elemental_factor);
-            float armorFraction = this.armor_fractions[this.armorType.getIndex()] / (float) armor_total;
+            float armorFraction = armor_fractions[this.armorType.getIndex()] / (float) armor_total;
             return fullArmorReduction * armorFraction;
         }
         return 0; // Does not add any reduction at all
@@ -71,7 +70,7 @@ public class ModArmorBase extends ItemArmor implements ILeveledItem, IElement {
      */
     public float getMaelstromArmor(ItemStack stack) {
         float total_armor_reduction = 1 - LevelHandler.getArmorFromLevel(this.level);
-        float armor_type_fraction = this.armor_fractions[this.armorType.getIndex()] / (float) armor_total;
+        float armor_type_fraction = armor_fractions[this.armorType.getIndex()] / (float) armor_total;
         return total_armor_reduction * armor_type_fraction;
     }
 
@@ -84,13 +83,13 @@ public class ModArmorBase extends ItemArmor implements ILeveledItem, IElement {
         if(ModConfig.gui.disableMaelstromArmorItemTooltips) {
             return 0;
         }
-        float armor_type_fraction = this.armor_fractions[this.armorType.getIndex()] / (float) armor_total;
+        float armor_type_fraction = armor_fractions[this.armorType.getIndex()] / (float) armor_total;
         return this.getLevel() * armor_type_fraction;
     }
 
     @Override
     public Multimap<String, AttributeModifier> getItemAttributeModifiers(EntityEquipmentSlot equipmentSlot) {
-        Multimap<String, AttributeModifier> multimap = HashMultimap.<String, AttributeModifier>create();
+        Multimap<String, AttributeModifier> multimap = HashMultimap.create();
 
         if (equipmentSlot == this.armorType) {
             multimap.put(SharedMonsterAttributes.ARMOR.getName(), new AttributeModifier(ARMOR_MODIFIERS[equipmentSlot.getIndex()], "Armor modifier", this.damageReduceAmount, 0));
@@ -109,7 +108,7 @@ public class ModArmorBase extends ItemArmor implements ILeveledItem, IElement {
             tooltip.add(ModUtils.getDisplayLevel((this.getLevel())));
         }
 
-        if (!element.equals(element.NONE) && !ModConfig.gui.disableElementalVisuals) {
+        if (!element.equals(Element.NONE) && !ModConfig.gui.disableElementalVisuals) {
             tooltip.add(ModUtils.translateDesc("elemental_armor_desc", element.textColor + element.symbol + TextFormatting.GRAY,
                     ModUtils.ROUND.format(100 * getElementalArmor(element)) + "%"));
         }

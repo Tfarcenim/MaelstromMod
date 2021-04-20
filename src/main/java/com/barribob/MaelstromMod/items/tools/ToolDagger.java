@@ -22,8 +22,8 @@ import java.util.UUID;
 public class ToolDagger extends ToolSword implements IExtendedReach, ISweepAttackOverride {
     private static final UUID REACH_MODIFIER = UUID.fromString("a6323e02-d8e9-44c6-b941-f5d7155bb406");
 
-    public ToolDagger(String name, ToolMaterial material, float level) {
-        super(name, material, level);
+    public ToolDagger(ToolMaterial material, float level) {
+        super(material, level);
     }
 
     /**

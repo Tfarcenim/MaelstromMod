@@ -1,12 +1,12 @@
 package com.barribob.MaelstromMod.entity.render;
 
 import com.barribob.MaelstromMod.IntoTheMaelstrom;
+import com.barribob.MaelstromMod.entity.entities.gauntlet.EntityMaelstromGauntlet;
 import com.barribob.MaelstromMod.entity.model.ModelMaelstromGauntlet;
 import net.minecraft.client.renderer.entity.RenderManager;
-import net.minecraft.entity.EntityLiving;
 import net.minecraft.util.ResourceLocation;
 
-public class RenderMaelstromGauntlet extends RenderModEntity<EntityLiving> {
+public class RenderMaelstromGauntlet extends RenderModEntity<EntityMaelstromGauntlet> {
     public RenderMaelstromGauntlet(RenderManager rendermanagerIn, String... textures) {
         super(rendermanagerIn, new ModelMaelstromGauntlet(), textures);
     }
@@ -15,7 +15,7 @@ public class RenderMaelstromGauntlet extends RenderModEntity<EntityLiving> {
      * Change to hurt texture whenever the gauntlet takes damage
      */
     @Override
-    protected ResourceLocation getEntityTexture(EntityLiving entity) {
+    protected ResourceLocation getEntityTexture(EntityMaelstromGauntlet entity) {
         if (entity.hurtTime > 0) {
             return new ResourceLocation(IntoTheMaelstrom.MOD_ID + ":textures/entity/maelstrom_gauntlet_hurt.png");
         } else if (entity.getHealth() / entity.getMaxHealth() < 0.55) {

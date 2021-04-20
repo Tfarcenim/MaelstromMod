@@ -25,7 +25,7 @@ import java.util.List;
 public class ItemMusket extends ItemGun {
     private float meleeDamage = 5;
 
-    public ItemMusket(String name, float level) {
+    public ItemMusket(float level) {
         super(40, 8, level);
     }
 

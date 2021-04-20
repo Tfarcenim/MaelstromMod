@@ -24,7 +24,7 @@
                 {
                     "type": "item",
                     "weight": 1,
-                    "name": "mm:azure_maelstrom_fragment",
+                    "name": "intothemaelstrom:azure_maelstrom_fragment",
                     "functions": [
                         {
                             "function": "set_count",

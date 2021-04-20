@@ -6,7 +6,7 @@ import com.barribob.MaelstromMod.entity.projectile.ProjectileSwampSpittle;
 import com.barribob.MaelstromMod.init.ModItems;
 import com.barribob.MaelstromMod.util.ModUtils;
 import com.barribob.MaelstromMod.util.handlers.LevelHandler;
-import com.barribob.MaelstromMod.util.handlers.SoundsHandler;
+import com.barribob.MaelstromMod.init.ModSoundEvents;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IRangedAttackMob;
@@ -102,17 +102,17 @@ public class EntitySwampCrawler extends EntityLeveledMob implements IRangedAttac
 
     @Override
     protected SoundEvent getHurtSound(DamageSource damageSourceIn) {
-        return SoundsHandler.ENTTIY_CRAWLER_HURT;
+        return ModSoundEvents.ENTTIY_CRAWLER_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return SoundsHandler.ENTTIY_CRAWLER_HURT;
+        return ModSoundEvents.ENTTIY_CRAWLER_HURT;
     }
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return SoundsHandler.ENTTIY_CRAWLER_AMBIENT;
+        return ModSoundEvents.ENTTIY_CRAWLER_AMBIENT;
     }
 
     @Override

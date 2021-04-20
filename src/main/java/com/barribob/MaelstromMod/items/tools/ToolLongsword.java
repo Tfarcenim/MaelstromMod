@@ -18,8 +18,8 @@ public class ToolLongsword extends ToolSword implements IExtendedReach, ISweepAt
     private static final UUID REACH_MODIFIER = UUID.fromString("a6323e02-d8e9-44c6-b941-f5d7155bb406");
     private float reach = 4;
 
-    public ToolLongsword(String name, ToolMaterial material, float level) {
-        super(name, material, level);
+    public ToolLongsword(ToolMaterial material, float level) {
+        super(material, level);
     }
 
     @Override

@@ -9,10 +9,8 @@ import com.barribob.MaelstromMod.util.ModDamageSource;
 import com.barribob.MaelstromMod.util.ModRandom;
 import com.barribob.MaelstromMod.util.ModUtils;
 import com.barribob.MaelstromMod.util.handlers.ParticleManager;
-import com.barribob.MaelstromMod.util.handlers.SoundsHandler;
-import net.minecraft.client.audio.SoundHandler;
+import com.barribob.MaelstromMod.init.ModSoundEvents;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
@@ -25,8 +23,6 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  * Represent the attibutes and logic of the shade monster
  */
 public class EntityShade extends EntityMaelstromMob implements IAttack {
-    public static final float PROJECTILE_INACCURACY = 0;
-    public static final float PROJECTILE_VELOCITY = 1.0f;
 
     public EntityShade(World worldIn) {
         super(worldIn);
@@ -42,17 +38,17 @@ public class EntityShade extends EntityMaelstromMob implements IAttack {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return SoundsHandler.ENTITY_SHADE_AMBIENT;
+        return ModSoundEvents.ENTITY_SHADE_AMBIENT;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource damageSourceIn) {
-        return SoundsHandler.ENTITY_SHADE_HURT;
+        return ModSoundEvents.ENTITY_SHADE_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return SoundsHandler.ENTITY_SHADE_HURT;
+        return ModSoundEvents.ENTITY_SHADE_HURT;
     }
 
     @Override

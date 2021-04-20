@@ -16,8 +16,8 @@ import net.minecraft.world.World;
 import java.util.List;
 
 public class ItemMagisteelSword extends ToolSword {
-    public ItemMagisteelSword(String name, ToolMaterial material, float level, Element element) {
-        super(name, material, level, element);
+    public ItemMagisteelSword(ToolMaterial material, float level, Element element) {
+        super(material, level, element);
     }
 
     @Override
@@ -33,7 +33,7 @@ public class ItemMagisteelSword extends ToolSword {
                 proj.setTravelRange(4.5f);
                 proj.shoot(player, player.rotationPitch, player.rotationYaw, 0.0F, 1.5f, 0);
                 player.world.spawnEntity(proj);
-                player.world.playSound((EntityPlayer) null, player.posX, player.posY, player.posZ, SoundEvents.ENTITY_PLAYER_ATTACK_SWEEP, player.getSoundCategory(), 1.0F,
+                player.world.playSound(null, player.posX, player.posY, player.posZ, SoundEvents.ENTITY_PLAYER_ATTACK_SWEEP, player.getSoundCategory(), 1.0F,
                         0.9F);
                 if (!player.capabilities.isCreativeMode) {
                     stack.damageItem(1, player);

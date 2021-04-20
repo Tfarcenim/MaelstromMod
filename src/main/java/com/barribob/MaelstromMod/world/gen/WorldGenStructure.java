@@ -1,15 +1,16 @@
 package com.barribob.MaelstromMod.world.gen;
 
 import com.barribob.MaelstromMod.IntoTheMaelstrom;
-import com.barribob.MaelstromMod.util.IStructure;
 import com.barribob.MaelstromMod.util.ModRandom;
 import com.barribob.MaelstromMod.util.ModUtils;
 import net.minecraft.init.Blocks;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.util.Mirror;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldServer;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraft.world.gen.structure.template.PlacementSettings;
 import net.minecraft.world.gen.structure.template.Template;
@@ -24,7 +25,7 @@ import java.util.Random;
 /**
  * Loads a structure by nbt file
  */
-public class WorldGenStructure extends WorldGenerator implements IStructure {
+public class WorldGenStructure extends WorldGenerator {
     public String structureName;
     protected PlacementSettings placeSettings;
     private static final PlacementSettings DEFAULT_PLACE_SETTINGS = new PlacementSettings();
@@ -54,13 +55,13 @@ public class WorldGenStructure extends WorldGenerator implements IStructure {
         return true;
     }
 
-    private Template getTemplate(World world) {
+    protected Template getTemplate(World world) {
         if (template != null) {
             return template;
         }
 
         MinecraftServer mcServer = world.getMinecraftServer();
-        TemplateManager manager = worldServer.getStructureTemplateManager();
+        TemplateManager manager = ((WorldServer)world).getStructureTemplateManager();
         ResourceLocation location = new ResourceLocation(IntoTheMaelstrom.MOD_ID, structureName);
         template = manager.get(mcServer, location);
         if (template == null) {
@@ -106,6 +107,7 @@ public class WorldGenStructure extends WorldGenerator implements IStructure {
         BlockPos templateSize = this.getSize(world);
         return ModUtils.getAverageGroundHeight(world, x, z, templateSize.getX(), templateSize.getZ(), this.getMaxVariation(world));
     }
+    PlacementSettings settings = new PlacementSettings().setChunk(null).setIgnoreEntities(false).setIgnoreStructureBlock(false).setMirror(Mirror.NONE).setRotation(Rotation.NONE);
 
     /**
      * Loads the structure from the nbt file and generates it
@@ -115,7 +117,7 @@ public class WorldGenStructure extends WorldGenerator implements IStructure {
      */
     public void generateStructure(World world, BlockPos pos, Rotation rotation) {
         if (getTemplate(world) != null) {
-            Map<Rotation, BlockPos> rotations = new HashMap<Rotation, BlockPos>();
+            Map<Rotation, BlockPos> rotations = new HashMap<>();
             rotations.put(Rotation.NONE, new BlockPos(0, 0, 0));
             rotations.put(Rotation.CLOCKWISE_90, new BlockPos(template.getSize().getX() - 1, 0, 0));
             rotations.put(Rotation.COUNTERCLOCKWISE_90, new BlockPos(0, 0, template.getSize().getZ() - 1));
@@ -125,7 +127,8 @@ public class WorldGenStructure extends WorldGenerator implements IStructure {
             PlacementSettings rotatedSettings = settings.setRotation(rotation);
             BlockPos rotatedPos = pos.add(rotationOffset);
 
-            template.addBlocksToWorld(world, rotatedPos, rotatedSettings, 18);
+            //todo prone to crashing
+            //template.addBlocksToWorld(world, rotatedPos, rotatedSettings, 18);
             Map<BlockPos, String> dataBlocks = template.getDataBlocks(rotatedPos, rotatedSettings);
             for (Entry<BlockPos, String> entry : dataBlocks.entrySet()) {
                 String s = entry.getValue();

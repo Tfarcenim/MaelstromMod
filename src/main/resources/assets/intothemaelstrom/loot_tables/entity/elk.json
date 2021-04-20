@@ -7,7 +7,7 @@
                 {
                     "type": "item",
                     "weight": 1,
-                    "name": "mm:elk_hide",
+                    "name": "intothemaelstrom:elk_hide",
                     "functions": [
                         {
                             "function": "set_count",
@@ -27,7 +27,7 @@
                 {
                     "type": "item",
                     "weight": 1,
-                    "name": "mm:elk_strips",
+                    "name": "intothemaelstrom:elk_strips",
                     "functions": [
                         {
                             "function": "set_count",

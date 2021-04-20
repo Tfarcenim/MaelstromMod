@@ -1,6 +1,6 @@
 package com.barribob.MaelstromMod.entity.entities.herobrine_state;
 
-import com.barribob.MaelstromMod.entity.entities.Herobrine;
+import com.barribob.MaelstromMod.entity.entities.HerobrineEntity;
 import com.barribob.MaelstromMod.init.ModBlocks;
 import com.barribob.MaelstromMod.init.ModProfessions;
 import com.barribob.MaelstromMod.util.ModRandom;
@@ -27,7 +27,7 @@ public class StateCrimsonDimension extends HerobrineState implements IMerchant {
     private boolean leftClickMessage = false;
     private TimedMessager messager;
 
-    public StateCrimsonDimension(Herobrine herobrine) {
+    public StateCrimsonDimension(HerobrineEntity herobrine) {
         super(herobrine);
         for (EntityVillager.ITradeList list : ModProfessions.HEROBRINE_MAELSTROM_KEY.getTrades(0)) {
             list.addMerchantRecipe(this, this.buyingList, this.herobrine.getRNG());
@@ -52,7 +52,7 @@ public class StateCrimsonDimension extends HerobrineState implements IMerchant {
     }
 
     @Override
-    public void leftClick(Herobrine herobrine) {
+    public void leftClick(HerobrineEntity herobrine) {
         if (!this.leftClickMessage) {
             messageToPlayers.accept("herobrine_crimson_dimension_1");
             leftClickMessage = true;

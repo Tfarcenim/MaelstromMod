@@ -2,6 +2,8 @@ package com.barribob.MaelstromMod.entity.entities;
 
 import com.barribob.MaelstromMod.entity.ai.AIJumpAtTarget;
 import com.barribob.MaelstromMod.entity.ai.EntityAIRangedAttack;
+import com.barribob.MaelstromMod.entity.ai.VexAIMoveControl;
+import com.barribob.MaelstromMod.entity.ai.VexAIMoveRandom;
 import com.barribob.MaelstromMod.entity.animation.AnimationClip;
 import com.barribob.MaelstromMod.entity.animation.StreamAnimation;
 import com.barribob.MaelstromMod.entity.model.ModelMaelstromMage;
@@ -10,9 +12,9 @@ import com.barribob.MaelstromMod.util.Element;
 import com.barribob.MaelstromMod.util.ModRandom;
 import com.barribob.MaelstromMod.util.ModUtils;
 import com.barribob.MaelstromMod.util.handlers.ParticleManager;
-import com.barribob.MaelstromMod.util.handlers.SoundsHandler;
+import com.barribob.MaelstromMod.init.ModSoundEvents;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.EntityAISwimming;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
@@ -27,34 +29,41 @@ import java.util.List;
 import java.util.function.BiConsumer;
 
 public class EntityMaelstromMage extends EntityMaelstromMob {
+
     public static final float PROJECTILE_INACCURACY = 6.0f;
     public static final float PROJECTILE_SPEED = 1.2f;
 
     public EntityMaelstromMage(World worldIn) {
         super(worldIn);
         this.setSize(0.9f, 1.8f);
+        moveHelper = new VexAIMoveControl(this);
     }
+
 
     @Override
     protected void initEntityAI() {
         super.initEntityAI();
+        this.tasks.addTask(0, new EntityAISwimming(this));
         this.tasks.addTask(4, new EntityAIRangedAttack<EntityMaelstromMob>(this, 1.0f, 50, 20, 15.0f, 0.5f));
         this.tasks.addTask(0, new AIJumpAtTarget(this, 0.4f, 0.5f));
+        this.tasks.addTask(8, new VexAIMoveRandom(this));
+
     }
+
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return SoundsHandler.ENTITY_SHADE_AMBIENT;
+        return ModSoundEvents.ENTITY_SHADE_AMBIENT;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource damageSourceIn) {
-        return SoundsHandler.ENTITY_SHADE_HURT;
+        return ModSoundEvents.ENTITY_SHADE_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return SoundsHandler.ENTITY_SHADE_HURT;
+        return ModSoundEvents.ENTITY_SHADE_HURT;
     }
 
     /**
@@ -133,14 +142,20 @@ public class EntityMaelstromMage extends EntityMaelstromMob {
     }
 
     @Override
+    protected void entityInit() {
+        super.entityInit();
+        this.setNoGravity(true);
+    }
+
+    @Override
     @SideOnly(Side.CLIENT)
     protected void initAnimation() {
-        List<List<AnimationClip<ModelMaelstromMage>>> animation = new ArrayList<List<AnimationClip<ModelMaelstromMage>>>();
-        List<AnimationClip<ModelMaelstromMage>> leftArmXStream = new ArrayList<AnimationClip<ModelMaelstromMage>>();
-        List<AnimationClip<ModelMaelstromMage>> leftArmZStream = new ArrayList<AnimationClip<ModelMaelstromMage>>();
-        List<AnimationClip<ModelMaelstromMage>> leftForearmXStream = new ArrayList<AnimationClip<ModelMaelstromMage>>();
-        List<AnimationClip<ModelMaelstromMage>> bodyXStream = new ArrayList<AnimationClip<ModelMaelstromMage>>();
-        List<AnimationClip<ModelMaelstromMage>> rightArmXStream = new ArrayList<AnimationClip<ModelMaelstromMage>>();
+        List<List<AnimationClip<ModelMaelstromMage>>> animation = new ArrayList<>();
+        List<AnimationClip<ModelMaelstromMage>> leftArmXStream = new ArrayList<>();
+        List<AnimationClip<ModelMaelstromMage>> leftArmZStream = new ArrayList<>();
+        List<AnimationClip<ModelMaelstromMage>> leftForearmXStream = new ArrayList<>();
+        List<AnimationClip<ModelMaelstromMage>> bodyXStream = new ArrayList<>();
+        List<AnimationClip<ModelMaelstromMage>> rightArmXStream = new ArrayList<>();
 
         BiConsumer<ModelMaelstromMage, Float> leftArmX = (model, f) -> model.leftArm.rotateAngleX = f;
         BiConsumer<ModelMaelstromMage, Float> leftArmZ = (model, f) -> model.leftArm.rotateAngleZ = f;

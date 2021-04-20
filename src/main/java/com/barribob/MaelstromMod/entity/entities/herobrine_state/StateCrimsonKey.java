@@ -1,6 +1,6 @@
 package com.barribob.MaelstromMod.entity.entities.herobrine_state;
 
-import com.barribob.MaelstromMod.entity.entities.Herobrine;
+import com.barribob.MaelstromMod.entity.entities.HerobrineEntity;
 import com.barribob.MaelstromMod.init.ModProfessions;
 import net.minecraft.entity.IMerchant;
 import net.minecraft.entity.passive.EntityVillager;
@@ -19,7 +19,7 @@ public class StateCrimsonKey extends HerobrineState implements IMerchant {
     protected boolean gtfo = false;
     private boolean leftClickMessage = false;
 
-    public StateCrimsonKey(Herobrine herobrine) {
+    public StateCrimsonKey(HerobrineEntity herobrine) {
         super(herobrine);
         for (EntityVillager.ITradeList list : ModProfessions.HEROBRINE_CRIMSON_KEY.getTrades(0)) {
             list.addMerchantRecipe(this, this.buyingList, this.herobrine.getRNG());
@@ -44,7 +44,7 @@ public class StateCrimsonKey extends HerobrineState implements IMerchant {
     }
 
     @Override
-    public void leftClick(Herobrine herobrine) {
+    public void leftClick(HerobrineEntity herobrine) {
         if (!this.leftClickMessage) {
             messageToPlayers.accept("herobrine_crimson_1");
             leftClickMessage = true;

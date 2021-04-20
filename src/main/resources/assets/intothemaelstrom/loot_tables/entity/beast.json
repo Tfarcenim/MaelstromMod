@@ -7,7 +7,7 @@
                 {
                     "type": "item",
                     "weight": 1,
-                    "name": "mm:minotaur_horn",
+                    "name": "intothemaelstrom:minotaur_horn",
                     "functions": [
                         {
                             "function": "set_count",
@@ -24,7 +24,7 @@
                 {
                     "type": "item",
                     "weight": 1,
-                    "name": "mm:cliff_key_fragment"
+                    "name": "intothemaelstrom:cliff_key_fragment"
                 }
             ]
         },
@@ -35,7 +35,7 @@
                 {
                     "type": "item",
                     "weight": 1,
-                    "name": "mm:maelstrom_core",
+                    "name": "intothemaelstrom:maelstrom_core",
                     "functions": [
                         {
                             "function": "set_count",

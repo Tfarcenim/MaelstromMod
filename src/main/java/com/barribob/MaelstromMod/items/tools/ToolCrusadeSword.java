@@ -14,8 +14,8 @@ import net.minecraft.world.World;
 import java.util.List;
 
 public class ToolCrusadeSword extends ToolSword implements ISweepAttackOverride {
-    public ToolCrusadeSword(String name, ToolMaterial material, float level) {
-        super(name, material, level);
+    public ToolCrusadeSword(ToolMaterial material, float level) {
+        super(material, level);
     }
 
     @Override

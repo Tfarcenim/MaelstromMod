@@ -6,16 +6,16 @@
             "entries": [
                 {
                     "type": "item",
-                    "name": "mm:ammo_case",
+                    "name": "intothemaelstrom:ammo_case",
                     "weight": 1
                 },
                 {
                     "type": "item",
-                    "name": "mm:chasmium_helmet",
+                    "name": "intothemaelstrom:chasmium_helmet",
                     "weight": 1,
                     "functions": [
                         {
-                            "function": "mm:enchant",
+                            "function": "intothemaelstrom:enchant",
                             "level": 1,
                             "conditions": [
                                 {
@@ -28,11 +28,11 @@
                 },
                 {
                     "type": "item",
-                    "name": "mm:chasmium_chestplate",
+                    "name": "intothemaelstrom:chasmium_chestplate",
                     "weight": 1,
                     "functions": [
                         {
-                            "function": "mm:enchant",
+                            "function": "intothemaelstrom:enchant",
                             "level": 1,
                             "conditions": [
                                 {
@@ -45,11 +45,11 @@
                 },
                 {
                     "type": "item",
-                    "name": "mm:chasmium_leggings",
+                    "name": "intothemaelstrom:chasmium_leggings",
                     "weight": 1,
                     "functions": [
                         {
-                            "function": "mm:enchant",
+                            "function": "intothemaelstrom:enchant",
                             "level": 1,
                             "conditions": [
                                 {
@@ -62,11 +62,11 @@
                 },
                 {
                     "type": "item",
-                    "name": "mm:chasmium_boots",
+                    "name": "intothemaelstrom:chasmium_boots",
                     "weight": 1,
                     "functions": [
                         {
-                            "function": "mm:enchant",
+                            "function": "intothemaelstrom:enchant",
                             "level": 1,
                             "conditions": [
                                 {
@@ -79,11 +79,11 @@
                 },
                 {
                     "type": "item",
-                    "name": "mm:chasmium_sword",
+                    "name": "intothemaelstrom:chasmium_sword",
                     "weight": 1,
                     "functions": [
                         {
-                            "function": "mm:enchant",
+                            "function": "intothemaelstrom:enchant",
                             "level": 1,
                             "conditions": [
                                 {

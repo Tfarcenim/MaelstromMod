@@ -99,7 +99,9 @@ public class ModEventHandler {
      * error happen (although my guess is that the structure generates when its +x +z or +xz chunks are somehow not generated.) In any case, this is sort of a patch after the fact hack to fix chunk
      * errors.
      */
-    @SubscribeEvent
+
+    //todo  prone to crashing
+    /*@SubscribeEvent
     public static void chunkWatched(ChunkWatchEvent.Watch event) {
         if (event.getPlayer().dimension == ModDimensions.CRIMSON_KINGDOM.getId()) {
             Chunk chunk = event.getChunkInstance();
@@ -132,7 +134,7 @@ public class ModEventHandler {
                 }
             }
         }
-    }
+    }*/
 
     @SubscribeEvent
     public static void playerLoggedInEvent(PlayerLoggedInEvent event) {
@@ -178,8 +180,8 @@ public class ModEventHandler {
                 EntityPlayer player = event.world.playerEntities.stream().reduce(event.world.playerEntities.get(0),
                         (p1, p2) -> p1.getDistance(0, 0, 0) < p2.getDistance(0, 0, 0) ? p1 : p2);
 
-                List<BlockPos> positions = new ArrayList<BlockPos>();
-                List<Integer> variations = new ArrayList<Integer>();
+                List<BlockPos> positions = new ArrayList<>();
+                List<Integer> variations = new ArrayList<>();
 
                 // Find the flattest area
                 ModUtils.circleCallback(50, 16, (pos) -> {
@@ -278,7 +280,7 @@ public class ModEventHandler {
 
                 // If the item has extended reach, apply that, and send the attack
                 // to the server to verify
-                if (itemStack != null && itemStack.getItem() instanceof IExtendedReach) {
+                if (itemStack.getItem() instanceof IExtendedReach) {
                     float reach = ((IExtendedReach) itemStack.getItem()).getReach();
                     RayTraceResult result = InputOverrides.getMouseOver(1.0f, mc, reach);
 

@@ -4,7 +4,7 @@
 		"subtitle": "entity.swamp_crawler.hurt",
 		"sounds": [
 			{
-				"name": "mm:entity/swamp_crawler/hurt",
+				"name": "intothemaelstrom:entity/swamp_crawler/hurt",
 				"stream": true
 			}
 		]
@@ -14,7 +14,7 @@
 		"subtitle": "entity.horror.ambient",
 		"sounds": [
 			{
-				"name": "mm:entity/horror/ambient",
+				"name": "intothemaelstrom:entity/horror/ambient",
 				"stream": true
 			}
 		]
@@ -24,7 +24,7 @@
 		"subtitle": "entity.gauntlet.hurt",
 		"sounds": [
 			{
-				"name": "mm:entity/gauntlet/hurt",
+				"name": "intothemaelstrom:entity/gauntlet/hurt",
 				"stream": true
 			}
 		]
@@ -34,7 +34,7 @@
 		"subtitle": "entity.gauntlet.ambient",
 		"sounds": [
 			{
-				"name": "mm:entity/gauntlet/ambient",
+				"name": "intothemaelstrom:entity/gauntlet/ambient",
 				"stream": true
 			}
 		]
@@ -44,7 +44,7 @@
 		"subtitle": "entity.gauntlet.lazer_charge",
 		"sounds": [
 			{
-				"name": "mm:entity/gauntlet/lazer_charge",
+				"name": "intothemaelstrom:entity/gauntlet/lazer_charge",
 				"stream": true
 			}
 		]
@@ -54,7 +54,7 @@
 		"subtitle": "entity.beast.ambient",
 		"sounds": [
 			{
-				"name": "mm:entity/beast/ambient",
+				"name": "intothemaelstrom:entity/beast/ambient",
 				"stream": true
 			}
 		]
@@ -64,7 +64,7 @@
 		"subtitle": "entity.horror.hurt",
 		"sounds": [
 			{
-				"name": "mm:entity/horror/hurt",
+				"name": "intothemaelstrom:entity/horror/hurt",
 				"stream": true
 			}
 		]
@@ -74,7 +74,7 @@
 		"subtitle": "entity.beast.hurt",
 		"sounds": [
 			{
-				"name": "mm:entity/beast/hurt",
+				"name": "intothemaelstrom:entity/beast/hurt",
 				"stream": true
 			}
 		]
@@ -84,7 +84,7 @@
 		"subtitle": "entity.chaos_knight.hurt",
 		"sounds": [
 			{
-				"name": "mm:entity/chaos_knight/hurt",
+				"name": "intothemaelstrom:entity/chaos_knight/hurt",
 				"stream": true
 			}
 		]
@@ -94,7 +94,7 @@
 		"subtitle": "entity.chaos_knight.block",
 		"sounds": [
 			{
-				"name": "mm:entity/chaos_knight/block",
+				"name": "intothemaelstrom:entity/chaos_knight/block",
 				"stream": true
 			}
 		]
@@ -104,7 +104,7 @@
 		"subtitle": "entity.shade.ambient",
 		"sounds": [
 			{
-				"name": "mm:entity/shade/ambient",
+				"name": "intothemaelstrom:entity/shade/ambient",
 				"stream": true
 			}
 		]
@@ -114,7 +114,7 @@
 		"subtitle": "entity.chaos_knight.death",
 		"sounds": [
 			{
-				"name": "mm:entity/chaos_knight/death",
+				"name": "intothemaelstrom:entity/chaos_knight/death",
 				"stream": true
 			}
 		]
@@ -124,7 +124,7 @@
 		"subtitle": "entity.monolith.ambient",
 		"sounds": [
 			{
-				"name": "mm:entity/monolith/ambient",
+				"name": "intothemaelstrom:entity/monolith/ambient",
 				"stream": true
 			}
 		]
@@ -134,7 +134,7 @@
 		"subtitle": "entity.swamp_crawler.ambient",
 		"sounds": [
 			{
-				"name": "mm:entity/swamp_crawler/ambient",
+				"name": "intothemaelstrom:entity/swamp_crawler/ambient",
 				"stream": true
 			}
 		]
@@ -144,7 +144,7 @@
 		"subtitle": "entity.shade.hurt",
 		"sounds": [
 			{
-				"name": "mm:entity/shade/hurt",
+				"name": "intothemaelstrom:entity/shade/hurt",
 				"stream": true
 			}
 		]
@@ -154,7 +154,7 @@
 		"subtitle": "entity.chaos_knight.ambient",
 		"sounds": [
 			{
-				"name": "mm:entity/chaos_knight/ambient",
+				"name": "intothemaelstrom:entity/chaos_knight/ambient",
 				"stream": true
 			}
 		]
@@ -164,7 +164,7 @@
 		"subtitle": "none",
 		"sounds": [
 			{
-				"name": "mm:none",
+				"name": "intothemaelstrom:none",
 				"stream": true
 			}
 		]
@@ -174,7 +174,7 @@
 		"subtitle": "music.new_world",
 		"sounds": [
 			{
-				"name": "mm:music/new_world",
+				"name": "intothemaelstrom:music/new_world",
 				"stream": true
 			}
 		]
@@ -184,7 +184,7 @@
 		"subtitle": "music.wandering",
 		"sounds": [
 			{
-				"name": "mm:music/wandering",
+				"name": "intothemaelstrom:music/wandering",
 				"stream": true
 			}
 		]

@@ -1,4 +1,4 @@
-package com.barribob.MaelstromMod.items.gun;
+package com.barribob.MaelstromMod.items.staff;
 
 import com.barribob.MaelstromMod.IntoTheMaelstrom;
 import com.barribob.MaelstromMod.packets.MessageLeap;
@@ -17,8 +17,8 @@ import net.minecraft.world.World;
 import java.util.List;
 
 public class ItemLeapStaff extends ItemStaff {
-    public ItemLeapStaff(String name, int maxDamage, float level, CreativeTabs tab) {
-        super(name, maxDamage, level, tab);
+    public ItemLeapStaff(int maxDamage, float level) {
+        super(maxDamage, level);
     }
 
     @Override

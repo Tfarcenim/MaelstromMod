@@ -17,7 +17,7 @@ import com.barribob.MaelstromMod.util.ModRandom;
 import com.barribob.MaelstromMod.util.ModUtils;
 import com.barribob.MaelstromMod.util.handlers.LootTableHandler;
 import com.barribob.MaelstromMod.util.handlers.ParticleManager;
-import com.barribob.MaelstromMod.util.handlers.SoundsHandler;
+import com.barribob.MaelstromMod.init.ModSoundEvents;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -79,7 +79,7 @@ public class EntityMaelstromIllager extends EntityMaelstromMob {
                 Projectile proj = new ProjectileMaelstromWisp(world, actor, getAttack() * getConfigFloat("ring_damage"));
                 proj.setTravelRange(15f);
                 ModUtils.throwProjectile(actor, target, proj, 1.0f, 1.0f);
-                playSoundWithFallback(SoundsHandler.Hooks.ENTITY_ILLAGER_VORTEX, SoundEvents.ENTITY_BLAZE_AMBIENT);
+                playSoundWithFallback(ModSoundEvents.Hooks.ENTITY_ILLAGER_VORTEX, SoundEvents.ENTITY_BLAZE_AMBIENT);
             });
             attackHandler.setAttack(shield, (IAction) (actor, target) -> {
                 DamageSource damageSource = ModDamageSource.builder()
@@ -89,7 +89,7 @@ public class EntityMaelstromIllager extends EntityMaelstromMob {
                         .stoppedByArmorNotShields().build();
 
                 ModUtils.handleAreaImpact(shieldSize, (e) -> getAttack() * getConfigFloat("defensive_burst_damage"), actor, getPositionVector(), damageSource);
-                playSoundWithFallback(SoundsHandler.Hooks.ENTITY_ILLAGER_DOME, SoundEvents.ENTITY_FIREWORK_BLAST);
+                playSoundWithFallback(ModSoundEvents.Hooks.ENTITY_ILLAGER_DOME, SoundEvents.ENTITY_FIREWORK_BLAST);
                 actor.world.setEntityState(actor, ModUtils.THIRD_PARTICLE_BYTE);
             });
             attackHandler.setAttack(enemy, spawnEnemy);
@@ -229,7 +229,7 @@ public class EntityMaelstromIllager extends EntityMaelstromMob {
                     this.blockUsingShield((EntityLivingBase) entity);
                 }
             }
-            this.playSound(SoundsHandler.ENTITY_CHAOS_KNIGHT_BLOCK, 1.0f, 0.9f + ModRandom.getFloat(0.2f));
+            this.playSound(ModSoundEvents.ENTITY_CHAOS_KNIGHT_BLOCK, 1.0f, 0.9f + ModRandom.getFloat(0.2f));
 
             return false;
         }
@@ -300,10 +300,10 @@ public class EntityMaelstromIllager extends EntityMaelstromMob {
                 attackHandler.setCurrentAttack(ModRandom.choice(attack, this.getRNG(), weights).next());
                 if (this.getAttackTarget() != null && this.getDistance(this.getAttackTarget()) < 4) {
                     attackHandler.setCurrentAttack(shield);
-                    playSoundWithFallback(SoundsHandler.Hooks.ENTITY_ILLAGER_DOME_CHARGE, SoundsHandler.NONE);
+                    playSoundWithFallback(ModSoundEvents.Hooks.ENTITY_ILLAGER_DOME_CHARGE, ModSoundEvents.NONE);
                 }
                 else {
-                    playSoundWithFallback(SoundsHandler.Hooks.ENTITY_ILLAGER_SPELL_CHARGE, SoundsHandler.NONE);
+                    playSoundWithFallback(ModSoundEvents.Hooks.ENTITY_ILLAGER_SPELL_CHARGE, ModSoundEvents.NONE);
                 }
                 world.setEntityState(this, attackHandler.getCurrentAttack());
             } else {

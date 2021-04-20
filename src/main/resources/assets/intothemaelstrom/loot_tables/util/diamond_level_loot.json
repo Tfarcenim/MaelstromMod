@@ -10,7 +10,7 @@
                     "weight": 1,
                     "functions": [
                         {
-                            "function": "mm:enchant",
+                            "function": "intothemaelstrom:enchant",
                             "level": 0,
                             "conditions": [
                                 {
@@ -27,7 +27,7 @@
                     "weight": 1,
                     "functions": [
                         {
-                            "function": "mm:enchant",
+                            "function": "intothemaelstrom:enchant",
                             "level": 0,
                             "conditions": [
                                 {
@@ -44,7 +44,7 @@
                     "weight": 1,
                     "functions": [
                         {
-                            "function": "mm:enchant",
+                            "function": "intothemaelstrom:enchant",
                             "level": 0,
                             "conditions": [
                                 {
@@ -61,7 +61,7 @@
                     "weight": 1,
                     "functions": [
                         {
-                            "function": "mm:enchant",
+                            "function": "intothemaelstrom:enchant",
                             "level": 0,
                             "conditions": [
                                 {
@@ -78,7 +78,7 @@
                     "weight": 1,
                     "functions": [
                         {
-                            "function": "mm:enchant",
+                            "function": "intothemaelstrom:enchant",
                             "level": 0,
                             "conditions": [
                                 {
@@ -95,7 +95,7 @@
                     "weight": 1,
                     "functions": [
                         {
-                            "function": "mm:enchant",
+                            "function": "intothemaelstrom:enchant",
                             "level": 0,
                             "conditions": [
                                 {
@@ -112,7 +112,7 @@
                     "weight": 1,
                     "functions": [
                         {
-                            "function": "mm:enchant",
+                            "function": "intothemaelstrom:enchant",
                             "level": 0,
                             "conditions": [
                                 {
@@ -125,11 +125,11 @@
                 },
                 {
                     "type": "item",
-                    "name": "mm:flintlock_pistol",
+                    "name": "intothemaelstrom:flintlock_pistol",
                     "weight": 1,
                     "functions": [
                         {
-                            "function": "mm:enchant",
+                            "function": "intothemaelstrom:enchant",
                             "level": 0,
                             "conditions": [
                                 {
@@ -142,7 +142,7 @@
                 },
                 {
                     "type": "item",
-                    "name": "mm:ammo_case",
+                    "name": "intothemaelstrom:ammo_case",
                     "weight": 1
                 },
                 {

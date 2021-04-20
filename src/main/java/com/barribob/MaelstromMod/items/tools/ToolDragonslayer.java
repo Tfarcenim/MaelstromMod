@@ -23,8 +23,8 @@ public class ToolDragonslayer extends ToolSword implements IExtendedReach, ISwee
     private static final UUID REACH_MODIFIER = UUID.fromString("a6323e02-d8e9-44c6-b941-f5d7155bb406");
     private float reach = 5;
 
-    public ToolDragonslayer(String name, ToolMaterial material, float level) {
-        super(name, material, level);
+    public ToolDragonslayer(ToolMaterial material, float level) {
+        super(material, level);
     }
 
     @Override

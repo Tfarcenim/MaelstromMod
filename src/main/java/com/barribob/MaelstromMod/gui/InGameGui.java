@@ -202,7 +202,7 @@ public class InGameGui {
             mc.ingameGUI.drawTexturedModalRect(left, top, 31, 10, 96, 9);
 
             // Draw the inner bar with mana
-            mc.ingameGUI.drawTexturedModalRect(left + 7, top + 2, 38, animationY, Math.round(((mana / Mana.MAX_MANA) * fullBarX)), 5);
+            mc.ingameGUI.drawTexturedModalRect(left + 7, top + 2, 38, animationY, Math.round(((mana / ModConfig.misc.mana_capacity) * fullBarX)), 5);
 
             // Draw the flash for mana intake/outake
             int[] whiteHighlightLocation = {36, 56};

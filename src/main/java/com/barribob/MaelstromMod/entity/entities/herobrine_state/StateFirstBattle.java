@@ -1,7 +1,7 @@
 package com.barribob.MaelstromMod.entity.entities.herobrine_state;
 
 import com.barribob.MaelstromMod.entity.entities.EntityHerobrineOne;
-import com.barribob.MaelstromMod.entity.entities.Herobrine;
+import com.barribob.MaelstromMod.entity.entities.HerobrineEntity;
 import com.barribob.MaelstromMod.util.TimedMessager;
 import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.init.SoundEvents;
@@ -15,7 +15,7 @@ public class StateFirstBattle extends HerobrineState {
     private boolean leftClickMessage = false;
     private int idleCounter;
 
-    public StateFirstBattle(Herobrine herobrine) {
+    public StateFirstBattle(HerobrineEntity herobrine) {
         super(herobrine);
         messager = new TimedMessager(new String[]{"herobrine_battle_0", "herobrine_battle_1", ""}, new int[]{60, 120, 121}, (s) -> {
             herobrine.playSound(SoundEvents.ENTITY_ENDERMEN_TELEPORT, 1.0F, 1.0F);
@@ -72,7 +72,7 @@ public class StateFirstBattle extends HerobrineState {
     }
 
     @Override
-    public void leftClick(Herobrine herobrine) {
+    public void leftClick(HerobrineEntity herobrine) {
         if (!this.leftClickMessage && herobrineBoss == null) {
             messageToPlayers.accept("herobrine_battle_7");
             leftClickMessage = true;

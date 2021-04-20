@@ -1,10 +1,9 @@
-package com.barribob.MaelstromMod.items.gun;
+package com.barribob.MaelstromMod.items.staff;
 
 import com.barribob.MaelstromMod.entity.projectile.Projectile;
 import com.barribob.MaelstromMod.entity.projectile.ProjectileExplosiveDrill;
 import com.barribob.MaelstromMod.util.ModUtils;
 import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
@@ -16,13 +15,13 @@ import net.minecraft.world.World;
 import java.util.List;
 
 public class ItemExplosiveStaff extends ItemStaff {
-    public ItemExplosiveStaff(String name, int useTime, float level, CreativeTabs tab) {
-        super(name, useTime, level, tab);
+    public ItemExplosiveStaff(int useTime, float level) {
+        super(useTime, level);
     }
 
     @Override
     protected void shoot(World world, EntityPlayer player, EnumHand handIn, ItemStack stack) {
-        world.playSound((EntityPlayer) null, player.posX, player.posY, player.posZ, SoundEvents.ENTITY_BLAZE_SHOOT, SoundCategory.NEUTRAL, 1.0F,
+        world.playSound(null, player.posX, player.posY, player.posZ, SoundEvents.ENTITY_BLAZE_SHOOT, SoundCategory.NEUTRAL, 1.0F,
                 0.4F / (itemRand.nextFloat() * 0.4F + 0.8F));
 
         float inaccuracy = 2.0f;

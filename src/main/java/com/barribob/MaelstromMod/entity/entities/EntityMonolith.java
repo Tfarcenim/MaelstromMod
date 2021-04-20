@@ -21,7 +21,7 @@ import com.barribob.MaelstromMod.util.ModDamageSource;
 import com.barribob.MaelstromMod.util.ModRandom;
 import com.barribob.MaelstromMod.util.ModUtils;
 import com.barribob.MaelstromMod.util.handlers.ParticleManager;
-import com.barribob.MaelstromMod.util.handlers.SoundsHandler;
+import com.barribob.MaelstromMod.init.ModSoundEvents;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.EntityLivingBase;
@@ -450,7 +450,7 @@ public class EntityMonolith extends EntityMaelstromMob implements IAttack, Direc
 
     @Override
     public int startAttack(EntityLivingBase target, float distanceSq, boolean strafingBackwards) {
-        this.playSound(SoundsHandler.ENTITY_MONOLITH_AMBIENT, 0.7f, 1.0f * ModRandom.getFloat(0.2f));
+        this.playSound(ModSoundEvents.ENTITY_MONOLITH_AMBIENT, 0.7f, 1.0f * ModRandom.getFloat(0.2f));
 
         chooseAttack();
 

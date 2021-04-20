@@ -10,7 +10,7 @@ public class ManaProvider implements ICapabilitySerializable<NBTBase> {
     @CapabilityInject(IMana.class)
     public static final Capability<IMana> MANA = null;
 
-    private IMana instance = MANA.getDefaultInstance();
+    private final IMana instance = MANA.getDefaultInstance();
 
     @Override
     public boolean hasCapability(Capability<?> capability, EnumFacing facing) {
@@ -19,7 +19,7 @@ public class ManaProvider implements ICapabilitySerializable<NBTBase> {
 
     @Override
     public <T> T getCapability(Capability<T> capability, EnumFacing facing) {
-        return MANA == capability ? MANA.<T>cast(this.instance) : null;
+        return MANA == capability ? MANA.cast(this.instance) : null;
     }
 
     @Override

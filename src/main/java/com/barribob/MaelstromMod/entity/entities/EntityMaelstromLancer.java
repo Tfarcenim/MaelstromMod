@@ -2,6 +2,8 @@ package com.barribob.MaelstromMod.entity.entities;
 
 import com.barribob.MaelstromMod.entity.ai.AIJumpAtTarget;
 import com.barribob.MaelstromMod.entity.ai.EntityAITimedAttack;
+import com.barribob.MaelstromMod.entity.ai.VexAIMoveControl;
+import com.barribob.MaelstromMod.entity.ai.VexAIMoveRandom;
 import com.barribob.MaelstromMod.entity.animation.AnimationClip;
 import com.barribob.MaelstromMod.entity.animation.StreamAnimation;
 import com.barribob.MaelstromMod.entity.model.ModelMaelstromLancer;
@@ -11,9 +13,9 @@ import com.barribob.MaelstromMod.util.ModDamageSource;
 import com.barribob.MaelstromMod.util.ModRandom;
 import com.barribob.MaelstromMod.util.ModUtils;
 import com.barribob.MaelstromMod.util.handlers.ParticleManager;
-import com.barribob.MaelstromMod.util.handlers.SoundsHandler;
+import com.barribob.MaelstromMod.init.ModSoundEvents;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.EntityAISwimming;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
@@ -29,18 +31,19 @@ import java.util.function.BiConsumer;
 public class EntityMaelstromLancer extends EntityMaelstromMob implements IAttack {
     public EntityMaelstromLancer(World worldIn) {
         super(worldIn);
+        moveHelper = new VexAIMoveControl(this);
         this.setSize(0.9f, 1.8f);
     }
 
     @Override
     protected void initAnimation() {
-        List<List<AnimationClip<ModelMaelstromLancer>>> animationSpear = new ArrayList<List<AnimationClip<ModelMaelstromLancer>>>();
-        List<AnimationClip<ModelMaelstromLancer>> rightArmXStream = new ArrayList<AnimationClip<ModelMaelstromLancer>>();
-        List<AnimationClip<ModelMaelstromLancer>> leftArmZStream = new ArrayList<AnimationClip<ModelMaelstromLancer>>();
-        List<AnimationClip<ModelMaelstromLancer>> bodyStream = new ArrayList<AnimationClip<ModelMaelstromLancer>>();
-        List<AnimationClip<ModelMaelstromLancer>> spearStream = new ArrayList<AnimationClip<ModelMaelstromLancer>>();
-        List<AnimationClip<ModelMaelstromLancer>> leftArmXStream = new ArrayList<AnimationClip<ModelMaelstromLancer>>();
-        List<AnimationClip<ModelMaelstromLancer>> leftForearmXStream = new ArrayList<AnimationClip<ModelMaelstromLancer>>();
+        List<List<AnimationClip<ModelMaelstromLancer>>> animationSpear = new ArrayList<>();
+        List<AnimationClip<ModelMaelstromLancer>> rightArmXStream = new ArrayList<>();
+        List<AnimationClip<ModelMaelstromLancer>> leftArmZStream = new ArrayList<>();
+        List<AnimationClip<ModelMaelstromLancer>> bodyStream = new ArrayList<>();
+        List<AnimationClip<ModelMaelstromLancer>> spearStream = new ArrayList<>();
+        List<AnimationClip<ModelMaelstromLancer>> leftArmXStream = new ArrayList<>();
+        List<AnimationClip<ModelMaelstromLancer>> leftForearmXStream = new ArrayList<>();
 
         BiConsumer<ModelMaelstromLancer, Float> rightArmX = (model, f) -> model.rightArm.rotateAngleX = f;
         BiConsumer<ModelMaelstromLancer, Float> leftArmZ = (model, f) -> model.leftArm.rotateAngleZ = f;
@@ -49,38 +52,38 @@ public class EntityMaelstromLancer extends EntityMaelstromMob implements IAttack
         BiConsumer<ModelMaelstromLancer, Float> leftArmX = (model, f) -> model.leftArm.rotateAngleX = -f;
         BiConsumer<ModelMaelstromLancer, Float> leftForearmX = (model, f) -> model.leftForearm.rotateAngleX = f;
 
-        leftArmXStream.add(new AnimationClip(6, 0, -65, leftArmX));
-        leftArmXStream.add(new AnimationClip(4, -65, -65, leftArmX));
-        leftArmXStream.add(new AnimationClip(5, -65, 80, leftArmX));
-        leftArmXStream.add(new AnimationClip(10, 80, 80, leftArmX));
-        leftArmXStream.add(new AnimationClip(5, 80, 0, leftArmX));
+        leftArmXStream.add(new AnimationClip<>(6, 0, -65, leftArmX));
+        leftArmXStream.add(new AnimationClip<>(4, -65, -65, leftArmX));
+        leftArmXStream.add(new AnimationClip<>(5, -65, 80, leftArmX));
+        leftArmXStream.add(new AnimationClip<>(10, 80, 80, leftArmX));
+        leftArmXStream.add(new AnimationClip<>(5, 80, 0, leftArmX));
 
-        leftArmZStream.add(new AnimationClip(10, 0, 0, leftArmZ));
-        leftArmZStream.add(new AnimationClip(5, 0, -20, leftArmZ));
-        leftArmZStream.add(new AnimationClip(10, -20, -20, leftArmZ));
-        leftArmZStream.add(new AnimationClip(5, -20, 0, leftArmZ));
+        leftArmZStream.add(new AnimationClip<>(10, 0, 0, leftArmZ));
+        leftArmZStream.add(new AnimationClip<>(5, 0, -20, leftArmZ));
+        leftArmZStream.add(new AnimationClip<>(10, -20, -20, leftArmZ));
+        leftArmZStream.add(new AnimationClip<>(5, -20, 0, leftArmZ));
 
-        bodyStream.add(new AnimationClip(6, 0, 0, bodyX));
-        bodyStream.add(new AnimationClip(4, 0, -15, bodyX));
-        bodyStream.add(new AnimationClip(5, -15, 30, bodyX));
-        bodyStream.add(new AnimationClip(10, 30, 30, bodyX));
-        bodyStream.add(new AnimationClip(5, 30, 0, bodyX));
+        bodyStream.add(new AnimationClip<>(6, 0, 0, bodyX));
+        bodyStream.add(new AnimationClip<>(4, 0, -15, bodyX));
+        bodyStream.add(new AnimationClip<>(5, -15, 30, bodyX));
+        bodyStream.add(new AnimationClip<>(10, 30, 30, bodyX));
+        bodyStream.add(new AnimationClip<>(5, 30, 0, bodyX));
 
-        spearStream.add(new AnimationClip(10, 0, 0, spearX));
-        spearStream.add(new AnimationClip(5, 0, -50, spearX));
-        spearStream.add(new AnimationClip(10, -50, -50, spearX));
-        spearStream.add(new AnimationClip(5, -50, 0, spearX));
+        spearStream.add(new AnimationClip<>(10, 0, 0, spearX));
+        spearStream.add(new AnimationClip<>(5, 0, -50, spearX));
+        spearStream.add(new AnimationClip<>(10, -50, -50, spearX));
+        spearStream.add(new AnimationClip<>(5, -50, 0, spearX));
 
-        leftForearmXStream.add(new AnimationClip(10, -50, -50, leftForearmX));
-        leftForearmXStream.add(new AnimationClip(5, -50, 0, leftForearmX));
-        leftForearmXStream.add(new AnimationClip(10, 0, 0, leftForearmX));
-        leftForearmXStream.add(new AnimationClip(5, 0, -50, leftForearmX));
+        leftForearmXStream.add(new AnimationClip<>(10, -50, -50, leftForearmX));
+        leftForearmXStream.add(new AnimationClip<>(5, -50, 0, leftForearmX));
+        leftForearmXStream.add(new AnimationClip<>(10, 0, 0, leftForearmX));
+        leftForearmXStream.add(new AnimationClip<>(5, 0, -50, leftForearmX));
 
-        rightArmXStream.add(new AnimationClip(6, 0, -40, rightArmX));
-        rightArmXStream.add(new AnimationClip(4, -40, -40, rightArmX));
-        rightArmXStream.add(new AnimationClip(5, -40, 40, rightArmX));
-        rightArmXStream.add(new AnimationClip(10, 40, 40, rightArmX));
-        rightArmXStream.add(new AnimationClip(5, 40, 0, rightArmX));
+        rightArmXStream.add(new AnimationClip<>(6, 0, -40, rightArmX));
+        rightArmXStream.add(new AnimationClip<>(4, -40, -40, rightArmX));
+        rightArmXStream.add(new AnimationClip<>(5, -40, 40, rightArmX));
+        rightArmXStream.add(new AnimationClip<>(10, 40, 40, rightArmX));
+        rightArmXStream.add(new AnimationClip<>(5, 40, 0, rightArmX));
 
         animationSpear.add(rightArmXStream);
         animationSpear.add(leftArmZStream);
@@ -102,23 +105,25 @@ public class EntityMaelstromLancer extends EntityMaelstromMob implements IAttack
     @Override
     protected void initEntityAI() {
         super.initEntityAI();
-        this.tasks.addTask(4, new EntityAITimedAttack<EntityMaelstromLancer>(this, 1.0f, 10, 5, 0.5f, 20.0f));
+        this.tasks.addTask(0, new EntityAISwimming(this));
+        this.tasks.addTask(4, new EntityAITimedAttack<>(this, 1.0f, 10, 5, 0.5f, 20.0f));
         this.tasks.addTask(0, new AIJumpAtTarget(this, 0.4f, 0.5f));
+        this.tasks.addTask(8, new VexAIMoveRandom(this));
     }
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return SoundsHandler.ENTITY_SHADE_AMBIENT;
+        return ModSoundEvents.ENTITY_SHADE_AMBIENT;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource damageSourceIn) {
-        return SoundsHandler.ENTITY_SHADE_HURT;
+        return ModSoundEvents.ENTITY_SHADE_HURT;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return SoundsHandler.ENTITY_SHADE_HURT;
+        return ModSoundEvents.ENTITY_SHADE_HURT;
     }
 
     @Override
@@ -128,6 +133,12 @@ public class EntityMaelstromLancer extends EntityMaelstromMob implements IAttack
         if (rand.nextInt(20) == 0) {
             world.setEntityState(this, ModUtils.PARTICLE_BYTE);
         }
+    }
+
+    @Override
+    protected void entityInit() {
+        super.entityInit();
+        setNoGravity(true);
     }
 
     @Override

@@ -19,7 +19,7 @@ import java.util.List;
 
 public class ToolExplosiveDagger extends ToolDagger {
     public ToolExplosiveDagger(String name, ToolMaterial material, float level) {
-        super(name, material, level);
+        super(material, level);
     }
 
     @Override

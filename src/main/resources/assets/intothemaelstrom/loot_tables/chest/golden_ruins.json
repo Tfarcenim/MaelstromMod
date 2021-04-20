@@ -9,12 +9,12 @@
             "entries": [
                 {
                     "type": "loot_table",
-                    "name": "mm:util/level_3_loot",
+                    "name": "intothemaelstrom:util/level_3_loot",
                     "weight": 6
                 },
                 {
                     "type": "loot_table",
-                    "name": "mm:util/level_4_loot",
+                    "name": "intothemaelstrom:util/level_4_loot",
                     "weight": 6
                 },
                 {
@@ -34,7 +34,7 @@
                 },
                 {
                     "type": "item",
-                    "name": "mm:golden_maelstrom_fragment",
+                    "name": "intothemaelstrom:golden_maelstrom_fragment",
                     "weight": 1,
                     "functions": [
                         {

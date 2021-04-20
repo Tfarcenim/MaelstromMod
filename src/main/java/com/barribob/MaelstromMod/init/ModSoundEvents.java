@@ -1,4 +1,4 @@
-package com.barribob.MaelstromMod.util.handlers;
+package com.barribob.MaelstromMod.init;
 
 import com.barribob.MaelstromMod.IntoTheMaelstrom;
 import net.minecraft.util.ResourceLocation;
@@ -8,7 +8,7 @@ import net.minecraftforge.fml.common.registry.ForgeRegistries;
 /**
  * Keeps track of all the sound resources and registers them
  */
-public class SoundsHandler {
+public class ModSoundEvents {
     public static SoundEvent ENTITY_SHADE_AMBIENT;
     public static SoundEvent ENTITY_SHADE_HURT;
 //    public static SoundEvent ENTITY_SHADE_DEATH;
@@ -30,7 +30,7 @@ public class SoundsHandler {
     public static SoundEvent NONE;
 
     // Sound hooks
-    public static class Hooks{
+    public static class Hooks {
         public static SoundEvent ENTITY_ILLAGER_SPELL_CHARGE;
         public static SoundEvent ENTITY_ILLAGER_DOME_CHARGE;
         public static SoundEvent ENTITY_ILLAGER_VORTEX;

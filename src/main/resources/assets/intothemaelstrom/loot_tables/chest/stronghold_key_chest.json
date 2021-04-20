@@ -6,7 +6,7 @@
             "entries": [
                 {
                     "type": "loot_table",
-                    "name": "mm:util/level_2_loot",
+                    "name": "intothemaelstrom:util/level_2_loot",
                     "weight": 6
                 },
                 {
@@ -26,7 +26,7 @@
                 },
                 {
                     "type": "item",
-                    "name": "mm:azure_maelstrom_fragment",
+                    "name": "intothemaelstrom:azure_maelstrom_fragment",
                     "weight": 1,
                     "functions": [
                         {
