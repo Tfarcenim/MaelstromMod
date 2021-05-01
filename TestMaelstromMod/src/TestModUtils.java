@@ -3,7 +3,7 @@ import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 import org.junit.jupiter.api.Test;
 
-import com.barribob.MaelstromMod.util.ModUtils;
+import com.barribob.intothemaelstrom.util.ModUtils;
 
 import net.minecraft.util.math.Vec3d;
 

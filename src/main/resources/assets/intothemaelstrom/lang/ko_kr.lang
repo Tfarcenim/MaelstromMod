@@ -395,13 +395,13 @@ entity.maelstrom_lancer.name=마엘스트롬 창병
 //覧覧覧覧覧覧覧覧覧覧覧覧覧覧覧覧覧覧覧覧覧覧覧覧覧覧覧覧覧・
 // 데미지 소스
 //覧覧覧覧覧覧覧覧覧覧覧覧覧覧覧覧覧覧覧覧覧覧覧覧覧覧覧覧覧・
-death.attack.mm:maelstrom=%1$s이(가) 마엘스트롬에 무릎을 꿇었습니다
-death.attack.mm:mobMaelstrom=%1$s이(가) 마엘스트롬 몬스터에게 패배하였습니다
-death.attack.mm:playerMaelstrom=%1$s이(가) 다른 마엘스트롬에 힘을 사용하는 플레이어에게 살해당하였습니다
-death.attack.mm:thrownMaelstrom=%1$s이(가) 마엘스트롬 몬스터에게 녹초가 되었습니다
-death.attack.mm:explosionMaelstrom=%1$s이(가) 마엘스트롬에 의해 폭사했습니다
-death.attack.mm:explosionMaelstrom.player=%1$s이(가) %2$s와 싸우다 마엘스트롬에 의해 폭사했습니다
-death.attack.mm:magicMaelstrom=%1$s이(가) 마엘스트롬 몬스터의 마법에 의해 죽었습니다
+death.attack.intothemaelstrom:maelstrom=%1$s이(가) 마엘스트롬에 무릎을 꿇었습니다
+death.attack.intothemaelstrom:mobMaelstrom=%1$s이(가) 마엘스트롬 몬스터에게 패배하였습니다
+death.attack.intothemaelstrom:playerMaelstrom=%1$s이(가) 다른 마엘스트롬에 힘을 사용하는 플레이어에게 살해당하였습니다
+death.attack.intothemaelstrom:thrownMaelstrom=%1$s이(가) 마엘스트롬 몬스터에게 녹초가 되었습니다
+death.attack.intothemaelstrom:explosionMaelstrom=%1$s이(가) 마엘스트롬에 의해 폭사했습니다
+death.attack.intothemaelstrom:explosionMaelstrom.player=%1$s이(가) %2$s와 싸우다 마엘스트롬에 의해 폭사했습니다
+death.attack.intothemaelstrom:magicMaelstrom=%1$s이(가) 마엘스트롬 몬스터의 마법에 의해 죽었습니다
 
 //覧覧覧覧覧覧覧覧覧覧覧覧覧覧覧覧覧覧覧覧覧覧覧覧覧覧覧覧覧・
 // 아이템 특성
