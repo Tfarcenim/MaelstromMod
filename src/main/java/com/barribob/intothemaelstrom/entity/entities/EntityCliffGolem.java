@@ -5,6 +5,7 @@ import com.barribob.intothemaelstrom.entity.action.ActionGolemSlam;
 import com.barribob.intothemaelstrom.entity.ai.EntityAIRangedAttack;
 import com.barribob.intothemaelstrom.entity.animation.AnimationAzureGolem;
 import com.barribob.intothemaelstrom.entity.animation.AnimationGroundFistBump;
+import com.barribob.intothemaelstrom.entity.model.ModelAzureGolem;
 import com.barribob.intothemaelstrom.entity.render.RenderAzureGolem;
 import com.barribob.intothemaelstrom.entity.util.ComboAttack;
 import com.barribob.intothemaelstrom.init.ModSoundEvents;
@@ -29,8 +30,8 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nullable;
 
-public class EntityCliffGolem extends EntityLeveledMob implements IRangedAttackMob {
-    private final ComboAttack attackHandler = new ComboAttack();
+public class EntityCliffGolem extends EntityLeveledMob<ModelAzureGolem> implements IRangedAttackMob {
+    private final ComboAttack<ModelAzureGolem> attackHandler = new ComboAttack<>();
     private final byte groundPoundByte = 4;
     private final byte geyserByte = 5;
 
@@ -38,8 +39,8 @@ public class EntityCliffGolem extends EntityLeveledMob implements IRangedAttackM
         super(worldIn);
         this.setSize(1.4F * RenderAzureGolem.AZURE_GOLEM_SIZE, 2.7F * RenderAzureGolem.AZURE_GOLEM_SIZE);
         if (!worldIn.isRemote) {
-            attackHandler.setAttack(groundPoundByte, new ActionGolemSlam());
-            attackHandler.setAttack(this.geyserByte, new ActionGeyser());
+            attackHandler.setAttack(groundPoundByte, new ActionGolemSlam<>());
+            attackHandler.setAttack(this.geyserByte, new ActionGeyser<>());
         }
         this.healthScaledAttackFactor = 0.2;
     }
@@ -54,8 +55,8 @@ public class EntityCliffGolem extends EntityLeveledMob implements IRangedAttackM
     @SideOnly(Side.CLIENT)
     protected void initAnimation() {
         this.currentAnimation = new AnimationAzureGolem();
-        attackHandler.setAttack(groundPoundByte, new ActionGolemSlam(), AnimationAzureGolem::new);
-        attackHandler.setAttack(this.geyserByte, new ActionGeyser(), AnimationGroundFistBump::new);
+        attackHandler.setAnimation(groundPoundByte, new ActionGolemSlam<>(), AnimationAzureGolem::new);
+        attackHandler.setAnimation(this.geyserByte, new ActionGeyser<>(), AnimationGroundFistBump::new);
     }
 
     @Override

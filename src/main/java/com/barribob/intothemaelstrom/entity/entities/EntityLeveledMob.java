@@ -42,7 +42,7 @@ public abstract class EntityLeveledMob<T extends ModelBase> extends EntityCreatu
     protected static final DataParameter<Integer> ELEMENT = EntityDataManager.createKey(EntityLeveledMob.class, DataSerializers.VARINT);
 
     @SideOnly(Side.CLIENT)
-    protected Animation currentAnimation;
+    protected Animation<T> currentAnimation;
 
     protected static final DataParameter<Boolean> IMMOVABLE = EntityDataManager.createKey(EntityLeveledMob.class, DataSerializers.BOOLEAN);
     private Vec3d initialPosition = null;

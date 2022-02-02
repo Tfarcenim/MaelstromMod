@@ -47,9 +47,9 @@ public class EntityMaelstromWitch extends EntityMaelstromMob {
     @Override
     @SideOnly(Side.CLIENT)
     protected void initAnimation() {
-        attackHandler.setAttack(lingeringPotions, new ActionThrowPotion(Items.LINGERING_POTION), () -> new AnimationWitchFlail());
-        attackHandler.setAttack(rapidPotions, new ActionThrowPotion(Items.SPLASH_POTION), () -> new AnimationWitchFlail());
-        attackHandler.setAttack(throwWood, new ActionDarkMissile(), () -> new AnimationWitchFlail());
+        attackHandler.setAnimation(lingeringPotions, new ActionThrowPotion(Items.LINGERING_POTION), () -> new AnimationWitchFlail());
+        attackHandler.setAnimation(rapidPotions, new ActionThrowPotion(Items.SPLASH_POTION), () -> new AnimationWitchFlail());
+        attackHandler.setAnimation(throwWood, new ActionDarkMissile(), () -> new AnimationWitchFlail());
         this.currentAnimation = new AnimationWitchFlail();
     }
 

@@ -58,16 +58,10 @@ public class CommandDimensionTeleport extends CommandBase {
             if (sender instanceof EntityPlayerMP && ((EntityPlayer) sender).dimension != dimensionId) {
                 WorldServer worldServer = server.getWorld(dimensionId);
 
-                if (worldServer == null || server == null) {
-                    sender.sendMessage(new TextComponentString(TextFormatting.RED + "Dimension: " + dimensionId + " doesn't exist"));
-                    return;
-                }
-
                 Teleport.teleportToDimension((EntityPlayerMP) sender, dimensionId, new Teleport(worldServer, sender.getPosition().getX(), sender.getPosition().getY(), sender.getPosition().getZ()));
             }
         } catch (IllegalArgumentException e) {
             sender.sendMessage(new TextComponentString(TextFormatting.RED + e.getMessage()));
-            return;
         }
 
     }

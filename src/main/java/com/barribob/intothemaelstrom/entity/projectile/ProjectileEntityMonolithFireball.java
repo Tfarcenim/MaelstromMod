@@ -1,5 +1,6 @@
 package com.barribob.intothemaelstrom.entity.projectile;
 
+import com.barribob.intothemaelstrom.init.ModSoundEvents;
 import com.barribob.intothemaelstrom.util.ModColors;
 import com.barribob.intothemaelstrom.util.ModDamageSource;
 import com.barribob.intothemaelstrom.util.ModRandom;
@@ -37,7 +38,7 @@ public class ProjectileEntityMonolithFireball extends ProjectileEntityGun {
 
     @Override
     public void onUpdate() {
-        this.playSound(SoundEvents.BLOCK_FIRE_EXTINGUISH, 0.5f, ModRandom.getFloat(0.2f) + 1.0f);
+        this.playSound(ModSoundEvents.ENTITY_MONOLITH_FIREBALL_SHOOT, 0.5f, ModRandom.getFloat(0.2f) + 1.0f);
         super.onUpdate();
     }
 

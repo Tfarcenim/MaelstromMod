@@ -94,8 +94,8 @@ public class EntityBeast extends EntityMaelstromMob {
 
         animationSpit.add(jaw);
 
-        attackHandler.setAttack(leap, IAction.NONE, () -> new StreamAnimation<>(animationLeap));
-        attackHandler.setAttack(spit, IAction.NONE, () -> new StreamAnimation<>(animationSpit));
+        attackHandler.setAnimation(leap, IAction.NONE, () -> new StreamAnimation<>(animationLeap));
+        attackHandler.setAnimation(spit, IAction.NONE, () -> new StreamAnimation<>(animationSpit));
 
         this.currentAnimation = new StreamAnimation<>(animationSpit);
     }

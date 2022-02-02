@@ -2,6 +2,7 @@ package com.barribob.intothemaelstrom.entity.entities;
 
 import com.barribob.intothemaelstrom.entity.ai.AIMeleeAndRange;
 import com.barribob.intothemaelstrom.entity.animation.AnimationOpenJaws;
+import com.barribob.intothemaelstrom.entity.model.ModelSwampCrawler;
 import com.barribob.intothemaelstrom.entity.projectile.ProjectileEntitySwampSpittle;
 import com.barribob.intothemaelstrom.init.ModItems;
 import com.barribob.intothemaelstrom.util.ModUtils;
@@ -17,13 +18,14 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class EntitySwampCrawler extends EntityLeveledMob implements IRangedAttackMob, IMob {
+public class EntitySwampCrawler extends EntityLeveledMob<ModelSwampCrawler> implements IRangedAttackMob, IMob {
     private AIMeleeAndRange<EntitySwampCrawler> attackAI;
 
     public EntitySwampCrawler(World worldIn) {
@@ -140,6 +142,7 @@ public class EntitySwampCrawler extends EntityLeveledMob implements IRangedAttac
 
     @Override
     public void attackEntityWithRangedAttack(EntityLivingBase target, float distanceFactor) {
+        world.playSound(this.posX, this.posY, this.posZ, ModSoundEvents.ENTITY_SWAMP_CRAWLER_FIRE, SoundCategory.HOSTILE, 1.0F, 1.0F, false);
         ModUtils.throwProjectile(this, target, new ProjectileEntitySwampSpittle(world, this, this.getAttack()));
     }
 
@@ -154,6 +157,8 @@ public class EntitySwampCrawler extends EntityLeveledMob implements IRangedAttac
     @SideOnly(Side.CLIENT)
     public void handleStatusUpdate(byte id) {
         if (id == 4) {
+            //todo is this correct?
+            world.playSound(this.posX, this.posY, this.posZ, ModSoundEvents.ENTITY_SWAMP_CRAWLER_WARN, SoundCategory.HOSTILE, 1.0F, 1.0F, false);
             getCurrentAnimation().startAnimation();
         } else {
             super.handleStatusUpdate(id);

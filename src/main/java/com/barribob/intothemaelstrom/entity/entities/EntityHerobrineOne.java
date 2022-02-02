@@ -69,10 +69,10 @@ public class EntityHerobrineOne extends EntityLeveledMob implements IRangedAttac
     @Override
     @SideOnly(Side.CLIENT)
     protected void initAnimation() {
-        attackHandler.setAttack(spinSlash, new ActionSpinSlash(), AnimationSpinSlash::new);
-        attackHandler.setAttack(groundSlash, new ActionGroundSlash(() -> new ProjectileEntityHerobrineQuake(world, this, this.getAttack())),
+        attackHandler.setAnimation(spinSlash, new ActionSpinSlash(), AnimationSpinSlash::new);
+        attackHandler.setAnimation(groundSlash, new ActionGroundSlash(() -> new ProjectileEntityHerobrineQuake(world, this, this.getAttack())),
                 AnimationHerobrineGroundSlash::new);
-        attackHandler.setAttack(fireball, new ActionFireball(), AnimationFireballThrow::new);
+        attackHandler.setAnimation(fireball, new ActionFireball(), AnimationFireballThrow::new);
         this.currentAnimation = new AnimationSpinSlash();
     }
 

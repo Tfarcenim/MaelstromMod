@@ -156,7 +156,7 @@ public class EntityMaelstromBeast extends EntityMaelstromMob implements IAttack 
                     .offset(ModUtils.getRelativeOffset(this, new Vec3d(1, 1, 0))), world, this);
 
             if (EntityMaelstromBeast.this.isRaged()) {
-                ModUtils.performNTimes(8, (i) -> spawnBone(world, offset.add(ModRandom.randVec().scale(3)), EntityMaelstromBeast.this));
+                ModUtils.performNTimes(8, (i) -> spawnBoneProjectile(world, offset.add(ModRandom.randVec().scale(3)), EntityMaelstromBeast.this));
             }
             this.playSound(SoundEvents.ENTITY_PLAYER_ATTACK_SWEEP, 1.0F, 0.4f + ModRandom.getFloat(0.1f));
         }, 15);
@@ -176,7 +176,7 @@ public class EntityMaelstromBeast extends EntityMaelstromMob implements IAttack 
                     return 0d;
                 }, this, this.getPositionVector(), ModDamageSource.MAELSTROM_DAMAGE);
             }
-            this.playSound(SoundEvents.ENTITY_ENDERDRAGON_GROWL, 1.0F, 0.9F / (this.getRNG().nextFloat() * 0.4F + 0.8F));
+            this.playSound(ModSoundEvents.ENTITY_MAELSTROM_BEAST_ROAR, 1.0F, 0.9F / (this.getRNG().nextFloat() * 0.4F + 0.8F));
         }, 12);
     };
 
@@ -209,7 +209,7 @@ public class EntityMaelstromBeast extends EntityMaelstromMob implements IAttack 
         }, 16);
     };
 
-    public static void spawnBone(World world, Vec3d pos, EntityLeveledMob entity) {
+    public static void spawnBoneProjectile(World world, Vec3d pos, EntityLeveledMob<?> entity) {
         if (!world.isRemote) {
             ProjectileEntityBone projectile = new ProjectileEntityBone(world, entity, entity.getAttack() * entity.getConfigDouble("bone_projectile_damage"));
             projectile.setPosition(pos.x, pos.y + 1.5, pos.z);

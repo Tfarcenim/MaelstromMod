@@ -48,8 +48,8 @@ import java.util.Optional;
 import java.util.function.BiConsumer;
 import java.util.function.Function;
 
-public class EntityMonolith extends EntityMaelstromMob implements IAttack, DirectionalRender, ITarget {
-    private final ComboAttack attackHandler = new ComboAttack();
+public class EntityMonolith extends EntityMaelstromMob<ModelMonolith> implements IAttack, DirectionalRender, ITarget {
+    private final ComboAttack<ModelMonolith> attackHandler = new ComboAttack<>();
     public static final byte noAttack = 0;
     public static final byte blueAttack = 4;
     public static final byte redAttack = 5;
@@ -73,13 +73,13 @@ public class EntityMonolith extends EntityMaelstromMob implements IAttack, Direc
         this.healthScaledAttackFactor = 0.2;
         this.isImmuneToFire = true;
 
-        BiConsumer<EntityLeveledMob, EntityLivingBase> fireballs = (EntityLeveledMob actor, EntityLivingBase target) -> {
+        BiConsumer<EntityLeveledMob<ModelMonolith>, EntityLivingBase> fireballs = (actor, target) -> {
             ModUtils.performNTimes(3, (i) -> spawnFireball(actor, target, this::getRandomFireballPosition));
             spawnFireball(actor, target, this::getPositionAboveTarget);
         };
 
-        BiConsumer<EntityLeveledMob, EntityLivingBase> lazer = (EntityLeveledMob actor, EntityLivingBase target) -> {
-            actor.playSound(SoundEvents.ENTITY_BLAZE_SHOOT, 1.5F, 0.4F / (actor.world.rand.nextFloat() * 0.4F + 0.8F));
+        BiConsumer<EntityLeveledMob<ModelMonolith>, EntityLivingBase> lazer = (actor, target) -> {
+            actor.playSound(ModSoundEvents.ENTITY_MONOLITH_LAZER_SHOOT, 1.5F, 0.4F / (actor.world.rand.nextFloat() * 0.4F + 0.8F));
 
             float numParticles = 10;
             Vec3d dir = lazerDir.subtract(actor.getPositionVector().add(ModUtils.yVec(actor.getEyeHeight()))).scale(1 / numParticles);
@@ -106,14 +106,14 @@ public class EntityMonolith extends EntityMaelstromMob implements IAttack, Direc
         };
 
         if (!world.isRemote) {
-            attackHandler.setAttack(blueAttack, (IAction) (actor, target) -> {
+            attackHandler.setAttack(blueAttack, (actor, target) -> {
                 int numMobs = getMobConfig().getInt("summoning_algorithm.mobs_per_spawn");
                 for (int i = 0; i < numMobs; i++) {
                     ModUtils.spawnMob(world, getPosition(), getLevel(), getMobConfig().getConfig("summoning_algorithm"));
                 }
             });
-            attackHandler.setAttack(redAttack, fireballs);
-            attackHandler.setAttack(yellowAttack, (IAction) (actor, target) -> {
+            attackHandler.setAttack(redAttack, fireballs::accept);
+            attackHandler.setAttack(yellowAttack, (actor, target) -> {
                 DamageSource source = ModDamageSource.builder()
                         .type(ModDamageSource.MAGIC)
                         .directEntity(actor)
@@ -124,28 +124,25 @@ public class EntityMonolith extends EntityMaelstromMob implements IAttack, Direc
                 actor.playSound(SoundEvents.EVOCATION_ILLAGER_CAST_SPELL, 1.0f, 0.4F / (world.rand.nextFloat() * 0.4F + 0.8F));
                 actor.world.setEntityState(actor, ModUtils.SECOND_PARTICLE_BYTE);
             });
-            attackHandler.setAttack(stageTransform, new IAction() {
-                // Change the yellow and blue attacks to new attacks
-                @Override
-                public void performAction(EntityLeveledMob actor, EntityLivingBase target) {
-                    actor.getDataManager().set(TRANSFORMED, true);
-                    attackHandler.setAttack(yellowAttack, (IAction) (actor1, target1) -> {
-                        actor1.motionY = 0;
-                        actor1.setImmovable(false);
-                        actor1.setNoGravity(false);
-                        Vec3d pos = target1.getPositionVector().add(target1.getLookVec()).add(ModUtils.yVec(24))
-                                .add(new Vec3d(ModRandom.getFloat(1), 0, ModRandom.getFloat(1)));
-                        actor1.playSound(SoundEvents.ENTITY_ENDERMEN_TELEPORT, 1.0F, 1.0F);
-                        actor1.setPosition(pos.x, pos.y, pos.z);
-                        EntityMonolith.this.setLeaping(true);
-                    });
-                    attackHandler.setAttack(redAttack, lazer);
-                }
+            // Change the yellow and blue attacks to new attacks
+            attackHandler.setAttack(stageTransform, (actor, target) -> {
+                actor.getDataManager().set(TRANSFORMED, true);
+                attackHandler.setAttack(yellowAttack, (actor1, target1) -> {
+                    actor1.motionY = 0;
+                    actor1.setImmovable(false);
+                    actor1.setNoGravity(false);
+                    Vec3d pos = target1.getPositionVector().add(target1.getLookVec()).add(ModUtils.yVec(24))
+                            .add(new Vec3d(ModRandom.getFloat(1), 0, ModRandom.getFloat(1)));
+                    actor1.playSound(SoundEvents.ENTITY_ENDERMEN_TELEPORT, 1.0F, 1.0F);
+                    actor1.setPosition(pos.x, pos.y, pos.z);
+                    EntityMonolith.this.setLeaping(true);
+                });
+                attackHandler.setAttack(redAttack, lazer::accept);
             });
         }
     }
 
-    public void spawnFireball(EntityLeveledMob actor, EntityLivingBase target, Function<EntityLivingBase, Vec3d> getPosition) {
+    public void spawnFireball(EntityLeveledMob<ModelMonolith> actor, EntityLivingBase target, Function<EntityLivingBase, Vec3d> getPosition) {
         ProjectileEntityMonolithFireball meteor = new ProjectileEntityMonolithFireball(world, actor, actor.getAttack() * actor.getConfigDouble("fireball_damage"), null);
         Vec3d pos = getPosition.apply(target);
         meteor.setPosition(pos.x, pos.y, pos.z);
@@ -201,10 +198,10 @@ public class EntityMonolith extends EntityMaelstromMob implements IAttack, Direc
         middle.add(new AnimationClip<>(40, 0, (float) Math.toDegrees(Math.PI / 3), resize));
 
         animationStage2.add(middle);
-        attackHandler.setAttack(stageTransform, IAction.NONE, () -> new StreamAnimation<>(animationStage2));
-        attackHandler.setAttack(blueAttack, IAction.NONE, AnimationNone::new);
-        attackHandler.setAttack(redAttack, IAction.NONE, AnimationNone::new);
-        attackHandler.setAttack(yellowAttack, IAction.NONE, AnimationNone::new);
+        attackHandler.setAnimation(stageTransform, IAction.NONE, () -> new StreamAnimation<>(animationStage2));
+        attackHandler.setAnimation(blueAttack, IAction.NONE, AnimationNone::new);
+        attackHandler.setAnimation(redAttack, IAction.NONE, AnimationNone::new);
+        attackHandler.setAnimation(yellowAttack, IAction.NONE, AnimationNone::new);
     }
 
     @Override

@@ -8,6 +8,7 @@ import com.barribob.intothemaelstrom.entity.adjustment.MovingRuneAdjustment;
 import com.barribob.intothemaelstrom.entity.ai.AIAerialTimedAttack;
 import com.barribob.intothemaelstrom.entity.ai.EntityAIWanderWithGroup;
 import com.barribob.intothemaelstrom.entity.ai.FlyingMoveHelper;
+import com.barribob.intothemaelstrom.entity.model.ModelStatueOfNirvana;
 import com.barribob.intothemaelstrom.entity.projectile.ProjectileEntity;
 import com.barribob.intothemaelstrom.entity.projectile.ProjectileEntityHomingFlame;
 import com.barribob.intothemaelstrom.entity.projectile.ProjectileEntityMaelstromRune;
@@ -22,6 +23,7 @@ import com.barribob.intothemaelstrom.util.ModUtils;
 import com.barribob.intothemaelstrom.util.handlers.LootTableHandler;
 import com.barribob.intothemaelstrom.util.handlers.ParticleManager;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.model.ModelBase;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -46,7 +48,7 @@ import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
-public class EntityMaelstromStatueOfNirvana extends EntityMaelstromMob implements IAttack {
+public class EntityMaelstromStatueOfNirvana extends EntityMaelstromMob<ModelBase> implements IAttack {
     private final BossInfoServer bossInfo = (new BossInfoServer(this.getDisplayName(), BossInfo.Color.PURPLE, BossInfo.Overlay.NOTCHED_20));
     private static boolean doTeleportNext;
     Consumer<EntityLivingBase> previousAttack;
@@ -139,19 +141,19 @@ public class EntityMaelstromStatueOfNirvana extends EntityMaelstromMob implement
         addEvent(() -> {
             new ActionRayAttack(maelstromMissile, 1.1f).performAction(this, target);
             new ActionRayAttack(maelstromMissile, 1.1f).performAction(this, target);
-            this.playSound(SoundEvents.ENTITY_BLAZE_SHOOT, 1.0F, ModRandom.getFloat(0.2f) + 1.3f);
+            this.playSound(ModSoundEvents.ENTITY_MAELSTROM_STATUE_OF_NIRVANA_MISSILE_FIRE, 1.0F, ModRandom.getFloat(0.2f) + 1.3f);
         }, 22);
     };
 
     private final Consumer<EntityLivingBase> runeAttack = target -> {
         ModBBAnimations.animation(this, "statue.runes", false);
-        addEvent(() -> new ActionRuneAttack(maelstromRune, new MovingRuneAdjustment(target)).performAction(this, target), 12);
+        addEvent(() -> new ActionRuneAttack<>(maelstromRune, new MovingRuneAdjustment(target)).performAction(this, target), 12);
     };
 
     private final Consumer<EntityLivingBase> ringAttack = target -> {
         ModBBAnimations.animation(this, "statue.summon", false);
         addEvent(() -> new ActionRingAttack(maelstromFlame).performAction(this, target), 15);
-        playSound(SoundEvents.ENTITY_ILLAGER_PREPARE_MIRROR, 2.5f, 1.0f + ModRandom.getFloat(0.2f));
+        playSound(ModSoundEvents.ENTITY_MAELSTROM_STATUE_OF_NIRVANA_SUMMON, 2.5f, 1.0f + ModRandom.getFloat(0.2f));
     };
 
     @Override

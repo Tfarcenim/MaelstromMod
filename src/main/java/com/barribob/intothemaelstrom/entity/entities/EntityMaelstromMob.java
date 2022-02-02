@@ -15,6 +15,7 @@ import com.barribob.intothemaelstrom.util.ModUtils;
 import com.barribob.intothemaelstrom.util.handlers.LootTableHandler;
 import com.barribob.intothemaelstrom.util.handlers.ParticleManager;
 import com.google.common.base.Predicate;
+import net.minecraft.client.model.ModelBase;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.IRangedAttackMob;
@@ -40,13 +41,15 @@ import net.minecraft.world.EnumDifficulty;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.registry.EntityEntry;
 import net.minecraftforge.fml.common.registry.EntityRegistry;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nonnull;
 
 /**
  * The base mob that most mobs in this mod will extend A lot of these methods are from the EntityMob class to make it behave similarly
  */
-public abstract class EntityMaelstromMob extends EntityLeveledMob implements IRangedAttackMob {
+public abstract class EntityMaelstromMob<T extends ModelBase>  extends EntityLeveledMob<T> implements IRangedAttackMob {
     // Swinging arms is the animation for the attack
     private static final DataParameter<Boolean> SWINGING_ARMS = EntityDataManager.<Boolean>createKey(EntityLeveledMob.class, DataSerializers.BOOLEAN);
     public static final Predicate<Entity> CAN_TARGET = entity -> {
@@ -262,6 +265,7 @@ public abstract class EntityMaelstromMob extends EntityLeveledMob implements IRa
     }
 
     @Override
+    @SideOnly(Side.CLIENT)
     public void handleStatusUpdate(byte id) {
         if (id == ModUtils.MAELSTROM_PARTICLE_BYTE) {
             for (int i = 0; i < 20; i++) {

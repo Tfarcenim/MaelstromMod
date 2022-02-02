@@ -26,7 +26,7 @@ import java.util.List;
 import java.util.function.BiConsumer;
 
 //aka swamp fly
-public class EntityCliffFly extends EntityLeveledFlyingMob {
+public class EntityCliffFly extends EntityLeveledFlyingMob<ModelCliffFly> {
     public EntityCliffFly(World worldIn) {
         super(worldIn);
         this.moveHelper = new FlyingMoveHelper(this);
@@ -54,7 +54,7 @@ public class EntityCliffFly extends EntityLeveledFlyingMob {
     public void attackEntityWithRangedAttack(EntityLivingBase target, float distanceFactor) {
         for (int i = 0; i < 5; i++) {
             ModUtils.throwProjectile(this, target, new ProjectileEntitySwampSpittle(world, this, this.getAttack()));
-            this.playSound(SoundEvents.ENTITY_BLAZE_SHOOT, 1.0F, 1.0F / (this.getRNG().nextFloat() * 0.4F + 0.8F));
+            this.playSound(ModSoundEvents.ENTITY_CLIFF_FLY_FIRE, 1.0F, 1.0F / (this.getRNG().nextFloat() * 0.4F + 0.8F));
         }
     }
 
@@ -100,8 +100,8 @@ public class EntityCliffFly extends EntityLeveledFlyingMob {
 
     @Override
     protected void initAnimation() {
-        List<List<AnimationClip<ModelCliffFly>>> animationWings = new ArrayList<List<AnimationClip<ModelCliffFly>>>();
-        List<AnimationClip<ModelCliffFly>> wings = new ArrayList<AnimationClip<ModelCliffFly>>();
+        List<List<AnimationClip<ModelCliffFly>>> animationWings = new ArrayList<>();
+        List<AnimationClip<ModelCliffFly>> wings = new ArrayList<>();
         BiConsumer<ModelCliffFly, Float> wingsY = (model, f) -> {
             model.leftFrontWing.rotateAngleY = -f;
             model.leftFrontWing1.rotateAngleY = -f;

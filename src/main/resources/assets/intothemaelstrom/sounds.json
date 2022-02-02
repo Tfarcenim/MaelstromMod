@@ -1,50 +1,1320 @@
 {
-	"entity.swamp_crawler.hurt": {
+	"entity.maelstrom_healer.ambient1": {
 		"category": "entity",
-		"subtitle": "entity.swamp_crawler.hurt",
+		"subtitle": "entity.maelstrom_healer.ambient1",
 		"sounds": [
 			{
-				"name": "intothemaelstrom:entity/swamp_crawler/hurt",
+				"name": "intothemaelstrom:entity/maelstrom_healer/ambient1",
 				"stream": true
 			}
 		]
 	},
-	"entity.horror.ambient": {
+	"entity.maelstrom_healer.ambient2": {
 		"category": "entity",
-		"subtitle": "entity.horror.ambient",
+		"subtitle": "entity.maelstrom_healer.ambient2",
 		"sounds": [
 			{
-				"name": "intothemaelstrom:entity/horror/ambient",
+				"name": "intothemaelstrom:entity/maelstrom_healer/ambient2",
 				"stream": true
 			}
 		]
 	},
-	"entity.gauntlet.hurt": {
+	"entity.maelstrom_healer.ambient3": {
 		"category": "entity",
-		"subtitle": "entity.gauntlet.hurt",
+		"subtitle": "entity.maelstrom_healer.ambient3",
 		"sounds": [
 			{
-				"name": "intothemaelstrom:entity/gauntlet/hurt",
+				"name": "intothemaelstrom:entity/maelstrom_healer/ambient3",
 				"stream": true
 			}
 		]
 	},
-	"entity.gauntlet.ambient": {
+	"entity.maelstrom_healer.hurt1": {
 		"category": "entity",
-		"subtitle": "entity.gauntlet.ambient",
+		"subtitle": "entity.maelstrom_healer.hurt1",
 		"sounds": [
 			{
-				"name": "intothemaelstrom:entity/gauntlet/ambient",
+				"name": "intothemaelstrom:entity/maelstrom_healer/hurt1",
 				"stream": true
 			}
 		]
 	},
-	"entity.gauntlet.lazer_charge": {
+	"entity.maelstrom_healer.hurt2": {
 		"category": "entity",
-		"subtitle": "entity.gauntlet.lazer_charge",
+		"subtitle": "entity.maelstrom_healer.hurt2",
 		"sounds": [
 			{
-				"name": "intothemaelstrom:entity/gauntlet/lazer_charge",
+				"name": "intothemaelstrom:entity/maelstrom_healer/hurt2",
+				"stream": true
+			}
+		]
+	},
+	"entity.maelstrom_healer.hurt3": {
+		"category": "entity",
+		"subtitle": "entity.maelstrom_healer.hurt3",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/maelstrom_healer/hurt3",
+				"stream": true
+			}
+		]
+	},
+	"entity.maelstrom_healer.death1": {
+		"category": "entity",
+		"subtitle": "entity.maelstrom_healer.death1",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/maelstrom_healer/death1",
+				"stream": true
+			}
+		]
+	},
+	"entity.maelstrom_healer.death2": {
+		"category": "entity",
+		"subtitle": "entity.maelstrom_healer.death2",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/maelstrom_healer/death2",
+				"stream": true
+			}
+		]
+	},
+	"entity.maelstrom_healer.death3": {
+		"category": "entity",
+		"subtitle": "entity.maelstrom_healer.death3",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/maelstrom_healer/death3",
+				"stream": true
+			}
+		]
+	},
+	"entity.maelstrom_healer.cast": {
+		"category": "entity",
+		"subtitle": "entity.maelstrom_healer.cast",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/maelstrom_healer/cast",
+				"stream": true
+			}
+		]
+	},
+	"entity.maelstrom_mage.ambient1": {
+		"category": "entity",
+		"subtitle": "entity.maelstrom_mage.ambient1",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/maelstrom_mage/ambient1",
+				"stream": true
+			}
+		]
+	},
+	"entity.maelstrom_mage.ambient2": {
+		"category": "entity",
+		"subtitle": "entity.maelstrom_mage.ambient2",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/maelstrom_mage/ambient2",
+				"stream": true
+			}
+		]
+	},
+	"entity.maelstrom_mage.ambient3": {
+		"category": "entity",
+		"subtitle": "entity.maelstrom_mage.ambient3",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/maelstrom_mage/ambient3",
+				"stream": true
+			}
+		]
+	},
+	"entity.maelstrom_mage.hurt1": {
+		"category": "entity",
+		"subtitle": "entity.maelstrom_mage.hurt1",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/maelstrom_mage/hurt1",
+				"stream": true
+			}
+		]
+	},
+	"entity.maelstrom_mage.hurt2": {
+		"category": "entity",
+		"subtitle": "entity.maelstrom_mage.hurt2",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/maelstrom_mage/hurt2",
+				"stream": true
+			}
+		]
+	},
+	"entity.maelstrom_mage.hurt3": {
+		"category": "entity",
+		"subtitle": "entity.maelstrom_mage.hurt3",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/maelstrom_mage/hurt3",
+				"stream": true
+			}
+		]
+	},
+	"entity.maelstrom_mage.death1": {
+		"category": "entity",
+		"subtitle": "entity.maelstrom_mage.death1",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/maelstrom_mage/death1",
+				"stream": true
+			}
+		]
+	},
+	"entity.maelstrom_mage.death2": {
+		"category": "entity",
+		"subtitle": "entity.maelstrom_mage.death2",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/maelstrom_mage/death2",
+				"stream": true
+			}
+		]
+	},
+	"entity.maelstrom_mage.death3": {
+		"category": "entity",
+		"subtitle": "entity.maelstrom_mage.death3",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/maelstrom_mage/death3",
+				"stream": true
+			}
+		]
+	},
+	"entity.maelstrom_gauntlet.warn": {
+		"category": "entity",
+		"subtitle": "entity.maelstrom_gauntlet.warn",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/maelstrom_gauntlet/warn",
+				"stream": true
+			}
+		]
+	},
+	"entity.maelstrom_gauntlet.shoot": {
+		"category": "entity",
+		"subtitle": "entity.maelstrom_gauntlet.shoot",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/maelstrom_gauntlet/shoot",
+				"stream": true
+			}
+		]
+	},
+	"entity.maelstrom_fury.ambient1": {
+		"category": "entity",
+		"subtitle": "entity.maelstrom_fury.ambient1",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/maelstrom_fury/ambient1",
+				"stream": true
+			}
+		]
+	},
+	"entity.maelstrom_fury.ambient2": {
+		"category": "entity",
+		"subtitle": "entity.maelstrom_fury.ambient2",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/maelstrom_fury/ambient2",
+				"stream": true
+			}
+		]
+	},
+	"entity.maelstrom_fury.ambient3": {
+		"category": "entity",
+		"subtitle": "entity.maelstrom_fury.ambient3",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/maelstrom_fury/ambient3",
+				"stream": true
+			}
+		]
+	},
+	"entity.maelstrom_fury.hurt1": {
+		"category": "entity",
+		"subtitle": "entity.maelstrom_fury.hurt1",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/maelstrom_fury/hurt1",
+				"stream": true
+			}
+		]
+	},
+	"entity.maelstrom_fury.hurt2": {
+		"category": "entity",
+		"subtitle": "entity.maelstrom_fury.hurt2",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/maelstrom_fury/hurt2",
+				"stream": true
+			}
+		]
+	},
+	"entity.maelstrom_fury.hurt3": {
+		"category": "entity",
+		"subtitle": "entity.maelstrom_fury.hurt3",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/maelstrom_fury/hurt3",
+				"stream": true
+			}
+		]
+	},
+	"entity.maelstrom_fury.death1": {
+		"category": "entity",
+		"subtitle": "entity.maelstrom_fury.death1",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/maelstrom_fury/death1",
+				"stream": true
+			}
+		]
+	},
+	"entity.maelstrom_fury.death2": {
+		"category": "entity",
+		"subtitle": "entity.maelstrom_fury.death2",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/maelstrom_fury/death2",
+				"stream": true
+			}
+		]
+	},
+	"entity.maelstrom_fury.death3": {
+		"category": "entity",
+		"subtitle": "entity.maelstrom_fury.death3",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/maelstrom_fury/death3",
+				"stream": true
+			}
+		]
+	},
+	"entity.maelstrom_lancer.ambient1": {
+		"category": "entity",
+		"subtitle": "entity.maelstrom_lancer.ambient1",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/maelstrom_lancer/ambient1",
+				"stream": true
+			}
+		]
+	},
+	"entity.maelstrom_lancer.ambient2": {
+		"category": "entity",
+		"subtitle": "entity.maelstrom_lancer.ambient2",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/maelstrom_lancer/ambient2",
+				"stream": true
+			}
+		]
+	},
+	"entity.maelstrom_lancer.ambient3": {
+		"category": "entity",
+		"subtitle": "entity.maelstrom_lancer.ambient3",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/maelstrom_lancer/ambient3",
+				"stream": true
+			}
+		]
+	},
+	"entity.maelstrom_lancer.hurt1": {
+		"category": "entity",
+		"subtitle": "entity.maelstrom_lancer.hurt1",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/maelstrom_lancer/hurt1",
+				"stream": true
+			}
+		]
+	},
+	"entity.maelstrom_lancer.hurt2": {
+		"category": "entity",
+		"subtitle": "entity.maelstrom_lancer.hurt2",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/maelstrom_lancer/hurt2",
+				"stream": true
+			}
+		]
+	},
+	"entity.maelstrom_lancer.hurt3": {
+		"category": "entity",
+		"subtitle": "entity.maelstrom_lancer.hurt3",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/maelstrom_lancer/hurt3",
+				"stream": true
+			}
+		]
+	},
+	"entity.maelstrom_lancer.death1": {
+		"category": "entity",
+		"subtitle": "entity.maelstrom_lancer.death1",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/maelstrom_lancer/death1",
+				"stream": true
+			}
+		]
+	},
+	"entity.maelstrom_lancer.death2": {
+		"category": "entity",
+		"subtitle": "entity.maelstrom_lancer.death2",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/maelstrom_lancer/death2",
+				"stream": true
+			}
+		]
+	},
+	"entity.maelstrom_lancer.death3": {
+		"category": "entity",
+		"subtitle": "entity.maelstrom_lancer.death3",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/maelstrom_lancer/death3",
+				"stream": true
+			}
+		]
+	},
+	"entity.swamp_crawler.ambient1": {
+		"category": "entity",
+		"subtitle": "entity.swamp_crawler.ambient1",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/swamp_crawler/ambient1",
+				"stream": true
+			}
+		]
+	},
+	"entity.swamp_crawler.ambient2": {
+		"category": "entity",
+		"subtitle": "entity.swamp_crawler.ambient2",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/swamp_crawler/ambient2",
+				"stream": true
+			}
+		]
+	},
+	"entity.swamp_crawler.ambient3": {
+		"category": "entity",
+		"subtitle": "entity.swamp_crawler.ambient3",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/swamp_crawler/ambient3",
+				"stream": true
+			}
+		]
+	},
+	"entity.swamp_crawler.hurt1": {
+		"category": "entity",
+		"subtitle": "entity.swamp_crawler.hurt1",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/swamp_crawler/hurt1",
+				"stream": true
+			}
+		]
+	},
+	"entity.swamp_crawler.hurt2": {
+		"category": "entity",
+		"subtitle": "entity.swamp_crawler.hurt2",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/swamp_crawler/hurt2",
+				"stream": true
+			}
+		]
+	},
+	"entity.swamp_crawler.hurt3": {
+		"category": "entity",
+		"subtitle": "entity.swamp_crawler.hurt3",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/swamp_crawler/hurt3",
+				"stream": true
+			}
+		]
+	},
+	"entity.swamp_crawler.death1": {
+		"category": "entity",
+		"subtitle": "entity.swamp_crawler.death1",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/swamp_crawler/death1",
+				"stream": true
+			}
+		]
+	},
+	"entity.swamp_crawler.death2": {
+		"category": "entity",
+		"subtitle": "entity.swamp_crawler.death2",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/swamp_crawler/death2",
+				"stream": true
+			}
+		]
+	},
+	"entity.swamp_crawler.death3": {
+		"category": "entity",
+		"subtitle": "entity.swamp_crawler.death3",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/swamp_crawler/death3",
+				"stream": true
+			}
+		]
+	},
+	"entity.swamp_crawler.warn": {
+		"category": "entity",
+		"subtitle": "entity.swamp_crawler.warn",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/swamp_crawler/warn",
+				"stream": true
+			}
+		]
+	},
+	"entity.swamp_crawler.fire": {
+		"category": "entity",
+		"subtitle": "entity.swamp_crawler.fire",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/swamp_crawler/fire",
+				"stream": true
+			}
+		]
+	},
+	"entity.iron_shade.ambient1": {
+		"category": "entity",
+		"subtitle": "entity.iron_shade.ambient1",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/iron_shade/ambient1",
+				"stream": true
+			}
+		]
+	},
+	"entity.iron_shade.ambient2": {
+		"category": "entity",
+		"subtitle": "entity.iron_shade.ambient2",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/iron_shade/ambient2",
+				"stream": true
+			}
+		]
+	},
+	"entity.iron_shade.ambient3": {
+		"category": "entity",
+		"subtitle": "entity.iron_shade.ambient3",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/iron_shade/ambient3",
+				"stream": true
+			}
+		]
+	},
+	"entity.iron_shade.hurt1": {
+		"category": "entity",
+		"subtitle": "entity.iron_shade.hurt1",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/iron_shade/hurt1",
+				"stream": true
+			}
+		]
+	},
+	"entity.iron_shade.hurt2": {
+		"category": "entity",
+		"subtitle": "entity.iron_shade.hurt2",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/iron_shade/hurt2",
+				"stream": true
+			}
+		]
+	},
+	"entity.iron_shade.hurt3": {
+		"category": "entity",
+		"subtitle": "entity.iron_shade.hurt3",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/iron_shade/hurt3",
+				"stream": true
+			}
+		]
+	},
+	"entity.iron_shade.death1": {
+		"category": "entity",
+		"subtitle": "entity.iron_shade.death1",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/iron_shade/death1",
+				"stream": true
+			}
+		]
+	},
+	"entity.iron_shade.death2": {
+		"category": "entity",
+		"subtitle": "entity.iron_shade.death2",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/iron_shade/death2",
+				"stream": true
+			}
+		]
+	},
+	"entity.iron_shade.death3": {
+		"category": "entity",
+		"subtitle": "entity.iron_shade.death3",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/iron_shade/death3",
+				"stream": true
+			}
+		]
+	},
+	"entity.iron_shade.front_flip": {
+		"category": "entity",
+		"subtitle": "entity.iron_shade.front_flip",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/iron_shade/front_flip",
+				"stream": true
+			}
+		]
+	},
+	"entity.iron_shade.spin_slash": {
+		"category": "entity",
+		"subtitle": "entity.iron_shade.spin_slash",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/iron_shade/spin_slash",
+				"stream": true
+			}
+		]
+	},
+	"entity.horror.ambient1": {
+		"category": "entity",
+		"subtitle": "entity.horror.ambient1",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/horror/ambient1",
+				"stream": true
+			}
+		]
+	},
+	"entity.horror.ambient2": {
+		"category": "entity",
+		"subtitle": "entity.horror.ambient2",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/horror/ambient2",
+				"stream": true
+			}
+		]
+	},
+	"entity.horror.ambient3": {
+		"category": "entity",
+		"subtitle": "entity.horror.ambient3",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/horror/ambient3",
+				"stream": true
+			}
+		]
+	},
+	"entity.horror.hurt1": {
+		"category": "entity",
+		"subtitle": "entity.horror.hurt1",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/horror/hurt1",
+				"stream": true
+			}
+		]
+	},
+	"entity.horror.hurt2": {
+		"category": "entity",
+		"subtitle": "entity.horror.hurt2",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/horror/hurt2",
+				"stream": true
+			}
+		]
+	},
+	"entity.horror.hurt3": {
+		"category": "entity",
+		"subtitle": "entity.horror.hurt3",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/horror/hurt3",
+				"stream": true
+			}
+		]
+	},
+	"entity.horror.death1": {
+		"category": "entity",
+		"subtitle": "entity.horror.death1",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/horror/death1",
+				"stream": true
+			}
+		]
+	},
+	"entity.horror.death2": {
+		"category": "entity",
+		"subtitle": "entity.horror.death2",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/horror/death2",
+				"stream": true
+			}
+		]
+	},
+	"entity.horror.death3": {
+		"category": "entity",
+		"subtitle": "entity.horror.death3",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/horror/death3",
+				"stream": true
+			}
+		]
+	},
+	"entity.shade.ambient1": {
+		"category": "entity",
+		"subtitle": "entity.shade.ambient1",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/shade/ambient1",
+				"stream": true
+			}
+		]
+	},
+	"entity.shade.ambient2": {
+		"category": "entity",
+		"subtitle": "entity.shade.ambient2",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/shade/ambient2",
+				"stream": true
+			}
+		]
+	},
+	"entity.shade.ambient3": {
+		"category": "entity",
+		"subtitle": "entity.shade.ambient3",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/shade/ambient3",
+				"stream": true
+			}
+		]
+	},
+	"entity.shade.hurt1": {
+		"category": "entity",
+		"subtitle": "entity.shade.hurt1",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/shade/hurt1",
+				"stream": true
+			}
+		]
+	},
+	"entity.shade.hurt2": {
+		"category": "entity",
+		"subtitle": "entity.shade.hurt2",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/shade/hurt2",
+				"stream": true
+			}
+		]
+	},
+	"entity.shade.hurt3": {
+		"category": "entity",
+		"subtitle": "entity.shade.hurt3",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/shade/hurt3",
+				"stream": true
+			}
+		]
+	},
+	"entity.shade.death1": {
+		"category": "entity",
+		"subtitle": "entity.shade.death1",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/shade/death1",
+				"stream": true
+			}
+		]
+	},
+	"entity.shade.death2": {
+		"category": "entity",
+		"subtitle": "entity.shade.death2",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/shade/death2",
+				"stream": true
+			}
+		]
+	},
+	"entity.shade.death3": {
+		"category": "entity",
+		"subtitle": "entity.shade.death3",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/shade/death3",
+				"stream": true
+			}
+		]
+	},
+	"entity.floating_skull.ambient1": {
+		"category": "entity",
+		"subtitle": "entity.floating_skull.ambient1",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/floating_skull/ambient1",
+				"stream": true
+			}
+		]
+	},
+	"entity.floating_skull.ambient2": {
+		"category": "entity",
+		"subtitle": "entity.floating_skull.ambient2",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/floating_skull/ambient2",
+				"stream": true
+			}
+		]
+	},
+	"entity.floating_skull.ambient3": {
+		"category": "entity",
+		"subtitle": "entity.floating_skull.ambient3",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/floating_skull/ambient3",
+				"stream": true
+			}
+		]
+	},
+	"entity.floating_skull.hurt1": {
+		"category": "entity",
+		"subtitle": "entity.floating_skull.hurt1",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/floating_skull/hurt1",
+				"stream": true
+			}
+		]
+	},
+	"entity.floating_skull.hurt2": {
+		"category": "entity",
+		"subtitle": "entity.floating_skull.hurt2",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/floating_skull/hurt2",
+				"stream": true
+			}
+		]
+	},
+	"entity.floating_skull.hurt3": {
+		"category": "entity",
+		"subtitle": "entity.floating_skull.hurt3",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/floating_skull/hurt3",
+				"stream": true
+			}
+		]
+	},
+	"entity.floating_skull.death1": {
+		"category": "entity",
+		"subtitle": "entity.floating_skull.death1",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/floating_skull/death1",
+				"stream": true
+			}
+		]
+	},
+	"entity.floating_skull.death2": {
+		"category": "entity",
+		"subtitle": "entity.floating_skull.death2",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/floating_skull/death2",
+				"stream": true
+			}
+		]
+	},
+	"entity.floating_skull.death3": {
+		"category": "entity",
+		"subtitle": "entity.floating_skull.death3",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/floating_skull/death3",
+				"stream": true
+			}
+		]
+	},
+	"entity.cliff_golem.ambient1": {
+		"category": "entity",
+		"subtitle": "entity.cliff_golem.ambient1",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/cliff_golem/ambient1",
+				"stream": true
+			}
+		]
+	},
+	"entity.cliff_golem.ambient2": {
+		"category": "entity",
+		"subtitle": "entity.cliff_golem.ambient2",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/cliff_golem/ambient2",
+				"stream": true
+			}
+		]
+	},
+	"entity.cliff_golem.ambient3": {
+		"category": "entity",
+		"subtitle": "entity.cliff_golem.ambient3",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/cliff_golem/ambient3",
+				"stream": true
+			}
+		]
+	},
+	"entity.cliff_golem.hurt1": {
+		"category": "entity",
+		"subtitle": "entity.cliff_golem.hurt1",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/cliff_golem/hurt1",
+				"stream": true
+			}
+		]
+	},
+	"entity.cliff_golem.hurt2": {
+		"category": "entity",
+		"subtitle": "entity.cliff_golem.hurt2",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/cliff_golem/hurt2",
+				"stream": true
+			}
+		]
+	},
+	"entity.cliff_golem.hurt3": {
+		"category": "entity",
+		"subtitle": "entity.cliff_golem.hurt3",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/cliff_golem/hurt3",
+				"stream": true
+			}
+		]
+	},
+	"entity.cliff_golem.death1": {
+		"category": "entity",
+		"subtitle": "entity.cliff_golem.death1",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/cliff_golem/death1",
+				"stream": true
+			}
+		]
+	},
+	"entity.cliff_golem.death2": {
+		"category": "entity",
+		"subtitle": "entity.cliff_golem.death2",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/cliff_golem/death2",
+				"stream": true
+			}
+		]
+	},
+	"entity.cliff_golem.death3": {
+		"category": "entity",
+		"subtitle": "entity.cliff_golem.death3",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/cliff_golem/death3",
+				"stream": true
+			}
+		]
+	},
+	"entity.cliff_golem.warn": {
+		"category": "entity",
+		"subtitle": "entity.cliff_golem.warn",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/cliff_golem/warn",
+				"stream": true
+			}
+		]
+	},
+	"entity.cliff_golem.smash": {
+		"category": "entity",
+		"subtitle": "entity.cliff_golem.smash",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/cliff_golem/smash",
+				"stream": true
+			}
+		]
+	},
+	"entity.cliff_fly.ambient1": {
+		"category": "entity",
+		"subtitle": "entity.cliff_fly.ambient1",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/cliff_fly/ambient1",
+				"stream": true
+			}
+		]
+	},
+	"entity.cliff_fly.ambient2": {
+		"category": "entity",
+		"subtitle": "entity.cliff_fly.ambient2",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/cliff_fly/ambient2",
+				"stream": true
+			}
+		]
+	},
+	"entity.cliff_fly.ambient3": {
+		"category": "entity",
+		"subtitle": "entity.cliff_fly.ambient3",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/cliff_fly/ambient3",
+				"stream": true
+			}
+		]
+	},
+	"entity.cliff_fly.hurt1": {
+		"category": "entity",
+		"subtitle": "entity.cliff_fly.hurt1",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/cliff_fly/hurt1",
+				"stream": true
+			}
+		]
+	},
+	"entity.cliff_fly.hurt2": {
+		"category": "entity",
+		"subtitle": "entity.cliff_fly.hurt2",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/cliff_fly/hurt2",
+				"stream": true
+			}
+		]
+	},
+	"entity.cliff_fly.hurt3": {
+		"category": "entity",
+		"subtitle": "entity.cliff_fly.hurt3",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/cliff_fly/hurt3",
+				"stream": true
+			}
+		]
+	},
+	"entity.cliff_fly.death1": {
+		"category": "entity",
+		"subtitle": "entity.cliff_fly.death1",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/cliff_fly/death1",
+				"stream": true
+			}
+		]
+	},
+	"entity.cliff_fly.death2": {
+		"category": "entity",
+		"subtitle": "entity.cliff_fly.death2",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/cliff_fly/death2",
+				"stream": true
+			}
+		]
+	},
+	"entity.cliff_fly.death3": {
+		"category": "entity",
+		"subtitle": "entity.cliff_fly.death3",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/cliff_fly/death3",
+				"stream": true
+			}
+		]
+	},
+	"entity.cliff_fly.warn": {
+		"category": "entity",
+		"subtitle": "entity.cliff_fly.warn",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/cliff_fly/warn",
+				"stream": true
+			}
+		]
+	},
+	"entity.cliff_fly.fire": {
+		"category": "entity",
+		"subtitle": "entity.cliff_fly.fire",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/cliff_fly/fire",
+				"stream": true
+			}
+		]
+	},
+	"entity.monolith.ambient1": {
+		"category": "entity",
+		"subtitle": "entity.monolith.ambient1",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/monolith/ambient1",
+				"stream": true
+			}
+		]
+	},
+	"entity.monolith.ambient2": {
+		"category": "entity",
+		"subtitle": "entity.monolith.ambient2",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/monolith/ambient2",
+				"stream": true
+			}
+		]
+	},
+	"entity.monolith.ambient3": {
+		"category": "entity",
+		"subtitle": "entity.monolith.ambient3",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/monolith/ambient3",
+				"stream": true
+			}
+		]
+	},
+	"entity.monolith.hurt1": {
+		"category": "entity",
+		"subtitle": "entity.monolith.hurt1",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/monolith/hurt1",
+				"stream": true
+			}
+		]
+	},
+	"entity.monolith.hurt2": {
+		"category": "entity",
+		"subtitle": "entity.monolith.hurt2",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/monolith/hurt2",
+				"stream": true
+			}
+		]
+	},
+	"entity.monolith.hurt3": {
+		"category": "entity",
+		"subtitle": "entity.monolith.hurt3",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/monolith/hurt3",
+				"stream": true
+			}
+		]
+	},
+	"entity.monolith.death1": {
+		"category": "entity",
+		"subtitle": "entity.monolith.death1",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/monolith/death1",
+				"stream": true
+			}
+		]
+	},
+	"entity.monolith.death2": {
+		"category": "entity",
+		"subtitle": "entity.monolith.death2",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/monolith/death2",
+				"stream": true
+			}
+		]
+	},
+	"entity.monolith.death3": {
+		"category": "entity",
+		"subtitle": "entity.monolith.death3",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/monolith/death3",
+				"stream": true
+			}
+		]
+	},
+	"entity.monolith.lazer_shoot": {
+		"category": "entity",
+		"subtitle": "entity.monolith.lazer_shoot",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/monolith/lazer_shoot",
+				"stream": true
+			}
+		]
+	},
+	"entity.monolith.fireball_shoot": {
+		"category": "entity",
+		"subtitle": "entity.monolith.fireball_shoot",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/monolith/fireball_shoot",
+				"stream": true
+			}
+		]
+	},
+	"entity.maelstrom_beast.ambient1": {
+		"category": "entity",
+		"subtitle": "entity.maelstrom_beast.ambient1",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/maelstrom_beast/ambient1",
+				"stream": true
+			}
+		]
+	},
+	"entity.maelstrom_beast.ambient2": {
+		"category": "entity",
+		"subtitle": "entity.maelstrom_beast.ambient2",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/maelstrom_beast/ambient2",
+				"stream": true
+			}
+		]
+	},
+	"entity.maelstrom_beast.ambient3": {
+		"category": "entity",
+		"subtitle": "entity.maelstrom_beast.ambient3",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/maelstrom_beast/ambient3",
+				"stream": true
+			}
+		]
+	},
+	"entity.maelstrom_beast.hurt1": {
+		"category": "entity",
+		"subtitle": "entity.maelstrom_beast.hurt1",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/maelstrom_beast/hurt1",
+				"stream": true
+			}
+		]
+	},
+	"entity.maelstrom_beast.hurt2": {
+		"category": "entity",
+		"subtitle": "entity.maelstrom_beast.hurt2",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/maelstrom_beast/hurt2",
+				"stream": true
+			}
+		]
+	},
+	"entity.maelstrom_beast.hurt3": {
+		"category": "entity",
+		"subtitle": "entity.maelstrom_beast.hurt3",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/maelstrom_beast/hurt3",
+				"stream": true
+			}
+		]
+	},
+	"entity.maelstrom_beast.death1": {
+		"category": "entity",
+		"subtitle": "entity.maelstrom_beast.death1",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/maelstrom_beast/death1",
+				"stream": true
+			}
+		]
+	},
+	"entity.maelstrom_beast.death2": {
+		"category": "entity",
+		"subtitle": "entity.maelstrom_beast.death2",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/maelstrom_beast/death2",
+				"stream": true
+			}
+		]
+	},
+	"entity.maelstrom_beast.death3": {
+		"category": "entity",
+		"subtitle": "entity.maelstrom_beast.death3",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/maelstrom_beast/death3",
+				"stream": true
+			}
+		]
+	},
+	"entity.maelstrom_beast.roar": {
+		"category": "entity",
+		"subtitle": "entity.maelstrom_beast.roar",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/maelstrom_beast/roar",
+				"stream": true
+			}
+		]
+	},
+	"entity.maelstrom_beast.swipe": {
+		"category": "entity",
+		"subtitle": "entity.maelstrom_beast.swipe",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/maelstrom_beast/swipe",
 				"stream": true
 			}
 		]
@@ -59,32 +1329,12 @@
 			}
 		]
 	},
-	"entity.horror.hurt": {
-		"category": "entity",
-		"subtitle": "entity.horror.hurt",
-		"sounds": [
-			{
-				"name": "intothemaelstrom:entity/horror/hurt",
-				"stream": true
-			}
-		]
-	},
 	"entity.beast.hurt": {
 		"category": "entity",
 		"subtitle": "entity.beast.hurt",
 		"sounds": [
 			{
 				"name": "intothemaelstrom:entity/beast/hurt",
-				"stream": true
-			}
-		]
-	},
-	"entity.chaos_knight.hurt": {
-		"category": "entity",
-		"subtitle": "entity.chaos_knight.hurt",
-		"sounds": [
-			{
-				"name": "intothemaelstrom:entity/chaos_knight/hurt",
 				"stream": true
 			}
 		]
@@ -99,62 +1349,662 @@
 			}
 		]
 	},
-	"entity.shade.ambient": {
+	"entity.chaos_knight.ambient1": {
 		"category": "entity",
-		"subtitle": "entity.shade.ambient",
+		"subtitle": "entity.chaos_knight.ambient1",
 		"sounds": [
 			{
-				"name": "intothemaelstrom:entity/shade/ambient",
+				"name": "intothemaelstrom:entity/chaos_knight/ambient1",
 				"stream": true
 			}
 		]
 	},
-	"entity.chaos_knight.death": {
+	"entity.chaos_knight.ambient2": {
 		"category": "entity",
-		"subtitle": "entity.chaos_knight.death",
+		"subtitle": "entity.chaos_knight.ambient2",
 		"sounds": [
 			{
-				"name": "intothemaelstrom:entity/chaos_knight/death",
+				"name": "intothemaelstrom:entity/chaos_knight/ambient2",
 				"stream": true
 			}
 		]
 	},
-	"entity.monolith.ambient": {
+	"entity.chaos_knight.ambient3": {
 		"category": "entity",
-		"subtitle": "entity.monolith.ambient",
+		"subtitle": "entity.chaos_knight.ambient3",
 		"sounds": [
 			{
-				"name": "intothemaelstrom:entity/monolith/ambient",
+				"name": "intothemaelstrom:entity/chaos_knight/ambient3",
 				"stream": true
 			}
 		]
 	},
-	"entity.swamp_crawler.ambient": {
+	"entity.chaos_knight.hurt1": {
 		"category": "entity",
-		"subtitle": "entity.swamp_crawler.ambient",
+		"subtitle": "entity.chaos_knight.hurt1",
 		"sounds": [
 			{
-				"name": "intothemaelstrom:entity/swamp_crawler/ambient",
+				"name": "intothemaelstrom:entity/chaos_knight/hurt1",
 				"stream": true
 			}
 		]
 	},
-	"entity.shade.hurt": {
+	"entity.chaos_knight.hurt2": {
 		"category": "entity",
-		"subtitle": "entity.shade.hurt",
+		"subtitle": "entity.chaos_knight.hurt2",
 		"sounds": [
 			{
-				"name": "intothemaelstrom:entity/shade/hurt",
+				"name": "intothemaelstrom:entity/chaos_knight/hurt2",
 				"stream": true
 			}
 		]
 	},
-	"entity.chaos_knight.ambient": {
+	"entity.chaos_knight.hurt3": {
 		"category": "entity",
-		"subtitle": "entity.chaos_knight.ambient",
+		"subtitle": "entity.chaos_knight.hurt3",
 		"sounds": [
 			{
-				"name": "intothemaelstrom:entity/chaos_knight/ambient",
+				"name": "intothemaelstrom:entity/chaos_knight/hurt3",
+				"stream": true
+			}
+		]
+	},
+	"entity.chaos_knight.death1": {
+		"category": "entity",
+		"subtitle": "entity.chaos_knight.death1",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/chaos_knight/death1",
+				"stream": true
+			}
+		]
+	},
+	"entity.chaos_knight.death2": {
+		"category": "entity",
+		"subtitle": "entity.chaos_knight.death2",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/chaos_knight/death2",
+				"stream": true
+			}
+		]
+	},
+	"entity.chaos_knight.death3": {
+		"category": "entity",
+		"subtitle": "entity.chaos_knight.death3",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/chaos_knight/death3",
+				"stream": true
+			}
+		]
+	},
+	"entity.chaos_knight.side_swipe": {
+		"category": "entity",
+		"subtitle": "entity.chaos_knight.side_swipe",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/chaos_knight/side_swipe",
+				"stream": true
+			}
+		]
+	},
+	"entity.chaos_knight.spin_slash": {
+		"category": "entity",
+		"subtitle": "entity.chaos_knight.spin_slash",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/chaos_knight/spin_slash",
+				"stream": true
+			}
+		]
+	},
+	"entity.maelstrom_statue_of_nirvana.ambient1": {
+		"category": "entity",
+		"subtitle": "entity.maelstrom_statue_of_nirvana.ambient1",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/maelstrom_statue_of_nirvana/ambient1",
+				"stream": true
+			}
+		]
+	},
+	"entity.maelstrom_statue_of_nirvana.ambient2": {
+		"category": "entity",
+		"subtitle": "entity.maelstrom_statue_of_nirvana.ambient2",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/maelstrom_statue_of_nirvana/ambient2",
+				"stream": true
+			}
+		]
+	},
+	"entity.maelstrom_statue_of_nirvana.ambient3": {
+		"category": "entity",
+		"subtitle": "entity.maelstrom_statue_of_nirvana.ambient3",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/maelstrom_statue_of_nirvana/ambient3",
+				"stream": true
+			}
+		]
+	},
+	"entity.maelstrom_statue_of_nirvana.hurt1": {
+		"category": "entity",
+		"subtitle": "entity.maelstrom_statue_of_nirvana.hurt1",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/maelstrom_statue_of_nirvana/hurt1",
+				"stream": true
+			}
+		]
+	},
+	"entity.maelstrom_statue_of_nirvana.hurt2": {
+		"category": "entity",
+		"subtitle": "entity.maelstrom_statue_of_nirvana.hurt2",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/maelstrom_statue_of_nirvana/hurt2",
+				"stream": true
+			}
+		]
+	},
+	"entity.maelstrom_statue_of_nirvana.hurt3": {
+		"category": "entity",
+		"subtitle": "entity.maelstrom_statue_of_nirvana.hurt3",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/maelstrom_statue_of_nirvana/hurt3",
+				"stream": true
+			}
+		]
+	},
+	"entity.maelstrom_statue_of_nirvana.death1": {
+		"category": "entity",
+		"subtitle": "entity.maelstrom_statue_of_nirvana.death1",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/maelstrom_statue_of_nirvana/death1",
+				"stream": true
+			}
+		]
+	},
+	"entity.maelstrom_statue_of_nirvana.death2": {
+		"category": "entity",
+		"subtitle": "entity.maelstrom_statue_of_nirvana.death2",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/maelstrom_statue_of_nirvana/death2",
+				"stream": true
+			}
+		]
+	},
+	"entity.maelstrom_statue_of_nirvana.death3": {
+		"category": "entity",
+		"subtitle": "entity.maelstrom_statue_of_nirvana.death3",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/maelstrom_statue_of_nirvana/death3",
+				"stream": true
+			}
+		]
+	},
+	"entity.maelstrom_statue_of_nirvana.missile_fire": {
+		"category": "entity",
+		"subtitle": "entity.maelstrom_statue_of_nirvana.missile_fire",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/maelstrom_statue_of_nirvana/missile_fire",
+				"stream": true
+			}
+		]
+	},
+	"entity.maelstrom_statue_of_nirvana.summon": {
+		"category": "entity",
+		"subtitle": "entity.maelstrom_statue_of_nirvana.summon",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/maelstrom_statue_of_nirvana/summon",
+				"stream": true
+			}
+		]
+	},
+	"entity.golden_boss.ambient1": {
+		"category": "entity",
+		"subtitle": "entity.golden_boss.ambient1",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/golden_boss/ambient1",
+				"stream": true
+			}
+		]
+	},
+	"entity.golden_boss.ambient2": {
+		"category": "entity",
+		"subtitle": "entity.golden_boss.ambient2",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/golden_boss/ambient2",
+				"stream": true
+			}
+		]
+	},
+	"entity.golden_boss.ambient3": {
+		"category": "entity",
+		"subtitle": "entity.golden_boss.ambient3",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/golden_boss/ambient3",
+				"stream": true
+			}
+		]
+	},
+	"entity.golden_boss.hurt1": {
+		"category": "entity",
+		"subtitle": "entity.golden_boss.hurt1",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/golden_boss/hurt1",
+				"stream": true
+			}
+		]
+	},
+	"entity.golden_boss.hurt2": {
+		"category": "entity",
+		"subtitle": "entity.golden_boss.hurt2",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/golden_boss/hurt2",
+				"stream": true
+			}
+		]
+	},
+	"entity.golden_boss.hurt3": {
+		"category": "entity",
+		"subtitle": "entity.golden_boss.hurt3",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/golden_boss/hurt3",
+				"stream": true
+			}
+		]
+	},
+	"entity.golden_boss.death1": {
+		"category": "entity",
+		"subtitle": "entity.golden_boss.death1",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/golden_boss/death1",
+				"stream": true
+			}
+		]
+	},
+	"entity.golden_boss.death2": {
+		"category": "entity",
+		"subtitle": "entity.golden_boss.death2",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/golden_boss/death2",
+				"stream": true
+			}
+		]
+	},
+	"entity.golden_boss.death3": {
+		"category": "entity",
+		"subtitle": "entity.golden_boss.death3",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/golden_boss/death3",
+				"stream": true
+			}
+		]
+	},
+	"entity.maelstrom_gauntlet.ambient1": {
+		"category": "entity",
+		"subtitle": "entity.maelstrom_gauntlet.ambient1",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/maelstrom_gauntlet/ambient1",
+				"stream": true
+			}
+		]
+	},
+	"entity.maelstrom_gauntlet.ambient2": {
+		"category": "entity",
+		"subtitle": "entity.maelstrom_gauntlet.ambient2",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/maelstrom_gauntlet/ambient2",
+				"stream": true
+			}
+		]
+	},
+	"entity.maelstrom_gauntlet.ambient3": {
+		"category": "entity",
+		"subtitle": "entity.maelstrom_gauntlet.ambient3",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/maelstrom_gauntlet/ambient3",
+				"stream": true
+			}
+		]
+	},
+	"entity.maelstrom_gauntlet.hurt1": {
+		"category": "entity",
+		"subtitle": "entity.maelstrom_gauntlet.hurt1",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/maelstrom_gauntlet/hurt1",
+				"stream": true
+			}
+		]
+	},
+	"entity.maelstrom_gauntlet.hurt2": {
+		"category": "entity",
+		"subtitle": "entity.maelstrom_gauntlet.hurt2",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/maelstrom_gauntlet/hurt2",
+				"stream": true
+			}
+		]
+	},
+	"entity.maelstrom_gauntlet.hurt3": {
+		"category": "entity",
+		"subtitle": "entity.maelstrom_gauntlet.hurt3",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/maelstrom_gauntlet/hurt3",
+				"stream": true
+			}
+		]
+	},
+	"entity.maelstrom_gauntlet.death1": {
+		"category": "entity",
+		"subtitle": "entity.maelstrom_gauntlet.death1",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/maelstrom_gauntlet/death1",
+				"stream": true
+			}
+		]
+	},
+	"entity.maelstrom_gauntlet.death2": {
+		"category": "entity",
+		"subtitle": "entity.maelstrom_gauntlet.death2",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/maelstrom_gauntlet/death2",
+				"stream": true
+			}
+		]
+	},
+	"entity.maelstrom_gauntlet.death3": {
+		"category": "entity",
+		"subtitle": "entity.maelstrom_gauntlet.death3",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/maelstrom_gauntlet/death3",
+				"stream": true
+			}
+		]
+	},
+	"entity.alternative_maelstrom_gauntlet_stage_1.ambient1": {
+		"category": "entity",
+		"subtitle": "entity.alternative_maelstrom_gauntlet_stage_1.ambient1",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/alternative_maelstrom_gauntlet_stage_1/ambient1",
+				"stream": true
+			}
+		]
+	},
+	"entity.alternative_maelstrom_gauntlet_stage_1.ambient2": {
+		"category": "entity",
+		"subtitle": "entity.alternative_maelstrom_gauntlet_stage_1.ambient2",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/alternative_maelstrom_gauntlet_stage_1/ambient2",
+				"stream": true
+			}
+		]
+	},
+	"entity.alternative_maelstrom_gauntlet_stage_1.ambient3": {
+		"category": "entity",
+		"subtitle": "entity.alternative_maelstrom_gauntlet_stage_1.ambient3",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/alternative_maelstrom_gauntlet_stage_1/ambient3",
+				"stream": true
+			}
+		]
+	},
+	"entity.alternative_maelstrom_gauntlet_stage_1.hurt1": {
+		"category": "entity",
+		"subtitle": "entity.alternative_maelstrom_gauntlet_stage_1.hurt1",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/alternative_maelstrom_gauntlet_stage_1/hurt1",
+				"stream": true
+			}
+		]
+	},
+	"entity.alternative_maelstrom_gauntlet_stage_1.hurt2": {
+		"category": "entity",
+		"subtitle": "entity.alternative_maelstrom_gauntlet_stage_1.hurt2",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/alternative_maelstrom_gauntlet_stage_1/hurt2",
+				"stream": true
+			}
+		]
+	},
+	"entity.alternative_maelstrom_gauntlet_stage_1.hurt3": {
+		"category": "entity",
+		"subtitle": "entity.alternative_maelstrom_gauntlet_stage_1.hurt3",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/alternative_maelstrom_gauntlet_stage_1/hurt3",
+				"stream": true
+			}
+		]
+	},
+	"entity.alternative_maelstrom_gauntlet_stage_1.death1": {
+		"category": "entity",
+		"subtitle": "entity.alternative_maelstrom_gauntlet_stage_1.death1",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/alternative_maelstrom_gauntlet_stage_1/death1",
+				"stream": true
+			}
+		]
+	},
+	"entity.alternative_maelstrom_gauntlet_stage_1.death2": {
+		"category": "entity",
+		"subtitle": "entity.alternative_maelstrom_gauntlet_stage_1.death2",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/alternative_maelstrom_gauntlet_stage_1/death2",
+				"stream": true
+			}
+		]
+	},
+	"entity.alternative_maelstrom_gauntlet_stage_1.death3": {
+		"category": "entity",
+		"subtitle": "entity.alternative_maelstrom_gauntlet_stage_1.death3",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/alternative_maelstrom_gauntlet_stage_1/death3",
+				"stream": true
+			}
+		]
+	},
+	"entity.alternative_maelstrom_gauntlet_stage_2.ambient1": {
+		"category": "entity",
+		"subtitle": "entity.alternative_maelstrom_gauntlet_stage_2.ambient1",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/alternative_maelstrom_gauntlet_stage_2/ambient1",
+				"stream": true
+			}
+		]
+	},
+	"entity.alternative_maelstrom_gauntlet_stage_2.ambient2": {
+		"category": "entity",
+		"subtitle": "entity.alternative_maelstrom_gauntlet_stage_2.ambient2",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/alternative_maelstrom_gauntlet_stage_2/ambient2",
+				"stream": true
+			}
+		]
+	},
+	"entity.alternative_maelstrom_gauntlet_stage_2.ambient3": {
+		"category": "entity",
+		"subtitle": "entity.alternative_maelstrom_gauntlet_stage_2.ambient3",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/alternative_maelstrom_gauntlet_stage_2/ambient3",
+				"stream": true
+			}
+		]
+	},
+	"entity.alternative_maelstrom_gauntlet_stage_2.hurt1": {
+		"category": "entity",
+		"subtitle": "entity.alternative_maelstrom_gauntlet_stage_2.hurt1",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/alternative_maelstrom_gauntlet_stage_2/hurt1",
+				"stream": true
+			}
+		]
+	},
+	"entity.alternative_maelstrom_gauntlet_stage_2.hurt2": {
+		"category": "entity",
+		"subtitle": "entity.alternative_maelstrom_gauntlet_stage_2.hurt2",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/alternative_maelstrom_gauntlet_stage_2/hurt2",
+				"stream": true
+			}
+		]
+	},
+	"entity.alternative_maelstrom_gauntlet_stage_2.hurt3": {
+		"category": "entity",
+		"subtitle": "entity.alternative_maelstrom_gauntlet_stage_2.hurt3",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/alternative_maelstrom_gauntlet_stage_2/hurt3",
+				"stream": true
+			}
+		]
+	},
+	"entity.alternative_maelstrom_gauntlet_stage_2.death1": {
+		"category": "entity",
+		"subtitle": "entity.alternative_maelstrom_gauntlet_stage_2.death1",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/alternative_maelstrom_gauntlet_stage_2/death1",
+				"stream": true
+			}
+		]
+	},
+	"entity.alternative_maelstrom_gauntlet_stage_2.death2": {
+		"category": "entity",
+		"subtitle": "entity.alternative_maelstrom_gauntlet_stage_2.death2",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/alternative_maelstrom_gauntlet_stage_2/death2",
+				"stream": true
+			}
+		]
+	},
+	"entity.alternative_maelstrom_gauntlet_stage_2.death3": {
+		"category": "entity",
+		"subtitle": "entity.alternative_maelstrom_gauntlet_stage_2.death3",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/alternative_maelstrom_gauntlet_stage_2/death3",
+				"stream": true
+			}
+		]
+	},
+	"entity.maelstrom_gauntlet.lazer_charge": {
+		"category": "entity",
+		"subtitle": "entity.maelstrom_gauntlet.lazer_charge",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/maelstrom_gauntlet/lazer_charge",
+				"stream": true
+			}
+		]
+	},
+	"entity.horror_attack.explode": {
+		"category": "entity",
+		"subtitle": "entity.horror_attack.explode",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/horror_attack/explode",
+				"stream": true
+			}
+		]
+	},
+	"entity.none": {
+		"category": "entity",
+		"subtitle": "entity.none",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/none",
+				"stream": true
+			}
+		]
+	},
+	"entity.illager.spell_charge": {
+		"category": "entity",
+		"subtitle": "entity.illager.spell_charge",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/illager/spell_charge",
+				"stream": true
+			}
+		]
+	},
+	"entity.illager.dome_charge": {
+		"category": "entity",
+		"subtitle": "entity.illager.dome_charge",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/illager/dome_charge",
+				"stream": true
+			}
+		]
+	},
+	"entity.illager.vortex": {
+		"category": "entity",
+		"subtitle": "entity.illager.vortex",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/illager/vortex",
+				"stream": true
+			}
+		]
+	},
+	"entity.illager.dome": {
+		"category": "entity",
+		"subtitle": "entity.illager.dome",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/illager/dome",
+				"stream": true
+			}
+		]
+	},
+	"entity.illager.magic_missle_shoot": {
+		"category": "entity",
+		"subtitle": "entity.illager.magic_missle_shoot",
+		"sounds": [
+			{
+				"name": "intothemaelstrom:entity/illager/magic_missle_shoot",
 				"stream": true
 			}
 		]

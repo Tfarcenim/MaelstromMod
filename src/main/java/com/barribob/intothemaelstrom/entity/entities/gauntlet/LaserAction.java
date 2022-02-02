@@ -15,8 +15,8 @@ import net.minecraft.util.math.Vec3d;
 
 import java.util.function.Consumer;
 
-public class LaserAction implements IGauntletAction{
-    private final EntityLeveledMob entity;
+public class LaserAction implements IGauntletAction {
+    private final EntityLeveledMob<?> entity;
     private boolean isShootingLazer;
     double maxLaserDistance;
     private final float laserExplosionSize;
@@ -24,7 +24,7 @@ public class LaserAction implements IGauntletAction{
     private final byte stopLaserByte;
     private final Consumer<Vec3d> onLaserImpact;
 
-    public LaserAction(EntityLeveledMob entity, byte stopLaserByte, Consumer<Vec3d> onLaserImpact) {
+    public LaserAction(EntityLeveledMob<?> entity, byte stopLaserByte, Consumer<Vec3d> onLaserImpact) {
         this.entity = entity;
         maxLaserDistance = entity.getMobConfig().getDouble("max_laser_distance");
         beamLag = entity.getMobConfig().getInt("beam_lag");

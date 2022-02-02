@@ -40,26 +40,23 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.BiConsumer;
 
-public class EntityMaelstromIllager extends EntityMaelstromMob {
-    private final byte summonMob = 4;
-    private final byte magicMissile = 5;
-    private final byte wisp = 6;
-    private final byte shield = 7;
-    private final byte enemy = 8;
-    private final float shieldSize = 4;
-    private EntityAIRangedAttack<EntityMaelstromMob> phase1AttackAI;
-    private final ComboAttack attackHandler = new ComboAttack();
+public class EntityMaelstromIllager extends EntityMaelstromMob<ModelMaelstromIllager> {
+    private static final byte summonMob = 4;
+    private static final byte magicMissile = 5;
+    private static final byte wisp = 6;
+    private static final byte shield = 7;
+    private static final byte enemy = 8;
+    private static final float shieldSize = 4;
+    private EntityAIRangedAttack<EntityMaelstromIllager> phase1AttackAI;
+    private final ComboAttack<ModelMaelstromIllager> attackHandler = new ComboAttack<>();
 
-    private final IAction spawnEnemy = new IAction() {
-        @Override
-        public void performAction(EntityLeveledMob actor, EntityLivingBase target) {
-            int mobCount = phase2() ? getMobConfig().getInt("summoning_algorithm.second_phase_mobs_per_spawn") :
-                    getMobConfig().getInt("summoning_algorithm.first_phase_mobs_per_spawn");
-            for (int i = 0; i < mobCount; i++) {
-                ModUtils.spawnMob(world, getPosition(), getLevel(), getMobConfig().getConfig("summoning_algorithm"));
-            }
-            actor.playSound(SoundEvents.ENTITY_ILLAGER_CAST_SPELL, 1.0F, 0.4F / (world.rand.nextFloat() * 0.4F + 0.8F));
+    private final IAction<ModelMaelstromIllager> spawnEnemy = (actor, target) -> {
+        int mobCount = phase2() ? getMobConfig().getInt("summoning_algorithm.second_phase_mobs_per_spawn") :
+                getMobConfig().getInt("summoning_algorithm.first_phase_mobs_per_spawn");
+        for (int i = 0; i < mobCount; i++) {
+            ModUtils.spawnMob(world, getPosition(), getLevel(), getMobConfig().getConfig("summoning_algorithm"));
         }
+        actor.playSound(SoundEvents.ENTITY_ILLAGER_CAST_SPELL, 1.0F, 0.4F / (world.rand.nextFloat() * 0.4F + 0.8F));
     };
 
     // Responsible for the boss bar
@@ -70,18 +67,18 @@ public class EntityMaelstromIllager extends EntityMaelstromMob {
         this.setSize(0.9f, 2.5f);
         this.healthScaledAttackFactor = 0.2;
         if (!world.isRemote) {
-            attackHandler.setAttack(magicMissile, (IAction) (actor, target) -> {
+            attackHandler.setAttack(magicMissile, (actor, target) -> {
                 ModUtils.throwProjectile(actor, target, new ProjectileEntityHorrorAttack(world, actor, getAttack() * getConfigDouble("maelstrom_missile_damage")), 6.0f, 1.2f,
                         ModUtils.getRelativeOffset(actor, new Vec3d(0, 0, 1)));
-                actor.playSound(SoundEvents.ENTITY_BLAZE_SHOOT, 1.0F, 1.0F / (getRNG().nextFloat() * 0.4F + 0.8F));
+                actor.playSound(ModSoundEvents.ENTITY_ILLAGER_MAGIC_MISSLE_SHOOT, 1.0F, 1.0F / (getRNG().nextFloat() * 0.4F + 0.8F));
             });
-            attackHandler.setAttack(wisp, (IAction) (actor, target) -> {
+            attackHandler.setAttack(wisp, (actor, target) -> {
                 ProjectileEntity proj = new ProjectileEntityMaelstromWisp(world, actor, getAttack() * getConfigDouble("ring_damage"));
                 proj.setTravelRange(15f);
                 ModUtils.throwProjectile(actor, target, proj, 1.0f, 1.0f);
-                playSoundWithFallback(ModSoundEvents.Hooks.ENTITY_ILLAGER_VORTEX, SoundEvents.ENTITY_BLAZE_AMBIENT);
+                playSoundWithFallback(ModSoundEvents.ENTITY_ILLAGER_VORTEX, SoundEvents.ENTITY_BLAZE_AMBIENT);
             });
-            attackHandler.setAttack(shield, (IAction) (actor, target) -> {
+            attackHandler.setAttack(shield, (actor, target) -> {
                 DamageSource damageSource = ModDamageSource.builder()
                         .directEntity(actor)
                         .type(ModDamageSource.MAGIC)
@@ -89,7 +86,7 @@ public class EntityMaelstromIllager extends EntityMaelstromMob {
                         .stoppedByArmorNotShields().build();
 
                 ModUtils.handleAreaImpact(shieldSize, (e) -> getAttack() * getConfigDouble("defensive_burst_damage"), actor, getPositionVector(), damageSource);
-                playSoundWithFallback(ModSoundEvents.Hooks.ENTITY_ILLAGER_DOME, SoundEvents.ENTITY_FIREWORK_BLAST);
+                playSoundWithFallback(ModSoundEvents.ENTITY_ILLAGER_DOME, SoundEvents.ENTITY_FIREWORK_BLAST);
                 actor.world.setEntityState(actor, ModUtils.THIRD_PARTICLE_BYTE);
             });
             attackHandler.setAttack(enemy, spawnEnemy);
@@ -98,14 +95,14 @@ public class EntityMaelstromIllager extends EntityMaelstromMob {
 
     @Override
     protected void initAnimation() {
-        List<List<AnimationClip<ModelMaelstromIllager>>> animationMissile = new ArrayList<List<AnimationClip<ModelMaelstromIllager>>>();
-        List<AnimationClip<ModelMaelstromIllager>> rightArm = new ArrayList<AnimationClip<ModelMaelstromIllager>>();
-        List<AnimationClip<ModelMaelstromIllager>> leftArm = new ArrayList<AnimationClip<ModelMaelstromIllager>>();
+        List<List<AnimationClip<ModelMaelstromIllager>>> animationMissile = new ArrayList<>();
+        List<AnimationClip<ModelMaelstromIllager>> rightArm = new ArrayList<>();
+        List<AnimationClip<ModelMaelstromIllager>> leftArm = new ArrayList<>();
 
         BiConsumer<ModelMaelstromIllager, Float> leftArmMover = (model, f) -> {
             model.bipedLeftArm.rotateAngleX = f;
             model.bipedLeftArm.rotateAngleY = 0;
-            model.bipedLeftArm.rotateAngleZ = f.floatValue() / -6;
+            model.bipedLeftArm.rotateAngleZ = f / -6;
         };
         BiConsumer<ModelMaelstromIllager, Float> rightArmMover = (model, f) -> {
             model.bipedRightArm.rotateAngleX = 0;
@@ -113,22 +110,22 @@ public class EntityMaelstromIllager extends EntityMaelstromMob {
             model.bipedRightArm.rotateAngleZ = 0;
         };
 
-        leftArm.add(new AnimationClip(12, 0, -180, leftArmMover));
-        leftArm.add(new AnimationClip(8, -180, -180, leftArmMover));
-        leftArm.add(new AnimationClip(4, -180, 0, leftArmMover));
+        leftArm.add(new AnimationClip<>(12, 0, -180, leftArmMover));
+        leftArm.add(new AnimationClip<>(8, -180, -180, leftArmMover));
+        leftArm.add(new AnimationClip<>(4, -180, 0, leftArmMover));
 
-        rightArm.add(new AnimationClip(12, 0, -180, rightArmMover));
-        rightArm.add(new AnimationClip(8, -180, -180, rightArmMover));
-        rightArm.add(new AnimationClip(4, -180, 0, rightArmMover));
+        rightArm.add(new AnimationClip<>(12, 0, -180, rightArmMover));
+        rightArm.add(new AnimationClip<>(8, -180, -180, rightArmMover));
+        rightArm.add(new AnimationClip<>(4, -180, 0, rightArmMover));
 
         animationMissile.add(rightArm);
         animationMissile.add(leftArm);
 
-        attackHandler.setAttack(magicMissile, IAction.NONE, () -> new StreamAnimation(animationMissile));
+        attackHandler.setAnimation(magicMissile, IAction.NONE, () -> new StreamAnimation<>(animationMissile));
 
-        List<List<AnimationClip<ModelMaelstromIllager>>> animationWisp = new ArrayList<List<AnimationClip<ModelMaelstromIllager>>>();
-        rightArm = new ArrayList<AnimationClip<ModelMaelstromIllager>>();
-        leftArm = new ArrayList<AnimationClip<ModelMaelstromIllager>>();
+        List<List<AnimationClip<ModelMaelstromIllager>>> animationWisp = new ArrayList<>();
+        rightArm = new ArrayList<>();
+        leftArm = new ArrayList<>();
 
         leftArmMover = (model, f) -> {
             model.bipedLeftArm.rotateAngleX = (float) Math.toRadians(-90);
@@ -141,23 +138,23 @@ public class EntityMaelstromIllager extends EntityMaelstromMob {
             model.bipedRightArm.rotateAngleZ = 0;
         };
 
-        leftArm.add(new AnimationClip(10, 0, -90, leftArmMover));
-        leftArm.add(new AnimationClip(8, -90, -90, leftArmMover));
-        leftArm.add(new AnimationClip(4, -90, 0, leftArmMover));
+        leftArm.add(new AnimationClip<>(10, 0, -90, leftArmMover));
+        leftArm.add(new AnimationClip<>(8, -90, -90, leftArmMover));
+        leftArm.add(new AnimationClip<>(4, -90, 0, leftArmMover));
 
-        rightArm.add(new AnimationClip(10, 0, 90, rightArmMover));
-        rightArm.add(new AnimationClip(8, 90, 90, rightArmMover));
-        rightArm.add(new AnimationClip(4, 90, 0, rightArmMover));
+        rightArm.add(new AnimationClip<>(10, 0, 90, rightArmMover));
+        rightArm.add(new AnimationClip<>(8, 90, 90, rightArmMover));
+        rightArm.add(new AnimationClip<>(4, 90, 0, rightArmMover));
 
         animationWisp.add(rightArm);
         animationWisp.add(leftArm);
 
-        attackHandler.setAttack(wisp, IAction.NONE, () -> new StreamAnimation(animationWisp));
+        attackHandler.setAnimation(wisp, IAction.NONE, () -> new StreamAnimation<>(animationWisp));
 
-        List<List<AnimationClip<ModelMaelstromIllager>>> animationShield = new ArrayList<List<AnimationClip<ModelMaelstromIllager>>>();
+        List<List<AnimationClip<ModelMaelstromIllager>>> animationShield = new ArrayList<>();
 
-        rightArm = new ArrayList<AnimationClip<ModelMaelstromIllager>>();
-        leftArm = new ArrayList<AnimationClip<ModelMaelstromIllager>>();
+        rightArm = new ArrayList<>();
+        leftArm = new ArrayList<>();
 
         leftArmMover = (model, f) -> {
             model.bipedLeftArm.rotateAngleX = f;
@@ -170,19 +167,19 @@ public class EntityMaelstromIllager extends EntityMaelstromMob {
             model.bipedRightArm.rotateAngleZ = 0;
         };
 
-        leftArm.add(new AnimationClip(10, 0, -120, leftArmMover));
-        leftArm.add(new AnimationClip(8, -120, -120, leftArmMover));
-        leftArm.add(new AnimationClip(4, -120, 0, leftArmMover));
+        leftArm.add(new AnimationClip<>(10, 0, -120, leftArmMover));
+        leftArm.add(new AnimationClip<>(8, -120, -120, leftArmMover));
+        leftArm.add(new AnimationClip<>(4, -120, 0, leftArmMover));
 
-        rightArm.add(new AnimationClip(10, 0, -120, rightArmMover));
-        rightArm.add(new AnimationClip(8, -120, -120, rightArmMover));
-        rightArm.add(new AnimationClip(4, -120, 0, rightArmMover));
+        rightArm.add(new AnimationClip<>(10, 0, -120, rightArmMover));
+        rightArm.add(new AnimationClip<>(8, -120, -120, rightArmMover));
+        rightArm.add(new AnimationClip<>(4, -120, 0, rightArmMover));
 
         animationShield.add(rightArm);
         animationShield.add(leftArm);
 
-        attackHandler.setAttack(shield, IAction.NONE, () -> new StreamAnimation(animationShield));
-        attackHandler.setAttack(enemy, IAction.NONE, () -> new AnimationOscillateArms(60, this));
+        attackHandler.setAnimation(shield, IAction.NONE, () -> new StreamAnimation<>(animationShield));
+        attackHandler.setAnimation(enemy, IAction.NONE, () -> new AnimationOscillateArms(60, this));
 
         this.currentAnimation = new AnimationOscillateArms(60, this);
     }
@@ -190,7 +187,7 @@ public class EntityMaelstromIllager extends EntityMaelstromMob {
     @Override
     protected void initEntityAI() {
         super.initEntityAI();
-        phase1AttackAI = new EntityAIRangedAttackNoReset<EntityMaelstromMob>(this, 1.25f, 360, 60, 15.0f, 0.5f);
+        phase1AttackAI = new EntityAIRangedAttackNoReset<>(this, 1.25f, 360, 60, 15.0f, 0.5f);
         this.tasks.addTask(4, phase1AttackAI);
     }
 
@@ -253,7 +250,7 @@ public class EntityMaelstromIllager extends EntityMaelstromMob {
             message = "illager_3";
         }
 
-        if (message != "") {
+        if (!message.isEmpty()) {
             for (EntityPlayer player : this.bossInfo.getPlayers()) {
                 player.sendMessage(new TextComponentString(TextFormatting.DARK_PURPLE + "Maelstrom Illager: " + TextFormatting.WHITE)
                         .appendSibling(new TextComponentTranslation(ModUtils.LANG_CHAT + message)));
@@ -300,10 +297,10 @@ public class EntityMaelstromIllager extends EntityMaelstromMob {
                 attackHandler.setCurrentAttack(ModRandom.choice(attack, this.getRNG(), weights).next());
                 if (this.getAttackTarget() != null && this.getDistance(this.getAttackTarget()) < 4) {
                     attackHandler.setCurrentAttack(shield);
-                    playSoundWithFallback(ModSoundEvents.Hooks.ENTITY_ILLAGER_DOME_CHARGE, ModSoundEvents.NONE);
+                    playSoundWithFallback(ModSoundEvents.ENTITY_ILLAGER_DOME_CHARGE, ModSoundEvents.NONE);
                 }
                 else {
-                    playSoundWithFallback(ModSoundEvents.Hooks.ENTITY_ILLAGER_SPELL_CHARGE, ModSoundEvents.NONE);
+                    playSoundWithFallback(ModSoundEvents.ENTITY_ILLAGER_SPELL_CHARGE, ModSoundEvents.NONE);
                 }
                 world.setEntityState(this, attackHandler.getCurrentAttack());
             } else {

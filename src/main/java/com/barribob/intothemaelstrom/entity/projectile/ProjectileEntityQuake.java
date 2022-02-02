@@ -1,5 +1,6 @@
 package com.barribob.intothemaelstrom.entity.projectile;
 
+import com.barribob.intothemaelstrom.init.ModSoundEvents;
 import com.barribob.intothemaelstrom.util.Element;
 import com.barribob.intothemaelstrom.util.ModDamageSource;
 import com.barribob.intothemaelstrom.util.ModRandom;
@@ -109,7 +110,8 @@ public class ProjectileEntityQuake extends ProjectileEntityGun {
         BlockPos pos = new BlockPos(this.posX, this.posY, this.posZ);
         IBlockState state = world.getBlockState(pos);
         if (state.isFullCube()) {
-            world.playSound(this.posX, this.posY, this.posZ, state.getBlock().getSoundType(state, world, pos, this).getStepSound(), SoundCategory.BLOCKS, 1.0F, 1.0F, false);
+         //   world.playSound(this.posX, this.posY, this.posZ, state.getBlock().getSoundType(state, world, pos, this).getStepSound(), SoundCategory.BLOCKS, 1.0F, 1.0F, false);
+            world.playSound(this.posX, this.posY, this.posZ, ModSoundEvents.ENTITY_CLIFF_GOLEM_SMASH, SoundCategory.HOSTILE, 1.0F, 1.0F, false);
         }
     }
 

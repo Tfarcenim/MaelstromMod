@@ -1,14 +1,29 @@
 package com.barribob.intothemaelstrom.init;
 
 import com.barribob.intothemaelstrom.IntoTheMaelstrom;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import net.minecraft.launchwrapper.Launch;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
+
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 
 /**
  * Keeps track of all the sound resources and registers them
  */
 public class ModSoundEvents {
+
+    public static JsonObject object = new JsonObject();
+    private static File soundsFile = new File("config/sounds.json");
+
+    private static final boolean DEBUG = (Boolean) Launch.blackboard.get("fml.deobfuscatedEnvironment");
+
 
     public static SoundEvent ENTITY_MAELSTROM_MAGE_AMBIENT1;
     public static SoundEvent ENTITY_MAELSTROM_MAGE_AMBIENT2;
@@ -80,6 +95,9 @@ public class ModSoundEvents {
     public static SoundEvent ENTITY_SWAMP_CRAWLER_DEATH2;
     public static SoundEvent ENTITY_SWAMP_CRAWLER_DEATH3;
 
+    public static SoundEvent ENTITY_SWAMP_CRAWLER_WARN;
+    public static SoundEvent ENTITY_SWAMP_CRAWLER_FIRE;
+
     //aka executioner
     public static SoundEvent ENTITY_IRON_SHADE_AMBIENT1;
     public static SoundEvent ENTITY_IRON_SHADE_AMBIENT2;
@@ -92,6 +110,9 @@ public class ModSoundEvents {
     public static SoundEvent ENTITY_IRON_SHADE_DEATH1;
     public static SoundEvent ENTITY_IRON_SHADE_DEATH2;
     public static SoundEvent ENTITY_IRON_SHADE_DEATH3;
+
+    public static SoundEvent ENTITY_IRON_SHADE_FRONT_FLIP;
+    public static SoundEvent ENTITY_IRON_SHADE_SPIN_SLASH;
 
     //aka cauldron
     public static SoundEvent ENTITY_HORROR_AMBIENT1;
@@ -145,6 +166,9 @@ public class ModSoundEvents {
     public static SoundEvent ENTITY_CLIFF_GOLEM_DEATH2;
     public static SoundEvent ENTITY_CLIFF_GOLEM_DEATH3;
 
+    public static SoundEvent ENTITY_CLIFF_GOLEM_WARN;
+    public static SoundEvent ENTITY_CLIFF_GOLEM_SMASH;
+
 
     public static SoundEvent ENTITY_CLIFF_FLY_AMBIENT1;
     public static SoundEvent ENTITY_CLIFF_FLY_AMBIENT2;
@@ -157,6 +181,9 @@ public class ModSoundEvents {
     public static SoundEvent ENTITY_CLIFF_FLY_DEATH1;
     public static SoundEvent ENTITY_CLIFF_FLY_DEATH2;
     public static SoundEvent ENTITY_CLIFF_FLY_DEATH3;
+
+    public static SoundEvent ENTITY_CLIFF_FLY_WARN;
+    public static SoundEvent ENTITY_CLIFF_FLY_FIRE;
 
 
     public static SoundEvent ENTITY_MONOLITH_AMBIENT1;
@@ -171,6 +198,9 @@ public class ModSoundEvents {
     public static SoundEvent ENTITY_MONOLITH_DEATH2;
     public static SoundEvent ENTITY_MONOLITH_DEATH3;
 
+    public static SoundEvent ENTITY_MONOLITH_LAZER_SHOOT;
+    public static SoundEvent ENTITY_MONOLITH_FIREBALL_SHOOT;
+
     //aka minotaur
     public static SoundEvent ENTITY_MAELSTROM_BEAST_AMBIENT1;
     public static SoundEvent ENTITY_MAELSTROM_BEAST_AMBIENT2;
@@ -183,6 +213,10 @@ public class ModSoundEvents {
     public static SoundEvent ENTITY_MAELSTROM_BEAST_DEATH1;
     public static SoundEvent ENTITY_MAELSTROM_BEAST_DEATH2;
     public static SoundEvent ENTITY_MAELSTROM_BEAST_DEATH3;
+
+    public static SoundEvent ENTITY_MAELSTROM_BEAST_ROAR;
+    public static SoundEvent ENTITY_MAELSTROM_BEAST_SWIPE;
+    public static SoundEvent ENTITY_MAELSTROM_BEAST_BONE_PROJECTILE_IMPACT;
 
 
     public static SoundEvent ENTITY_BEAST_AMBIENT;
@@ -203,6 +237,9 @@ public class ModSoundEvents {
     public static SoundEvent ENTITY_CHAOS_KNIGHT_DEATH2;
     public static SoundEvent ENTITY_CHAOS_KNIGHT_DEATH3;
 
+    public static SoundEvent ENTITY_CHAOS_KNIGHT_SIDE_SWIPE;
+    public static SoundEvent ENTITY_CHAOS_KNIGHT_SPIN_SLASH;
+
 
     public static SoundEvent ENTITY_MAELSTROM_STATUE_OF_NIRVANA_AMBIENT1;
     public static SoundEvent ENTITY_MAELSTROM_STATUE_OF_NIRVANA_AMBIENT2;
@@ -215,6 +252,10 @@ public class ModSoundEvents {
     public static SoundEvent ENTITY_MAELSTROM_STATUE_OF_NIRVANA_DEATH1;
     public static SoundEvent ENTITY_MAELSTROM_STATUE_OF_NIRVANA_DEATH2;
     public static SoundEvent ENTITY_MAELSTROM_STATUE_OF_NIRVANA_DEATH3;
+
+    public static SoundEvent ENTITY_MAELSTROM_STATUE_OF_NIRVANA_MISSILE_FIRE;
+
+    public static SoundEvent ENTITY_MAELSTROM_STATUE_OF_NIRVANA_SUMMON;
 
 
     //aka statue of nirvana?
@@ -277,13 +318,11 @@ public class ModSoundEvents {
     
     public static SoundEvent NONE;
 
-    // Sound hooks
-    public static class Hooks {
-        public static SoundEvent ENTITY_ILLAGER_SPELL_CHARGE;
-        public static SoundEvent ENTITY_ILLAGER_DOME_CHARGE;
-        public static SoundEvent ENTITY_ILLAGER_VORTEX;
-        public static SoundEvent ENTITY_ILLAGER_DOME;
-    }
+    public static SoundEvent ENTITY_ILLAGER_SPELL_CHARGE;
+    public static SoundEvent ENTITY_ILLAGER_DOME_CHARGE;
+    public static SoundEvent ENTITY_ILLAGER_MAGIC_MISSLE_SHOOT;
+    public static SoundEvent ENTITY_ILLAGER_VORTEX;
+    public static SoundEvent ENTITY_ILLAGER_DOME;
 
     //scout, cauldron
 
@@ -360,6 +399,9 @@ public class ModSoundEvents {
         ENTITY_SWAMP_CRAWLER_DEATH2 = registerSound("swamp_crawler.death2", "entity");
         ENTITY_SWAMP_CRAWLER_DEATH3 = registerSound("swamp_crawler.death3", "entity");
 
+        ENTITY_SWAMP_CRAWLER_WARN = registerSound("swamp_crawler.warn", "entity");
+        ENTITY_SWAMP_CRAWLER_FIRE = registerSound("swamp_crawler.fire", "entity");
+
 
         ENTITY_IRON_SHADE_AMBIENT1 = registerSound("iron_shade.ambient1", "entity");
         ENTITY_IRON_SHADE_AMBIENT2 = registerSound("iron_shade.ambient2", "entity");
@@ -372,6 +414,9 @@ public class ModSoundEvents {
         ENTITY_IRON_SHADE_DEATH1 = registerSound("iron_shade.death1", "entity");
         ENTITY_IRON_SHADE_DEATH2 = registerSound("iron_shade.death2", "entity");
         ENTITY_IRON_SHADE_DEATH3 = registerSound("iron_shade.death3", "entity");
+
+        ENTITY_IRON_SHADE_FRONT_FLIP = registerSound("iron_shade.front_flip", "entity");
+        ENTITY_IRON_SHADE_SPIN_SLASH = registerSound("iron_shade.spin_slash", "entity");
 
 
         ENTITY_HORROR_AMBIENT1 = registerSound("horror.ambient1", "entity");
@@ -425,6 +470,9 @@ public class ModSoundEvents {
         ENTITY_CLIFF_GOLEM_DEATH2 = registerSound("cliff_golem.death2", "entity");
         ENTITY_CLIFF_GOLEM_DEATH3 = registerSound("cliff_golem.death3", "entity");
 
+        ENTITY_CLIFF_GOLEM_WARN = registerSound("cliff_golem.warn", "entity");
+        ENTITY_CLIFF_GOLEM_SMASH = registerSound("cliff_golem.smash", "entity");
+
 
         ENTITY_CLIFF_FLY_AMBIENT1 = registerSound("cliff_fly.ambient1", "entity");
         ENTITY_CLIFF_FLY_AMBIENT2 = registerSound("cliff_fly.ambient2", "entity");
@@ -437,6 +485,9 @@ public class ModSoundEvents {
         ENTITY_CLIFF_FLY_DEATH1 = registerSound("cliff_fly.death1", "entity");
         ENTITY_CLIFF_FLY_DEATH2 = registerSound("cliff_fly.death2", "entity");
         ENTITY_CLIFF_FLY_DEATH3 = registerSound("cliff_fly.death3", "entity");
+
+        ENTITY_CLIFF_FLY_WARN = registerSound("cliff_fly.warn", "entity");
+        ENTITY_CLIFF_FLY_FIRE = registerSound("cliff_fly.fire", "entity");
 
 
         ENTITY_MONOLITH_AMBIENT1 = registerSound("monolith.ambient1", "entity");
@@ -451,6 +502,9 @@ public class ModSoundEvents {
         ENTITY_MONOLITH_DEATH2 = registerSound("monolith.death2", "entity");
         ENTITY_MONOLITH_DEATH3 = registerSound("monolith.death3", "entity");
 
+        ENTITY_MONOLITH_LAZER_SHOOT = registerSound("monolith.lazer_shoot", "entity");
+        ENTITY_MONOLITH_FIREBALL_SHOOT = registerSound("monolith.fireball_shoot", "entity");
+
 
         ENTITY_MAELSTROM_BEAST_AMBIENT1 = registerSound("maelstrom_beast.ambient1", "entity");
         ENTITY_MAELSTROM_BEAST_AMBIENT2 = registerSound("maelstrom_beast.ambient2", "entity");
@@ -463,6 +517,9 @@ public class ModSoundEvents {
         ENTITY_MAELSTROM_BEAST_DEATH1 = registerSound("maelstrom_beast.death1", "entity");
         ENTITY_MAELSTROM_BEAST_DEATH2 = registerSound("maelstrom_beast.death2", "entity");
         ENTITY_MAELSTROM_BEAST_DEATH3 = registerSound("maelstrom_beast.death3", "entity");
+
+        ENTITY_MAELSTROM_BEAST_ROAR = registerSound("maelstrom_beast.roar", "entity");
+        ENTITY_MAELSTROM_BEAST_SWIPE = registerSound("maelstrom_beast.swipe", "entity");
 
 
         ENTITY_BEAST_AMBIENT = registerSound("beast.ambient", "entity");
@@ -483,6 +540,9 @@ public class ModSoundEvents {
         ENTITY_CHAOS_KNIGHT_DEATH2 = registerSound("chaos_knight.death2", "entity");
         ENTITY_CHAOS_KNIGHT_DEATH3 = registerSound("chaos_knight.death3", "entity");
 
+        ENTITY_CHAOS_KNIGHT_SIDE_SWIPE = registerSound("chaos_knight.side_swipe", "entity");
+        ENTITY_CHAOS_KNIGHT_SPIN_SLASH = registerSound("chaos_knight.spin_slash", "entity");
+
 
         ENTITY_MAELSTROM_STATUE_OF_NIRVANA_AMBIENT1 = registerSound("maelstrom_statue_of_nirvana.ambient1", "entity");
         ENTITY_MAELSTROM_STATUE_OF_NIRVANA_AMBIENT2 = registerSound("maelstrom_statue_of_nirvana.ambient2", "entity");
@@ -495,6 +555,9 @@ public class ModSoundEvents {
         ENTITY_MAELSTROM_STATUE_OF_NIRVANA_DEATH1 = registerSound("maelstrom_statue_of_nirvana.death1", "entity");
         ENTITY_MAELSTROM_STATUE_OF_NIRVANA_DEATH2 = registerSound("maelstrom_statue_of_nirvana.death2", "entity");
         ENTITY_MAELSTROM_STATUE_OF_NIRVANA_DEATH3 = registerSound("maelstrom_statue_of_nirvana.death3", "entity");
+
+        ENTITY_MAELSTROM_STATUE_OF_NIRVANA_MISSILE_FIRE = registerSound("maelstrom_statue_of_nirvana.missile_fire", "entity");
+        ENTITY_MAELSTROM_STATUE_OF_NIRVANA_SUMMON = registerSound("maelstrom_statue_of_nirvana.summon", "entity");
 
 
         ENTITY_GOLDEN_BOSS_AMBIENT1 = registerSound("golden_boss.ambient1", "entity");
@@ -557,18 +620,51 @@ public class ModSoundEvents {
 
         NONE = registerSound("none", "entity");
 
-        Hooks.ENTITY_ILLAGER_SPELL_CHARGE = registerSound("illager.spell_charge", "entity");
-        Hooks.ENTITY_ILLAGER_DOME_CHARGE = registerSound("illager.dome_charge", "entity");
-        Hooks.ENTITY_ILLAGER_VORTEX = registerSound("illager.vortex", "entity");
-        Hooks.ENTITY_ILLAGER_DOME = registerSound("illager.dome", "entity");
+        ENTITY_ILLAGER_SPELL_CHARGE = registerSound("illager.spell_charge", "entity");
+        ENTITY_ILLAGER_DOME_CHARGE = registerSound("illager.dome_charge", "entity");
+        ENTITY_ILLAGER_VORTEX = registerSound("illager.vortex", "entity");
+        ENTITY_ILLAGER_DOME = registerSound("illager.dome", "entity");
+
+        ENTITY_ILLAGER_MAGIC_MISSLE_SHOOT = registerSound("illager.magic_missle_shoot", "entity");
+
+        if (DEBUG) {
+            try {
+                FileWriter writer = new FileWriter(soundsFile);
+                writer.write(g.toJson(object));
+                writer.flush();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
     }
+
+    public static Gson g = new GsonBuilder().setPrettyPrinting().disableHtmlEscaping().create();
+
 
     private static SoundEvent registerSound(String name, String category) {
         String fullName = category + "." + name;
+        String loca = fullName.replace(".","/");
         ResourceLocation location = new ResourceLocation(IntoTheMaelstrom.MOD_ID, fullName);
         SoundEvent event = new SoundEvent(location);
         event.setRegistryName(fullName);
         ForgeRegistries.SOUND_EVENTS.register(event);
+
+        if (DEBUG) {
+
+            JsonArray sounds = new JsonArray();
+            JsonObject obj1 = new JsonObject();
+            obj1.addProperty("name", "intothemaelstrom:" + loca);
+            obj1.addProperty("stream", true);
+            sounds.add(obj1);
+            JsonObject obj2 = new JsonObject();
+            obj2.addProperty("category", "entity");
+            obj2.addProperty("subtitle", fullName);
+            obj2.add("sounds", sounds);
+
+            object.add(fullName, obj2);
+
+        }
 
         return event;
     }

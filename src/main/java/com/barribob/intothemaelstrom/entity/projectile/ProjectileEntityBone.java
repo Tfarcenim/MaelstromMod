@@ -1,5 +1,6 @@
 package com.barribob.intothemaelstrom.entity.projectile;
 
+import com.barribob.intothemaelstrom.init.ModSoundEvents;
 import com.barribob.intothemaelstrom.util.ModColors;
 import com.barribob.intothemaelstrom.util.ModDamageSource;
 import com.barribob.intothemaelstrom.util.ModRandom;
@@ -40,9 +41,9 @@ public class ProjectileEntityBone extends ProjectileEntity {
 
     @Override
     protected void onHit(RayTraceResult result) {
-        ModUtils.handleAreaImpact(EXPOSION_AREA_FACTOR, (e) -> this.getDamage(), this.shootingEntity, this.getPositionVector(),
+        ModUtils.handleAreaImpact(EXPOSION_AREA_FACTOR, e -> this.getDamage(), this.shootingEntity, this.getPositionVector(),
                 ModDamageSource.causeElementalExplosionDamage(this.shootingEntity, getElement()));
-        this.playSound(SoundEvents.ENTITY_SKELETON_HURT, 1.0F, 1.0F / (rand.nextFloat() * 0.4F + 0.8F));
+        this.playSound(ModSoundEvents.ENTITY_MAELSTROM_BEAST_BONE_PROJECTILE_IMPACT, 1.0F, 1.0F / (rand.nextFloat() * 0.4F + 0.8F));
         super.onHit(result);
     }
 }

@@ -25,18 +25,20 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.BossInfo;
 import net.minecraft.world.BossInfoServer;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.BiConsumer;
 
 //called executioner in lang
-public class EntityIronShade extends EntityMaelstromMob {
-    private ComboAttack attackHandler = new ComboAttack();
-    private byte frontFlip = 4;
-    private byte spin = 5;
+public class EntityIronShade extends EntityMaelstromMob<ModelIronShade> {
+    private ComboAttack<ModelIronShade> attackHandler = new ComboAttack<>();
+    private final byte frontFlip = 4;
+    private final byte spin = 5;
     private int spinDuration = 30;
-    private int maxSpinDuration = 30;
+    private final int maxSpinDuration = 30;
     private final BossInfoServer bossInfo = (new BossInfoServer(this.getDisplayName(), BossInfo.Color.PURPLE, BossInfo.Overlay.NOTCHED_6));
 
     public EntityIronShade(World worldIn) {
@@ -44,7 +46,7 @@ public class EntityIronShade extends EntityMaelstromMob {
         this.healthScaledAttackFactor = 0.2;
         this.setSize(0.9f, 2.2f);
         if (!worldIn.isRemote) {
-            attackHandler.setAttack(frontFlip, (IAction) (actor, target) -> {
+            attackHandler.setAttack(frontFlip, (actor, target) -> {
                 DamageSource source = ModDamageSource.builder()
                         .directEntity(this)
                         .element(getElement())
@@ -52,11 +54,11 @@ public class EntityIronShade extends EntityMaelstromMob {
                         .disablesShields().build();
 
                 Vec3d pos = this.getPositionVector().add(ModUtils.yVec(1)).add(this.getLookVec().scale(2.0f));
-                this.playSound(SoundEvents.ENTITY_PLAYER_ATTACK_SWEEP, 1.0F, 0.8F / (this.getRNG().nextFloat() * 0.4F + 0.8F));
+                this.playSound(ModSoundEvents.ENTITY_IRON_SHADE_FRONT_FLIP, 1.0F, 0.8F / (this.getRNG().nextFloat() * 0.4F + 0.8F));
                 ModUtils.handleAreaImpact(1.0f, (e) -> this.getAttack() * getConfigDouble("flip_damage"), this, pos, source, 0.20f, this.getElement() == Element.CRIMSON ? 3 : 0, false);
                 actor.world.setEntityState(actor, ModUtils.SECOND_PARTICLE_BYTE);
             });
-            attackHandler.setAttack(spin, new ActionSpinSlash(3.0f));
+            attackHandler.setAttack(spin, new ActionSpinSlash<>(3.0f));
         }
     }
 
@@ -145,7 +147,7 @@ public class EntityIronShade extends EntityMaelstromMob {
         flipAnimations.add(body);
         flipAnimations.add(lowerChains);
         flipAnimations.add(upperChains);
-        attackHandler.setAttack(frontFlip, IAction.NONE, () -> new StreamAnimation<>(flipAnimations));
+        attackHandler.setAnimation(frontFlip, IAction.NONE, () -> new StreamAnimation<>(flipAnimations));
 
         List<List<AnimationClip<ModelIronShade>>> spinAnimations = new ArrayList<>();
         wisps = new ArrayList<>();
@@ -189,14 +191,14 @@ public class EntityIronShade extends EntityMaelstromMob {
         spinAnimations.add(body);
         spinAnimations.add(lowerChains);
         spinAnimations.add(upperChains);
-        attackHandler.setAttack(spin, new ActionSpinSlash(3.0f), () -> new StreamAnimation<>(spinAnimations));
+        attackHandler.setAnimation(spin, new ActionSpinSlash(3.0f), () -> new StreamAnimation<>(spinAnimations));
         this.currentAnimation = new StreamAnimation<>(flipAnimations);
     }
 
     @Override
     protected void initEntityAI() {
         super.initEntityAI();
-        this.tasks.addTask(4, new EntityAIRangedAttack<EntityMaelstromMob>(this, 1.3f, 60, 10, 4.5f, 0.4f));
+        this.tasks.addTask(4, new EntityAIRangedAttack<>(this, 1.3f, 60, 10, 4.5f, 0.4f));
         this.tasks.addTask(0, new AIJumpAtTarget(this, 0.4f, 0.5f));
     }
 
@@ -209,12 +211,14 @@ public class EntityIronShade extends EntityMaelstromMob {
             world.setEntityState(this, attackHandler.getCurrentAttack());
 
             if (attackHandler.getCurrentAttack() == frontFlip) {
+
                 ModUtils.leapTowards(this, this.getAttackTarget().getPositionVector(), 0.2f, 0.5f);
             }
         }
     }
 
     @Override
+    @SideOnly(Side.CLIENT)
     public void handleStatusUpdate(byte id) {
         // We want a special black flame for the non-elemental shade, and red flames for the crimson element.
         Vec3d flameColor = getElement() == Element.NONE ? new Vec3d(0.1f, 0, 0.1f) : getElement().sweepColor;
@@ -222,11 +226,7 @@ public class EntityIronShade extends EntityMaelstromMob {
             currentAnimation = attackHandler.getAnimation(id);
             getCurrentAnimation().startAnimation();
         } else if (id == EntityHerobrineOne.slashParticleByte) {
-            ModUtils.performNTimes(4, (i) -> {
-                ModUtils.circleCallback(i, 15, (pos) -> {
-                    ParticleManager.spawnColoredFire(world, rand, getPositionVector().add(new Vec3d(pos.x, this.getEyeHeight() - 0.3f + ModRandom.getFloat(0.2f), pos.y)), flameColor);
-                });
-            });
+            ModUtils.performNTimes(4, (i) -> ModUtils.circleCallback(i, 15, (pos) -> ParticleManager.spawnColoredFire(world, rand, getPositionVector().add(new Vec3d(pos.x, this.getEyeHeight() - 0.3f + ModRandom.getFloat(0.2f), pos.y)), flameColor)));
         } else if (id == ModUtils.PARTICLE_BYTE) {
             Vec3d look = this.getVectorForRotation(this.rotationPitch, this.rotationYawHead);
             Vec3d side = look.rotateYaw((float) Math.PI * -0.5f);
